@@ -1,0 +1,9 @@
+
+sysconfig.kafka.broker-list=127.0.0.1:9093
+sysconfig.kafka.topic=mogo
+sysconfig.kafka.zk-connect=127.0.0.1:2182
+
+#partner pay interface on-off
+sysconfig.partner_usekuaiqian=1
+sysconfig.partner_usezhifubao=1
+sysconfig.partner_useweixin=0

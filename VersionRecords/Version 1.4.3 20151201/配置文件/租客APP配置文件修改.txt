@@ -1,0 +1,4 @@
+#zhifu configure
+sysconfig.renter_usezhifubao=1
+sysconfig.renter_useweixin=1
+sysconfig.renter_usekuaiqian=0

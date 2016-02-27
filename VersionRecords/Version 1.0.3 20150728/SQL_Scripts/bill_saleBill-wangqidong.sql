@@ -1,0 +1,1 @@
+ALTER TABLE bill_saleBill ADD identification VARCHAR(100) COMMENT 'ฑ๊สถ'
