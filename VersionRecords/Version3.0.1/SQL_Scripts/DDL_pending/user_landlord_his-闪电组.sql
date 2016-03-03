@@ -2,7 +2,7 @@
 use mogoroomdb;
 
 CREATE TABLE `user_landlord_his` (
-  `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `landlordId` INT(11) NOT NULL COMMENT '房东ID',
   `name` VARCHAR(20) NULL COMMENT '房东姓名',
   `sex` TINYINT(1) NULL COMMENT '性别(女:0 男1)',
@@ -38,5 +38,6 @@ CREATE TABLE `user_landlord_his` (
   `brandName` VARCHAR(50) NULL COMMENT '品牌名称',
   `label` TINYINT(4) NOT NULL DEFAULT '0' COMMENT '认证房东(0:未认证 1:蘑菇认证)',
   `legalPerson` VARCHAR(50) NOT NULL COMMENT '法人名称主要用于作为合同甲方',
-  `soDoneCode` INT(11) NULL COMMENT '修改类型(参考comm_business_record表的id)'
+  `soDoneCode` INT(11) NULL COMMENT '修改类型(参考comm_business_record表的id)',
+  PRIMARY KEY (`id`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT='职业房东历史表'
