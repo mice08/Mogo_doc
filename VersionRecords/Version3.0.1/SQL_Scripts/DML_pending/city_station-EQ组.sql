@@ -1,5 +1,5 @@
 /* Database name `mogoroomdb` , 新官网城市地铁站表更新enName，用于生成seo枚举类 */
-
+use mogoroomdb;
 UPDATE city_station SET enName = 'dtz1_xinzhuang' WHERE id = 17;
 UPDATE city_station SET enName = 'dtz2_waihuanlu' WHERE id = 18;
 UPDATE city_station SET enName = 'dtz3_lianhualu' WHERE id = 19;
