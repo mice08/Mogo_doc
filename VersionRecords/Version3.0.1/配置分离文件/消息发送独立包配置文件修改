@@ -1,0 +1,2 @@
+#将filter.sysconfig.smscompany修改如如下 
+filter.sysconfig.smscompany=DhstSMSSend-0-30&JianZhouSMSSend-31-100
