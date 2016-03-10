@@ -7,7 +7,7 @@ create table perm_refund_approval
 (
    id                   int(11) not null auto_increment comment '退款审核表id',
    billId               int(11) not null comment '订单id',
-   billType             tinyint(2) not null comment '订单类型',
+   billType             tinyint(2) not null comment '订单类型(参考字典表组名：billType)',
    landlordId           int(11) not null comment '房东id',
    renterId             int(11) not null comment '租客id',
    roomId               int(11) not null comment '退款对应的房源id',
@@ -23,3 +23,30 @@ create table perm_refund_approval
    approvalTime         datetime comment '退款审批时间',
    primary key (id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='退款审批表';
+
+/*初始化billType数据字典*/
+INSERT INTO comm_dictionary(code,groupName,sort,keyPro,value,status,enValue)
+VALUES ('billType-1','billType','1','1','预订单','1','reserveBill');
+
+INSERT INTO comm_dictionary(code,groupName,sort,keyPro,value,status,enValue)
+VALUES ('billType-2','billType','2','2','签约单','2','signedBill');
+
+INSERT INTO comm_dictionary(code,groupName,sort,keyPro,value,status,enValue)
+VALUES ('billType-3','billType','3','3','退房申请单','3','surrenderBill');
+
+/*初始化退款业务来源数据字典*/
+
+INSERT INTO comm_dictionary(code,groupName,sort,keyPro,value,status,enValue)
+VALUES ('refundSourceType-1','refundSourceType','1','1','撤销预定','1','cancelReserve');
+
+INSERT INTO comm_dictionary(code,groupName,sort,keyPro,value,status,enValue)
+VALUES ('refundSourceType-2','refundSourceType','2','2','撤销签约-蘑菇宝审核失败','1','cancelSignedMogoBaoCheckFailure');
+
+INSERT INTO comm_dictionary(code,groupName,sort,keyPro,value,status,enValue)
+VALUES ('refundSourceType-3','refundSourceType','3','3','撤销签约-预定成功','1','cancelSignedReserveSucc');
+
+INSERT INTO comm_dictionary(code,groupName,sort,keyPro,value,status,enValue)
+VALUES ('refundSourceType-4','refundSourceType','4','4','退房','1','checkOut');
+
+INSERT INTO comm_dictionary(code,groupName,sort,keyPro,value,status,enValue)
+VALUES ('refundSourceType-5','refundSourceType','5','5','签约不通过-预定成功','1','signedFailureReserveSucc');
