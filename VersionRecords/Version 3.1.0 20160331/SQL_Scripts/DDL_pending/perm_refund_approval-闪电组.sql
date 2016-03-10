@@ -6,8 +6,8 @@ drop table if exists perm_refund_approval;
 create table perm_refund_approval
 (
    id                   int(11) not null auto_increment comment '退款审核表id',
-   billId               int(11) not null comment '订单id',
-   billType             tinyint(2) not null comment '订单类型(参考字典表组名:billType)',
+   orderId              int(11) not null comment '订单id',
+   orderType            tinyint(2) not null comment '订单类型(参考字典表组名:orderType)',
    landlordId           int(11) not null comment '房东id',
    renterId             int(11) not null comment '租客id',
    roomId               int(11) not null comment '退款对应的房源id',
@@ -24,18 +24,18 @@ create table perm_refund_approval
    primary key (id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='退款审批表';
 
-/*初始化billType数据字典*/
+/*初始化orderType数据字典*/
 INSERT INTO comm_dictionary(code,groupName,sort,keyPro,value,status,enValue)
-VALUES ('billType-1','billType','1','1','预约单','1','reserveBill');
+VALUES ('orderType-1','orderType','1','1','预约单','1','reserveOrder');
 
 INSERT INTO comm_dictionary(code,groupName,sort,keyPro,value,status,enValue)
-VALUES ('billType-2','billType','2','2','预定单','2','signedBill');
+VALUES ('orderType-2','orderType','2','2','预定单','2','bookOrder');
 
 INSERT INTO comm_dictionary(code,groupName,sort,keyPro,value,status,enValue)
-VALUES ('billType-3','billType','3','3','签约单','3','surrenderBill');
+VALUES ('orderType-3','orderType','3','3','签约单','3','signOrder');
 
 INSERT INTO comm_dictionary(code,groupName,sort,keyPro,value,status,enValue)
-VALUES ('billType-4','billType','4','4','退房申请单','4','surrenderBill');
+VALUES ('orderType-4','orderType','4','4','退房申请单','4','surrenderOrder');
 
 /*初始化退款业务来源数据字典*/
 
