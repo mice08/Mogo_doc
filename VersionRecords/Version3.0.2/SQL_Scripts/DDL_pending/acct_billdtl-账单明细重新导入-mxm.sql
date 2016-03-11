@@ -87,7 +87,7 @@ FROM
     AND b.amount <> bd.amount; 
 
 -- 删除未支付/支付完成状态下的首期款、水电煤账单的账单明细
-DELETE acct.acct_billdtl 
+DELETE FROM acct.acct_billdtl 
 WHERE
   billId IN ( 
     SELECT
