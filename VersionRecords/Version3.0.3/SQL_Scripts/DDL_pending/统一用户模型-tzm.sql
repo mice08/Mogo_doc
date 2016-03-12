@@ -139,7 +139,7 @@ CREATE TABLE `user_landlord_info_his` (
   `updateTime` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updateBy` int(11) DEFAULT NULL COMMENT '创建人',
   PRIMARY KEY (`tid`),
-  UNIQUE KEY `IDX_HISID` (`hisId`),
+  UNIQUE KEY `IDX_DONECODE` (`soDoneCode`),
   KEY `IDX_USERID` (`userId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -173,7 +173,7 @@ CREATE TABLE `user_password_log` (
   `updateTime` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间',
   `updateBy` int(11) DEFAULT NULL COMMENT '更新人',
   PRIMARY KEY (`tid`),
-  UNIQUE KEY `IDX_HISID` (`hisId`),
+  UNIQUE KEY `IDX_DONECODE` (`soDoneCode`),
   KEY `IDX_USERID` (`userId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -237,7 +237,7 @@ CREATE TABLE `user_usertype` (
 /*Table structure for table `user_usertype_his` */
 
 
-CREATE TABLE `user_usertype_log` (
+CREATE TABLE `user_usertype_his` (
   `tid` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增id',
   `soDoneCode` int(11) unsigned NOT NULL COMMENT '对应common_business_record.id',
   `userId` int(11) NOT NULL COMMENT '用户Id, user_info.id',
