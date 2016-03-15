@@ -24,9 +24,9 @@ DROP INDEX IDX_USERID ON user_password;
 
 DROP INDEX IDX_USERID ON user_password_log;
 
-CREATE UNIQUE INDEX IDX_USERID ON user_password(userId,passType); 
+CREATE UNIQUE INDEX IDX_USERID_TYPE ON user_password(userId,passType); 
 
-CREATE UNIQUE INDEX IDX_USERID ON user_password_log(userId,passType); 
+CREATE UNIQUE INDEX IDX_USERID_TYPE ON user_password_log(userId,passType); 
 
 ALTER TABLE user_usertype ADD COLUMN  `soDoneCode` INT(11) UNSIGNED NOT NULL COMMENT '对应common_business_record.id';
 
