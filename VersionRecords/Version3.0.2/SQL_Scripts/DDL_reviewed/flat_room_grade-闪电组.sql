@@ -10,7 +10,7 @@ create table `flat_room_grade`(
    `createType` tinyint(5) NOT NULL COMMENT '创建人类型(参考字典表组名:userType)', 
    `createTime` datetime NOT NULL COMMENT '创建时间', 
    `updateBy` int(11) COMMENT '修改人', 
-   `updateType` tinyint(5) COMMENT '修改人类型(参考字典表组名:userType)  ', 
+   `updateType` tinyint(5) COMMENT '修改人类型(参考字典表组名:userType)', 
    `updateTime` datetime COMMENT '修改时间', 
     PRIMARY KEY (`id`)
  )  ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='房源评分表';

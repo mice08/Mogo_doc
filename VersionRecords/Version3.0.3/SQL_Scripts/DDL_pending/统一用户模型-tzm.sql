@@ -19,7 +19,7 @@ CREATE TABLE `user_employee_info` (
   `fromExten` varchar(10) DEFAULT NULL COMMENT '坐席工号',
   PRIMARY KEY (`tid`),
   UNIQUE KEY `IDX_USERID` (`userId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT '用户统一体系表';
 
 /*Table structure for table `user_employee_info_his` */
 
@@ -43,7 +43,7 @@ CREATE TABLE `user_employee_info_his` (
   PRIMARY KEY (`tid`),
   UNIQUE KEY `IDX_DONECODE` (`soDoneCode`),
   KEY `IDX_USERID` (`userId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT '用户统一体系历史记录表';
 
 
 /*Table structure for table `user_info_his` */
