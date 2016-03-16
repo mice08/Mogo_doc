@@ -30,3 +30,6 @@ CREATE UNIQUE INDEX IDX_USERID_TYPE ON user_password_log(userId,passType);
 
 ALTER TABLE user_usertype ADD COLUMN  `soDoneCode` INT(11) UNSIGNED NOT NULL COMMENT '对应common_business_record.id';
 
+CREATE UNIQUE INDEX IDX_DONECODE ON user_usertype(soDoneCode); 
+
+CREATE UNIQUE INDEX IDX_USERID_TYPE ON user_usertype(userId,userType); 
