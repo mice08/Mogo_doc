@@ -13,7 +13,7 @@ CREATE TABLE `acct_withdrawschedule` (
    `userId` INT(11) NOT NULL COMMENT '收款人ID',
    `userType` INT(11) NOT NULL COMMENT '收款人类型',
    `bankcardId` INT(11) NOT NULL COMMENT '银行卡ID',
-   `bankcardNumber` INT(11) NOT NULL COMMENT '银行卡号码',
+   `bankcardNumber` VARCHAR(20) NOT NULL COMMENT '银行卡号码',
    `payaccount` VARCHAR(45) DEFAULT NULL COMMENT '付款账号',
    `busmod` VARCHAR(10) DEFAULT NULL COMMENT '业务模式(枚举待补充)',
    `yurref` VARCHAR(45) DEFAULT NULL COMMENT '招行流水号',
