@@ -23,7 +23,7 @@ WHERE ms.`templetId` = mt.`id`
    #更新消息推送子模板(提现处理成功)
 UPDATE mesg_subtemplet ms
 LEFT JOIN mesg_templet mt ON mt.id = ms.templetId
-SET ms.templetContent = '[提现通知]您好，您在${datetime}发起的提现交易已到账，请注意查收。【蘑菇租房-让我们住得更好】',
+SET ms.templetContent = '[提现通知]您好，您在${datetime}发起的提现交易已到账，请注意查收，可立即登录蘑菇租房APP查看详情。【蘑菇租房-让我们住得更好】',
     ms.`templetTitle` = '提现通知'
 WHERE mt.templetCode = 'sms_withdrawal_success'
   AND ms.`templetType` = 3;
