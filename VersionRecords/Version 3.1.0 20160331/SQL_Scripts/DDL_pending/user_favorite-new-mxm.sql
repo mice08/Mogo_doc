@@ -1,7 +1,7 @@
 use mogoroomdb;
 
 CREATE TABLE IF NOT EXISTS `user_favorite` (
-  `id` INT(11) NOT NULL COMMENT '主键自增Id',
+  `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '主键自增Id',
   `userId` INT(11) NOT NULL COMMENT '用户Id',
   `userType` TINYINT(3) NOT NULL COMMENT '用户类型(参考字典表groupName:userType)',
   `favoriteType` TINYINT(3) NOT NULL COMMENT '收藏项类型(参考字典表groupName:userFavoriteType)',
