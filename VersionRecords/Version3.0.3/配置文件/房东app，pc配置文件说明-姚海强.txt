@@ -1,0 +1,2 @@
+#user permission switch 用户权限开关
+filter.user.permission=true
