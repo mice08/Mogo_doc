@@ -32,6 +32,7 @@ VALUES ('refundSourceType-4','refundSourceType','4','4','退房','1','checkOut')
 INSERT INTO comm_dictionary(code,groupName,sort,keyPro,value,status,enValue)
 VALUES ('refundSourceType-5','refundSourceType','5','5','签约不通过-预定成功','1','signedFailureReserveSucc');
 
+/*入住人与子账号用户类型数据字典*/
 INSERT INTO comm_dictionary (code,groupName,sort,keyPro,value,status,fcode,enValue)
 VALUES('userType-6','userType','6','6','入住人','1',NULL,'userType-6');
 
