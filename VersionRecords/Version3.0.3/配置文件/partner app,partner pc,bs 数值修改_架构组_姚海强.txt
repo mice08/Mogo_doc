@@ -1,0 +1,2 @@
+#partner pc ,partner app,bs jdbcÊôĞÔÅäÖÃÌí¼Ó
+jdbc.idleConnectionTestPeriodInMinutes=60
