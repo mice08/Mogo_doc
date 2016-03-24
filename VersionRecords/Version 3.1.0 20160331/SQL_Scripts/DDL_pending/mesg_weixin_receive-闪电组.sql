@@ -13,7 +13,7 @@ CREATE TABLE mesg_weixin_received
    `content` VARCHAR(1500) NULL COMMENT '文本消息内容',
    `picUrl` VARCHAR(255) NULL COMMENT '图片链接'
    `mediaId` VARCHAR(255) NULL COMMENT '图片/语音/视频消息媒体id,可以调用多媒体文 件下载接口拉取数据',
-   `format` VARCHAR(25) NULL COMMENT '语音格式(如:amr,speex)',
+   `encoder` VARCHAR(25) NULL COMMENT '语音格式(如:amr,speex)',
    `thumbMediaId` VARCHAR(255) NULL COMMENT '视频消息缩略图的媒体id,可以调用多媒体文件下载接口拉取数据',
    `locationX` DOUBLE(12,8) NULL COMMENT '地理位置经度',
    `locationY` DOUBLE(12,8) NULL COMMENT '地理位置纬度',
