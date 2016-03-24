@@ -11,7 +11,7 @@ CREATE TABLE mesg_weixin_received
    `msgId` VARCHAR(50) NOT NULL COMMENT '消息id(64位整型)',
    `msgType` TINYINT(2) NOT NULL COMMENT '微信消息类型(1:文本 2:图片 3:语音 4:视频 5:短视频 6:音乐 7:图文 8:卡劵 9:地理位置 10:链接)',
    `content` VARCHAR(1500) NULL COMMENT '文本消息内容',
-   `picUrl` VARCHAR(255) NULL COMMENT '图片链接'
+   `picUrl` VARCHAR(255) NULL COMMENT '图片链接',
    `mediaId` VARCHAR(255) NULL COMMENT '图片/语音/视频消息媒体id,可以调用多媒体文 件下载接口拉取数据',
    `encoder` VARCHAR(25) NULL COMMENT '语音格式(如:amr,speex)',
    `thumbMediaId` VARCHAR(255) NULL COMMENT '视频消息缩略图的媒体id,可以调用多媒体文件下载接口拉取数据',
@@ -24,7 +24,7 @@ CREATE TABLE mesg_weixin_received
    `url` VARCHAR(255) NULL COMMENT '消息链接',
    `createTime` DATETIME NOT NULL COMMENT '创建时间',
    PRIMARY KEY (`id`)
-) ENGINE=INNODB COMMENT='微信公众号接收普通用户信息';
+) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='微信公众号接收普通用户信息';
  
  
 /* 微信公众号发送信息给普通用户 */
@@ -41,10 +41,10 @@ CREATE TABLE mesg_weixin_sent
    `musicUrl` VARCHAR(255) NULL COMMENT '音乐链接',
    `hqMusicUrl` VARCHAR(255) NULL COMMENT '高品质音乐链接，wifi环境优先使用该链 接播放音乐',
    `url` VARCHAR(255) NULL COMMENT '图文消息被点击后跳转的链接',
-   `picUrl` VARCHAR(255) NULL COMMENT '图文消息的图片链接'
+   `picUrl` VARCHAR(255) NULL COMMENT '图文消息的图片链接',
    `createTime` DATETIME NOT NULL COMMENT '创建时间',
    `cardId` VARCHAR(50) NULL COMMENT '卡券ID',
    `cardExt` VARCHAR(255) NULL COMMENT '卡券',
    `kfAccount` VARCHAR(50) NULL COMMENT '客服帐号',
    PRIMARY KEY (`id`)
-) ENGINE=INNODB COMMENT='微信公众号发送信息给普通用户';
+) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='微信公众号发送信息给普通用户';
