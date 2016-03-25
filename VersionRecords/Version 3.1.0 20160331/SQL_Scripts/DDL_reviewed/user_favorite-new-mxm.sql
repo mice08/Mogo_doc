@@ -14,5 +14,5 @@ CREATE TABLE IF NOT EXISTS `user_favorite` (
   `updateBy` INT(11) NOT NULL COMMENT '修改人员',
   `updateByType` TINYINT(3) NOT NULL COMMENT '更新人员类型(参考字典表groupName:userType)',
   `updateTime` DATETIME NOT NULL DEFAULT current_timestamp COMMENT '更新时间',
-  PRIMARY KEY (`id`))ENGINE = InnoDB DEFAULT CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '用户收藏表，存放用户感兴趣的房子Id,图片Id,';
+  PRIMARY KEY (`id`))ENGINE = InnoDB DEFAULT CHARACTER SET = utf8mb4 COMMENT = '用户收藏表，存放用户感兴趣的房子Id,图片Id,';
 
