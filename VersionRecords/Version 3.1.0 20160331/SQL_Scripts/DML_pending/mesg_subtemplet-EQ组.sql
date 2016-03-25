@@ -1,4 +1,4 @@
-﻿/*  Database name `mogoroomdb` ，消息新增与更新*/
+/*  Database name `mogoroomdb` ，消息新增与更新*/
 use mogoroomdb;
 
 #更新推送子模板(签约资料有误)
@@ -468,7 +468,7 @@ VALUES(@i, 'sms_renter_notShowingsCode', '未看房，房源被他人预定/签�
 
 SET @ii = (SELECT AUTO_INCREMENT FROM information_schema.`TABLES` WHERE TABLE_SCHEMA= 'mogoroomdb' AND TABLE_NAME='mesg_subtemplet');
 INSERT INTO `mesg_subtemplet`(id, templetId, templetType, templetTitle, templetContent, STATUS, valid, outTempletId, jumpCode)
-VALUES(@ii, @i, 1, '很抱歉地通知您，${communityName}小区房源已被他人抢先预定，重新调整下您的看房计划吧。若有疑问，请与房东联系了解详情。', 1, 1, NULL, 'MODULE_ReservationOrder');
+VALUES(@ii, @i, 1, '房源已预定','很抱歉地通知您，${communityName}小区房源已被他人抢先预定，重新调整下您的看房计划吧。若有疑问，请与房东联系了解详情。', 1, 1, NULL, 'MODULE_ReservationOrder');
 COMMIT;
 
 BEGIN;
@@ -478,7 +478,7 @@ VALUES(@i, 'sms_renter_alreadyShowingsCode', '看房后48小时内，房源被�
 
 SET @ii = (SELECT AUTO_INCREMENT FROM information_schema.`TABLES` WHERE TABLE_SCHEMA= 'mogoroomdb' AND TABLE_NAME='mesg_subtemplet');
 INSERT INTO `mesg_subtemplet`(id, templetId, templetType, templetTitle, templetContent, STATUS, valid, outTempletId, jumpCode)
-VALUES(@ii, @i, 3, '[房源已出租]犹豫是把杀猪刀，刚转身您看过的${communityName}小区房源已被出租。没关系，更多好房又上线了，找一个更好的吧！【蘑菇租房-让我们住得更好】', 1, 1, NULL, 'MODULE_ReservationOrder');
+VALUES(@ii, @i, 3, '房源已出租','[房源已出租]犹豫是把杀猪刀，刚转身您看过的${communityName}小区房源已被出租。没关系，更多好房又上线了，找一个更好的吧！【蘑菇租房-让我们住得更好】', 1, 1, NULL, 'MODULE_ReservationOrder');
 COMMIT;
 
 
