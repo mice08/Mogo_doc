@@ -1,0 +1,4 @@
+在测试服务器 /data/tomcatconf/partnerpc/*.properties 文件下配置以下内容（对应dev 的 systemconfig.properties）：
+
+sysconfig.qimo.qimo_token=${filter.sysconfig.qimo.qimo_token}
+sysconfig.qimo.qimo_request_url=${filter.sysconfig.qimo.qimo_request_url}
