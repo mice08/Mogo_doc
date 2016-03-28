@@ -1,3 +1,5 @@
+use mogoroomdb;
+
 --
 -- 从loan_district_mapping导出行政区信息到city_district表。
 -- 若行政区已存在city_district则该行政区不做导入
