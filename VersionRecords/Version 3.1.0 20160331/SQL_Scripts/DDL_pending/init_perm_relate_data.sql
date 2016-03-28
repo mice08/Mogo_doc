@@ -8,7 +8,7 @@ DELETE FROM perm_menu_group where menuGroupName='房东PC子账号菜单分组' 
 
 DELETE FROM perm_menu_group_rel;
 
-DELETE FROM perm_menu_group_rel;
+DELETE FROM perm_menugroup_role_rel;
 
 /*房东默认的子账号初始化*/
 INSERT INTO perm_role(roleName,status,createTime,createEmp,channel) VALUES('子账号默认角色',1,NOW(),0,5);
