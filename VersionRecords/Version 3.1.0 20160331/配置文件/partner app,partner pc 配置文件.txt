@@ -1,0 +1,4 @@
+#修改60为20
+jdbc.idleConnectionTestPeriodInMinutes=20
+#增加test connection
+jdbc.connectionTestStatement=SELECT 1

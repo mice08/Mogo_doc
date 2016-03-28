@@ -67,7 +67,9 @@ SELECT
  `fr`.`manageFee` AS `manageFee`,
  `ob`.`id` AS `bookOrderId`,
  `ob`.`signedEndTime` AS `signedEndTime`,
- `fr`.`remark` AS `roomRemark`
+ `fr`.`remark` AS `roomRemark`,
+ `fc`.`street` AS `street`,
+ `fc`.`nong`  AS `nong`
 FROM
 	`flat_flats` `ff`
 LEFT JOIN `flat_room` `fr` ON `ff`.`id` = `fr`.`flatsId`
