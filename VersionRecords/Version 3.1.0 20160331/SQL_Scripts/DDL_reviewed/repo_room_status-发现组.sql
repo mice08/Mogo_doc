@@ -67,13 +67,15 @@ SELECT
  `fr`.`manageFee` AS `manageFee`,
  `ob`.`id` AS `bookOrderId`,
  `ob`.`signedEndTime` AS `signedEndTime`,
- `fr`.`remark` AS `roomRemark`
+ `fr`.`remark` AS `roomRemark`,
+ `fc`.`street` AS `street`,
+ `fc`.`nong`  AS `nong`
 FROM
 	`flat_flats` `ff`
 LEFT JOIN `flat_room` `fr` ON `ff`.`id` = `fr`.`flatsId`
 LEFT JOIN `oder_bookorder` `ob` ON `ob`.`roomId` = `fr`.`id`
 AND `ob`.`renterId` = `fr`.`renterId`
-AND `ob`.`status` = 3
+AND `ob`.`status` in(2,3)
 LEFT JOIN `user_renter` `ur` ON `ur`.`id` = `fr`.`renterId`
 LEFT JOIN `oder_signedorder` `os` ON `os`.`id` = `fr`.`signedOrderId`
 LEFT JOIN `cntr_salecontract` `cs` ON `cs`.`id` = `os`.`saleContractId`
