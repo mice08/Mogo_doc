@@ -54,7 +54,7 @@ id, user_name, mobile, gender, nick_name, real_name, career, birthday, constella
 		
 		
 INSERT INTO user_password (soDoneCode, userId, PASSWORD, passType, createTime, createBy, updateTime, updateBy)
-SELECT id+300000000 AS soDoneCode, (CASE  WHEN (id<3000000)  THEN id+3000000 ELSE  id END ) AS userId, PASSWORD,1 AS passType,createTime,-1 AS createBy,createTime,-1 AS updateBy FROM user_landlord WHERE id <(SELECT MIN(userId) FROM user_usertype WHERE userid >3000000 );
+SELECT id+300000000 AS soDoneCode, (CASE  WHEN (id<3000000)  THEN id+3000000 ELSE  id END ) AS userId, PASSWORD,1 AS passType,createTime,-1 AS createBy,createTime,-1 AS updateBy FROM user_landlord WHERE password is not null and  id <(SELECT MIN(userId) FROM user_usertype WHERE userid >3000000 );
 
 INSERT INTO user_usertype(userId, userType, STATUS, createTime, createBy, updateTime, updateBy,soDoneCode)
 SELECT (CASE  WHEN (id<3000000)  THEN id+3000000 ELSE  id END ) AS userId   ,0 AS userType,1 AS STATUS,createTime,-1 AS createBy,createTime,-1 AS updateBy,id+300000000  AS soDoneCode FROM user_landlord WHERE id <(SELECT MIN(userId) FROM user_usertype WHERE userid >3000000 );
