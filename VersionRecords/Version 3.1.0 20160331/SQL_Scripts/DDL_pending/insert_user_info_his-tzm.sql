@@ -45,9 +45,9 @@ id, user_name, mobile, gender, nick_name, real_name, career, birthday, constella
 		weixin,firstLoginTime,latestLoginTime 
  ) 
  SELECT (CASE  WHEN (id<3000000)  THEN id+3000000 ELSE  id END ) AS id, NAME, phone AS mobile, sex AS gender, 
- NULL AS nickName, NULL AS realName, NULL AS career, birthday, NULL AS constellation, photo AS avatarUrl, 0 AS cardType, identityid AS idCard, 
+ NULL AS nickName, name AS realName, NULL AS career, birthday, NULL AS constellation, photo AS avatarUrl, 0 AS cardType, identityid AS idCard, 
  1 AS nationality, email, regId, loginDevice, memberNum, NULL AS acc_id,
-		NULL AS communicationsAddress, NULL AS educationalBackground, NULL AS createIP, emergency, emergencyPhone AS emerg_phone, createTime, -1 AS create_by,  createTime, -1 AS update_by, 
+		NULL AS communicationsAddress, NULL AS educationalBackground, '127.0.0.1' AS createIP, emergency, emergencyPhone AS emerg_phone, createTime, -1 AS create_by,  createTime, -1 AS update_by, 
 		300000000+id AS soDoneCode, STATUS, remark, 
 		NULL AS phoneExt, NULL AS landlordId, NULL AS hobby, NULL AS picGroupId,
 		weixin,firstLoginTime, latestLoginTime  FROM user_landlord WHERE id <(SELECT MIN(id) FROM user_info WHERE id >3000000);
