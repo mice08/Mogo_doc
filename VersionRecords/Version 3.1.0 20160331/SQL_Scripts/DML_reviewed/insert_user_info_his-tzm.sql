@@ -15,7 +15,7 @@ id, user_name, mobile, gender, nick_name, real_name, career, birthday, constella
 		addr, edu, create_ip, emergency, emerg_phone, create_time, create_by, update_time, update_by, done_code, STATUS, remark, phoneExt, landlordId, hobby, picGroupId,
 		weixin,firstLoginTime,latestLoginTime 
  ) 
- SELECT id, account, cellphone AS mobile, sex, nickName, realName, career, birthday, constellation, avatarUrl, cardType, idCard, nationality, email, regId, loginDevice, memberNum, NULL AS acc_id,
+ SELECT id, account, cellphone AS mobile, sex, nickName, realName, career, birthday, constellation, avatarUrl, cardType, idCard, (CASE WHEN nationality IS NOT NULL THEN nationality ELSE  1 END) AS nationality, email, regId, loginDevice, memberNum, NULL AS acc_id,
 		communicationsAddress, educationalBackground, createIP, NULL AS emergency, NULL AS emerg_phone, createTime, -1 AS create_by,  createTime, -1 AS update_by, 
 		200000000+id AS soDoneCode, STATUS, remark, 
 		NULL AS phoneExt, NULL AS landlordId, hobby, NULL AS picGroupId,
@@ -23,7 +23,7 @@ id, user_name, mobile, gender, nick_name, real_name, career, birthday, constella
 		
 		
 INSERT INTO user_password (soDoneCode, userId, PASSWORD, passType, createTime, createBy, updateTime, updateBy)
-SELECT id+200000000 AS soDoneCode,id AS userId,PASSWORD,1 AS passType,createTime,-1 AS createBy,createTime,-1 AS updateBy FROM user_renter WHERE id <(SELECT MIN(userId) FROM user_password );
+SELECT id+200000000 AS soDoneCode,id AS userId,PASSWORD,1 AS passType,createTime,-1 AS createBy,createTime,-1 AS updateBy FROM user_renter WHERE password is not null and id <(SELECT MIN(userId) FROM user_password );
 
 INSERT INTO user_usertype(userId, userType, STATUS, createTime, createBy, updateTime, updateBy,soDoneCode)
 SELECT id ,4 AS userType,1 AS STATUS,createTime,-1 AS createBy,createTime,-1 AS updateBy,id+200000000  AS soDoneCode FROM user_renter WHERE id <(SELECT MIN(userId) FROM user_usertype );
