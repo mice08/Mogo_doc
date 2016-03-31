@@ -1,8 +1,5 @@
 USE mogoroomdb ;
  
--- -----------------------------------------------------
--- Table `flat_tag`
--- -----------------------------------------------------
 DROP TABLE IF EXISTS `flat_tag` ;
  
 CREATE TABLE IF NOT EXISTS `flat_tag` (
@@ -13,12 +10,9 @@ CREATE TABLE IF NOT EXISTS `flat_tag` (
    `userType` TINYINT NOT NULL COMMENT '创建者类型(参考字典表userType的组名)',
    `createTime` DATETIME NOT NULL COMMENT '创建时间',
    PRIMARY KEY (`id`),
-   UNIQUE INDEX `name_UNIQUE` (`name`,`userId`,`userType` ASC)) ENGINE = InnoDB COMMENT = '标签管理表';
+   UNIQUE INDEX `uniq_name` (`name`,`userId`,`userType` ASC)) ENGINE = InnoDB DEFAULT CHARSET=utf8mb4 COMMENT = '标签管理表';
  
- 
--- -----------------------------------------------------
--- Table `flat_flat_tag`
--- -----------------------------------------------------
+
 DROP TABLE IF EXISTS `flat_flat_tag` ;
  
 CREATE TABLE IF NOT EXISTS `flat_flat_tag` (
@@ -26,12 +20,10 @@ CREATE TABLE IF NOT EXISTS `flat_flat_tag` (
    `tagId` INT NOT NULL COMMENT '标签ID(参考flat_tag表)',
    `flatsId` INT NOT NULL COMMENT '公寓ID(参考flat_flats表)',
    `creatTime` DATETIME NOT NULL COMMENT '房源标签创建时间',
-   PRIMARY KEY (`id`)) ENGINE = InnoDB COMMENT = '房源标签管理表';
+   PRIMARY KEY (`id`)) ENGINE = InnoDB DEFAULT CHARSET=utf8mb4 COMMENT = '房源标签管理表';
  
  
--- -----------------------------------------------------
--- Table `user_user_memo`
--- -----------------------------------------------------
+
 DROP TABLE IF EXISTS `user_user_memo` ;
  
 CREATE TABLE IF NOT EXISTS `user_user_memo` (
@@ -43,12 +35,9 @@ CREATE TABLE IF NOT EXISTS `user_user_memo` (
    `userId` INT NOT NULL COMMENT '创建者id',
    `userType` TINYINT NOT NULL COMMENT '创建者类型(参考字典表userType的组名)',
    `createTime` DATETIME NOT NULL COMMENT '创建时间',
-   PRIMARY KEY (`id`)) ENGINE = InnoDB COMMENT = '用户备忘录';
+   PRIMARY KEY (`id`)) ENGINE = InnoDB DEFAULT CHARSET=utf8mb4 COMMENT = '用户备忘录';
  
- 
--- -----------------------------------------------------
--- Table `flat_flat_tag_his`
--- -----------------------------------------------------
+
 DROP TABLE IF EXISTS `flat_flat_tag_his` ;
  
 CREATE TABLE IF NOT EXISTS `flat_flat_tag_his` (
@@ -58,4 +47,4 @@ CREATE TABLE IF NOT EXISTS `flat_flat_tag_his` (
    `flatsId` INT NOT NULL COMMENT '公寓ID(参考flat_flats表)',
    `creatTime` DATETIME NOT NULL COMMENT '房源标签创建时间',
    `deleteTime` DATETIME NOT NULL COMMENT '房源标签删除时间',
-   PRIMARY KEY (`id`)) ENGINE = InnoDB COMMENT = '房源标签履历表';
+   PRIMARY KEY (`id`)) ENGINE = InnoDB DEFAULT CHARSET=utf8mb4 COMMENT = '房源标签履历表';

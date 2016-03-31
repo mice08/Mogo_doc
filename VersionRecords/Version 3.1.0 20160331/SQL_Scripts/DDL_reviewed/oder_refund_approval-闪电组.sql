@@ -22,4 +22,4 @@ create table oder_refund_approval
    createByType         tinyint(2) not null comment '创建人类型',
    approvalTime         datetime comment '审批时间',
    primary key (id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='退款审批表';
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='退款审批表';

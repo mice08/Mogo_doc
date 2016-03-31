@@ -2,8 +2,7 @@ use mogoroomdb;
 
 # 给roompricebase加一个唯一索引
 ALTER TABLE `flat_roompricebase`
-DROP INDEX `idx_goodsId_goodsIdType` ,
-ADD UNIQUE INDEX `idx_goodsId_goodsIdType` (`goodsId`, `goodsIdType`) USING BTREE ;
+ADD UNIQUE INDEX `idx_goodsId_goodsId` (`goodsId`, `goodsIdType`);
 
 # 给acct_busibilldtl增加滞纳金总额字段
 ALTER TABLE acct.`acct_busibilldtl`
