@@ -23,7 +23,7 @@ id, user_name, mobile, gender, nick_name, real_name, career, birthday, constella
 		
 		
 INSERT INTO user_password (soDoneCode, userId, PASSWORD, passType, createTime, createBy, updateTime, updateBy)
-SELECT id+200000000 AS soDoneCode,id AS userId,PASSWORD,1 AS passType,createTime,-1 AS createBy,createTime,-1 AS updateBy FROM user_renter WHERE id <(SELECT MIN(userId) FROM user_password );
+SELECT id+200000000 AS soDoneCode,id AS userId,PASSWORD,1 AS passType,createTime,-1 AS createBy,createTime,-1 AS updateBy FROM user_renter WHERE password is not null and id <(SELECT MIN(userId) FROM user_password );
 
 INSERT INTO user_usertype(userId, userType, STATUS, createTime, createBy, updateTime, updateBy,soDoneCode)
 SELECT id ,4 AS userType,1 AS STATUS,createTime,-1 AS createBy,createTime,-1 AS updateBy,id+200000000  AS soDoneCode FROM user_renter WHERE id <(SELECT MIN(userId) FROM user_usertype );
