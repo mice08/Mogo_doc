@@ -15,7 +15,7 @@ id, user_name, mobile, gender, nick_name, real_name, career, birthday, constella
 		addr, edu, create_ip, emergency, emerg_phone, create_time, create_by, update_time, update_by, done_code, STATUS, remark, phoneExt, landlordId, hobby, picGroupId,
 		weixin,firstLoginTime,latestLoginTime 
  ) 
- SELECT id, account, cellphone AS mobile, sex, nickName, realName, career, birthday, constellation, avatarUrl, cardType, idCard, nationality, email, regId, loginDevice, memberNum, NULL AS acc_id,
+ SELECT id, account, cellphone AS mobile, sex, nickName, realName, career, birthday, constellation, avatarUrl, cardType, idCard, (CASE WHEN nationality IS NOT NULL THEN nationality ELSE  1 END) AS nationality, email, regId, loginDevice, memberNum, NULL AS acc_id,
 		communicationsAddress, educationalBackground, createIP, NULL AS emergency, NULL AS emerg_phone, createTime, -1 AS create_by,  createTime, -1 AS update_by, 
 		200000000+id AS soDoneCode, STATUS, remark, 
 		NULL AS phoneExt, NULL AS landlordId, hobby, NULL AS picGroupId,
