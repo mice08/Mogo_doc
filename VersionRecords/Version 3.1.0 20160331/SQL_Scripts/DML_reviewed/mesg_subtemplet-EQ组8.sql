@@ -1,5 +1,5 @@
 /* Database name `mogoroomdb` , 消息脚本少了个$符号*/ 
-
+use mogoroomdb;
  #更新发送短信子模板(第三方蘑菇宝租金账单应付款当天)
 UPDATE mesg_subtemplet ms
 LEFT JOIN mesg_templet mt ON mt.id = ms.templetId
