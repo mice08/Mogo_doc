@@ -1,11 +1,11 @@
-ElasticQuartz.sh½Å±¾ÓÃÓÚÌæ»»Ö®Ç°µÄhelpContentQuartz.sh£¬keywordQuartz.sh£¬roomPriceQuartz.sh£¬roomScoreQuartz.sh£¬roomSearchQuartz.shµÈ5¸ö½Å±¾
+ElasticQuartz.shè„šæœ¬ç”¨äºæ›¿æ¢ä¹‹å‰çš„helpContentQuartz.shï¼ŒkeywordQuartz.shï¼ŒroomPriceQuartz.shï¼ŒroomScoreQuartz.shï¼ŒroomSearchQuartz.shç­‰5ä¸ªè„šæœ¬
 
-µ÷ÓÃElasticQuartz.shÊ±ĞèÒª´«µİ²ÎÊı£¬Èç£º ElasticQuartz.sh "keyword"
-²ÎÊı¹²ÓĞ6ÖÖ¿ÉÑ¡Öµ£º
+è°ƒç”¨ElasticQuartz.shæ—¶éœ€è¦ä¼ é€’å‚æ•°ï¼Œå¦‚ï¼š ElasticQuartz.sh "keyword"
+å‚æ•°å…±æœ‰6ç§å¯é€‰å€¼ï¼š
 
-help                 Í¬²½¸üĞÂ°ïÖúÎÄµµ
-keyword              Í¬²½¸üĞÂµ¥´ÊÁªÏë
-roomPrice            Í¬²½¸üĞÂ·¿Ô´ÏÔÊ¾¼Û¸ñ
-roomScore            Í¬²½·¿Ô´µÄÆÀ·ÖÖµ
-roomSearch           Í¬²½·¿Ô´ĞÅÏ¢ÖÁËÑË÷ÒıÇæ
-all                  Í¬²½ÒÔÉÏÈ«²¿Êı¾İ
+help                 åŒæ­¥æ›´æ–°å¸®åŠ©æ–‡æ¡£
+keyword              åŒæ­¥æ›´æ–°å•è¯è”æƒ³
+roomPrice            åŒæ­¥æ›´æ–°æˆ¿æºæ˜¾ç¤ºä»·æ ¼
+roomScore            åŒæ­¥æˆ¿æºçš„è¯„åˆ†å€¼
+roomSearch           åŒæ­¥æˆ¿æºä¿¡æ¯è‡³æœç´¢å¼•æ“
+all                  åŒæ­¥ä»¥ä¸Šå…¨éƒ¨æ•°æ®
