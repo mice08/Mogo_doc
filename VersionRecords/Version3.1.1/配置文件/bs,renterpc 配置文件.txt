@@ -1,0 +1,2 @@
+#add cms data cached expire, default 900s (file -> systemconfig.properties)
+sysconfig.cms.cache_expire=900
