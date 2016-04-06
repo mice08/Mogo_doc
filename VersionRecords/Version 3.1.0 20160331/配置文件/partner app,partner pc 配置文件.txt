@@ -2,3 +2,5 @@
 jdbc.idleConnectionTestPeriodInMinutes=20
 #增加test connection
 jdbc.connectionTestStatement=SELECT 1
+#修改5为1
+jdbc.acquireIncrement=1
