@@ -6,9 +6,10 @@ use mogoroomdb;
 -- 
 begin;
 
+#插入新纪录兼把关联id放到不使用的enName字段
 insert 
-into city_district(name, cityId, code, status) 
-select name, cityId, code, 1 status from(
+into city_district(name, cityId, code, status, enName) 
+select name, cityId, code, 1 status, id from(
 select
  dm.id
  , dm.cityName
@@ -29,5 +30,17 @@ where cd.cityId=tmp.cityId
  and instr(tmp.name, cd.name) = 1
 )
 order by tmp.cityId, tmp.code;
+
+#插入的记录id保存早loan_district_mapping表的mogoDistrictId字段
+update loan_district_mapping dm,
+city_district cd
+set dm.mogoDistrictId= cd.id
+where dm.id=cd.enName;
+
+#清空临时使用的enName字段
+update loan_district_mapping dm,
+city_district cd
+set cd.enName=null
+where dm.id=cd.enName;
 
 commit;

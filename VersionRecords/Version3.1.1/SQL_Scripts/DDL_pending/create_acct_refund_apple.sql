@@ -15,7 +15,7 @@ create table acct_refund_apple
    dt_refund            datetime comment '商户退款时间',
    money_refund         decimal(8,2) comment '退款金额',
    oid_refundno         varchar(32) comment 'apple pay退款流水号',
-   sta_refund           varchar(1) comment '退款状态（0:退款申请 1:退款处理中 2:退款成功 3:退款失败）',
+   sta_refund           varchar(1) comment '退款状态(0:退款申请 1:退款处理中 2:退款成功 3:退款失败)',
    settle_date          date comment '清算日期',
    create_time          datetime not null comment '退款记录创建时间',
    update_time          datetime comment '退款记录更新时间',
