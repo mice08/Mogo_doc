@@ -1,3 +1,4 @@
+use mogoroomdb;
 CREATE TABLE `comm_sysconfig` (
    `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键id',
    `keyName` varchar(128) NOT NULL COMMENT '配置项key、全局唯一',
@@ -9,4 +10,4 @@ CREATE TABLE `comm_sysconfig` (
    `updateByType` int(2) NOT NULL COMMENT '更新人类型(参考字典表分组名:userType)',
    `updateBy` int(11) NOT NULL COMMENT '更新人id',
    PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 COMMENT='系统配置表';
+) ENGINE=InnoDB default charset=utf8mb4 COMMENT='系统配置表';
