@@ -20,4 +20,4 @@ create table acct_refund_apple
    create_time          datetime not null comment '退款记录创建时间',
    update_time          datetime comment '退款记录更新时间',
    primary key (id)
-) ENGINE=InnoDB COMMENT='Apple pay退款记录表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='Apple pay退款记录表';
