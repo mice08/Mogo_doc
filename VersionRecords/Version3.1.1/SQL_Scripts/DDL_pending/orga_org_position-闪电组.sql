@@ -1,12 +1,12 @@
 /*  Database name `mogoroomdb` ，组织岗位表结构*/
 use mogoroomdb;
  
-drop table if exists user_org;
+drop table if exists orga_org;
  
 /*==============================================================*/
-/* Table: user_org                                */
+/* Table: orga_org                                */
 /*==============================================================*/
-create table user_org
+create table orga_org
 (
     id                   int(11) not null auto_increment comment '组织表id',
     parentId             int(11) comment '上级组织id',
@@ -14,7 +14,6 @@ create table user_org
     shortName            varchar(50) comment '组织简称',
     orgCode              varchar(10) not null comment '组织编码',
     level                tinyint(2) comment '组织层级',
-    category             varchar(50) comment '组织分类',
     fullPath             varchar(50) comment '组织路径',
     status               tinyint(1) not null comment '状态(0:无效 1:有效)',
     sort                 tinyint(2) comment '组织排序',
@@ -29,12 +28,12 @@ create table user_org
 ) ENGINE=InnoDB COMMENT='组织架构表';
  
  
-drop table if exists user_org_position;
+drop table if exists orga_org_position;
  
 /*==============================================================*/
-/* Table: user_org_position                                    */
+/* Table: orga_org_position                                    */
 /*==============================================================*/
-create table user_org_position
+create table orga_org_position
 (
     id                   int(11) not null auto_increment comment '用户岗位关系表id',
     userId               int(11) not null comment '用户id',
@@ -51,12 +50,12 @@ create table user_org_position
 ) ENGINE=InnoDB COMMENT='用户组织岗位关系表';
  
  
-drop table if exists user_position;
+drop table if exists orga_position;
  
 /*==============================================================*/
-/* Table: user_position                                             */
+/* Table: orga_position                                             */
 /*==============================================================*/
-create table user_position
+create table orga_position
 (
     id                   int(11) not null auto_increment comment '用户岗位id',
     positionName              varchar(50) not null comment '岗位名称',
