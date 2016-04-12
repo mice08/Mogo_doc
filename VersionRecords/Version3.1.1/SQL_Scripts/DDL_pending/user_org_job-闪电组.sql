@@ -37,7 +37,7 @@ drop table if exists user_org_job;
 /*==============================================================*/
 create table user_org_job
 (
-   id                   int(11) not null auto_increment comment '员工岗位关系表id',
+   id                   int(11) not null auto_increment comment '用户岗位关系表id',
    userId               int(11) not null comment '用户id',
    orgId                int(11) not null comment '组织id',
    jobsId               int(11) not null comment '岗位ID',
