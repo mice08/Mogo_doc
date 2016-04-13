@@ -2,6 +2,7 @@
 信用额度配置表（主要是用来计算房东贷款额度的）
 */
 DROP TABLE IF EXISTS loan_landlord_credit_config;
+
 CREATE TABLE loan_landlord_credit_config
 (
    id                   INT(11) PRIMARY KEY AUTO_INCREMENT COMMENT '主键',
