@@ -25,7 +25,7 @@ create table orga_org
     updateByType         tinyint(2) comment '更新人类型(参照groupName=userType)',
     updateTime           datetime comment '更新时间',
     primary key (id)
-) ENGINE=InnoDB COMMENT='组织架构表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='组织架构表';
  
  
 drop table if exists orga_org_position;
@@ -47,7 +47,7 @@ create table orga_org_position
     updateByType         int(1) comment '更新人类型(参照groupName=userType)',
     updateTime           datetime comment '更新时间',
     primary key (id)
-) ENGINE=InnoDB COMMENT='用户组织岗位关系表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户组织岗位关系表';
  
  
 drop table if exists orga_position;
@@ -68,4 +68,4 @@ create table orga_position
     updateByType         tinyint(2) comment '更新人类型(参照groupName=userType)',
     updateTime           datetime comment '更新时间',
     primary key (id)
-) ENGINE=InnoDB  COMMENT='岗位表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4  COMMENT='岗位表';
