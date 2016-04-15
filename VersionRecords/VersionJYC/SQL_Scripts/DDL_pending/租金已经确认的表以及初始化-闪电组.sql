@@ -36,7 +36,7 @@ create table loan_landlord_contract_his
    id                   int(11) PRIMARY KEY AUTO_INCREMENT comment '借款表Id',
    loanContractId       int(11) NOT NULL comment '房东贷款申请id',
    landlordId           int(11) NOT NULL comment '房东Id(冗余方便查询)',
-   loanChanel           int(11) NOT NULL comment '资方渠道id',
+   loanChannel           int(11) NOT NULL comment '资方渠道id',
    credits              decimal(12,2) NOT NULL  DEFAULT 0 comment '信用额',
    shortestTerm         int(11) NOT NULL  DEFAULT 3 comment '最短蘑菇宝租期（3-12）',
    feeRate              int(11)  comment '服务费费率',
