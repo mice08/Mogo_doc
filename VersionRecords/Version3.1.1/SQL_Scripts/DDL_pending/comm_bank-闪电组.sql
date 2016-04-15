@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS `comm_bank` (
   id INT(11)  AUTO_INCREMENT NOT NULL COMMENT '主键ID',
   name VARCHAR(25) NOT NULL COMMENT '银行名称',
   enName VARCHAR(8) NULL COMMENT '银行名称英文缩写',
-  code VARCHAR(8) NOT NULL COMMENT '银行编码',
+  code VARCHAR(8) NULL COMMENT '银行编码',
   status tinyint(1) NOT NULL COMMENT '删除标记(1:有效 0:无效)',
   isLandlordBand tinyint(1) NOT NULL DEFAULT 1 COMMENT '是否允许房东绑定(1:是 0:否)',
   isRenterBand tinyint(1) NOT NULL DEFAULT 1 COMMENT '是否允许租客绑定(1:是 0:否)',
