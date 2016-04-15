@@ -42,7 +42,7 @@ create table loan_landlord_contract_his
    feeRate              int(11)  comment '服务费费率',
    canLoan              int(11) NOT NULL  DEFAULT  1 comment '是否可以贷款 0.不可以；1.可以',
    oneTime              int(11) NOT NULL DEFAULT  1 comment '是否一次性付款 0.不可以;1.可以',
-   status               int(11) comment '借款单状态(1:待审 2:终审通过 3:终审未通过 4:一审通过 5:一审未通过)',
+   `status`               int(11) comment '借款单状态(1:待审 2:终审通过 3:终审未通过 4:一审通过 5:一审未通过)',
    picGroupId1          int(11)  comment '图片组id1 一审对应附件',
    picGroupId2          int(11)  comment '图片组id2  二审对应附件',
    answerPaperId1 int(11) comment '答卷1(房东资料答卷)',
