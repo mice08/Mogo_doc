@@ -10,7 +10,7 @@ CREATE TABLE `comm_sysconfig_his` (
   `createByType` int(2) NOT NULL COMMENT '创建人类型(参考字典表分组名:userType)',
   `createBy` int(11) NOT NULL COMMENT '创建人id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='系统配置变更履历';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COMMENT='系统配置变更履历';
 
 
 ALTER TABLE `comm_sysconfig_his`
