@@ -11,3 +11,9 @@ CREATE TABLE `comm_sysconfig` (
    `updateBy` int(11) NOT NULL COMMENT '更新人id',
    PRIMARY KEY (`id`)
 ) ENGINE=InnoDB default charset=utf8mb4 COMMENT='系统配置表';
+
+ALTER TABLE `comm_sysconfig`
+ADD COLUMN `extra1`  varchar(128) NULL COMMENT '附加字段1。可根据业务需要填写特定值。' AFTER `updateBy`,
+ADD COLUMN `extra2`  varchar(128) NULL COMMENT '附加字段2。可根据业务需要填写特定值。' AFTER `extra1`;
+ALTER TABLE `comm_sysconfig`
+ADD INDEX `keyName` (`keyName`) ;
