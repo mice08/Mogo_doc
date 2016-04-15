@@ -36,13 +36,13 @@ create table loan_landlord_contract_his
    id                   int(11) PRIMARY KEY AUTO_INCREMENT comment '借款表Id',
    loanContractId       int(11) NOT NULL comment '房东贷款申请id',
    landlordId           int(11) NOT NULL comment '房东Id(冗余方便查询)',
-   loanChanel           int(11) NOT NULL comment '资方渠道id',
+   loanChannel           int(11) NOT NULL comment '资方渠道id',
    credits              decimal(12,2) NOT NULL  DEFAULT 0 comment '信用额',
    shortestTerm         int(11) NOT NULL  DEFAULT 3 comment '最短蘑菇宝租期（3-12）',
    feeRate              int(11)  comment '服务费费率',
    canLoan              int(11) NOT NULL  DEFAULT  1 comment '是否可以贷款 0.不可以；1.可以',
    oneTime              int(11) NOT NULL DEFAULT  1 comment '是否一次性付款 0.不可以;1.可以',
-   status               int(11) comment '借款单状态(1:待审 2:终审通过 3:终审未通过 4:一审通过 5:一审未通过)',
+   `status`               int(11) comment '借款单状态(1:待审 2:终审通过 3:终审未通过 4:一审通过 5:一审未通过)',
    picGroupId1          int(11)  comment '图片组id1 一审对应附件',
    picGroupId2          int(11)  comment '图片组id2  二审对应附件',
    answerPaperId1 int(11) comment '答卷1(房东资料答卷)',
@@ -161,6 +161,76 @@ create table comm_discount
 	updateTime           datetime comment '更新时间',
 	valid                tinyint(1) comment '状态(1:有效果 0:逻辑删除)'
 ) ENGINE = innodb DEFAULT CHARSET=utf8 comment '优惠表';
+
+/*贷款参数初始化 extra1 代表资方渠道id extra2 代表城市   keyName=groupName_extra1_extra2 */
+
+#还款提醒配置
+INSERT INTO comm_sysconfig
+(
+  `keyName`,  `val`,  `groupName`,  `name`,  `remark`,  `extra1`,  `extra2`
+)
+VALUES (
+  'loan_replay_notify_3_0',  '3',  'loan_replay',  '蘑菇还款提醒',  '蘑菇还款提醒(提前val天开始提醒)',  '3',  '0'
+);
+#蘑菇还款日配置
+#上海mogo还款日配置 上海提前15天
+INSERT INTO comm_sysconfig
+(
+  `keyName`,  `val`,  `groupName`,  `name`,  `remark`,  `extra1`,  `extra2`
+)
+VALUES (
+  'loan_replay_mogo_3_289',  '15',  'loan_replay',  '上海蘑菇还款提醒',  '蘑菇还款提醒(提前val天开始提醒)',  '3',  '289'
+);
+
+#上海mogo还款日配置 北京提前30天
+INSERT INTO comm_sysconfig
+(
+  `keyName`,  `val`,  `groupName`,  `name`,  `remark`,  `extra1`,  `extra2`
+)
+VALUES (
+  'loan_replay_mogo_3_289',  '30',  'loan_replay',  '北京蘑菇还款提醒',  '蘑菇还款提醒(提前val天开始提醒)',  '3',  '131'
+);
+
+
+#上海mogo还款日配置 深圳提前？天 待确认
+INSERT INTO comm_sysconfig
+(
+  `keyName`,  `val`,  `groupName`,  `name`,  `remark`,  `extra1`,  `extra2`
+)
+VALUES (
+  'loan_replay_mogo_3_289',  '0',  'loan_replay',  '深圳蘑菇还款提醒',  '蘑菇还款提醒(提前val天开始提醒)',  '3',  '340'
+);
+
+#逾期天数配置 超过可能会触发强制退房
+INSERT INTO comm_sysconfig
+(
+  `keyName`,  `val`,  `groupName`,  `name`,  `remark`,  `extra1`,  `extra2`
+)
+VALUES (
+  'loan_replay_overdue_0_0',  '7',  'loan_replay',  '逾期还款天数',  '逾期还款天数 超过逾期还款天数可能会触发强制退房',  '0',  '0'
+);
+
+/*
+ 房东规模动态额度 上 下限 由页面接口调用进行配置
+ groupName:loan_credit_rangeAmount
+ key: loan_credit_rangeAmount_max_0_0 上限
+ key: loan_credit_rangeAmount_min_0_0 下限
+
+ 在线支付动态额度 上 下限 由页面接口调用进行配置
+ groupName:loan_credit_onlineTradingAmount
+ key: loan_credit_onlineTradingAmount_max_0_0 上限
+ key: loan_credit_onlineTradingAmount_min_0_0 下限
+*/
+
+
+
+
+
+
+
+
+
+
 
 
 
