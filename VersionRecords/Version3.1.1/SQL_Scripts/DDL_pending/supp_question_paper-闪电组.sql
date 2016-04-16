@@ -63,6 +63,8 @@ create table supp_question_paper_rel
 /*==============================================================*/
 /* Table: supp_answer_paper                                     */
 /*==============================================================*/
+drop table if exists supp_answer_paper;
+
 create table supp_answer_paper 
 (
    id                         int(11)       NOT NULL AUTO_INCREMENT COMMENT '主键',
@@ -72,7 +74,7 @@ create table supp_answer_paper
    createByType         int(2)          NOT NULL  COMMENT '创建人类型(参考字典表groupName=userType)',
    createTime            datetime      NOT NULL default current_timestamp COMMENT '创建时间',
    answeredBy           int(11)        NOT NULL COMMENT '答题人',
-   answeredByTime    int(2)          NOT NULL  COMMENT '答题人类型(参考字典表groupName=userType)',
+   answeredByType    int(2)          NOT NULL  COMMENT '答题人类型(参考字典表groupName=userType)',
    answerTime          datetime       NOT NULL default current_timestamp COMMENT '答题时间',
    PRIMARY KEY (id)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COMMENT='答卷表';
