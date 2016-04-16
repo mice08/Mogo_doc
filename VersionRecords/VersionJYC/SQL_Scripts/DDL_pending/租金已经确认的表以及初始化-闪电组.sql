@@ -66,6 +66,9 @@ ALTER TABLE loan_landlord_credit ADD COLUMN amountRate int(3) default 100 not nu
 /*房东信用额度 资方渠道id*/
 ALTER TABLE loan_landlord_credit ADD COLUMN loanChannel int(11) not null comment '资方渠道id' after amountRate;
 
+/*房东信用额度 新增房东额度配置hisId*/
+ALTER TABLE loan_landlord_credit ADD COLUMN sysConfHisId int(11) not null comment '系统参数配置(关于信用额度his配置)' after remark;
+
 
 /*
  信用额度his
