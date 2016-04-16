@@ -61,10 +61,11 @@ create table loan_landlord_contract_his
 ALTER TABLE loan_landlord_credit ADD COLUMN  theoryAmount decimal(12,2) default 0 not null comment '房东动态理论额度总额' after landlordId ;
 
 /*房东信用额度  房东额度系数(百分比) 1-100之间整数*/
-ALTER TABLE loan_landlord_credit ADD COLUMN tamountRate int(3) default 100 not null comment '房东额度系数(百分比) 1-100之间整数' after theoryAmount;
+ALTER TABLE loan_landlord_credit ADD COLUMN amountRate int(3) default 100 not null comment '房东额度系数(百分比) 1-100之间整数' after theoryAmount;
 
 /*房东信用额度 资方渠道id*/
-ALTER TABLE loan_landlord_credit ADD COLUMN loanChannel int(11) not null comment '资方渠道id' after tamountRate;
+ALTER TABLE loan_landlord_credit ADD COLUMN loanChannel int(11) not null comment '资方渠道id' after amountRate;
+
 
 /*
  信用额度his
