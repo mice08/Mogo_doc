@@ -26,7 +26,7 @@ ALTER  TABLE loan_landlord_contract ADD COLUMN remark2 varchar(200) NULL  commen
 ALTER TABLE loan_landlord_contract  CHANGE remark remark VARCHAR(200) NULL  COMMENT '一审备注';
 
 /*房东贷款申请 改status的comment为借款单状态(1:待一审 2:审核通过 3:审核未通过 4:一审通过 5:一审未通过)*/
-ALTER TABLE loan_landlord_contract  CHANGE `status` `status` int(11) NULL  COMMENT '借款单状态(1:待一审 2:审核通过 3:审核未通过 4:一审通过 5:一审未通过)';
+ALTER TABLE loan_landlord_contract  CHANGE `status` `status` int(11) NULL  COMMENT '借款单状态(1:待审核(对于聚有财待一审) 2:审核通过 3:审核未通过 4:一审通过 5:一审未通过)';
 
 
 /*房东贷款申请his*/
@@ -77,24 +77,9 @@ create table loan_landlord_credit_his
    rangeAmount          decimal(12,2) comment '规模动态额度',
    roomCount            int(11) default 0 not null comment '房东房间数',
 	 loanChannel					int(11) not NULL comment '资方渠道id',
-   monthRentAmount      decimal(12,2) default 0 not null comment '房子月租金金额',
-   rangeRate1           decimal(12,2) default 0 not null comment '房东规模系数1',
-   rangeRate2           decimal(12,2) default 0 not null comment '房东规模系数2',
    onlineTradingAmount  decimal(12,2) default 0 not null comment '线上交易动态额度总额',
-   onlineRentAmount     decimal(12,2) default 0 not null comment '线上支付租金总额',
-   onlineRate1          decimal(12,2) default 0 not null comment '线上系数1',
-   onlineRate2          decimal(12,2) default 0 not null comment '线上系数2',
-   customBillCount      int(11) default 0 not null comment '自定义账单次数',
    deductionAmount      decimal(12,2) default 0 not null comment '额度扣减总额',
-   deductionRate1       decimal(12,2) default 1 not null comment '扣减系数1',
-   deductionRate2       decimal(12,2) default 1 not null comment '扣减系数1',
    restoreAmount        decimal(12,2) default 0 not null comment '额度恢复总额',
-   renterRepayAmount    decimal(12,2) default 0 not null comment '租客还款金额',
-   renterRepayRate1     decimal(12,2) default 1 not null comment '租客还款系数1',
-   renterRepayRate2     decimal(12,2) default 1 not null comment '租客还款系数2',
-   lanlordBuyBackAmount decimal(12,2) default 0 not null comment  '房东买回金额',
-   lanlordBuyBackRate1  decimal(12,2) default 1 not null comment  '房东买回系数1',
-   lanlordBuyBackRate2  decimal(12,2) default 1 not null comment  '房东买回系数2',
    theoryAmount         decimal(12,2) default 0 not null comment  '房东动态理论额度总额',
    amountRate           int(3)  default 100 not null comment '房东额度系数(百分比) 1-100之间整数',
    credits              decimal(12,2) default 0 not null comment '信用额',
@@ -106,7 +91,8 @@ create table loan_landlord_credit_his
    createByType         int(11) comment '创建人类型(参考字典表组名:userType)',
    createTime           DATETIME NULL comment '创建时间',
    operType             TINYINT(4) COMMENT '操作类型(1:新增 2:修改 3:逻辑删除)',
-   comments             varchar(200) COMMENT '备注'
+   comments             varchar(200) COMMENT '备注',
+   sysConfHisId         INT(11)  COMMENT  '系统参数配置(关于信用额度his配置)'
 )ENGINE=INNODB DEFAULT CHARSET=utf8  COMMENT '信用额度his';
 
 /*优惠item*/
