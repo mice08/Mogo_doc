@@ -18,4 +18,4 @@ CREATE TABLE IF NOT EXISTS `comm_bank` (
     updateByType         INT(11) COMMENT '更新人类型(参考字典表组名:userType)',
     updateTime           DATETIME COMMENT '更新时间',
    PRIMARY KEY (`id`))
-  ENGINE=InnoDB COMMENT='银行卡信息表';
+  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='银行卡信息表';
