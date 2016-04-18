@@ -2,11 +2,11 @@
 USE mogoroomdb;
 
 /*联系人*/
-INSERT INTO user_usertype(userId, userType, soDoneCode, createBy, createTime) SELECT id, 1, id+900000000, (SELECT ue.id FROM user_employee ue WHERE ue.num=91323), NOW() FROM user_info WHERE id >= 4000000 AND phoneExt IS NOT NULL AND phoneExt != 0;
-INSERT INTO user_usertype_his(userId, userType, soDoneCode, createBy, createTime) SELECT id, 1, id+900000000, (SELECT ue.id FROM user_employee ue WHERE ue.num=91323), NOW() FROM user_info WHERE id >= 4000000 AND phoneExt IS NOT NULL AND phoneExt != 0;
+INSERT INTO user_usertype(userId, userType, soDoneCode, createBy, createTime) SELECT id, 1, id+900000000, 1004, NOW() FROM user_info WHERE id >= 4000000 AND phoneExt IS NOT NULL AND phoneExt != 0;
+INSERT INTO user_usertype_his(userId, userType, soDoneCode, createBy, createTime) SELECT id, 1, id+900000000, 1004, NOW() FROM user_info WHERE id >= 4000000 AND phoneExt IS NOT NULL AND phoneExt != 0;
 /*业主*/
-INSERT INTO user_usertype(userId, userType, soDoneCode, createBy, createTime) SELECT id, 8, id+900000000, (SELECT ue.id FROM user_employee ue WHERE ue.num=91323), NOW() FROM user_info WHERE id >= 4000000 AND id IN (SELECT host_id FROM host_flats_relation);
-INSERT INTO user_usertype_his(userId, userType, soDoneCode, createBy, createTime) SELECT id, 8, id+900000000, (SELECT ue.id FROM user_employee ue WHERE ue.num=91323), NOW() FROM user_info WHERE id >= 4000000 AND id IN (SELECT host_id FROM host_flats_relation);
+INSERT INTO user_usertype(userId, userType, soDoneCode, createBy, createTime) SELECT id, 8, id+900000000, 1004, NOW() FROM user_info WHERE id >= 4000000 AND id IN (SELECT host_id FROM host_flats_relation);
+INSERT INTO user_usertype_his(userId, userType, soDoneCode, createBy, createTime) SELECT id, 8, id+900000000, 1004, NOW() FROM user_info WHERE id >= 4000000 AND id IN (SELECT host_id FROM host_flats_relation);
 /*入住人*/
-INSERT INTO user_usertype(userId, userType, soDoneCode, createBy, createTime) SELECT id, 6, id+900000000, (SELECT ue.id FROM user_employee ue WHERE ue.num=91323), NOW() FROM user_info WHERE id >= 4000000 AND id IN (SELECT userId FROM cntr_salecontractuserrel WHERE userId IS NOT NULL);
-INSERT INTO user_usertype_his(userId, userType, soDoneCode, createBy, createTime) SELECT id, 6, id+900000000, (SELECT ue.id FROM user_employee ue WHERE ue.num=91323), NOW() FROM user_info WHERE id >= 4000000 AND id IN (SELECT userId FROM cntr_salecontractuserrel WHERE userId IS NOT NULL);
+INSERT INTO user_usertype(userId, userType, soDoneCode, createBy, createTime) SELECT id, 6, id+900000000, 1004, NOW() FROM user_info WHERE id >= 4000000 AND id IN (SELECT userId FROM cntr_salecontractuserrel WHERE userId IS NOT NULL);
+INSERT INTO user_usertype_his(userId, userType, soDoneCode, createBy, createTime) SELECT id, 6, id+900000000, 1004, NOW() FROM user_info WHERE id >= 4000000 AND id IN (SELECT userId FROM cntr_salecontractuserrel WHERE userId IS NOT NULL);
