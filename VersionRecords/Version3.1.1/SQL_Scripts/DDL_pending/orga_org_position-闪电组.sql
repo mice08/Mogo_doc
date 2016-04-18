@@ -10,7 +10,7 @@ create table orga_org
 (
     id                   int(11) not null auto_increment comment '组织表id',
     parentId             int(11) comment '上级组织id',
-    thirdId              int(11) comment '上级组织id',
+    thirdId              int(20) comment '第三方组织id',
     orgName              varchar(50) not null comment '组织名称',
     shortName            varchar(50) comment '组织简称',
     orgCode              varchar(10) not null comment '组织编码',
