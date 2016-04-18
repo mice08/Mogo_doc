@@ -1,5 +1,5 @@
 /*房东贷款申请 新增贷款渠道id*/
-ALTER  TABLE loan_landlord_contract ADD COLUMN loanChannel INT(11) null comment '资方渠道id' after landlordId;
+ALTER  TABLE loan_landlord_contract ADD COLUMN loanChannel INT(11) null comment '贷款来源 参考字典表 loan_channel(1:拉卡拉 2:蘑菇 3:聚有财)' after landlordId;
 
 /*房东贷款申请 新增一审图片上传*/
 ALTER  TABLE loan_landlord_contract ADD COLUMN picGroupId1 INT(11) NULL  comment '图片组id1(一审对应的图片附件)' after `status`;
@@ -36,7 +36,7 @@ create table loan_landlord_contract_his
    id                   int(11) PRIMARY KEY AUTO_INCREMENT comment '借款表Id',
    loanContractId       int(11) NOT NULL comment '房东贷款申请id',
    landlordId           int(11) NOT NULL comment '房东Id(冗余方便查询)',
-   loanChannel          int(11) NOT NULL comment '资方渠道id',
+   loanChannel          int(11) NOT NULL comment '贷款来源 参考字典表 loan_channel(1:拉卡拉 2:蘑菇 3:聚有财)',
    credits              decimal(12,2) NOT NULL  DEFAULT 0 comment '信用额',
    shortestTerm         int(11) NOT NULL  DEFAULT 3 comment '最短蘑菇宝租期（3-12）',
    feeRate              int(11) null comment '服务费费率',
@@ -64,7 +64,7 @@ ALTER TABLE loan_landlord_credit ADD COLUMN theoryAmount decimal(12,2) default 0
 ALTER TABLE loan_landlord_credit ADD COLUMN amountRate int(3) default 100 not null comment '房东额度系数(百分比)，1-100之间整数' after theoryAmount;
 
 /*房东信用额度 资方渠道id*/
-ALTER TABLE loan_landlord_credit ADD COLUMN loanChannel int(11) not null comment '资方渠道id' after amountRate;
+ALTER TABLE loan_landlord_credit ADD COLUMN loanChannel int(11) not null comment '贷款来源 参考字典表 loan_channel(1:拉卡拉 2:蘑菇 3:聚有财)' after amountRate;
 
 /*房东信用额度 新增房东额度配置hisId*/
 ALTER TABLE loan_landlord_credit ADD COLUMN sysConfHisId int(11) not null comment '系统参数配置(关于信用额度his配置)' after remark;
@@ -80,7 +80,7 @@ create table loan_landlord_credit_his
    loanCreditId         int(11) comment '房东信用额度id',
    rangeAmount          decimal(12,2) comment '规模动态额度',
    roomCount            int(11) default 0 not null comment '房东房间数',
-   loanChannel		int(11) not NULL comment '资方渠道id',
+   loanChannel		int(11) not NULL comment '贷款来源 参考字典表 loan_channel(1:拉卡拉 2:蘑菇 3:聚有财)',
    onlineTradingAmount  decimal(12,2) default 0 not null comment '线上交易动态额度总额',
    deductionAmount      decimal(12,2) default 0 not null comment '额度扣减总额',
    restoreAmount        decimal(12,2) default 0 not null comment '额度恢复总额',
