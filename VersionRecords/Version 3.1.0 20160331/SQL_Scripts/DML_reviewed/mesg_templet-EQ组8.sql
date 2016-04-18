@@ -58,7 +58,7 @@ VALUES
 		NULL
 	);
 UPDATE mesg_subtemplet t
-SET t.templetContent = '[预定成功]恭喜！您预定${communityName}小区房源的订单已通过审核，好房子永远属于有所准备的人，请尽快准备签约资料在${signedEndTime}之前完成签约。【蘑菇租房-让我们住得更好】',
+SET t.templetContent = '[预定成功]恭喜！您预定${communityName}小区房源的订单已通过审核，好房子永远属于有所准备的人，请尽快准备签约资料在${signedEndTime}之前完成签约。',
  t.templetType = '3'
 WHERE
 	t.templetId = (
