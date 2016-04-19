@@ -10,7 +10,7 @@ create table orga_org
 (
     id                   int(11) not null auto_increment comment '组织表id',
     parentId             int(11) comment '上级组织id',
-    thirdOrgId           int(20) comment '第三方系统的关联组织id',
+    thirdId              int(20) comment '第三方系统的关联组织id',
     orgName              varchar(50) not null comment '组织名称',
     shortName            varchar(50) comment '组织简称',
     orgCode              varchar(10) not null comment '组织编码',
@@ -40,7 +40,6 @@ create table orga_org_position
     userId               int(11) not null comment '用户id',
     orgId                int(11) not null comment '组织id',
     positionId           int(11) not null comment '岗位ID',
-    thirdUserId          int(20) comment '第三方系统的关联用户id',
     label                varchar(20) null comment '标签',
     status               tinyint(1) comment '状态(0:无效 1:有效)',
     createBy             int(11) comment '创建人ID',
