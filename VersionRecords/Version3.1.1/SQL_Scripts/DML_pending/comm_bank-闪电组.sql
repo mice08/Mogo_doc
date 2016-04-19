@@ -1,902 +1,151 @@
-INSERT INTO comm_bank (NAME, shortName, CODE, STATUS) 
-VALUES
-  (
-    '¹¤ÉÌÒøĞĞ',
-    '¹¤ÉÌÒøĞĞ',
-    102100099996,
-    1
-  ),
-  (
-    'Å©ÒµÒøĞĞ',
-    'Å©ÒµÒøĞĞ',
-    103100000026,
-    1
-  ),
-  (
-    'ÖĞ¹úÒøĞĞ',
-    'ÖĞ¹úÒøĞĞ',
-    104100000004,
-    1
-  ),
-  (
-    '½¨ÉèÒøĞĞ',
-    '½¨ÉèÒøĞĞ',
-    105100000017,
-    1
-  ),
-  (
-    '½»Í¨ÒøĞĞ',
-    '½»Í¨ÒøĞĞ',
-    301290000007,
-    1
-  ),
-  (
-    'ÖĞĞÅÒøĞĞ',
-    'ÖĞĞÅÒøĞĞ',
-    302100011000,
-    1
-  ),
-  (
-    '¹â´óÒøĞĞ',
-    '¹â´óÒøĞĞ',
-    303100000006,
-    1
-  ),
-  (
-    '»ªÏÄÒøĞĞ',
-    '»ªÏÄÒøĞĞ',
-    304100040000,
-    1
-  ),
-  (
-    'ÃñÉúÒøĞĞ',
-    'ÃñÉúÒøĞĞ',
-    305100000013,
-    1
-  ),
-  (
-    '¹ã·¢ÒøĞĞ',
-    '¹ã·¢ÒøĞĞ',
-    306581000003,
-    1
-  ),
-  (
-    'Æ½°²ÒøĞĞ',
-    'Æ½°²ÒøĞĞ',
-    307584007998,
-    1
-  ),
-  (
-    'ÕĞÉÌÒøĞĞ',
-    'ÕĞÉÌÒøĞĞ',
-    308584000013,
-    1
-  ),
-  (
-    'ĞËÒµÒøĞĞ',
-    'ĞËÒµÒøĞĞ',
-    309391000011,
-    1
-  ),
-  (
-    'ÆÖ·¢ÒøĞĞ',
-    'ÆÖ·¢ÒøĞĞ',
-    310290000013,
-    1
-  ),
-  (
-    '±±¾©ÒøĞĞ',
-    '±±¾©ÒøĞĞ',
-    313100000013,
-    1
-  ),
-  (
-    'Ìì½òÒøĞĞ',
-    'Ìì½òÒøĞĞ',
-    313110000017,
-    1
-  ),
-  (
-    'ºÓ±±ÒøĞĞ',
-    'ºÓ±±ÒøĞĞ',
-    313121006888,
-    1
-  ),
-  (
-    'ºªµ¦ÊĞÉÌÒµÒøĞĞ',
-    'ºªµ¦ÊĞÉÌÒµÒøĞĞ',
-    313127000013,
-    1
-  ),
-  (
-    'ĞÏÌ¨ÒøĞĞ',
-    'ĞÏÌ¨ÒøĞĞ',
-    313131000016,
-    1
-  ),
-  (
-    'ÕÅ¼Ò¿ÚÊĞÉÌÒµÒøĞĞ',
-    'ÕÅ¼Ò¿ÚÊĞÉÌÒµÒøĞĞ',
-    313138000019,
-    1
-  ),
-  (
-    '³ĞµÂÒøĞĞ',
-    '³ĞµÂÒøĞĞ',
-    313141052422,
-    1
-  ),
-  (
-    '²×ÖİÒøĞĞ',
-    '²×ÖİÒøĞĞ',
-    313143005157,
-    1
-  ),
-  (
-    'ÀÈ·»ÒøĞĞ',
-    'ÀÈ·»ÒøĞĞ',
-    313146000019,
-    1
-  ),
-  (
-    '½úÉÌÒøĞĞÍøÉÏÒøĞĞ',
-    '½úÉÌÒøĞĞÍøÉÏÒøĞĞ',
-    313161000017,
-    1
-  ),
-  (
-    '½ú³ÇÒøĞĞ',
-    '½ú³ÇÒøĞĞ',
-    313168000003,
-    1
-  ),
-  (
-    'ÄÚÃÉÒøĞĞ',
-    'ÄÚÃÉÒøĞĞ',
-    313191000011,
-    1
-  ),
-  (
-    '°üÉÌÒøĞĞ',
-    '°üÉÌÒøĞĞ',
-    313192000013,
-    1
-  ),
-  (
-    '¶õ¶û¶àË¹ÒøĞĞ',
-    '¶õ¶û¶àË¹ÒøĞĞ',
-    313205057830,
-    1
-  ),
-  (
-    '´óÁ¬ÒøĞĞ',
-    '´óÁ¬ÒøĞĞ',
-    313222080002,
-    1
-  ),
-  (
-    '°°É½ÊĞÉÌÒµÒøĞĞ',
-    '°°É½ÊĞÉÌÒµÒøĞĞ',
-    313223007007,
-    1
-  ),
-  (
-    '½õÖİÒøĞĞ',
-    '½õÖİÒøĞĞ',
-    313227000012,
-    1
-  ),
-  (
-    'ºùÂ«µºÒøĞĞ',
-    'ºùÂ«µºÒøĞĞ',
-    313227600018,
-    1
-  ),
-  (
-    'Óª¿ÚÒøĞĞ',
-    'Óª¿ÚÒøĞĞ',
-    313228000276,
-    1
-  ),
-  (
-    '¸·ĞÂÒøĞĞ',
-    '¸·ĞÂÒøĞĞ',
-    313229000008,
-    1
-  ),
-  (
-    '¼ªÁÖÒøĞĞ',
-    '¼ªÁÖÒøĞĞ',
-    313241066661,
-    1
-  ),
-  (
-    '¹ş¶û±õÒøĞĞ',
-    '¹ş¶û±õÒøĞĞ',
-    313261000018,
-    1
-  ),
-  (
-    'Áú½­ÒøĞĞ',
-    'Áú½­ÒøĞĞ',
-    313261099913,
-    1
-  ),
-  (
-    'ÉÏº£ÒøĞĞ',
-    'ÉÏº£ÒøĞĞ',
-    313290000017,
-    1
-  ),
-  (
-    'ÄÏ¾©ÒøĞĞ',
-    'ÄÏ¾©ÒøĞĞ',
-    313301008887,
-    1
-  ),
-  (
-    '½­ËÕÒøĞĞ',
-    '½­ËÕÒøĞĞ',
-    313301099999,
-    1
-  ),
-  (
-    'ËÕÖİÒøĞĞ',
-    'ËÕÖİÒøĞĞ',
-    313305066661,
-    1
-  ),
-  (
-    '½­ËÕ³¤½­ÉÌĞĞ',
-    '½­ËÕ³¤½­ÉÌĞĞ',
-    313312300018,
-    1
-  ),
-  (
-    'º¼ÖİÒøĞĞ',
-    'º¼ÖİÒøĞĞ',
-    313331000014,
-    1
-  ),
-  (
-    'Äş²¨ÒøĞĞ',
-    'Äş²¨ÒøĞĞ',
-    313332082914,
-    1
-  ),
-  (
-    'ÎÂÖİÒøĞĞ',
-    'ÎÂÖİÒøĞĞ',
-    313333007331,
-    1
-  ),
-  (
-    '¼ÎĞËÒøĞĞ',
-    '¼ÎĞËÒøĞĞ',
-    313335081005,
-    1
-  ),
-  (
-    'ºşÖİÒøĞĞ',
-    'ºşÖİÒøĞĞ',
-    313336071575,
-    1
-  ),
-  (
-    'ÉÜĞËÒøĞĞ',
-    'ÉÜĞËÒøĞĞ',
-    313337009004,
-    1
-  ),
-  (
-    'Õã½­³íÖİÉÌÒµÒøĞĞ',
-    'Õã½­³íÖİÉÌÒµÒøĞĞ',
-    313338707013,
-    1
-  ),
-  (
-    'Ì¨ÖİÒøĞĞ',
-    'Ì¨ÖİÒøĞĞ',
-    313345001665,
-    1
-  ),
-  (
-    'Õã½­Ì©Â¡ÉÌÒµÒøĞĞ',
-    'Õã½­Ì©Â¡ÉÌÒµÒøĞĞ',
-    313345010019,
-    1
-  ),
-  (
-    'Õã½­ÃñÌ©ÉÌÒµÒøĞĞ',
-    'Õã½­ÃñÌ©ÉÌÒµÒøĞĞ',
-    313345400010,
-    1
-  ),
-  (
-    '¸£½¨º£Ï¿ÒøĞĞ',
-    '¸£½¨º£Ï¿ÒøĞĞ',
-    313391080007,
-    1
-  ),
-  (
-    'ÏÃÃÅÒøĞĞ',
-    'ÏÃÃÅÒøĞĞ',
-    313393080005,
-    1
-  ),
-  (
-    'ÈªÖİÒøĞĞ',
-    'ÈªÖİÒøĞĞ',
-    313397075189,
-    1
-  ),
-  (
-    'ÄÏ²ıÒøĞĞ',
-    'ÄÏ²ıÒøĞĞ',
-    313421087506,
-    1
-  ),
-  (
-    '¾Å½­ÒøĞĞ',
-    '¾Å½­ÒøĞĞ',
-    313424076706,
-    1
-  ),
-  (
-    '¸ÓÖİÒøĞĞ',
-    '¸ÓÖİÒøĞĞ',
-    313428076517,
-    1
-  ),
-  (
-    'ÉÏÈÄÒøĞĞ',
-    'ÉÏÈÄÒøĞĞ',
-    313433076801,
-    1
-  ),
-  (
-    'ÆëÂ³ÒøĞĞ',
-    'ÆëÂ³ÒøĞĞ',
-    313451000019,
-    1
-  ),
-  (
-    'ÇàµºÒøĞĞ',
-    'ÇàµºÒøĞĞ',
-    313452060150,
-    1
-  ),
-  (
-    'ÆëÉÌÒøĞĞ',
-    'ÆëÉÌÒøĞĞ',
-    313453001017,
-    1
-  ),
-  (
-    'Ôæ×¯ÒøĞĞ',
-    'Ôæ×¯ÒøĞĞ',
-    313454000016,
-    1
-  ),
-  (
-    '¶«ÓªÊĞÉÌÒµÒøĞĞ',
-    '¶«ÓªÊĞÉÌÒµÒøĞĞ',
-    313455000018,
-    1
-  ),
-  (
-    'ÑÌÌ¨ÒøĞĞ',
-    'ÑÌÌ¨ÒøĞĞ',
-    313456000108,
-    1
-  ),
-  (
-    'Î«·»ÒøĞĞ',
-    'Î«·»ÒøĞĞ',
-    313458000013,
-    1
-  ),
-  (
-    '¼ÃÄşÒøĞĞ',
-    '¼ÃÄşÒøĞĞ',
-    313461000012,
-    1
-  ),
-  (
-    'Ì©°²ÊĞÉÌÒµÒøĞĞ',
-    'Ì©°²ÊĞÉÌÒµÒøĞĞ',
-    313463000993,
-    1
-  ),
-  (
-    'À³ÉÌÒøĞĞ',
-    'À³ÉÌÒøĞĞ',
-    313463400019,
-    1
-  ),
-  (
-    'Íşº£ÊĞÉÌÒµÒøĞĞ',
-    'Íşº£ÊĞÉÌÒµÒøĞĞ',
-    313465000010,
-    1
-  ),
-  (
-    'µÂÖİÒøĞĞ',
-    'µÂÖİÒøĞĞ',
-    313468000015,
-    1
-  ),
-  (
-    'ÁÙÉÌÒøĞĞ',
-    'ÁÙÉÌÒøĞĞ',
-    313473070018,
-    1
-  ),
-  (
-    'ÈÕÕÕÒøĞĞ',
-    'ÈÕÕÕÒøĞĞ',
-    313473200011,
-    1
-  ),
-  (
-    'Ö£ÖİÒøĞĞ',
-    'Ö£ÖİÒøĞĞ',
-    313491000232,
-    1
-  ),
-  (
-    '¿ª·âÊĞÉÌÒµÒøĞĞ',
-    '¿ª·âÊĞÉÌÒµÒøĞĞ',
-    313492070005,
-    1
-  ),
-  (
-    'ÂåÑôÒøĞĞ',
-    'ÂåÑôÒøĞĞ',
-    313493080539,
-    1
-  ),
-  (
-    'äğºÓÊĞÉÌÒµÒøĞĞ',
-    'äğºÓÊĞÉÌÒµÒøĞĞ',
-    313504000010,
-    1
-  ),
-  (
-    'ÉÌÇğÊĞÉÌÒµÒøĞĞ',
-    'ÉÌÇğÊĞÉÌÒµÒøĞĞ',
-    313506082510,
-    1
-  ),
-  (
-    'ÄÏÑôÒøĞĞ',
-    'ÄÏÑôÒøĞĞ',
-    313513080408,
-    1
-  ),
-  (
-    'ºº¿ÚÒøĞĞ',
-    'ºº¿ÚÒøĞĞ',
-    313521000011,
-    1
-  ),
-  (
-    '³¤É³ÒøĞĞ',
-    '³¤É³ÒøĞĞ',
-    313551088886,
-    1
-  ),
-  (
-    '¹ãÖİÒøĞĞ',
-    '¹ãÖİÒøĞĞ',
-    313581003284,
-    1
-  ),
-  (
-    'Öéº£»ªÈóÒøĞĞ',
-    'Öéº£»ªÈóÒøĞĞ',
-    313585000990,
-    1
-  ),
-  (
-    '¹ã¶«»ªĞËÒøĞĞ',
-    '¹ã¶«»ªĞËÒøĞĞ',
-    313586000006,
-    1
-  ),
-  (
-    '¹ã¶«ÄÏÔÁÒøĞĞ',
-    '¹ã¶«ÄÏÔÁÒøĞĞ',
-    313591001001,
-    1
-  ),
-  (
-    '¶«İ¸ÒøĞĞ',
-    '¶«İ¸ÒøĞĞ',
-    313602088017,
-    1
-  ),
-  (
-    '¹ãÎ÷±±²¿ÍåÒøĞĞ',
-    '¹ãÎ÷±±²¿ÍåÒøĞĞ',
-    313611001018,
-    1
-  ),
-  (
-    'ÁøÖİÒøĞĞ',
-    'ÁøÖİÒøĞĞ',
-    313614000012,
-    1
-  ),
-  (
-    '¹ğÁÖÒøĞĞ',
-    '¹ğÁÖÒøĞĞ',
-    313617000018,
-    1
-  ),
-  (
-    '³É¶¼ÒøĞĞ',
-    '³É¶¼ÒøĞĞ',
-    313651099999,
-    1
-  ),
-  (
-    'ÖØÇìÒøĞĞ',
-    'ÖØÇìÒøĞĞ',
-    313653000013,
-    1
-  ),
-  (
-    '×Ô¹±ÊĞÉÌÒµÒøĞĞ',
-    '×Ô¹±ÊĞÉÌÒµÒøĞĞ',
-    313655091983,
-    1
-  ),
-  (
-    'ÅÊÖ¦»¨ÊĞÉÌÒµÒøĞĞ',
-    'ÅÊÖ¦»¨ÊĞÉÌÒµÒøĞĞ',
-    313656000019,
-    1
-  ),
-  (
-    'µÂÑôÒøĞĞ',
-    'µÂÑôÒøĞĞ',
-    313658000014,
-    1
-  ),
-  (
-    'ÃàÑôÊĞÉÌÒµÒøĞĞ',
-    'ÃàÑôÊĞÉÌÒµÒøĞĞ',
-    313659000016,
-    1
-  ),
-  (
-    'ÄÏ³äÊĞÉÌÒµÒøĞĞ',
-    'ÄÏ³äÊĞÉÌÒµÒøĞĞ',
-    313673093259,
-    1
-  ),
-  (
-    '¹óÑôÒøĞĞ',
-    '¹óÑôÒøĞĞ',
-    313701098010,
-    1
-  ),
-  (
-    '¸»µáÒøĞĞ',
-    '¸»µáÒøĞĞ',
-    313731010015,
-    1
-  ),
-  (
-    'Î÷°²ÒøĞĞ',
-    'Î÷°²ÒøĞĞ',
-    313791000015,
-    1
-  ),
-  (
-    '³¤°²ÒøĞĞ',
-    '³¤°²ÒøĞĞ',
-    313791030003,
-    1
-  ),
-  (
-    'À¼ÖİÒøĞĞ',
-    'À¼ÖİÒøĞĞ',
-    313821001016,
-    1
-  ),
-  (
-    'Çàº£ÒøĞĞ',
-    'Çàº£ÒøĞĞ',
-    313851000018,
-    1
-  ),
-  (
-    'ÄşÏÄÒøĞĞ',
-    'ÄşÏÄÒøĞĞ',
-    313871000007,
-    1
-  ),
-  (
-    'ÎÚÂ³Ä¾ÆëÊĞÉÌÒµÒøĞĞ',
-    'ÎÚÂ³Ä¾ÆëÊĞÉÌÒµÒøĞĞ',
-    313881000002,
-    1
-  ),
-  (
-    'À¥ÂØÒøĞĞ',
-    'À¥ÂØÒøĞĞ',
-    313882000012,
-    1
-  ),
-  (
-    '½­ÒõÅ©ÉÌÒøĞĞ',
-    '½­ÒõÅ©ÉÌÒøĞĞ',
-    314302200018,
-    1
-  ),
-  (
-    'Ì«²ÖÅ©ÉÌĞĞ',
-    'Ì«²ÖÅ©ÉÌĞĞ',
-    314305106644,
-    1
-  ),
-  (
-    'À¥É½Å©´åÉÌÒµÒøĞĞ',
-    'À¥É½Å©´åÉÌÒµÒøĞĞ',
-    314305206650,
-    1
-  ),
-  (
-    'Îâ½­Å©´åÉÌÒµÒøĞĞ',
-    'Îâ½­Å©´åÉÌÒµÒøĞĞ',
-    314305400015,
-    1
-  ),
-  (
-    '³£ÊìÅ©´åÉÌÒµÒøĞĞ',
-    '³£ÊìÅ©´åÉÌÒµÒøĞĞ',
-    314305506621,
-    1
-  ),
-  (
-    'ÕÅ¼Ò¸ÛÅ©´åÉÌÒµÒøĞĞ',
-    'ÕÅ¼Ò¸ÛÅ©´åÉÌÒµÒøĞĞ',
-    314305670002,
-    1
-  ),
-  (
-    '¹ãÖİÅ©´åÉÌÒµÒøĞĞ',
-    '¹ãÖİÅ©´åÉÌÒµÒøĞĞ',
-    314581000011,
-    1
-  ),
-  (
-    'Ë³µÂÅ©´åÉÌÒµÒøĞĞ',
-    'Ë³µÂÅ©´åÉÌÒµÒøĞĞ',
-    314588000016,
-    1
-  ),
-  (
-    'º£¿ÚÁªºÏÅ©´åÉÌÒµÒøĞĞ',
-    'º£¿ÚÁªºÏÅ©´åÉÌÒµÒøĞĞ',
-    314641000014,
-    1
-  ),
-  (
-    'ÖØÇìÅ©´åÉÌÒµÒøĞĞ',
-    'ÖØÇìÅ©´åÉÌÒµÒøĞĞ',
-    314653000011,
-    1
-  ),
-  (
-    'ºã·áÒøĞĞ',
-    'ºã·áÒøĞĞ',
-    315456000105,
-    1
-  ),
-  (
-    'ÕãÉÌÒøĞĞ',
-    'ÕãÉÌÒøĞĞ',
-    316331000018,
-    1
-  ),
-  (
-    'Ìì½òÅ©ÉÌÒøĞĞ',
-    'Ìì½òÅ©ÉÌÒøĞĞ',
-    317110010019,
-    1
-  ),
-  (
-    '²³º£ÒøĞĞ',
-    '²³º£ÒøĞĞ',
-    318110000014,
-    1
-  ),
-  (
-    '»ÕÉÌÒøĞĞ',
-    '»ÕÉÌÒøĞĞ',
-    319361000013,
-    1
-  ),
-  (
-    '±±¾©Ë³ÒåÒø×ù´åÕòÒøĞĞ',
-    '±±¾©Ë³ÒåÒø×ù´åÕòÒøĞĞ',
-    320100010011,
-    1
-  ),
-  (
-    'Õã½­¾°ÄşÒø×ù´åÕòÒøĞĞ',
-    'Õã½­¾°ÄşÒø×ù´åÕòÒøĞĞ',
-    320343800019,
-    1
-  ),
-  (
-    'Õã½­ÈıÃÅÒø×ù´åÕòÒøĞĞ',
-    'Õã½­ÈıÃÅÒø×ù´åÕòÒøĞĞ',
-    320345790018,
-    1
-  ),
-  (
-    '½­Î÷¸ÓÖİÒø×ù´åÕòÒøĞĞ',
-    '½­Î÷¸ÓÖİÒø×ù´åÕòÒøĞĞ',
-    320428090311,
-    1
-  ),
-  (
-    'ÉîÛÚ¸£ÌïÒø×ù´åÕòÒøĞĞ',
-    'ÉîÛÚ¸£ÌïÒø×ù´åÕòÒøĞĞ',
-    320584002002,
-    1
-  ),
-  (
-    'ÖØÇìÓå±±Òø×ù´åÕòÒøĞĞ',
-    'ÖØÇìÓå±±Òø×ù´åÕòÒøĞĞ',
-    320653000104,
-    1
-  ),
-  (
-    'ÖØÇìÇ­½­Òø×ù´åÕòÒøĞĞ',
-    'ÖØÇìÇ­½­Òø×ù´åÕòÒøĞĞ',
-    320687000016,
-    1
-  ),
-  (
-    'ÉÏº£Å©ÉÌÒøĞĞ',
-    'ÉÏº£Å©ÉÌÒøĞĞ',
-    322290000011,
-    1
-  ),
-  (
-    '±±¾©Å©´åÉÌÒµÒøĞĞ',
-    '±±¾©Å©´åÉÌÒµÒøĞĞ',
-    402100000018,
-    1
-  ),
-  (
-    '¼ªÁÖÅ©´åĞÅÓÃÉç',
-    '¼ªÁÖÅ©´åĞÅÓÃÉç',
-    402241000015,
-    1
-  ),
-  (
-    '½­ËÕÊ¡Å©´åĞÅÓÃÉç',
-    '½­ËÕÊ¡Å©´åĞÅÓÃÉç',
-    402301099998,
-    1
-  ),
-  (
-    'Õã½­Ê¡Å©´åĞÅÓÃÉç',
-    'Õã½­Ê¡Å©´åĞÅÓÃÉç',
-    402331000007,
-    1
-  ),
-  (
-    'Û´ÖİÒøĞĞ',
-    'Û´ÖİÒøĞĞ',
-    402332010004,
-    1
-  ),
-  (
-    '°²»ÕÊ¡Å©´åĞÅÓÃÉç',
-    '°²»ÕÊ¡Å©´åĞÅÓÃÉç',
-    402361018886,
-    1
-  ),
-  (
-    '¸£½¨Ê¡Å©´åĞÅÓÃÉç',
-    '¸£½¨Ê¡Å©´åĞÅÓÃÉç',
-    402391000068,
-    1
-  ),
-  (
-    'É½¶«Ê¡Å©ÁªÉç',
-    'É½¶«Ê¡Å©ÁªÉç',
-    402451000010,
-    1
-  ),
-  (
-    'ºş±±Å©ĞÅ',
-    'ºş±±Å©ĞÅ',
-    402521000032,
-    1
-  ),
-  (
-    'ÉîÛÚÅ©ÉÌĞĞ',
-    'ÉîÛÚÅ©ÉÌĞĞ',
-    402584009991,
-    1
-  ),
-  (
-    '¶«İ¸Å©´åÉÌÒµÒøĞĞ',
-    '¶«İ¸Å©´åÉÌÒµÒøĞĞ',
-    402602000018,
-    1
-  ),
-  (
-    '¹ãÎ÷Å©´åĞÅÓÃÉç',
-    '¹ãÎ÷Å©´åĞÅÓÃÉç',
-    402611099974,
-    1
-  ),
-  (
-    'º£ÄÏÊ¡Å©´åĞÅÓÃÉç',
-    'º£ÄÏÊ¡Å©´åĞÅÓÃÉç',
-    402641000014,
-    1
-  ),
-  (
-    'ÔÆÄÏÊ¡Å©´åĞÅÓÃÉç',
-    'ÔÆÄÏÊ¡Å©´åĞÅÓÃÉç',
-    402731057238,
-    1
-  ),
-  (
-    '»ÆºÓÅ©´åÉÌÒµÒøĞĞ',
-    '»ÆºÓÅ©´åÉÌÒµÒøĞĞ',
-    402871099996,
-    1
-  ),
-  (
-    'ÖĞ¹úÓÊÕş´¢ĞîÒøĞĞ',
-    'ÖĞ¹úÓÊÕş´¢ĞîÒøĞĞ',
-    403100000004,
-    1
-  ),
-  (
-    '¶«ÑÇÒøĞĞ',
-    '¶«ÑÇÒøĞĞ',
-    502290000006,
-    1
-  ),
-  (
-    'ÓÑÀûÒøĞĞ',
-    'ÓÑÀûÒøĞĞ',
-    593100000020,
-    1
-  ),
-  (
-    'ĞÂº«ÒøĞĞÖĞ¹ú',
-    'ĞÂº«ÒøĞĞÖĞ¹ú',
-    595100000007,
-    1
-  ),
-  (
-    'ÆóÒµÒøĞĞ',
-    'ÆóÒµÒøĞĞ',
-    596110000013,
-    1
-  ),
-  (
-    'º«ÑÇÒøĞĞ',
-    'º«ÑÇÒøĞĞ',
-    597100000014,
-    1
-  ),
-  (
-    'ÖØÇìÈıÏ¿ÒøĞĞ',
-    'ÖØÇìÈıÏ¿ÒøĞĞ',
-    321667090019,
-    1
-  )
+ï»¿
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('301','ä¸­å›½å·¥å•†é“¶è¡Œ','å·¥å•†é“¶è¡Œ','ICBC','102100099996',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('302','ä¸­å›½å†œä¸šé“¶è¡Œ','å†œä¸šé“¶è¡Œ','ABC','103100000026',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('303','ä¸­å›½é“¶è¡Œ','ä¸­å›½é“¶è¡Œ','BOC','104100000004',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('304','ä¸­å›½å»ºè®¾é“¶è¡Œ','å»ºè®¾é“¶è¡Œ','CCB','105100000017',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('305','äº¤é€šé“¶è¡Œ','äº¤é€šé“¶è¡Œ','COMM','301290000007',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('306','ä¸­ä¿¡é“¶è¡Œ','ä¸­ä¿¡é“¶è¡Œ','CITIC','302100011000',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('307','ä¸­å›½å…‰å¤§é“¶è¡Œ','å…‰å¤§é“¶è¡Œ','CEB','303100000006',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('308','åå¤é“¶è¡Œ','åå¤é“¶è¡Œ','HXB','304100040000',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('309','æ°‘ç”Ÿé“¶è¡Œ','æ°‘ç”Ÿé“¶è¡Œ',NULL,'305100000013',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('310','å¹¿å‘é“¶è¡Œ','å¹¿å‘é“¶è¡Œ','GDB','306581000003',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('311','å¹³å®‰é“¶è¡Œ','å¹³å®‰é“¶è¡Œ','SZPAB','307584007998',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('312','æ‹›å•†é“¶è¡Œ','æ‹›å•†é“¶è¡Œ','CMB','308584000013',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('313','å…´ä¸šé“¶è¡Œ','å…´ä¸šé“¶è¡Œ','CIB','309391000011',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('314','æµ¦å‘é“¶è¡Œ','æµ¦å‘é“¶è¡Œ','SPDB','310290000013',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('315','åŒ—äº¬é“¶è¡Œ','åŒ—äº¬é“¶è¡Œ','BCCB','313100000013',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('316','å¤©æ´¥é“¶è¡Œ','å¤©æ´¥é“¶è¡Œ',NULL,'313110000017',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('317','æ²³åŒ—é“¶è¡Œ','æ²³åŒ—é“¶è¡Œ',NULL,'313121006888',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('318','é‚¯éƒ¸å¸‚å•†ä¸šé“¶è¡Œ','é‚¯éƒ¸å¸‚å•†ä¸šé“¶è¡Œ',NULL,'313127000013',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('319','é‚¢å°é“¶è¡Œ','é‚¢å°é“¶è¡Œ',NULL,'313131000016',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('320','å¼ å®¶å£å¸‚å•†ä¸šé“¶è¡Œ','å¼ å®¶å£å¸‚å•†ä¸šé“¶è¡Œ',NULL,'313138000019',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('321','æ‰¿å¾·é“¶è¡Œ','æ‰¿å¾·é“¶è¡Œ',NULL,'313141052422',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('322','æ²§å·é“¶è¡Œ','æ²§å·é“¶è¡Œ',NULL,'313143005157',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('323','å»ŠåŠé“¶è¡Œ','å»ŠåŠé“¶è¡Œ',NULL,'313146000019',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('324','æ™‹å•†é“¶è¡Œç½‘ä¸Šé“¶è¡Œ','æ™‹å•†é“¶è¡Œç½‘ä¸Šé“¶è¡Œ',NULL,'313161000017',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('325','æ™‹åŸé“¶è¡Œ','æ™‹åŸé“¶è¡Œ','SXJS','313168000003',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('326','å†…è’™é“¶è¡Œ','å†…è’™é“¶è¡Œ',NULL,'313191000011',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('327','åŒ…å•†é“¶è¡Œ','åŒ…å•†é“¶è¡Œ',NULL,'313192000013',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('328','é„‚å°”å¤šæ–¯é“¶è¡Œ','é„‚å°”å¤šæ–¯é“¶è¡Œ',NULL,'313205057830',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('329','å¤§è¿é“¶è¡Œ','å¤§è¿é“¶è¡Œ',NULL,'313222080002',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('330','éå±±å¸‚å•†ä¸šé“¶è¡Œ','éå±±å¸‚å•†ä¸šé“¶è¡Œ',NULL,'313223007007',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('331','é”¦å·é“¶è¡Œ','é”¦å·é“¶è¡Œ',NULL,'313227000012',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('332','è‘«èŠ¦å²›é“¶è¡Œ','è‘«èŠ¦å²›é“¶è¡Œ',NULL,'313227600018',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('333','è¥å£é“¶è¡Œ','è¥å£é“¶è¡Œ',NULL,'313228000276',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('334','é˜œæ–°é“¶è¡Œ','é˜œæ–°é“¶è¡Œ',NULL,'313229000008',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('335','å‰æ—é“¶è¡Œ','å‰æ—é“¶è¡Œ',NULL,'313241066661',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('336','å“ˆå°”æ»¨é“¶è¡Œ','å“ˆå°”æ»¨é“¶è¡Œ',NULL,'313261000018',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('337','é¾™æ±Ÿé“¶è¡Œ','é¾™æ±Ÿé“¶è¡Œ',NULL,'313261099913',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('338','ä¸Šæµ·é“¶è¡Œ','ä¸Šæµ·é“¶è¡Œ','BOS','313290000017',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('339','å—äº¬é“¶è¡Œ','å—äº¬é“¶è¡Œ','NJCB','313301008887',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('340','æ±Ÿè‹é“¶è¡Œ','æ±Ÿè‹é“¶è¡Œ',NULL,'313301099999',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('341','è‹å·é“¶è¡Œ','è‹å·é“¶è¡Œ',NULL,'313305066661',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('342','æ±Ÿè‹é•¿æ±Ÿå•†è¡Œ','æ±Ÿè‹é•¿æ±Ÿå•†è¡Œ',NULL,'313312300018',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('343','æ­å·é“¶è¡Œ','æ­å·é“¶è¡Œ','HCCB','313331000014',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('344','å®æ³¢é“¶è¡Œ','å®æ³¢é“¶è¡Œ','NBCB','313332082914',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('345','æ¸©å·é“¶è¡Œ','æ¸©å·é“¶è¡Œ','WZCB','313333007331',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('346','å˜‰å…´é“¶è¡Œ','å˜‰å…´é“¶è¡Œ',NULL,'313335081005',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('347','æ¹–å·é“¶è¡Œ','æ¹–å·é“¶è¡Œ',NULL,'313336071575',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('348','ç»å…´é“¶è¡Œ','ç»å…´é“¶è¡Œ',NULL,'313337009004',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('349','æµ™æ±Ÿç¨ å·å•†ä¸šé“¶è¡Œ','æµ™æ±Ÿç¨ å·å•†ä¸šé“¶è¡Œ','CZCB','313338707013',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('350','å°å·é“¶è¡Œ','å°å·é“¶è¡Œ',NULL,'313345001665',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('351','æµ™æ±Ÿæ³°éš†å•†ä¸šé“¶è¡Œ','æµ™æ±Ÿæ³°éš†å•†ä¸šé“¶è¡Œ',NULL,'313345010019',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('352','æµ™æ±Ÿæ°‘æ³°å•†ä¸šé“¶è¡Œ','æµ™æ±Ÿæ°‘æ³°å•†ä¸šé“¶è¡Œ',NULL,'313345400010',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('353','ç¦å»ºæµ·å³¡é“¶è¡Œ','ç¦å»ºæµ·å³¡é“¶è¡Œ',NULL,'313391080007',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('354','å¦é—¨é“¶è¡Œ','å¦é—¨é“¶è¡Œ',NULL,'313393080005',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('355','æ³‰å·é“¶è¡Œ','æ³‰å·é“¶è¡Œ',NULL,'313397075189',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('356','å—æ˜Œé“¶è¡Œ','å—æ˜Œé“¶è¡Œ',NULL,'313421087506',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('357','ä¹æ±Ÿé“¶è¡Œ','ä¹æ±Ÿé“¶è¡Œ',NULL,'313424076706',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('358','èµ£å·é“¶è¡Œ','èµ£å·é“¶è¡Œ',NULL,'313428076517',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('359','ä¸Šé¥¶é“¶è¡Œ','ä¸Šé¥¶é“¶è¡Œ',NULL,'313433076801',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('360','é½é²é“¶è¡Œ','é½é²é“¶è¡Œ',NULL,'313451000019',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('361','é’å²›é“¶è¡Œ','é’å²›é“¶è¡Œ',NULL,'313452060150',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('362','é½å•†é“¶è¡Œ','é½å•†é“¶è¡Œ',NULL,'313453001017',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('363','æ£åº„é“¶è¡Œ','æ£åº„é“¶è¡Œ',NULL,'313454000016',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('364','ä¸œè¥å¸‚å•†ä¸šé“¶è¡Œ','ä¸œè¥å¸‚å•†ä¸šé“¶è¡Œ',NULL,'313455000018',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('365','çƒŸå°é“¶è¡Œ','çƒŸå°é“¶è¡Œ',NULL,'313456000108',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('366','æ½åŠé“¶è¡Œ','æ½åŠé“¶è¡Œ',NULL,'313458000013',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('367','æµå®é“¶è¡Œ','æµå®é“¶è¡Œ',NULL,'313461000012',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('368','æ³°å®‰å¸‚å•†ä¸šé“¶è¡Œ','æ³°å®‰å¸‚å•†ä¸šé“¶è¡Œ',NULL,'313463000993',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('369','è±å•†é“¶è¡Œ','è±å•†é“¶è¡Œ',NULL,'313463400019',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('370','å¨æµ·å¸‚å•†ä¸šé“¶è¡Œ','å¨æµ·å¸‚å•†ä¸šé“¶è¡Œ',NULL,'313465000010',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('371','å¾·å·é“¶è¡Œ','å¾·å·é“¶è¡Œ',NULL,'313468000015',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('372','ä¸´å•†é“¶è¡Œ','ä¸´å•†é“¶è¡Œ',NULL,'313473070018',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('373','æ—¥ç…§é“¶è¡Œ','æ—¥ç…§é“¶è¡Œ',NULL,'313473200011',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('374','éƒ‘å·é“¶è¡Œ','éƒ‘å·é“¶è¡Œ',NULL,'313491000232',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('375','å¼€å°å¸‚å•†ä¸šé“¶è¡Œ','å¼€å°å¸‚å•†ä¸šé“¶è¡Œ',NULL,'313492070005',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('376','æ´›é˜³é“¶è¡Œ','æ´›é˜³é“¶è¡Œ',NULL,'313493080539',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('377','æ¼¯æ²³å¸‚å•†ä¸šé“¶è¡Œ','æ¼¯æ²³å¸‚å•†ä¸šé“¶è¡Œ',NULL,'313504000010',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('378','å•†ä¸˜å¸‚å•†ä¸šé“¶è¡Œ','å•†ä¸˜å¸‚å•†ä¸šé“¶è¡Œ',NULL,'313506082510',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('379','å—é˜³é“¶è¡Œ','å—é˜³é“¶è¡Œ',NULL,'313513080408',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('380','æ±‰å£é“¶è¡Œ','æ±‰å£é“¶è¡Œ','HKBCHINA','313521000011',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('381','é•¿æ²™é“¶è¡Œ','é•¿æ²™é“¶è¡Œ','CSCB','313551088886',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('382','å¹¿å·é“¶è¡Œ','å¹¿å·é“¶è¡Œ','GZCB','313581003284',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('383','ç æµ·åæ¶¦é“¶è¡Œ','ç æµ·åæ¶¦é“¶è¡Œ',NULL,'313585000990',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('384','å¹¿ä¸œåå…´é“¶è¡Œ','å¹¿ä¸œåå…´é“¶è¡Œ',NULL,'313586000006',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('385','å¹¿ä¸œå—ç²¤é“¶è¡Œ','å¹¿ä¸œå—ç²¤é“¶è¡Œ',NULL,'313591001001',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('386','ä¸œèé“¶è¡Œ','ä¸œèé“¶è¡Œ',NULL,'313602088017',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('387','å¹¿è¥¿åŒ—éƒ¨æ¹¾é“¶è¡Œ','å¹¿è¥¿åŒ—éƒ¨æ¹¾é“¶è¡Œ',NULL,'313611001018',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('388','æŸ³å·é“¶è¡Œ','æŸ³å·é“¶è¡Œ',NULL,'313614000012',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('389','æ¡‚æ—é“¶è¡Œ','æ¡‚æ—é“¶è¡Œ',NULL,'313617000018',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('390','æˆéƒ½é“¶è¡Œ','æˆéƒ½é“¶è¡Œ',NULL,'313651099999',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('391','é‡åº†é“¶è¡Œ','é‡åº†é“¶è¡Œ',NULL,'313653000013',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('392','è‡ªè´¡å¸‚å•†ä¸šé“¶è¡Œ','è‡ªè´¡å¸‚å•†ä¸šé“¶è¡Œ',NULL,'313655091983',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('393','æ”€æèŠ±å¸‚å•†ä¸šé“¶è¡Œ','æ”€æèŠ±å¸‚å•†ä¸šé“¶è¡Œ',NULL,'313656000019',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('394','å¾·é˜³é“¶è¡Œ','å¾·é˜³é“¶è¡Œ',NULL,'313658000014',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('395','ç»µé˜³å¸‚å•†ä¸šé“¶è¡Œ','ç»µé˜³å¸‚å•†ä¸šé“¶è¡Œ',NULL,'313659000016',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('396','å—å……å¸‚å•†ä¸šé“¶è¡Œ','å—å……å¸‚å•†ä¸šé“¶è¡Œ',NULL,'313673093259',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('397','è´µé˜³é“¶è¡Œ','è´µé˜³é“¶è¡Œ',NULL,'313701098010',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('398','å¯Œæ»‡é“¶è¡Œ','å¯Œæ»‡é“¶è¡Œ',NULL,'313731010015',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('399','è¥¿å®‰é“¶è¡Œ','è¥¿å®‰é“¶è¡Œ',NULL,'313791000015',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('400','é•¿å®‰é“¶è¡Œ','é•¿å®‰é“¶è¡Œ',NULL,'313791030003',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('401','å…°å·é“¶è¡Œ','å…°å·é“¶è¡Œ',NULL,'313821001016',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('402','é’æµ·é“¶è¡Œ','é’æµ·é“¶è¡Œ',NULL,'313851000018',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('403','å®å¤é“¶è¡Œ','å®å¤é“¶è¡Œ',NULL,'313871000007',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('404','ä¹Œé²æœ¨é½å¸‚å•†ä¸šé“¶è¡Œ','ä¹Œé²æœ¨é½å¸‚å•†ä¸šé“¶è¡Œ',NULL,'313881000002',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('405','æ˜†ä»‘é“¶è¡Œ','æ˜†ä»‘é“¶è¡Œ',NULL,'313882000012',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('406','æ±Ÿé˜´å†œå•†é“¶è¡Œ','æ±Ÿé˜´å†œå•†é“¶è¡Œ',NULL,'314302200018',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('407','å¤ªä»“å†œå•†è¡Œ','å¤ªä»“å†œå•†è¡Œ',NULL,'314305106644',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('408','æ˜†å±±å†œæ‘å•†ä¸šé“¶è¡Œ','æ˜†å±±å†œæ‘å•†ä¸šé“¶è¡Œ',NULL,'314305206650',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('409','å´æ±Ÿå†œæ‘å•†ä¸šé“¶è¡Œ','å´æ±Ÿå†œæ‘å•†ä¸šé“¶è¡Œ',NULL,'314305400015',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('410','å¸¸ç†Ÿå†œæ‘å•†ä¸šé“¶è¡Œ','å¸¸ç†Ÿå†œæ‘å•†ä¸šé“¶è¡Œ',NULL,'314305506621',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('411','å¼ å®¶æ¸¯å†œæ‘å•†ä¸šé“¶è¡Œ','å¼ å®¶æ¸¯å†œæ‘å•†ä¸šé“¶è¡Œ',NULL,'314305670002',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('412','å¹¿å·å†œæ‘å•†ä¸šé“¶è¡Œ','å¹¿å·å†œæ‘å•†ä¸šé“¶è¡Œ',NULL,'314581000011',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('413','é¡ºå¾·å†œæ‘å•†ä¸šé“¶è¡Œ','é¡ºå¾·å†œæ‘å•†ä¸šé“¶è¡Œ',NULL,'314588000016',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('414','æµ·å£è”åˆå†œæ‘å•†ä¸šé“¶è¡Œ','æµ·å£è”åˆå†œæ‘å•†ä¸šé“¶è¡Œ',NULL,'314641000014',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('415','é‡åº†å†œæ‘å•†ä¸šé“¶è¡Œ','é‡åº†å†œæ‘å•†ä¸šé“¶è¡Œ',NULL,'314653000011',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('416','æ’ä¸°é“¶è¡Œ','æ’ä¸°é“¶è¡Œ','EGBANK','315456000105',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('417','æµ™å•†é“¶è¡Œ','æµ™å•†é“¶è¡Œ','CZB','316331000018',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('418','å¤©æ´¥å†œå•†é“¶è¡Œ','å¤©æ´¥å†œå•†é“¶è¡Œ',NULL,'317110010019',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('419','æ¸¤æµ·é“¶è¡Œ','æ¸¤æµ·é“¶è¡Œ','CBHB','318110000014',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('420','å¾½å•†é“¶è¡Œ','å¾½å•†é“¶è¡Œ','HSBANK','319361000013',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('421','åŒ—äº¬é¡ºä¹‰é“¶åº§æ‘é•‡é“¶è¡Œ','åŒ—äº¬é¡ºä¹‰é“¶åº§æ‘é•‡é“¶è¡Œ',NULL,'320100010011',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('422','æµ™æ±Ÿæ™¯å®é“¶åº§æ‘é•‡é“¶è¡Œ','æµ™æ±Ÿæ™¯å®é“¶åº§æ‘é•‡é“¶è¡Œ',NULL,'320343800019',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('423','æµ™æ±Ÿä¸‰é—¨é“¶åº§æ‘é•‡é“¶è¡Œ','æµ™æ±Ÿä¸‰é—¨é“¶åº§æ‘é•‡é“¶è¡Œ',NULL,'320345790018',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('424','æ±Ÿè¥¿èµ£å·é“¶åº§æ‘é•‡é“¶è¡Œ','æ±Ÿè¥¿èµ£å·é“¶åº§æ‘é•‡é“¶è¡Œ',NULL,'320428090311',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('425','æ·±åœ³ç¦ç”°é“¶åº§æ‘é•‡é“¶è¡Œ','æ·±åœ³ç¦ç”°é“¶åº§æ‘é•‡é“¶è¡Œ',NULL,'320584002002',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('426','é‡åº†æ¸åŒ—é“¶åº§æ‘é•‡é“¶è¡Œ','é‡åº†æ¸åŒ—é“¶åº§æ‘é•‡é“¶è¡Œ',NULL,'320653000104',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('427','é‡åº†é»”æ±Ÿé“¶åº§æ‘é•‡é“¶è¡Œ','é‡åº†é»”æ±Ÿé“¶åº§æ‘é•‡é“¶è¡Œ',NULL,'320687000016',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('428','ä¸Šæµ·å†œå•†é“¶è¡Œ','ä¸Šæµ·å†œå•†é“¶è¡Œ','SHRCB','322290000011',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('429','åŒ—äº¬å†œæ‘å•†ä¸šé“¶è¡Œ','åŒ—äº¬å†œæ‘å•†ä¸šé“¶è¡Œ',NULL,'402100000018',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('430','å‰æ—å†œæ‘ä¿¡ç”¨ç¤¾','å‰æ—å†œæ‘ä¿¡ç”¨ç¤¾',NULL,'402241000015',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('431','æ±Ÿè‹çœå†œæ‘ä¿¡ç”¨ç¤¾','æ±Ÿè‹çœå†œæ‘ä¿¡ç”¨ç¤¾',NULL,'402301099998',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('432','æµ™æ±Ÿçœå†œæ‘ä¿¡ç”¨ç¤¾','æµ™æ±Ÿçœå†œæ‘ä¿¡ç”¨ç¤¾',NULL,'402331000007',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('433','é„å·é“¶è¡Œ','é„å·é“¶è¡Œ',NULL,'402332010004',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('434','å®‰å¾½çœå†œæ‘ä¿¡ç”¨ç¤¾','å®‰å¾½çœå†œæ‘ä¿¡ç”¨ç¤¾',NULL,'402361018886',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('435','ç¦å»ºçœå†œæ‘ä¿¡ç”¨ç¤¾','ç¦å»ºçœå†œæ‘ä¿¡ç”¨ç¤¾',NULL,'402391000068',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('436','å±±ä¸œçœå†œè”ç¤¾','å±±ä¸œçœå†œè”ç¤¾',NULL,'402451000010',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('437','æ¹–åŒ—å†œä¿¡','æ¹–åŒ—å†œä¿¡',NULL,'402521000032',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('438','æ·±åœ³å†œå•†è¡Œ','æ·±åœ³å†œå•†è¡Œ',NULL,'402584009991',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('439','ä¸œèå†œæ‘å•†ä¸šé“¶è¡Œ','ä¸œèå†œæ‘å•†ä¸šé“¶è¡Œ',NULL,'402602000018',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('440','å¹¿è¥¿å†œæ‘ä¿¡ç”¨ç¤¾','å¹¿è¥¿å†œæ‘ä¿¡ç”¨ç¤¾',NULL,'402611099974',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('441','æµ·å—çœå†œæ‘ä¿¡ç”¨ç¤¾','æµ·å—çœå†œæ‘ä¿¡ç”¨ç¤¾',NULL,'402641000014',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('442','äº‘å—çœå†œæ‘ä¿¡ç”¨ç¤¾','äº‘å—çœå†œæ‘ä¿¡ç”¨ç¤¾',NULL,'402731057238',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('443','é»„æ²³å†œæ‘å•†ä¸šé“¶è¡Œ','é»„æ²³å†œæ‘å•†ä¸šé“¶è¡Œ',NULL,'402871099996',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('444','ä¸­å›½é‚®æ”¿å‚¨è“„é“¶è¡Œ','ä¸­å›½é‚®æ”¿å‚¨è“„é“¶è¡Œ','PSBC','403100000004',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('445','ä¸œäºšé“¶è¡Œ','ä¸œäºšé“¶è¡Œ','HKBEA','502290000006',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('446','å‹åˆ©é“¶è¡Œ','å‹åˆ©é“¶è¡Œ',NULL,'593100000020',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('447','æ–°éŸ©é“¶è¡Œä¸­å›½','æ–°éŸ©é“¶è¡Œä¸­å›½',NULL,'595100000007',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('448','ä¼ä¸šé“¶è¡Œ','ä¼ä¸šé“¶è¡Œ',NULL,'596110000013',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('449','éŸ©äºšé“¶è¡Œ','éŸ©äºšé“¶è¡Œ',NULL,'597100000014',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+insert into `comm_bank` (`id`, `name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('450','é‡åº†ä¸‰å³¡é“¶è¡Œ','é‡åº†ä¸‰å³¡é“¶è¡Œ','CCQTGB','321667090019',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
