@@ -1,4 +1,4 @@
-﻿
+﻿use mogoroomdb;
 insert into `comm_bank` (`name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('中国工商银行','工商银行','ICBC','102100099996',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 insert into `comm_bank` (`name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('中国农业银行','农业银行','ABC','103100000026',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
 insert into `comm_bank` (`name`, `shortName`, `enName`, `code`, `picGroupId`, `status`, `isLandlordBand`, `isRenterBand`, `isLoanBand`, `sort`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) values('中国银行','中国银行','BOC','104100000004',NULL,'1','1','1','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
