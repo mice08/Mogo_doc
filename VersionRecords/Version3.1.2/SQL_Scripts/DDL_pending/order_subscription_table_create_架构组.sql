@@ -1,4 +1,4 @@
-CREATE TABLE `order_subscription` (
+CREATE TABLE `oder_subscription` (
   `id` bigint(11) NOT NULL AUTO_INCREMENT,
   `roomId` bigint(11) DEFAULT NULL COMMENT '房间ID',
   `prodId` bigint(11) DEFAULT NULL COMMENT '产品ID',
