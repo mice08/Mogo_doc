@@ -87,7 +87,9 @@ END AS `roomRentStatus`,
  c.id AS cityId,
  c.`name` AS cityName,
  cd.id AS districtId,
- cd.`name` AS districtName
+ cd.`name` AS districtName,
+ ff.protoType AS flatProtoType,
+ fr.protoType AS roomProtoType
 FROM
 	`flat_flats` `ff`
 LEFT JOIN `flat_room` `fr` ON `ff`.`id` = `fr`.`flatsId`
