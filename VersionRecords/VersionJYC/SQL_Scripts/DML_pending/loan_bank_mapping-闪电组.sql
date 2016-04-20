@@ -5,7 +5,7 @@ INSERT INTO loan_bank_mapping (
   channel,
   channelBankCode,
   credits,
-  isMesgSupported
+  isSmsVerified
 ) 
 VALUES
   ('ICBC', 3, 01020000, 50000, 0),
