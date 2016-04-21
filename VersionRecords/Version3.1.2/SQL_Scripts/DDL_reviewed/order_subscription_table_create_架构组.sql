@@ -1,5 +1,6 @@
+use mogoroomdb;
 CREATE TABLE `oder_subscription` (
-  `id` bigint(11) NOT NULL AUTO_INCREMENT,
+  `id` bigint(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
   `roomId` bigint(11) DEFAULT NULL COMMENT '房间ID',
   `prodId` bigint(11) DEFAULT NULL COMMENT '产品ID',
   `prodType` int(8) DEFAULT NULL COMMENT '产品类型',
@@ -15,4 +16,4 @@ CREATE TABLE `oder_subscription` (
   `soDoneCode` bigint(11) DEFAULT NULL COMMENT '操作流水号',
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='订购关系';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='订购关系';
