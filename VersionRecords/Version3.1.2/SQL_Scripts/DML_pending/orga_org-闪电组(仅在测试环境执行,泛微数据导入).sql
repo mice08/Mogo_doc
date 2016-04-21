@@ -701,6 +701,6 @@ INSERT INTO `orga_org_position` (`id`, `userId`, `orgId`, `positionId`, `label`,
 INSERT INTO `orga_org_position` (`id`, `userId`, `orgId`, `positionId`, `label`, `status`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) VALUES (565, 0, 71, 1, '产品经理', 0, 1, 5, '2016-4-15 20:55:22', 92001, 5, '2016-4-15 20:55:22');
 
 /** 根据员工表  员工编号 重新匹配useid **/
-update orga_org_position t  set t.userid =(select id from user_employee where num = CONCAT(t.updateBy,''));
+update orga_org_position t  set t.userid =(select IFNULL(id,t.userId) from user_employee where num = CONCAT(t.updateBy,''));
 /** 重置updateBy 数据 **/
 update orga_org_position set updateBy =5;
