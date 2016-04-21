@@ -1,4 +1,5 @@
 /** 泛微部门数据 初始化**/
+use mogoroomdb;
 INSERT INTO `orga_org` (`id`, `parentId`, `thirdId`, `orgName`, `shortName`, `orgCode`, `level`, `fullPath`, `status`, `sort`, `orgType`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) VALUES (1, NULL, NULL, '观略网络技术（上海）有限公司（蘑菇公寓）\r\n观略网络技术（上海）有限公司（蘑菇公寓）', NULL, '0001', 0, NULL, 1, 1, 5, 1, 5, '2016-4-15 20:55:13', 0, 5, '2016-4-15 20:55:13');
 INSERT INTO `orga_org` (`id`, `parentId`, `thirdId`, `orgName`, `shortName`, `orgCode`, `level`, `fullPath`, `status`, `sort`, `orgType`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) VALUES (2, 1, NULL, '蘑菇上海', '蘑菇上海', '1002', 1, NULL, 1, 1, 5, 1, 5, '2016-4-15 20:55:13', 0, 5, '2016-4-15 20:55:13');
 INSERT INTO `orga_org` (`id`, `parentId`, `thirdId`, `orgName`, `shortName`, `orgCode`, `level`, `fullPath`, `status`, `sort`, `orgType`, `createBy`, `createByType`, `createTime`, `updateBy`, `updateByType`, `updateTime`) VALUES (3, 1, NULL, '蘑菇北京', '蘑菇北京', '1003', 1, '', 1, 2, 5, 1, 5, '2016-4-15 20:55:13', 0, 0, '2016-4-15 20:55:13');

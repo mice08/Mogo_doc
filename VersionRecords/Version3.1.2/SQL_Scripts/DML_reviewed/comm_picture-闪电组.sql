@@ -1,4 +1,5 @@
 /**银行图片数据初始化*/
+use mogoroomdb;
 /**添加comm_picture_group表150条数据*/
 INSERT INTO comm_picture_group(picgrouptype,picgroupname,createBytype,createby,remark)SELECT 6,id,4,-1,'初始化' FROM comm_bank;
 
