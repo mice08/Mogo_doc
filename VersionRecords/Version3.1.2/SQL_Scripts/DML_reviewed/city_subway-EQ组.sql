@@ -1,4 +1,5 @@
 /* Database name `mogoroomdb` , 更新地铁线颜色字段 */
+use mogoroomdb;
 #上海
 UPDATE city_subway SET color = 'cc0000' WHERE id = 1;
 UPDATE city_subway SET color = '009900' WHERE id = 2;
