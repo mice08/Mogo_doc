@@ -99,6 +99,14 @@ create table loan_landlord_credit_his
    sysConfHisId         INT(11) NOT NULL COMMENT  '系统参数配置(关于信用额度历史表配置)'
 )ENGINE=INNODB DEFAULT CHARSET=utf8mb4  COMMENT '信用额度历史表';
 
+/*由于信用额度设置配置不止2048个字符 */
+ALTER TABLE comm_sysconfig   CHANGE `val` `val` VARCHAR(4096) CHARSET utf8 COLLATE utf8_general_ci NULL  COMMENT '配置项值';
+
+/*由于信用额度设置配置不止2048个字符 */
+ALTER TABLE comm_sysconfig_his
+  CHANGE `val` `val` VARCHAR(4096) CHARSET utf8 COLLATE utf8_general_ci NULL  COMMENT '变更前配置项值',
+  CHANGE `newVal` `newVal` VARCHAR(4096) CHARSET utf8 COLLATE utf8_general_ci NULL  COMMENT '变更后配置项值'
+
 
 
 
