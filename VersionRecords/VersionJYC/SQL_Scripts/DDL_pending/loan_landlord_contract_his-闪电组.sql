@@ -111,7 +111,7 @@ ALTER TABLE comm_sysconfig_his
 ALTER TABLE  loan_landlord_contract ADD COLUMN mogoApplyTime DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP  COMMENT '蘑菇宝申请时间' AFTER applyTime;
 
 /*房东贷款申请his 新增mogo宝申请使用时间字段*/
-ALTER  TABLE loan_landlord_contract_his ADD COLUMN mogoApplyTime DATE NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '蘑菇宝申请时间' AFTER applyTime;
+ALTER  TABLE loan_landlord_contract_his ADD COLUMN mogoApplyTime DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '蘑菇宝申请时间' AFTER applyTime;
 
 
 
