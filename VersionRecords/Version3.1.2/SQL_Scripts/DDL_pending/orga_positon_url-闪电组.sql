@@ -12,7 +12,7 @@ create table orga_positon_url
    id                   int(11) not null auto_increment comment 'ID',
    orgId                int(11) not null comment '部门ID，关联orga_org表id',
    positionId           int(11) not null comment '岗位ID，关联orga_position表id',
-   urlType              tinyint(2) not null comment '类型(0:url地址)',
+   urlType              tinyint(2) not null comment '类型(0:访问首页时需要跳转的url地址)',
    url                  varchar(100) not null comment 'url地址',
    createBy             int(11) not null comment '创建人',
    createTime           datetime not null comment '创建时间',
