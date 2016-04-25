@@ -1,4 +1,0 @@
-/*  Database name `mogoroomdb` ，房东签约的房间数量*/
-use mogoroomdb;
-ALTER TABLE `user_landlord`   
-  ADD COLUMN `signCount` INT(11) DEFAULT 0  NULL   COMMENT '签约房间数量' ;
