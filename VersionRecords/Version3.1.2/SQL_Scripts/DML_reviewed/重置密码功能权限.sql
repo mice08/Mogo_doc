@@ -1,3 +1,4 @@
+use mogoroomdb;
 select @id:=id from perm_functioninfo where fname = '员工列表';
 select  @fcode:=CONCAT('3',SUBSTR(fcode, 2, 5),'6')  from perm_functioninfo;
 
