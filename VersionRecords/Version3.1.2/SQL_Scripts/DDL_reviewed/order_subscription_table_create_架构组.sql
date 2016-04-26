@@ -17,3 +17,9 @@ CREATE TABLE `oder_subscription` (
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='订购关系';
+
+alter  table oder_bookorder add column subsId bigint(11) comment '订购ID';
+alter  table oder_signedorder add column subsId bigint(11) comment '订购ID';
+
+use acc;
+alter  table acct_bill add column subsId bigint(11) comment '订购ID';
