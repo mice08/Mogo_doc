@@ -11,8 +11,8 @@ CREATE TABLE IF NOT EXISTS `prod_prodtype` (
   `createByType` TINYINT(3) NOT NULL COMMENT '创建人员类型(参考字典表groupName:userType)',
   `updateByType` TINYINT(3) NOT NULL COMMENT '更新人员类型(参考字典表groupName:userType)',
   PRIMARY KEY (`id`))
-ENGINE = InnoDB
-COMMENT = '商品类型表';
+ENGINE = InnoDB 
+DEFAULT CHARSET=utf8mb4 COMMENT = '商品类型表';
 
 
 CREATE TABLE IF NOT EXISTS `prod_prod` (
@@ -29,11 +29,11 @@ CREATE TABLE IF NOT EXISTS `prod_prod` (
   `endTime` DATETIME NOT NULL COMMENT '结束时间',
   `prodTypeId` INT(11) NOT NULL,
   `vender` INT(11) NOT NULL COMMENT '供应商代码，(参考字典表groupName:productVendor)',
-  `createByType` TINYINT(3) NOT NULL,
+  `createByType` TINYINT(3) NOT NULL COMMENT '创建人员类型(参考字典表groupName:userType)',
   `updateByType` TINYINT(3) NULL COMMENT '更新人员类型(参考字典表groupName:userType)',
   PRIMARY KEY (`id`))
-ENGINE = InnoDB
-COMMENT = '产品表';
+ENGINE = InnoDB 
+DEFAULT CHARSET=utf8mb4 COMMENT = '产品表';
 
 
 CREATE TABLE IF NOT EXISTS `prod_resource` (
@@ -51,5 +51,6 @@ CREATE TABLE IF NOT EXISTS `prod_resource` (
   `resouceId` INT(11) NULL,
   PRIMARY KEY (`id`),
 	KEY `IDX_PRODID` (`prodId`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARSET=utf8mb4 COMMENT = '产品货源表';
 
