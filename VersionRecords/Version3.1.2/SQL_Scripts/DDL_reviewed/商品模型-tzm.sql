@@ -10,9 +10,7 @@ CREATE TABLE IF NOT EXISTS `prod_prodtype` (
   `updateBy` INT(11) NOT NULL COMMENT '更新人员',
   `createByType` TINYINT(3) NOT NULL COMMENT '创建人员类型(参考字典表groupName:userType)',
   `updateByType` TINYINT(3) NOT NULL COMMENT '更新人员类型(参考字典表groupName:userType)',
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB 
-DEFAULT CHARSET=utf8mb4 COMMENT = '商品类型表';
+  PRIMARY KEY (`id`)) ENGINE = InnoDB DEFAULT CHARSET=utf8mb4 COMMENT = '商品类型表';
 
 
 CREATE TABLE IF NOT EXISTS `prod_prod` (
@@ -27,13 +25,11 @@ CREATE TABLE IF NOT EXISTS `prod_prod` (
   `count` INT(11) NOT NULL COMMENT '库存',
   `startTime` DATETIME NOT NULL COMMENT '开始时间',
   `endTime` DATETIME NOT NULL COMMENT '结束时间',
-  `prodTypeId` INT(11) NOT NULL,
+  `prodTypeId` INT(11) NOT NULL COMMENT '商品类型id',
   `vender` INT(11) NOT NULL COMMENT '供应商代码，(参考字典表groupName:productVendor)',
   `createByType` TINYINT(3) NOT NULL COMMENT '创建人员类型(参考字典表groupName:userType)',
   `updateByType` TINYINT(3) NULL COMMENT '更新人员类型(参考字典表groupName:userType)',
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB 
-DEFAULT CHARSET=utf8mb4 COMMENT = '产品表';
+  PRIMARY KEY (`id`)) ENGINE = InnoDB DEFAULT CHARSET=utf8mb4 COMMENT = '产品表';
 
 
 CREATE TABLE IF NOT EXISTS `prod_resource` (
@@ -48,9 +44,7 @@ CREATE TABLE IF NOT EXISTS `prod_resource` (
   `updateTime` DATETIME NOT NULL COMMENT '更新时间',
   `updateBy` INT(11) NOT NULL COMMENT '更新人员',
   `resouceType` TINYINT(3) NOT NULL COMMENT '货源类型,(参考字典表groupName:resourceType)',
-  `resouceId` INT(11) NULL,
+  `resouceId` INT(11) NULL COMMENT '货源ID',
   PRIMARY KEY (`id`),
-	KEY `IDX_PRODID` (`prodId`))
-ENGINE = InnoDB
-DEFAULT CHARSET=utf8mb4 COMMENT = '产品货源表';
+	KEY `IDX_PRODID` (`prodId`)) ENGINE = InnoDB DEFAULT CHARSET=utf8mb4 COMMENT = '产品货源表';
 
