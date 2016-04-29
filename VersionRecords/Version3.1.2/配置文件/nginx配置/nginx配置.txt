@@ -8,7 +8,7 @@
          }
  
  
- 添加一个新的server
+ //添加以下两个新的server
  server {
         listen       443 ssl;
         server_name  ppc.api.mogoroom.com;
@@ -31,3 +31,9 @@
                 proxy_redirect ~^http://([^:]+)(:\d+)?(.*)$  https://$1$3;
         }
     }
+ server {
+    listen 80;
+    server_name p.mogoroom.com;
+    rewrite ^/(.*) https://ppc.api.mogoroom.com/$1 permanent;
+    access_log off;
+  }
