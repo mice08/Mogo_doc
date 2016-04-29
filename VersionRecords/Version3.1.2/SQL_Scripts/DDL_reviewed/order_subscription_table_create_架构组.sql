@@ -21,5 +21,5 @@ CREATE TABLE `oder_subscription` (
 alter  table oder_bookorder add column subsId bigint(11) comment '订购ID';
 alter  table oder_signedorder add column subsId bigint(11) comment '订购ID';
 
-use acc;
+use acct;
 alter  table acct_bill add column subsId bigint(11) comment '订购ID';
