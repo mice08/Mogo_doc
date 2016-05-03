@@ -200,6 +200,8 @@ CREATE TABLE `prod_property_type_rel` (
   `updateTime` datetime NOT NULL COMMENT '更新时间',
   `updateBy` int(11) NOT NULL COMMENT '更新人',
   `prodPropertyId` int(11) NOT NULL COMMENT '属性id',
+  `prodPropertyType` int(11) NOT NULL COMMENT '商品类型',
   PRIMARY KEY (`id`),
-  KEY `IDX_PROPERTY` (`prodPropertyId`)
+  KEY `IDX_PROPERTY` (`prodPropertyId`),
+  KEY `IDX_PROPERTYTYPE` (`prodPropertyType`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='商品属性-商品类型映射表';
