@@ -17,7 +17,7 @@ ALTER  TABLE loan_landlord_contract ADD COLUMN answerPaperId2 INT(11) NULL  comm
 ALTER  TABLE loan_landlord_contract ADD COLUMN approvalUser1 INT(11) NULL  comment '一审审核人' after applyTime;
 
 /*房东贷款申请 一审时间*/
-ALTER  TABLE loan_landlord_contract ADD COLUMN approvalTime1 INT(11) NULL  comment '一审时间' after approvalUser1;
+ALTER  TABLE loan_landlord_contract ADD COLUMN approvalTime1 int(11) NULL  comment '一审时间' after approvalUser1;
 
 /*房东贷款申请 二审备注*/
 ALTER  TABLE loan_landlord_contract ADD COLUMN remark2 varchar(200) NULL  comment '二审备注' after remark;
@@ -112,6 +112,9 @@ ALTER TABLE  loan_landlord_contract ADD COLUMN mogoApplyTime DATETIME NOT NULL D
 
 /*房东贷款申请his 新增mogo宝申请使用时间字段*/
 ALTER  TABLE loan_landlord_contract_his ADD COLUMN mogoApplyTime DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '蘑菇宝申请时间' AFTER applyTime;
+
+/*房东贷款申请 approvalTime1 字段类型修改成datetime*/
+ALTER  TABLE loan_landlord_contract MODIFY COLUMN approvalTime1 DATETIME NULL  comment '二审时间' after approvalUser1;
 
 
 
