@@ -155,3 +155,51 @@ CREATE TABLE `prod_resource` (
   PRIMARY KEY (`id`),
   KEY `IDX_PRODID` (`prodId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='产品货源表';
+
+DROP TABLE IF EXISTS `prod_prodperty`;
+
+CREATE TABLE `prod_prodperty` (
+  `id` int(11) NOT NULL COMMENT '主键id',
+  `propertyValue` varchar(45) NOT NULL COMMENT '属性值',
+  `remark` varchar(100) DEFAULT NULL COMMENT '备注',
+  `createTime` datetime NOT NULL COMMENT '创建时间',
+  `createBy` int(11) NOT NULL COMMENT '创建人',
+  `updateTime` datetime NOT NULL COMMENT '更新时间',
+  `updateBy` int(11) NOT NULL COMMENT '更新人员',
+  `propertyId` int(11) NOT NULL,
+  `prodId` int(11) NOT NULL,
+  PRIMARY KEY (`id`,`propertyId`),
+  KEY `IDX_PRODID` (`prodId`),
+  KEY `IDX_PROPERTY` (`propertyId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='商品属性值';
+
+/*Table structure for table `prod_property` */
+
+DROP TABLE IF EXISTS `prod_property`;
+
+CREATE TABLE `prod_property` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键id',
+  `propertyName` varchar(45) NOT NULL COMMENT '属性名称',
+  `remark` varchar(100) DEFAULT NULL COMMENT '描述信息',
+  `createTime` datetime NOT NULL COMMENT '创建时间',
+  `createBy` int(11) NOT NULL COMMENT '创建人员',
+  `updateTime` datetime NOT NULL COMMENT '更新时间',
+  `updateBy` varchar(45) NOT NULL COMMENT '更新人员',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='商品属性表';
+
+/*Table structure for table `prod_property_type_rel` */
+
+DROP TABLE IF EXISTS `prod_property_type_rel`;
+
+CREATE TABLE `prod_property_type_rel` (
+  `id` int(11) NOT NULL COMMENT '自增主键',
+  `remark` varchar(100) DEFAULT NULL,
+  `createTime` datetime NOT NULL COMMENT '创建时间',
+  `createBy` int(11) NOT NULL COMMENT '创建人',
+  `updateTime` datetime NOT NULL COMMENT '更新时间',
+  `updateBy` int(11) NOT NULL COMMENT '更新人',
+  `prodPropertyId` int(11) NOT NULL COMMENT '属性id',
+  PRIMARY KEY (`id`),
+  KEY `IDX_PROPERTY` (`prodPropertyId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='商品属性-商品类型映射表';
