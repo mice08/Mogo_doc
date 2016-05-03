@@ -23,11 +23,8 @@ CREATE TABLE `comm_mobile_city` (
 	`areaCode` VARCHAR(10) NULL DEFAULT NULL COMMENT 'µØÇøÂë',
 	`postCode` VARCHAR(50) NULL DEFAULT NULL COMMENT 'ÓÊ±à',
 	PRIMARY KEY (`ID`)
-<<<<<<< HEAD:VersionRecords/Version3.1.2/SQL_Scripts/DDL_pending/user_regist_report-æž¶æž„ç»„.sql
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='×â»§ÊÖ»ú¹éÊôµØ±í';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='ÊÖ»ú¹éÊôµØ±í';
 
 --³ÇÊÐ±íÌí¼Ó³ÇÊÐ±àÂë
 ALTER TABLE `city` ADD column `areaCode` VARCHAR(10) COMMENT '³ÇÊÐ±àÂë(¶ÔÓ¦comm_mobile_cityµÄareaCode×Ö¶Î)';
-=======
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='ÊÖ»ú¹éÊôµØ±í';
->>>>>>> bbe9bbdef4d81536204d3ed3e348cca1ba11c0b2:VersionRecords/Version3.1.2/SQL_Scripts/DDL_reviewed/user_regist_report-æž¶æž„ç»„.sql
+
