@@ -13,7 +13,7 @@ CREATE TABLE `coup_coupon` (
   `createBy` int(11) NOT NULL COMMENT '创建人员',
   `updateTime` datetime NOT NULL COMMENT '更新时间',
   `updateBy` int(11) NOT NULL COMMENT '更新人员',
-  `coupDefId` int(11) NOT NULL,
+  `coupDefId` int(11) NOT NULL COMMENT '卡劵定义',
   `startTime` datetime NOT NULL COMMENT '开始时间',
   `endTime` datetime NOT NULL COMMENT '结束时间',
   `status` tinyint(3) DEFAULT NULL COMMENT '0 无效 1 有效',
@@ -27,7 +27,7 @@ DROP TABLE IF EXISTS `coup_def`;
 
 CREATE TABLE `coup_def` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增id',
-  `name` varchar(45) NOT NULL COMMENT '卡劵类型表 （租金，账单，多用途）',
+  `name` varchar(45) NOT NULL COMMENT '卡劵定义 （租金账单，多用途账单，优惠券）',
   `remark` varchar(100) DEFAULT NULL COMMENT '备注',
   `countLimit` int(11) NOT NULL COMMENT '发行数量限制',
   `amountLimit` int(11) NOT NULL COMMENT '金额总限制',
@@ -38,7 +38,24 @@ CREATE TABLE `coup_def` (
   `amountType` tinyint(3) NOT NULL COMMENT '金额类型 1. 绝对金额 2. 万分比',
   `priority` tinyint(3) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='卡劵定义表  （租金，账单，多用途,优惠券）';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='卡劵定义表  （租金账单，多用途账单,优惠券）';
+
+
+
+DROP TABLE IF EXISTS `coup_def_billtype_rel`;
+
+CREATE TABLE `coup_def_billtype_rel` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增id',
+  `coupDefId` int(11) NOT NULL,
+  `billType` int(11) NOT NULL,
+  `createTime` datetime NOT NULL COMMENT '创建时间',
+  `createBy` int(11) NOT NULL COMMENT '创建人',
+  `updateTime` datetime NOT NULL COMMENT '更新时间',
+  `updateBy` int(11) DEFAULT NULL COMMENT '更新人员',
+  PRIMARY KEY (`id`),
+  KEY `IDX_COUPDEF` (`coupDefId`),
+  KEY `IDX_BILLTYPE` (`billType`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='卡劵定义-用户映射表';
 
 /*Table structure for table `coup_usage` */
 
