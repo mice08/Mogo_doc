@@ -24,3 +24,7 @@ CREATE TABLE `comm_mobile_city` (
 	`postCode` VARCHAR(50) NULL DEFAULT NULL COMMENT '邮编',
 	PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='手机归属地表';
+
+--城市表添加城市编码
+ALTER TABLE `city` ADD column `areaCode` VARCHAR(10) COMMENT '城市编码(对应comm_mobile_city的areaCode字段)';
+

@@ -13,7 +13,7 @@ CREATE TABLE `coup_coupon` (
   `createBy` int(11) NOT NULL COMMENT '创建人员',
   `updateTime` datetime NOT NULL COMMENT '更新时间',
   `updateBy` int(11) NOT NULL COMMENT '更新人员',
-  `coupDefId` int(11) NOT NULL,
+  `coupDefId` int(11) NOT NULL COMMENT '卡劵定义',
   `startTime` datetime NOT NULL COMMENT '开始时间',
   `endTime` datetime NOT NULL COMMENT '结束时间',
   `status` tinyint(3) DEFAULT NULL COMMENT '0 无效 1 有效',
@@ -27,7 +27,7 @@ DROP TABLE IF EXISTS `coup_def`;
 
 CREATE TABLE `coup_def` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增id',
-  `name` varchar(45) NOT NULL COMMENT '卡劵类型表 （租金，账单，多用途）',
+  `name` varchar(45) NOT NULL COMMENT '卡劵定义 （租金账单卡劵，多用途账单卡劵，优惠券）',
   `remark` varchar(100) DEFAULT NULL COMMENT '备注',
   `countLimit` int(11) NOT NULL COMMENT '发行数量限制',
   `amountLimit` int(11) NOT NULL COMMENT '金额总限制',
@@ -36,9 +36,26 @@ CREATE TABLE `coup_def` (
   `updateTime` datetime DEFAULT NULL COMMENT '更新时间',
   `updateBy` int(11) DEFAULT NULL COMMENT '更新人员',
   `amountType` tinyint(3) NOT NULL COMMENT '金额类型 1. 绝对金额 2. 万分比',
-  `priority` tinyint(3) NOT NULL DEFAULT '0',
+  `priority` tinyint(3) NOT NULL DEFAULT '0' COMMENT '卡劵使用等级',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='卡劵定义表  （租金，账单，多用途,优惠券）';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='卡劵定义表  （租金账单卡劵，多用途账单卡劵,优惠券）';
+
+
+
+DROP TABLE IF EXISTS `coup_def_billtype_rel`;
+
+CREATE TABLE `coup_def_billtype_rel` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增id',
+  `coupDefId` int(11) NOT NULL COMMENT '卡劵定义',
+  `billType` int(11) NOT NULL COMMENT '账单类型',
+  `createTime` datetime NOT NULL COMMENT '创建时间',
+  `createBy` int(11) NOT NULL COMMENT '创建人',
+  `updateTime` datetime NOT NULL COMMENT '更新时间',
+  `updateBy` int(11) DEFAULT NULL COMMENT '更新人员',
+  PRIMARY KEY (`id`),
+  KEY `IDX_COUPDEF` (`coupDefId`),
+  KEY `IDX_BILLTYPE` (`billType`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='卡劵定义-账单类型映射表';
 
 /*Table structure for table `coup_usage` */
 
@@ -91,7 +108,7 @@ CREATE TABLE `prod_prod` (
   `updateTime` datetime NOT NULL COMMENT '更新时间',
   `updateBy` int(11) NOT NULL COMMENT '更新人员',
   `remark` varchar(100) DEFAULT NULL COMMENT '描述信息',
-  `count` int(11) NOT NULL COMMENT '库存',
+  `count` int(11) NOT NULL COMMENT '库存数量',
   `startTime` datetime NOT NULL COMMENT '开始时间',
   `endTime` datetime NOT NULL COMMENT '结束时间',
   `prodTypeId` int(11) NOT NULL COMMENT '商品类型id',
@@ -138,3 +155,53 @@ CREATE TABLE `prod_resource` (
   PRIMARY KEY (`id`),
   KEY `IDX_PRODID` (`prodId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='产品货源表';
+
+DROP TABLE IF EXISTS `prod_prodperty`;
+
+CREATE TABLE `prod_prodperty` (
+  `id` int(11) NOT NULL COMMENT '主键id',
+  `propertyValue` varchar(45) NOT NULL COMMENT '属性值',
+  `remark` varchar(100) DEFAULT NULL COMMENT '备注',
+  `createTime` datetime NOT NULL COMMENT '创建时间',
+  `createBy` int(11) NOT NULL COMMENT '创建人',
+  `updateTime` datetime NOT NULL COMMENT '更新时间',
+  `updateBy` int(11) NOT NULL COMMENT '更新人员',
+  `propertyId` int(11) NOT NULL COMMENT '商品属性id',
+  `prodId` int(11) NOT NULL COMMENT '商品id',
+  PRIMARY KEY (`id`,`propertyId`),
+  KEY `IDX_PRODID` (`prodId`),
+  KEY `IDX_PROPERTY` (`propertyId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='商品属性值';
+
+/*Table structure for table `prod_property` */
+
+DROP TABLE IF EXISTS `prod_property`;
+
+CREATE TABLE `prod_property` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键id',
+  `propertyName` varchar(45) NOT NULL COMMENT '属性名称',
+  `remark` varchar(100) DEFAULT NULL COMMENT '描述信息',
+  `createTime` datetime NOT NULL COMMENT '创建时间',
+  `createBy` int(11) NOT NULL COMMENT '创建人员',
+  `updateTime` datetime NOT NULL COMMENT '更新时间',
+  `updateBy` varchar(45) NOT NULL COMMENT '更新人员',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='商品属性表';
+
+/*Table structure for table `prod_property_type_rel` */
+
+DROP TABLE IF EXISTS `prod_property_type_rel`;
+
+CREATE TABLE `prod_property_type_rel` (
+  `id` int(11) NOT NULL COMMENT '自增主键',
+  `remark` varchar(100) DEFAULT NULL,
+  `createTime` datetime NOT NULL COMMENT '创建时间',
+  `createBy` int(11) NOT NULL COMMENT '创建人',
+  `updateTime` datetime NOT NULL COMMENT '更新时间',
+  `updateBy` int(11) NOT NULL COMMENT '更新人',
+  `prodPropertyId` int(11) NOT NULL COMMENT '属性id',
+  `prodPropertyType` int(11) NOT NULL COMMENT '商品类型',
+  PRIMARY KEY (`id`),
+  KEY `IDX_PROPERTY` (`prodPropertyId`),
+  KEY `IDX_PROPERTYTYPE` (`prodPropertyType`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='商品属性-商品类型映射表';
