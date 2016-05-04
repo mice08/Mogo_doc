@@ -3,6 +3,7 @@
 USE mogoroomdb;
 
 /**创建公寓历史表**/
+drop table if exists flat_flats_his;
 CREATE TABLE flat_flats_his (
   id INT(11) NOT NULL AUTO_INCREMENT COMMENT '公寓历史表ID',
   flatsId INT(11) NOT NULL COMMENT '公寓记录ID',
@@ -22,7 +23,7 @@ CREATE TABLE flat_flats_his (
   toiletCount INT(11) DEFAULT '0' COMMENT '厕所数',
   isDuplex TINYINT(1) DEFAULT '0' COMMENT '复式0不是1是',
   oldType VARCHAR(10) DEFAULT NULL COMMENT '原始房型',
-  area DECIMAL(12,2) DEFAULT NULL,
+  area DECIMAL(12,2) DEFAULT NULL COMMENT '面积',
   landlordId INT(11) DEFAULT NULL COMMENT '职业房东Id',
   ownersId INT(11) DEFAULT NULL COMMENT '业主',
   remark VARCHAR(255) DEFAULT NULL COMMENT '备注',
@@ -36,7 +37,7 @@ CREATE TABLE flat_flats_his (
   isRemoved TINYINT(1) DEFAULT '0' COMMENT '是否有效，逻辑删除字段',
   elevatorCount INT(11) DEFAULT NULL COMMENT '电梯数',
   level INT(11) DEFAULT NULL COMMENT '房源等级(1精品房源，2、3、4是普通房源，目前录入默认会是2；1/2/3/4分别对应A/B/C/D)',
-  saleManId INT(11) DEFAULT NULL,
+  saleManId INT(11) DEFAULT NULL COMMENT '员工ID',
   roomTypePic VARCHAR(128) DEFAULT NULL COMMENT '存放公寓的房型图片地址',
   updateBy INT(11) DEFAULT NULL COMMENT '更新人',
   createChannel INT(1) DEFAULT NULL COMMENT '数据创建来源(1:租客APP,2:BS后台,3:官网,4:房东APP,5:房东PC)',
@@ -49,7 +50,9 @@ CREATE TABLE flat_flats_his (
   PRIMARY KEY (id)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT='公寓历史记录表';
 
+
 /**创建公寓房型历史表**/
+drop table if exists flat_flats_prototype_his;
 CREATE TABLE flat_flats_prototype_his (
   id INT(11) NOT NULL AUTO_INCREMENT COMMENT '公寓房型历史表ID',
   flatsTypeId INT(11) NOT NULL COMMENT '公寓房型记录ID',
@@ -67,7 +70,7 @@ CREATE TABLE flat_flats_prototype_his (
   toiletCount INT(11) DEFAULT '0' COMMENT '厕所数',
   isDuplex TINYINT(1) DEFAULT '0' COMMENT '复式0不是1是',
   oldType VARCHAR(10) DEFAULT NULL COMMENT '原始房型',
-  area DECIMAL(12,2) DEFAULT NULL,
+  area DECIMAL(12,2) DEFAULT NULL COMMENT '面积',
   landlordId INT(11) DEFAULT NULL COMMENT '职业房东Id',
   ownersId INT(11) DEFAULT NULL COMMENT '业主',
   remark VARCHAR(255) DEFAULT NULL COMMENT '备注',
@@ -94,6 +97,7 @@ CREATE TABLE flat_flats_prototype_his (
 ) ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT='公寓房型历史表';
 
 /**创建房间历史表**/
+drop table if exists flat_room_his;
 CREATE TABLE flat_room_his (
   id INT(11) NOT NULL AUTO_INCREMENT COMMENT '房间历史表ID',
   roomId INT(11) NOT NULL COMMENT '房间id',  
@@ -105,9 +109,9 @@ CREATE TABLE flat_room_his (
   roomNum VARCHAR(20) DEFAULT NULL COMMENT '房间编号',
   roomName VARCHAR(30) NOT NULL DEFAULT '' COMMENT '房间名称',
   subTitle VARCHAR(50) NOT NULL DEFAULT '' COMMENT '房间副标题',
-  bookingPrice DECIMAL(12,2) DEFAULT NULL,
-  roomPrice DECIMAL(12,2) DEFAULT NULL,
-  salePrice DECIMAL(12,2) DEFAULT NULL,
+  bookingPrice DECIMAL(12,2) DEFAULT NULL COMMENT '预定价格',
+  roomPrice DECIMAL(12,2) DEFAULT NULL COMMENT '房间价格',
+  salePrice DECIMAL(12,2) DEFAULT NULL COMMENT '销售价格',
   area DECIMAL(12,2) NOT NULL COMMENT '面积',
   payType VARCHAR(255) NOT NULL DEFAULT '1' COMMENT '付款类型:付三押一(1),付一押一(2),付六押一(3),付十二押一(4);',
   person INT(1) DEFAULT '0' COMMENT '人数',
@@ -137,7 +141,7 @@ CREATE TABLE flat_room_his (
   checkInTime DATETIME DEFAULT NULL COMMENT '可入住时间',
   agencyFee DECIMAL(10,2) DEFAULT NULL COMMENT '中介费',
   manageFee DECIMAL(10,2) DEFAULT NULL COMMENT '管理费',
-  roomScore DECIMAL(12,2) DEFAULT NULL,
+  roomScore DECIMAL(12,2) DEFAULT NULL COMMENT '房间分数',
   protoType INT(11) NOT NULL DEFAULT '0' COMMENT '-1：房型数据 0：不存在房型的房源 >0：存在模板的房源所对应房型的编号；',
   showPrice DECIMAL(12,2) DEFAULT '0.00' COMMENT '列表显示价格',
   onlineStatus TINYINT(4) NOT NULL DEFAULT '2' COMMENT '上架下架状态。参考字段表的RoomOnlineStatus groupName。',
@@ -150,6 +154,7 @@ CREATE TABLE flat_room_his (
 ) ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT='房间信息历史表';
 
 /**创建房间房型历史表**/
+drop table if exists flat_room_prototype_his;
 CREATE TABLE flat_room_prototype_his (
   id INT(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
   roomProtoTypeId INT(11) NOT NULL COMMENT '房间房型ID', 
@@ -160,10 +165,10 @@ CREATE TABLE flat_room_prototype_his (
   renterId INT(11) DEFAULT NULL COMMENT '当前入住人id',
   roomName VARCHAR(30) NOT NULL DEFAULT '' COMMENT '房间名称',
   subTitle VARCHAR(50) NOT NULL DEFAULT '' COMMENT '房间副标题',
-  bookingPrice DECIMAL(12,2) DEFAULT NULL,
-  roomPrice DECIMAL(12,2) DEFAULT NULL,
-  salePrice DECIMAL(12,2) DEFAULT NULL,
-  area DECIMAL(12,2) DEFAULT NULL,
+  bookingPrice DECIMAL(12,2) DEFAULT NULL COMMENT '面积'
+  roomPrice DECIMAL(12,2) DEFAULT NULL COMMENT '房间价格',
+  salePrice DECIMAL(12,2) DEFAULT NULL COMMENT '销售价格',
+  area DECIMAL(12,2) DEFAULT NULL COMMENT '面积',
   payType VARCHAR(255) NOT NULL DEFAULT '1' COMMENT '付款类型:付三押一(1),付一押一(2),付六押一(3),付十二押一(4);',
   person INT(1) DEFAULT '0' COMMENT '人数',
   face VARCHAR(10) NOT NULL DEFAULT '' COMMENT '朝向',
@@ -191,7 +196,7 @@ CREATE TABLE flat_room_prototype_his (
   checkInTime DATETIME DEFAULT NULL COMMENT '可入住时间',
   agencyFee DECIMAL(10,2) DEFAULT NULL COMMENT '中介费',
   manageFee DECIMAL(10,2) DEFAULT NULL COMMENT '管理费',
-  roomScore DECIMAL(12,2) DEFAULT NULL,
+  roomScore DECIMAL(12,2) DEFAULT NULL COMMENT '房间分数',
   operType CHAR(1) NOT NULL COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
   PRIMARY KEY (id)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT='房间房型历史表';
