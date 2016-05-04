@@ -2,10 +2,13 @@
 
 USE mogoroomdb;
 
+ALTER TABLE user_bankcard MODIFY COLUMN userType INT(11) DEFAULT NULL COMMENT '用户类型(参考字典表groupName=userType)',
+MODIFY COLUMN employ int(11) DEFAULT NULL COMMENT '是否是在使用状态(1:使用中 0:未使用)';
+
 CREATE TABLE user_bankcard_his (
   id int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
   bankcardId INT(11) NOT NULL COMMENT '银行卡ID',
-  userType int(11) DEFAULT NULL COMMENT '用户类型(1：租客 2：职业房东)',
+  userType int(11) DEFAULT NULL COMMENT '用户类型(参考字典表groupName=userType)',
   userId int(11) DEFAULT NULL COMMENT '用户ID',
   realName varchar(16) DEFAULT NULL COMMENT '真实姓名',
   IDNumber varchar(32) DEFAULT NULL COMMENT '身份证号码',
@@ -23,7 +26,7 @@ CREATE TABLE user_bankcard_his (
   province varchar(16) DEFAULT NULL COMMENT '省',
   city varchar(16) DEFAULT NULL COMMENT '城市',
   card_type varchar(16) DEFAULT NULL COMMENT '卡类型',
-  employ int(11) DEFAULT NULL COMMENT '是否是在使用状态1使用中0，未使用',
+  employ int(11) DEFAULT NULL COMMENT '是否是在使用状态(1:使用中 0:未使用)',
   ciphertext varchar(50) DEFAULT NULL COMMENT '密文',
   isCorp int(2) DEFAULT NULL COMMENT '银行卡归属于(0:个人 1:公司)',
   operType CHAR(1) NOT NULL COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
