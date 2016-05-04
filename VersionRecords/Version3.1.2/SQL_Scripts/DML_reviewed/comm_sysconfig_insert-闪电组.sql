@@ -1,9 +1,9 @@
 use mogoroomdb;
 
-/*¶¤¶¤Æ¾Ö¤²ÎÊý*/
-INSERT INTO `comm_sysconfig` (`keyName`, `val`, `groupName`, `name`, `remark`, `updateTime`, `updateByType`, `updateBy`, `extra1`, `extra2`) VALUES ('dingTalkSecret', '{\"corpid\":\"ding38dbe9c6e5a95973\",\"corpsecret\":\"oFBoqCsW6rUyaSWfMWuFzDMbqMdcWkzsZ3LDVZD2v7XdVnBpK_zds9B5kr-XgVRx\"}', NULL, '¶¤¶¤ÆóÒµ²ÎÊý', NULL, now(), 5, 1, NULL, NULL);
-/**³õÊ¼»¯¸ÚÎ»Êý¾Ý**/
-INSERT INTO `orga_position` (`positionName`,`positionCode`,`status`,`positionType`,`createBy`,`createByType`,`createTime`,`updateBy`,`updateByType`,`updateTime`) VALUES ('¾­Àí','manager',1,5,1,5,now(),1,5,now());
-INSERT INTO `orga_position` (`positionName`,`positionCode`,`status`,`positionType`,`createBy`,`createByType`,`createTime`,`updateBy`,`updateByType`,`updateTime`) VALUES ('ÆÕÍ¨Ô±¹¤','employee',1,5,1,5,now(),1,5,now());
-INSERT INTO `orga_position` (`positionName`,`positionCode`,`status`,`positionType`,`createBy`,`createByType`,`createTime`,`updateBy`,`updateByType`,`updateTime`) VALUES ('ÍØÕ¹Ô±','sales',1,5,1,5,now(),1,5,now());
+/*ï¿½ï¿½ï¿½ï¿½Æ¾Ö¤ï¿½ï¿½ï¿½ï¿½*/
+INSERT INTO `comm_sysconfig` (`keyName`, `val`, `groupName`, `name`, `remark`, `updateTime`, `updateByType`, `updateBy`, `extra1`, `extra2`) VALUES ('dingTalkSecret', '{\"corpid\":\"ding399e31fa233bfe45\",\"corpsecret\":\"-JadGGf4pLUWF9UUspxlHhxdydXUBNli8mznuduSJJNPDD-O-eS6Y16IdKqmnHYQ\"}', NULL, 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½', NULL, now(), 5, 1, NULL, NULL);
+/**ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½**/
+INSERT INTO `orga_position` (`positionName`,`positionCode`,`status`,`positionType`,`createBy`,`createByType`,`createTime`,`updateBy`,`updateByType`,`updateTime`) VALUES ('ï¿½ï¿½ï¿½ï¿½','manager',1,5,1,5,now(),1,5,now());
+INSERT INTO `orga_position` (`positionName`,`positionCode`,`status`,`positionType`,`createBy`,`createByType`,`createTime`,`updateBy`,`updateByType`,`updateTime`) VALUES ('ï¿½ï¿½Í¨Ô±ï¿½ï¿½','employee',1,5,1,5,now(),1,5,now());
+INSERT INTO `orga_position` (`positionName`,`positionCode`,`status`,`positionType`,`createBy`,`createByType`,`createTime`,`updateBy`,`updateByType`,`updateTime`) VALUES ('ï¿½ï¿½Õ¹Ô±','sales',1,5,1,5,now(),1,5,now());
 
