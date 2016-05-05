@@ -107,13 +107,7 @@ ALTER TABLE comm_sysconfig_his
   CHANGE `val` `val` VARCHAR(4096) NULL  COMMENT '变更前配置项值',
   CHANGE `newVal` `newVal` VARCHAR(4096)  NULL  COMMENT '变更后配置项值';
 
-/*房东申请贷款 新增mogo申请时间字段 在使用mogo宝时更新下这个字段时间*/
-ALTER TABLE  loan_landlord_contract ADD COLUMN mogoApplyTime DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP  COMMENT '蘑菇宝申请时间' AFTER applyTime;
-
-/*房东贷款申请his 新增mogo宝申请使用时间字段*/
-ALTER  TABLE loan_landlord_contract_his ADD COLUMN mogoApplyTime DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '蘑菇宝申请时间' AFTER applyTime;
-
-/*房东贷款申请 approvalTime1 字段类型修改成datetime*/
+  /*房东贷款申请 approvalTime1 字段类型修改成datetime*/
 ALTER  TABLE loan_landlord_contract MODIFY COLUMN approvalTime1 DATETIME NULL  comment '二审时间' after approvalUser1;
 
 
