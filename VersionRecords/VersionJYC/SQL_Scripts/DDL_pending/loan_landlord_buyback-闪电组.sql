@@ -1,8 +1,8 @@
 /*房东申请贷款 新增mogo申请时间字段 在使用mogo宝时更新下这个字段时间*/
-ALTER TABLE  loan_landlord_contract ADD COLUMN mogoApplyTime DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP  COMMENT '蘑菇宝申请时间' AFTER applyTime;
+ALTER TABLE  loan_landlord_contract ADD COLUMN mogoApplyTime DATETIME NOT NULL COMMENT '蘑菇宝申请时间' AFTER applyTime;
 
 /*房东贷款申请his 新增mogo宝申请使用时间字段*/
-ALTER  TABLE loan_landlord_contract_his ADD COLUMN mogoApplyTime DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '蘑菇宝申请时间' AFTER applyTime;
+ALTER  TABLE loan_landlord_contract_his ADD COLUMN mogoApplyTime DATETIME NOT NULL  COMMENT '蘑菇宝申请时间' AFTER applyTime;
 
 /*************************************************************************************
  贷款合同表与贷款买回表涉及到的字段新增如下:
