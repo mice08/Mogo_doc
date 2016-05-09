@@ -32,5 +32,5 @@ ALTER TABLE  loan_landlord_buyback ADD COLUMN repayedRenterPenalty DECIMAL(12,2)
 ALTER TABLE loan_landlord_buyback ADD COLUMN waitRepayRenterPenalty DECIMAL(12,2) DEFAULT 0 NULL COMMENT '待扣租客逾期滞纳金' AFTER waitRepayLateFee;
 
 /*贷款放款计划 新增贷款来源*/
-ALTER TABLE  loan_landlord_payplan ADD COLUMN loanChannel INT(11) DEFAULT 1 NOT NULL COMMENT '贷款来源(参考字典表组名:loan_channel)' AFTER depositAmount;
+ALTER TABLE  loan_landlord_payplan ADD COLUMN loanChannel INT(11) DEFAULT 1 NULL COMMENT '贷款来源(参考字典表组名:loan_channel)' AFTER depositAmount;
 
