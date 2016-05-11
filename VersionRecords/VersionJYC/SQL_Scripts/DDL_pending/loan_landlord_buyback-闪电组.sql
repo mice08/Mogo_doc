@@ -34,3 +34,6 @@ ALTER TABLE loan_landlord_buyback ADD COLUMN waitRepayRenterPenalty DECIMAL(12,2
 /*贷款放款计划 新增贷款来源*/
 ALTER TABLE  loan_landlord_payplan ADD COLUMN loanChannel INT(11) DEFAULT 1 NULL COMMENT '贷款来源(参考字典表组名:loan_channel)' AFTER depositAmount;
 
+/*房东贷款申请his 修改mogo宝申请使用时间字段  为了兼容老接口 允许为空*/
+ALTER  TABLE loan_landlord_contract_his MODIFY COLUMN mogoApplyTime DATETIME NULL  COMMENT '最近一次蘑菇宝申请时间' AFTER applyTime;
+
