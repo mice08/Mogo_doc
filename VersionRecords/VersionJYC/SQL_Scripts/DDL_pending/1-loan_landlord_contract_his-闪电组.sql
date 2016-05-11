@@ -64,7 +64,7 @@ ALTER TABLE loan_landlord_credit ADD COLUMN theoryAmount decimal(12,2) default 0
 ALTER TABLE loan_landlord_credit ADD COLUMN amountRate int(3) default 100 not null comment '房东额度系数(百分比)，1-100之间整数' after theoryAmount;
 
 /*房东信用额度 资方渠道id*/
-ALTER TABLE loan_landlord_credit ADD COLUMN loanChannel int(11) not null comment '贷款来源 参考字典表 loan_channel(1:拉卡拉 2:蘑菇 3:聚有财)' after amountRate;
+ALTER TABLE loan_landlord_credit ADD COLUMN loanChannel int(11) not null DEFAULT 1 comment '贷款来源 参考字典表 loan_channel(1:拉卡拉 2:蘑菇 3:聚有财)' after amountRate;
 
 /*房东信用额度 新增房东额度配置hisId*/
 ALTER TABLE loan_landlord_credit ADD COLUMN sysConfHisId int(11) not null comment '系统参数配置(关于信用额度his配置)' after remark;
@@ -112,7 +112,14 @@ ALTER  TABLE loan_landlord_contract MODIFY COLUMN approvalTime1 DATETIME NULL  c
 
 
 
+/*房东买回 新增贷款来源为了兼容老数据 必须给默认值*/
+ALTER TABLE  loan_landlord_buyback MODIFY COLUMN loanChannel INT(11) NOT NULL DEFAULT 1 COMMENT '贷款来源(参考字典表组名:loan_channel)' AFTER `status`;
 
+/*房东信用 新增贷款来源为了兼容老数据 必须给默认值*/
+ALTER TABLE loan_landlord_credit modify COLUMN loanChannel int(11) not null DEFAULT 1 comment '贷款来源 参考字典表 loan_channel(1:拉卡拉 2:蘑菇 3:聚有财)' after amountRate;
+
+/*房东租金宝 新增贷款来源为了兼容老数据 必须给默认值*/
+ALTER  TABLE loan_landlord_contract modify COLUMN loanChannel INT(11) not NULL  DEFAULT  1 comment '贷款来源 参考字典表 loan_channel(1:拉卡拉 2:蘑菇 3:聚有财)' after landlordId;
 
 
 
