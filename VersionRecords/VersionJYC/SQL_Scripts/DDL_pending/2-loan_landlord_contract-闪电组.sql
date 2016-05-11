@@ -52,9 +52,21 @@ ALTER  TABLE loan_landlord_contract_his MODIFY COLUMN mogoApplyTime DATETIME NUL
 
 /*房东买回 新增贷款来源为了兼容老数据 必须给默认值*/
 ALTER TABLE  loan_landlord_buyback MODIFY COLUMN loanChannel INT(11) NOT NULL DEFAULT 1 COMMENT '贷款来源(参考字典表组名:loan_channel)' AFTER `status`;
+UPDATE loan_landlord_buyback SET loanChannel = 1;
 
 /*房东信用 新增贷款来源为了兼容老数据 必须给默认值*/
-ALTER TABLE loan_landlord_credit modify COLUMN loanChannel int(11) not null DEFAULT 1 comment '贷款来源 参考字典表 loan_channel(1:拉卡拉 2:蘑菇 3:聚有财)' after amountRate;
+ALTER TABLE loan_landlord_credit modify COLUMN loanChannel int(11) not null DEFAULT 1 comment '贷款来源(参考字典表组名:loan_channel)' after amountRate;
+UPDATE loan_landlord_credit SET loanChannel = 1;
 
 /*房东租金宝 新增贷款来源为了兼容老数据 必须给默认值*/
-ALTER  TABLE loan_landlord_contract modify COLUMN loanChannel INT(11) not NULL  DEFAULT  1 comment '贷款来源 参考字典表 loan_channel(1:拉卡拉 2:蘑菇 3:聚有财)' after landlordId;
+ALTER  TABLE loan_landlord_contract modify COLUMN loanChannel INT(11) not NULL  DEFAULT  1 comment '贷款来源(参考字典表组名:loan_channel)' after landlordId;
+UPDATE loan_landlord_contract SET loanChannel = 1;
+
+
+/*房东贷款申请 新增mogo申请时间字段 在使用mogo宝时更新下这个字段时间*/
+ALTER TABLE  loan_landlord_contract MODIFY COLUMN mogoApplyTime DATETIME NULL COMMENT '最近一次蘑菇宝申请时间' AFTER applyTime;
+UPDATE loan_landlord_contract SET mogoApplyTime = applyTime;
+
+/*房东贷款申请his 新增mogo宝申请使用时间字段*/
+ALTER  TABLE loan_landlord_contract_his MODIFY COLUMN mogoApplyTime DATETIME NULL COMMENT '最近一次蘑菇宝申请时间' AFTER applyTime;
+UPDATE loan_landlord_contract_his SET mogoApplyTime = applyTime;
