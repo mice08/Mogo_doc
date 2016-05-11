@@ -3,4 +3,4 @@ use mogoroomdb;
 
 -- 增加一个拼音字段
 alter table `flat_community` 
-   add column `namePinyin` varchar(100) CHARSET utf8 COLLATE utf8_general_ci NULL COMMENT '小区名拼音' after `name`;
+   add column `namePinyin` varchar(100) NULL COMMENT '小区名拼音' after `name`;
