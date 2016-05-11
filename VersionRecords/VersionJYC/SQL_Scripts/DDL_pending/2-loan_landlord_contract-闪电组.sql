@@ -40,3 +40,15 @@ ALTER  TABLE loan_landlord_credit_his ADD COLUMN rangeAmountRate INT(11) NULL CO
 
 /*房东信用额度 新增B类额度系数百分比*/
 ALTER  TABLE loan_landlord_credit_his ADD COLUMN  onlineTradingAmountRate INT(11) NULL COMMENT 'B类额度系数百分比' AFTER rangeAmountRate;
+
+/*房东贷款合同 新增申请城市*/
+ALTER TABLE  loan_landlord_contract ADD applyCityId INT(11) NULL comment '贷款申请城市' after pauseTime;
+
+/*房东贷款合同his 新增申请城市*/
+ALTER TABLE  loan_landlord_contract_his ADD applyCityId INT(11) NULL comment '贷款申请城市' after pauseTime;
+
+/*房东贷款申请his 修改mogo宝申请使用时间字段  为了兼容老接口 允许为空*/
+ALTER  TABLE loan_landlord_contract_his MODIFY COLUMN mogoApplyTime DATETIME NULL  COMMENT '最近一次蘑菇宝申请时间' AFTER applyTime;
+
+/*房东买回 新增贷款来源为了兼容老数据 必须给默认值*/
+ALTER TABLE  loan_landlord_buyback MODIFY COLUMN loanChannel INT(11) NOT NULL DEFAULT 1 COMMENT '贷款来源(参考字典表组名:loan_channel)' AFTER `status`;
