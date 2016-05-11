@@ -1,7 +1,7 @@
-/*租金宝合同 新增 soDoneCode */
+/*租金宝合同 新增 soDoneCode 主要是用来暂停租金以及取消暂停 终止租金宝*/
 ALTER TABLE loan_landlord_contract ADD COLUMN soDoneCode INT(11) null COMMENT '业务操作(参考字典表组名:comm_business_record)' AFTER credits;
 
-/*租金宝合同his 新增 soDoneCode */
+/*租金宝合同his 新增 soDoneCode 主要是用来暂停租金以及取消暂停 终止租金宝*/
 ALTER TABLE loan_landlord_credit_his ADD COLUMN soDoneCode INT(11) null COMMENT '业务操作(参考字典表组名:comm_business_record)' AFTER  credits;
 
 /*租金宝合同 新增最长蘑菇宝租期*/
