@@ -1,4 +1,3 @@
-
 /* Database name `mogoroomdb` ，向租客推送App消息的模版 */
 USE mogoroomdb;
 
