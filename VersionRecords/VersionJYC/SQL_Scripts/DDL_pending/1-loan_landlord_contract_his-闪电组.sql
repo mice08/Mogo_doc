@@ -17,7 +17,7 @@ ALTER  TABLE loan_landlord_contract ADD COLUMN answerPaperId2 INT(11) NULL  comm
 ALTER  TABLE loan_landlord_contract ADD COLUMN approvalUser1 INT(11) NULL  comment '一审审核人' after applyTime;
 
 /*房东贷款申请 一审时间*/
-ALTER  TABLE loan_landlord_contract ADD COLUMN approvalTime1 INT(11) NULL  comment '一审时间' after approvalUser1;
+ALTER  TABLE loan_landlord_contract ADD COLUMN approvalTime1 int(11) NULL  comment '一审时间' after approvalUser1;
 
 /*房东贷款申请 二审备注*/
 ALTER  TABLE loan_landlord_contract ADD COLUMN remark2 varchar(200) NULL  comment '二审备注' after remark;
@@ -64,7 +64,7 @@ ALTER TABLE loan_landlord_credit ADD COLUMN theoryAmount decimal(12,2) default 0
 ALTER TABLE loan_landlord_credit ADD COLUMN amountRate int(3) default 100 not null comment '房东额度系数(百分比)，1-100之间整数' after theoryAmount;
 
 /*房东信用额度 资方渠道id*/
-ALTER TABLE loan_landlord_credit ADD COLUMN loanChannel int(11) not null comment '贷款来源 参考字典表 loan_channel(1:拉卡拉 2:蘑菇 3:聚有财)' after amountRate;
+ALTER TABLE loan_landlord_credit ADD COLUMN loanChannel int(11) not null DEFAULT 1 comment '贷款来源 参考字典表 loan_channel(1:拉卡拉 2:蘑菇 3:聚有财)' after amountRate;
 
 /*房东信用额度 新增房东额度配置hisId*/
 ALTER TABLE loan_landlord_credit ADD COLUMN sysConfHisId int(11) not null comment '系统参数配置(关于信用额度his配置)' after remark;
@@ -107,17 +107,8 @@ ALTER TABLE comm_sysconfig_his
   CHANGE `val` `val` VARCHAR(4096) NULL  COMMENT '变更前配置项值',
   CHANGE `newVal` `newVal` VARCHAR(4096)  NULL  COMMENT '变更后配置项值';
 
-/*房东申请贷款 新增mogo申请时间字段 在使用mogo宝时更新下这个字段时间*/
-ALTER TABLE  loan_landlord_contract ADD COLUMN mogoApplyTime DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP  COMMENT '蘑菇宝申请时间' AFTER applyTime;
-
-/*房东贷款申请his 新增mogo宝申请使用时间字段*/
-ALTER  TABLE loan_landlord_contract_his ADD COLUMN mogoApplyTime DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '蘑菇宝申请时间' AFTER applyTime;
-
-
-
-
-
-
+  /*房东贷款申请 approvalTime1 字段类型修改成datetime*/
+ALTER  TABLE loan_landlord_contract MODIFY COLUMN approvalTime1 DATETIME NULL  comment '二审时间' after approvalUser1;
 
 
 
