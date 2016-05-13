@@ -1,4 +1,4 @@
-
+use mogoroomdb;
 update 
 -- select A.id,A.num,A.name,B.orgId,B.positionId,C.orgName,D.positionName,url
 user_employee A 
