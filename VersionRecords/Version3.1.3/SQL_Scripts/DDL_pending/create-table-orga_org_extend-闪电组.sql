@@ -17,13 +17,13 @@ create table orga_org_extend
    picId                int(11) comment '主图ID',
    cityId               int(11) comment '城市分店所在的城市',
    districtId           int(11) comment '分店所在的城市行政区',
-   status               int(1) comment '分店状态(0:无效 1:有效)',
-   userId               int(11) not null comment '用户id',
-   userType             int(1) not null comment '用户类型(参考groupName=userType)',
+   status               tinyint(1) comment '分店状态(0:无效 1:有效)',
    createBy             int(11) not null comment '创建人ID',
    createTime           datetime not null comment '创建时间',
+   createByType         tinyint(2) not null comment '创建人类型(参考groupName=userType)',
    updateBy             int(11) comment '修改人ID',
    updateTime           datetime comment '修改时间',
+   updateByType         tinyint(2) comment '修改人类型(参考groupName=userType)',
    primary key (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment '分店信息扩展表';
 
@@ -38,12 +38,13 @@ create table orga_tag_relation
    id                   int(11) not null auto_increment comment 'ID',
    orgId                int(11) not null comment '组织机构ID',
    tagId                int(11) comment '标签ID',
-   status               int(1) comment '标签分店对应状态(0:无效 1:有效)',
+   status               tinyint(1) comment '标签分店对应状态(0:无效 1:有效)',
    createBy             int(11) comment '创建人',
    createTime           datetime comment '创建时间',
+   createByType         tinyint(2) not null comment '创建人类型(参考groupName=userType)',
    primary key (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment '分店标签关联表';
 
 /*房源表新增分店id*/
-ALTER TABLE flat_room ADD COLUMN shopId INT(11) COMMENT '房源对应的分店id';
+ALTER TABLE flat_room ADD COLUMN orgId INT(11) COMMENT '房源对应的分店id';
 
