@@ -29,7 +29,8 @@ create table brand
 
 /* 创建用户评价表 */
 drop table if exists user_comment;
-create table user_comment
+drop table if exists brand_comment;
+create table brand_comment
 (
    id                   int(11) not null auto_increment comment '主键ID',
    objectType           tinyint(1) not null comment '评价对象的类型 (1:品牌)',
@@ -46,6 +47,7 @@ create table user_comment
    updateBy             int(11) comment '修改人Id',
    updateByType         tinyint(2) comment '修改人类型(参考groupName=userType)',
    updateTime           datetime default CURRENT_TIMESTAMP comment '修改人时间',
+   remark               varchar(500) comment '备注',
    primary key (id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment '用户评价表';
 
