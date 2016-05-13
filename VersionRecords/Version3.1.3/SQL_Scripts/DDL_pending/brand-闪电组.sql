@@ -47,7 +47,7 @@ create table brand_comment
    updateBy             int(11) comment '修改人Id',
    updateByType         tinyint(2) comment '修改人类型(参考groupName=userType)',
    updateTime           datetime default CURRENT_TIMESTAMP comment '修改人时间',
-   remark               varchar(500) comment '备注',
+   remark               varchar(500) comment '市场部内部评价',
    primary key (id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment '用户评价表';
 
