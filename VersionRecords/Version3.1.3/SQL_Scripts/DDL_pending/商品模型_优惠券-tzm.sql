@@ -1,4 +1,7 @@
-﻿DROP TABLE IF EXISTS `coup_coupon`;
+﻿/* 创建商品模型/费率相关表 */
+use mogoroomdb;
+
+DROP TABLE IF EXISTS `coup_coupon`;
  
 CREATE TABLE `coup_coupon` (
    `id` int(11) NOT NULL AUTO_INCREMENT,
