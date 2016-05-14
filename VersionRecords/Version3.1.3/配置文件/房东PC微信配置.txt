@@ -1,0 +1,15 @@
+﻿#配置
+
+#在房东PC的配置文件中添加以下配置
+
+#在测试环境 新增如下：
+#weixin
+sysconfig.weixin.weixinhuoBanAppID=wx33a9c566e3a2b08d
+sysconfig.weixin.weixinhuoBanAppSecret=d274ac99276d1e3338602356f7abeed8
+
+
+#在正式环境 新增如下：
+
+#weixin
+sysconfig.weixin.weixinhuoBanAppID=
+sysconfig.weixin.weixinhuoBanAppSecret=
