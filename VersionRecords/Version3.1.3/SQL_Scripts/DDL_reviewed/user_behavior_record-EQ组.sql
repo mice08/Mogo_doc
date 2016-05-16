@@ -14,7 +14,7 @@ CREATE TABLE user_behavior_record
    `goodsIdType`    INT(1) NOT NULL COMMENT '商品对象类型（1:房间）',
    `channel`        INT(2) NOT NULL COMMENT '频道来源(参考groupName=channel)',
    `userId`         INT(11) COMMENT '用户ID',
-   `userType`       INT(2) NOT NULL COMMENT '用户类型',
+   `userType`       INT(2) COMMENT '用户类型',
    `behaviorType`   INT(1) NOT NULL COMMENT '行为分类(1:浏览记录 2:拨打电话记录)',
    `regId`          VARCHAR(32) COMMENT '极光推送ID(记录用户唯一ID)',
    `createBy`       INT(11) COMMENT '创建人',
