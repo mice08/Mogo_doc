@@ -7,7 +7,8 @@
 sysconfig.weixin.weixinhuoBanAppID=wx33a9c566e3a2b08d
 sysconfig.weixin.weixinhuoBanAppSecret=d274ac99276d1e3338602356f7abeed8
 sysconfig.weixin.weixinhuobanBindUrl=https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx33a9c566e3a2b08d&redirect_uri=http%3A%2F%2Fppc.api.mogoroom.ngrok.cc%2Fmogoroom-partnerpc%2Fweixin%2Fhuobanbind%2FauthCallBackBindPage&response_type=code&scope=snsapi_userinfo&state=STATE&connect_redirect=1#wechat_redirect
-
+sysconfig.weixin.weixinhuobanBindTempId=AEOz02mC10CCxarG7OCCwJTwA42j6XfQ9S5vkvRKJjo
+sysconfig.weixin.weixinhuobanUnbindTempId=dkDx24GSmj0KcRaC0cyyxJHBODXJSpQyjZ3bjJCr8Bs
 
 
 #在正式环境 新增如下：
@@ -16,3 +17,5 @@ sysconfig.weixin.weixinhuobanBindUrl=https://open.weixin.qq.com/connect/oauth2/a
 sysconfig.weixin.weixinhuoBanAppID=?
 sysconfig.weixin.weixinhuoBanAppSecret=?
 sysconfig.weixin.weixinhuobanBindUrl=?
+sysconfig.weixin.weixinhuobanBindTempId=？
+sysconfig.weixin.weixinhuobanUnbindTempId=？
