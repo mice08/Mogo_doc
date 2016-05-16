@@ -48,3 +48,9 @@ UPDATE loan_landlord_contract SET mogoApplyTime = applyTime;
 /*房东贷款申请his 新增mogo宝申请使用时间字段*/
 ALTER  TABLE loan_landlord_contract_his MODIFY COLUMN mogoApplyTime DATETIME NULL COMMENT '最近一次蘑菇宝申请时间' AFTER applyTime;
 UPDATE loan_landlord_contract_his SET mogoApplyTime = applyTime;
+
+/*房东信用额度 新增当前信用额度字段*/
+ALTER TABLE loan_landlord_credit ADD COLUMN currentCredits DECIMAL(12,2) NULL COMMENT '当前信用额度' AFTER  credits;
+
+/*房东信用额度his 新增当前信用额度字段*/
+ALTER TABLE loan_landlord_credit_his ADD COLUMN currentCredits DECIMAL(12,2) NULL COMMENT '当前信用额度' AFTER credits;
