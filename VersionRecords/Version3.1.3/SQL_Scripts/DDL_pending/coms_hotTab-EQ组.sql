@@ -11,14 +11,13 @@ alter  table coms_hotTab
    add column  description          varchar(3000) comment '描述',
    add column  status               tinyint(1) not null default 1 comment '状态(1:上线 0:下线)',
    add column  valid                tinyint(1) not null default 1 comment '是否有效(1:有效 0:无效)',
-   add column  pageview             int default 0 comment '浏览量',
-   add column  remark               varchar(200) comment '备注';
-
+   add column  remark               varchar(200) comment '备注',
+   add column  picGroupId           int(11) comment '图片组ID';
 /*==============================================================*/
 /* Table: coms_context添加字段                           */
 /*==============================================================*/
 alter  table coms_context 
-   add column  pid                  INT(11) NOT NULL COMMENT '广告父ID',
+   add column  pid                  INT(11) COMMENT '广告父ID',
    add column  jumpCode             varchar(10) comment '跳转编码',
    add column  jumpValue            varchar(20) comment '跳转值',
    add column  contentType          int comment '内容类型(1:文字 2:图片 3:房源 4:品牌 5:地理位置)';
