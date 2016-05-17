@@ -3,24 +3,52 @@ use mogoroomdb;
 
 
 /*==============================================================*/
-/* Table: coms_hotTab                           */
+/* Table: coms_hotTab添加字段                           */
 /*==============================================================*/
-update table coms_hotTab add column
-   pId                  int unsigned comment '父ID',
-   tabType              tinyint(1) not null comment '标签类型(1:推荐房源标签 2:推荐品牌标签)',
-   channel              int not null comment '渠道(枚举:字典表groupname=channel)',
-   menucode             int not null comment '发布位置(枚举:首页,精品专区首页,品牌专区首页,品牌专区推荐,合作页品牌推荐)',
-   brief                varchar(300) not null comment '摘要',
-   description          varchar(3000) comment '描述',
-   status               tinyint(1) not null default 1 comment '状态(1:上线 0:下线)',
-   valid                tinyint(1) not null default 1 comment '是否有效(1:有效 0:无效)',
-   jumpCode             varchar(10) comment '跳转编码',
-   jumpValue            varchar(20) comment '跳转值',
-   contentType          int comment '内容类型(1:文字 2:图片 3:房源 4:品牌 5:地理位置)',
-   pageview             int default 0 comment '浏览量',
-   remark               varchar(200) comment '备注',
+alter  table coms_hotTab 
+   add column  tabType              tinyint(1) not null comment '标签类型(1:推荐房源标签 2:推荐品牌标签)',
+   add column  brief                varchar(300) not null comment '摘要',
+   add column  description          varchar(3000) comment '描述',
+   add column  status               tinyint(1) not null default 1 comment '状态(1:上线 0:下线)',
+   add column  valid                tinyint(1) not null default 1 comment '是否有效(1:有效 0:无效)',
+   add column  pageview             int default 0 comment '浏览量',
+   add column  remark               varchar(200) comment '备注';
+
+/*==============================================================*/
+/* Table: coms_context添加字段                           */
+/*==============================================================*/
+alter  table coms_context 
+   add column  pid                  INT(11) NOT NULL COMMENT '广告父ID',
+   add column  jumpCode             varchar(10) comment '跳转编码',
+   add column  jumpValue            varchar(20) comment '跳转值',
+   add column  contentType          int comment '内容类型(1:文字 2:图片 3:房源 4:品牌 5:地理位置)';
 
 
+/*==============================================================*/
+/* Table: coms_menu添加字段并初始化                           */
+/*==============================================================*/
+alter table coms_menu add column channel INT(2) not null comment '渠道(枚举:字典表groupname=channel)';
+
+
+
+/*==============================================================*/
+/* Table: 新建coms_hottab_menu_rel表                           */
+/*==============================================================*/
+create table coms_hottab_menu_rel
+(
+    id                   INT(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+    hottabId             INT(11) NOT NULL COMMENT '标签ID',
+    menucode             int not null comment '发布位置(coms_menu)',
+    pageview             int not null default 0 comment '浏览量',
+    status               tinyint(1) not null default 1 comment '是否有效(1:有效 0:无效)',
+    primary key (id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment '标签菜单关联表';
+
+
+
+/*==============================================================*/
+/* Table: 新建coms_hotbrand表                           */
+/*==============================================================*/
 create table coms_hotbrand
 (
    id                   INT(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
