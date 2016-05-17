@@ -27,8 +27,14 @@ alter  table coms_context
 /*==============================================================*/
 /* Table: coms_menu添加字段并初始化                           */
 /*==============================================================*/
-alter table coms_menu add column channel INT(2) not null comment '渠道(枚举:字典表groupname=channel)';
+alter table coms_menu 
+	add column channel INT(2) not null comment '渠道(枚举:字典表groupname=channel)',
+        add column isMenu INT(1) not null comment '是否是菜单(0:否 1:是)';
 
+update coms_menu set channel=2 where code like '10%';
+update coms_menu set channel=3 where code like '20%';
+update coms_menu set channel=1 where code like '30%';
+update coms_menu set isMenu=1;
 
 
 /*==============================================================*/
