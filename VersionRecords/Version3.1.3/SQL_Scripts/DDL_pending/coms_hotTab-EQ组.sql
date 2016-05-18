@@ -68,6 +68,6 @@ create table coms_hotbrand
    updateBy             INT(11) COMMENT  '修改人',
    updateByType         INT(2) COMMENT '修改人类型(参考groupName=userType)',
    updateTime           datetime DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间',
-   remark               varbinary(200) comment '备注',
+   remark               varchar(200) comment '备注',
    primary key (id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment '品牌推荐表';
