@@ -4,7 +4,7 @@ use mogoroomdb;
 
 UPDATE user_renter_info a,user_renter b SET a.isverified = b.isverified WHERE a.userid=b.id ; 
 
-UPDATE user_info a,user_renter b SET a.nationality=ifnull(b.nationality,1),a.`birthday`=b.`birthday`,a.`real_name`=ifnull(b.`realName`,''),a.`user_name`=ifnull(b.`account`,''),a.`gender`=ifnull(b.`sex`,''),a.`nick_name`=b.`nickName` WHERE a.id =b.id;
+UPDATE user_info a,user_renter b SET a.nationality=ifnull(b.nationality,1),a.`birthday`=b.`birthday`,a.`real_name`=ifnull(b.`realName`,''),a.`user_name`=ifnull(b.`account`,''),a.`gender`=ifnull(b.`sex`,1),a.`nick_name`=b.`nickName` WHERE a.id =b.id;
 
 UPDATE user_password a,user_renter b SET a.`password`=b.`password` WHERE a.`userId`=b.`id`;
 
