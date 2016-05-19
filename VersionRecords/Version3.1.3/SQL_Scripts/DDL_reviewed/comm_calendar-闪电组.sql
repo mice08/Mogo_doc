@@ -16,7 +16,7 @@ create table comm_calendar (
 	`updateByType`  tinyint(2) default null comment '修改人类型(参考字典表组名:userType)',
 	`updateTime` datetime default null comment '修改时间',
 	primary key(`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='日历表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='日历表';
 
 /*初始化日历存储过程*/
 DELIMITER //
@@ -46,3 +46,4 @@ BEGIN
 		set dt = DATE_ADD(dt, INTERVAL 1 DAY);
 	end while;
 END //
+DELIMITER ;
