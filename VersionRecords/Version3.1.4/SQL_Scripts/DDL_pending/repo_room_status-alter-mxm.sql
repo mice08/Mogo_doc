@@ -87,7 +87,9 @@ select
   , `cd`.`name` AS `districtName`
   , `ff`.`protoType` AS `flatProtoType`
   , `fr`.`protoType` AS `roomProtoType` 
+  , fr.onlineStatus
   , fr.mogoOfflineEndTime
+  , fr.mogoOfflineMemo
 from
   ( 
     ( 
