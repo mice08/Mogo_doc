@@ -1,7 +1,7 @@
 use acct;
 
 ALTER TABLE `acct_bill`
-MODIFY COLUMN `status`  tinyint(4) NOT NULL COMMENT '状态(0:未支付完成, 1:线上支付完成, 2:撤销, 3:线下支付完成, 4:线下支付且撤销' AFTER `toAcctId`;
+MODIFY COLUMN `status`  tinyint(4) NOT NULL COMMENT '状态(0:未支付完成, 1:线上支付完成, 2:作废, 3:线下支付完成, 4:线下支付且作废' AFTER `toAcctId`;
 
 CREATE TABLE `acct_shouldpaybill` (
   `id` int(32) NOT NULL AUTO_INCREMENT COMMENT '主键id',
@@ -11,7 +11,7 @@ CREATE TABLE `acct_shouldpaybill` (
   `unpayAmount` decimal(10,2) NOT NULL COMMENT '未结清费用',
   `acctId` int(11) NOT NULL COMMENT '付款账号',
   `toAcctId` int(11) DEFAULT NULL COMMENT '收款账号',
-  `status` tinyint(4) NOT NULL COMMENT '状态(0:未支付完成, 1:线上支付完成, 2:撤销, 3:线下支付完成, 4:线下支付且撤销',
+  `status` tinyint(4) NOT NULL COMMENT '状态(0:未支付完成, 1:线上支付完成, 2:作废, 3:线下支付完成, 4:线下支付且作废',
   `sendFlag` tinyint(4) DEFAULT '2' COMMENT '是否发送 1:未发送 2:已发送',
   `createTime` datetime NOT NULL COMMENT '创建时间',
   `updateTime` datetime DEFAULT NULL COMMENT '更新时间',
@@ -26,4 +26,4 @@ CREATE TABLE `acct_shouldpaybill` (
   KEY `acctId` (`acctId`),
   KEY `toAcctId` (`toAcctId`),
   KEY `deadline` (`deadline`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='每日应付款账单表';
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='每日应付款账单表，根据deadline提取';
