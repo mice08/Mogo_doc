@@ -25,11 +25,11 @@ values('LOAN_CREDIT_ONLINETRADINGAMOUNT_MIN_3_0','10000','LOAN_CREDIT_ONLINETRAD
 深圳 cityid 340
 */
 insert into `comm_sysconfig` ( `keyName`, `val`, `groupName`, `name`, `remark`, `updateTime`, `updateByType`, `updateBy`, `extra1`, `extra2`)
-values('LOAN_MOGO_REPAY_REGULAR_KEY_3_289','15','LOAN_MOGO_REPAY_REGULAR','蘑菇还款日配置','新增jyc-(上海)的蘑菇还还款提前15天',current_timestamp,5,2000681,'3','289');
+values('LOAN_MOGO_REPAY_REGULAR_KEY_3_289','15','LOAN_MOGO_REPAY_REGULAR','上海蘑菇还款日配置','新增jyc-(上海)的蘑菇还还款提前15天',current_timestamp,5,2000681,'3','289');
 
 insert into `comm_sysconfig` ( `keyName`, `val`, `groupName`, `name`, `remark`, `updateTime`, `updateByType`, `updateBy`, `extra1`, `extra2`)
-values('LOAN_MOGO_REPAY_REGULAR_KEY_3_131','30','LOAN_MOGO_REPAY_REGULAR','蘑菇还款日配置','新增jyc-(北京)的蘑菇还还款提前30天',current_timestamp,5,2000681,'3','131');
+values('LOAN_MOGO_REPAY_REGULAR_KEY_3_131','30','LOAN_MOGO_REPAY_REGULAR','北京蘑菇还款日配置','新增jyc-(北京)的蘑菇还还款提前30天',current_timestamp,5,2000681,'3','131');
 
 insert into `comm_sysconfig` ( `keyName`, `val`, `groupName`, `name`, `remark`, `updateTime`, `updateByType`, `updateBy`, `extra1`, `extra2`)
-values('LOAN_MOGO_REPAY_REGULAR_KEY_3_340','30','LOAN_MOGO_REPAY_REGULAR','蘑菇还款日配置','新增jyc-(深圳)的蘑菇还还款提前30天',current_timestamp,5,2000681,'3','340');
+values('LOAN_MOGO_REPAY_REGULAR_KEY_3_340','30','LOAN_MOGO_REPAY_REGULAR','深圳蘑菇还款日配置','新增jyc-(深圳)的蘑菇还还款提前30天',current_timestamp,5,2000681,'3','340');
 
