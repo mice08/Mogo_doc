@@ -98,5 +98,6 @@ alter table `brand` add index `brand_landlordId_idx` (`landlordId`);
 alter table `brand_assessment` add index `assessment_brandId_idx` (`brandId`);
 
 alter table `brand_comment` add unique `comment_unique_idx` (`objectType`, `objectId`);
+alter table `brand_comment` drop key `comment_unique_idx`, add index `comment_unique_idx` (`objectType`, `objectId`);
 
 alter table `brand_promise` add unique `promise_unique_idx` (`brandId`, `promiseItemKey`);
