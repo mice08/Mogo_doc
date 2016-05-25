@@ -8,3 +8,4 @@ UPDATE flat_room fr LEFT JOIN flat_flats ff ON fr.flatsId = ff.id SET fr.onlineS
 
 -- 初始化分散式公寓
 UPDATE flat_room fr LEFT JOIN flat_flats ff ON fr.flatsId = ff.id SET fr.onlineStatus = 1, fr.mogoOfflineEndTime = NULL WHERE ff.flatsTag = 1;
+commit;
