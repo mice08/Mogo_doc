@@ -49,22 +49,22 @@ ALTER TABLE loan_landlord_credit_his ADD COLUMN beforeDays INT (11) DEFAULT 15 N
 
 
 /*房东信用额度 新增最长蘑菇宝租期*/
-ALTER TABLE loan_landlord_credit ADD longestTerm INT(11) DEFAULT 12 NULL COMMENT '最短蘑菇宝租期' AFTER shortestTerm;
+ALTER TABLE loan_landlord_credit ADD COLUMN longestTerm INT(11) DEFAULT 12 NULL COMMENT '最短蘑菇宝租期' AFTER shortestTerm;
 
 /*房东信用额度 主要是用来暂停租金以及取消暂停 终止租金宝*/
-ALTER TABLE loan_landlord_credit ADD soDoneCode INT(11) NULL COMMENT '业务操作(参考字典表组名:comm_business_record)' AFTER longestTerm;
+ALTER TABLE loan_landlord_credit ADD COLUMN soDoneCode INT(11) NULL COMMENT '业务操作记录ID(comm_business_record的id)' AFTER longestTerm;
 
 /*房东信用额度 贷款归属城市*/
-ALTER TABLE loan_landlord_credit ADD applyCityId INT(11) NULL COMMENT '房东贷款归属城市' AFTER soDoneCode;
+ALTER TABLE loan_landlord_credit ADD COLUMN cityId INT(11) NULL COMMENT '房东贷款归属城市' AFTER soDoneCode;
 
 /*房东信用额度_his 新增最长蘑菇宝租期*/
-ALTER TABLE loan_landlord_credit_his ADD longestTerm INT(11) DEFAULT 12 NULL COMMENT '最短蘑菇宝租期' AFTER shortestTerm;
+ALTER TABLE loan_landlord_credit_his ADD COLUMN longestTerm INT(11) DEFAULT 12 NULL COMMENT '最短蘑菇宝租期' AFTER shortestTerm;
 
 /*房东信用额度_his 主要是用来暂停租金以及取消暂停 终止租金宝*/
-ALTER TABLE loan_landlord_credit_his ADD soDoneCode INT(11) NULL COMMENT '业务操作(参考字典表组名:comm_business_record)' AFTER longestTerm;
+ALTER TABLE loan_landlord_credit_his ADD COLUMN soDoneCode INT(11) NULL COMMENT '业务操作记录ID(comm_business_record的id)' AFTER longestTerm;
 
 /*房东信用额度_his 新增最长蘑菇宝租期*/
-ALTER TABLE loan_landlord_credit_his ADD applyCityId INT(11) NULL COMMENT '房东贷款归属城市' AFTER soDoneCode;
+ALTER TABLE loan_landlord_credit_his ADD COLUMN cityId INT(11) NULL COMMENT '房东贷款归属城市' AFTER soDoneCode;
 
 /*房东信用额度 新增最近蘑菇宝贷款申请时间*/
 ALTER  TABLE loan_landlord_credit ADD COLUMN mogoApplyTime DATETIME NULL COMMENT '最近蘑菇宝贷款申请时间' AFTER remark;
