@@ -37,8 +37,6 @@ UPDATE loan_landlord_contract SET loanChannel = 1;
 /*房东信用额度 新增当前信用额度字段*/
 ALTER TABLE loan_landlord_credit ADD COLUMN currentCredits DECIMAL(12,2) NULL COMMENT '当前信用额度' AFTER  credits;
 
-/*房东信用额度his 新增当前信用额度字段*/
-ALTER TABLE loan_landlord_credit_his ADD COLUMN currentCredits DECIMAL(12,2) NULL COMMENT '当前信用额度' AFTER credits;
 
 /*房东信用 新增提前还账单天数*/
 ALTER  TABLE loan_landlord_credit ADD COLUMN beforeDays INT (11) DEFAULT 15 NULL  COMMENT '提前还账单天数' AFTER canLoan;
