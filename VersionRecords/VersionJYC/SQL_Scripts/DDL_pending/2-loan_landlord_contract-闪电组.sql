@@ -34,15 +34,6 @@ UPDATE loan_landlord_credit SET loanChannel = 1;
 ALTER  TABLE loan_landlord_contract modify COLUMN loanChannel INT(11) not NULL  DEFAULT  1 comment '贷款来源(参考字典表组名:loan_channel)' after landlordId;
 UPDATE loan_landlord_contract SET loanChannel = 1;
 
-
-/*房东贷款申请 新增mogo申请时间字段 在使用mogo宝时更新下这个字段时间*/
-ALTER TABLE  loan_landlord_contract MODIFY COLUMN mogoApplyTime DATETIME NULL COMMENT '最近一次蘑菇宝申请时间' AFTER applyTime;
-UPDATE loan_landlord_contract SET mogoApplyTime = applyTime;
-
-/*房东贷款申请his 新增mogo宝申请使用时间字段*/
-ALTER  TABLE loan_landlord_contract_his MODIFY COLUMN mogoApplyTime DATETIME NULL COMMENT '最近一次蘑菇宝申请时间' AFTER applyTime;
-UPDATE loan_landlord_contract_his SET mogoApplyTime = applyTime;
-
 /*房东信用额度 新增当前信用额度字段*/
 ALTER TABLE loan_landlord_credit ADD COLUMN currentCredits DECIMAL(12,2) NULL COMMENT '当前信用额度' AFTER  credits;
 
@@ -54,6 +45,8 @@ ALTER  TABLE loan_landlord_credit ADD COLUMN beforeDays INT (11) DEFAULT 15 NULL
 
 /*房东信用his 新增提前还账单天数*/
 ALTER TABLE loan_landlord_credit_his ADD COLUMN beforeDays INT (11) DEFAULT 15 NULL COMMENT '提前还账单天数' AFTER canLoan;
+
+
 
 /*房东信用额度 新增最长蘑菇宝租期*/
 ALTER TABLE loan_landlord_credit ADD longestTerm INT(11) DEFAULT 12 NULL COMMENT '最短蘑菇宝租期' AFTER shortestTerm;
@@ -73,4 +66,9 @@ ALTER TABLE loan_landlord_credit_his ADD soDoneCode INT(11) NULL COMMENT '业务
 /*房东信用额度_his 新增最长蘑菇宝租期*/
 ALTER TABLE loan_landlord_credit_his ADD applyCityId INT(11) NULL COMMENT '房东贷款归属城市' AFTER soDoneCode;
 
+/*房东信用额度 新增最近蘑菇宝贷款申请时间*/
+ALTER  TABLE loan_landlord_credit ADD COLUMN mogoApplyTime DATETIME NULL COMMENT '最近蘑菇宝贷款申请时间' AFTER remark;
+
+/*房东信用额度_his 新增最近蘑菇宝贷款申请时间*/
+ALTER  TABLE loan_landlord_credit_his ADD COLUMN mogoApplyTime DATETIME NULL COMMENT '最近蘑菇宝贷款申请时间' AFTER comments;
 
