@@ -71,8 +71,8 @@ ALTER  TABLE loan_landlord_credit_his ADD COLUMN  mogoApplyTime DATETIME NULL CO
 
 
 /*房东信用额度 新增第二版信用额*/
-ALTER TABLE  loan_landlord_credit ADD COLUMN  seCredits DECIMAL(12,2) DEFAULT 0 NULL  COMMENT '第二版信用额' AFTER credits;
+ALTER TABLE  loan_landlord_credit ADD COLUMN  secondCredits DECIMAL(12,2) DEFAULT 0 NULL  COMMENT '第二版信用额' AFTER credits;
 
 /*房东信用额度_his 新增第二版信用额*/
-ALTER TABLE  loan_landlord_credit_his ADD COLUMN  seCredits DECIMAL(12,2) DEFAULT 0 NULL  COMMENT '第二版信用额' AFTER credits;
+ALTER TABLE  loan_landlord_credit_his ADD COLUMN  secondCredits DECIMAL(12,2) DEFAULT 0 NULL  COMMENT '第二版信用额' AFTER credits;
 
