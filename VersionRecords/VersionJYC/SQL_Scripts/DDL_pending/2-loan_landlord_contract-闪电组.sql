@@ -34,9 +34,6 @@ UPDATE loan_landlord_credit SET loanChannel = 1;
 ALTER  TABLE loan_landlord_contract modify COLUMN loanChannel INT(11) not NULL  DEFAULT  1 comment '贷款来源(参考字典表组名:loan_channel)' after landlordId;
 UPDATE loan_landlord_contract SET loanChannel = 1;
 
-/*房东信用额度 新增当前信用额度字段*/
-ALTER TABLE loan_landlord_credit ADD COLUMN currentCredits DECIMAL(12,2) NULL COMMENT '当前信用额度' AFTER  credits;
-
 
 /*房东信用 新增提前还账单天数*/
 ALTER  TABLE loan_landlord_credit ADD COLUMN beforeDays INT (11) DEFAULT 15 NULL  COMMENT '提前还账单天数' AFTER canLoan;
@@ -69,4 +66,13 @@ ALTER  TABLE loan_landlord_credit ADD COLUMN mogoApplyTime DATETIME NULL COMMENT
 
 /*房东信用额度_his 新增最近蘑菇宝贷款申请时间*/
 ALTER  TABLE loan_landlord_credit_his ADD COLUMN  mogoApplyTime DATETIME NULL COMMENT '最近蘑菇宝贷款申请时间' AFTER comments;
+
+
+
+
+/*房东信用额度 新增第二版信用额*/
+ALTER TABLE  loan_landlord_credit ADD COLUMN  seCredits DECIMAL(12,2) DEFAULT 0 NULL  COMMENT '第二版信用额' AFTER credits;
+
+/*房东信用额度_his 新增第二版信用额*/
+ALTER TABLE  loan_landlord_credit_his ADD COLUMN  seCredits DECIMAL(12,2) DEFAULT 0 NULL  COMMENT '第二版信用额' AFTER credits;
 
