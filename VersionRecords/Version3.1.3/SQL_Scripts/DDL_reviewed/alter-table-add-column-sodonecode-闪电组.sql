@@ -16,7 +16,7 @@ ALTER TABLE flat_flats_his ADD COLUMN soDoneCode INT(11) COMMENT 'ÒµÎñ¼ÇÂ¼ID(²Î¿
 ALTER TABLE flat_flats_prototype_his ADD COLUMN soDoneCode INT(11) COMMENT 'ÒµÎñ¼ÇÂ¼ID(²Î¿¼comm_business_record±íµÄid)';
 
 ALTER TABLE flat_price_his ADD COLUMN soDoneCode INT(11) COMMENT 'ÒµÎñ¼ÇÂ¼ID(²Î¿¼comm_business_record±íµÄid)';
-ALTER TABLE flat_price_his ADD COLUMN operType char(1) COMMENT '¸ÃÀúÊ·¼ÇÂ¼²úÉúÊ±µÄ²Ù×÷ÀàÐÍ(A:ÐÂÔö U:¸üÐÂ D:É¾³ý)'
+ALTER TABLE flat_price_his ADD COLUMN operType char(1) COMMENT '¸ÃÀúÊ·¼ÇÂ¼²úÉúÊ±µÄ²Ù×÷ÀàÐÍ(A:ÐÂÔö U:¸üÐÂ D:É¾³ý)';
 
 ALTER TABLE flat_room_his ADD COLUMN soDoneCode INT(11) COMMENT 'ÒµÎñ¼ÇÂ¼ID(²Î¿¼comm_business_record±íµÄid)';
 
