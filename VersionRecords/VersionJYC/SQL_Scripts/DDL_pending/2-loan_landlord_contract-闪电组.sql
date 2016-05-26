@@ -70,6 +70,19 @@ ALTER  TABLE loan_landlord_credit_his ADD COLUMN  mogoApplyTime DATETIME NULL CO
 
 
 
+
+/*房东贷款申请表 删除soDoneCode字段*/
+ALTER TABLE  loan_landlord_contract DROP COLUMN soDoneCode;
+
+/*房东贷款申请表 删除mogoApplyTime字段*/
+ALTER TABLE  loan_landlord_contract DROP COLUMN mogoApplyTime;
+
+/*房东贷款申请_his 删除soDoneCode字段*/
+ALTER TABLE  loan_landlord_contract_his DROP COLUMN soDoneCode;
+
+/*房东贷款申请_his 删除mogoApplyTime字段*/
+ALTER TABLE  loan_landlord_contract_his DROP COLUMN mogoApplyTime;
+
 /*房东信用额度 新增第二版信用额*/
 ALTER TABLE  loan_landlord_credit ADD COLUMN  secondCredits DECIMAL(12,2) DEFAULT 0 NULL  COMMENT '第二版信用额' AFTER credits;
 
