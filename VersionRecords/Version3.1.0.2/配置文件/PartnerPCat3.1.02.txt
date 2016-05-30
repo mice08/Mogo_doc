@@ -1,3 +1,0 @@
-#正式环境修改配置 
-sysconfig.weixin.weixinPartnerRel=https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx4c1c9ff3765d197f&redirect_uri=http%3A%2F%2Fp.mogoroom.com%2Fmogoroom-partnerpc%2Fweixin%2Fbind%2FauthCallBackBindPage&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect
-
