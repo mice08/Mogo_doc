@@ -1,0 +1,15 @@
+﻿#配置
+
+#所有6个项目的数据库连接池配置做了调整，上线时候需要添加或者修改一下配置：
+一下配置如果原来有的替换，没有的新加：
+
+filters/jdbc-pro.properties:
+ 
+filter.jdbc.idleMaxAgeInMinutes=60
+filter.jdbc.connectionTimeoutInMs=60
+filter.jdbc.idleConnectionTestPeriodInMinutes=15
+filter.jdbc.maxConnectionAgeInSeconds=3600
+
+#数据库有效连接时间为60分钟失效，
+#每隔15分钟一次数据库连接的有效性检查
+
