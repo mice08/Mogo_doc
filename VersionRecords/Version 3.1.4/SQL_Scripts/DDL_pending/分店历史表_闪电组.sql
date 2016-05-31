@@ -29,7 +29,7 @@ drop  table orga_org_position_his;
 CREATE TABLE `orga_org_position_his` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键id',
   `mapId` int(11) NOT NULL COMMENT '用户岗位关系表id',
-  `thirdId` int(20) DEFAULT NULL COMMENT '第三方系统的关联组织id',
+  `thirdId` varchar(50) DEFAULT NULL COMMENT '第三方系统的关联组织id',
   `userId` int(11) DEFAULT NULL COMMENT '用户id',
   `orgId` int(11) DEFAULT NULL COMMENT '组织id',
   `positionId` int(11) DEFAULT NULL COMMENT '岗位ID',
