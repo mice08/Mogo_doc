@@ -20,3 +20,5 @@ create table comm_business_record_mapping(
 ALTER TABLE `comm_busitype` ADD COLUMN `parentId` INT(11) NULL COMMENT '父ID,对应本表busiType'  ;
 ALTER TABLE `comm_busitype` ADD COLUMN `level` INT(1) default 1 COMMENT '级别,从1开始'  ;
 ALTER TABLE `comm_busitype` ADD COLUMN `isLeaf` INT(1) default 1 COMMENT '是否末级'  ;
+
+ALTER TABLE `comm_business_record` ADD COLUMN `orgId` INT(11) default 1 COMMENT '操作员对应的组织id'  ;
