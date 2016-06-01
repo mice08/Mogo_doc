@@ -13,3 +13,15 @@ filter.jdbc.maxConnectionAgeInSeconds=3600
 #数据库有效连接时间为60分钟失效，
 #每隔15分钟一次数据库连接的有效性检查
 
+实际的配置环境替换成上面的配置
+jdbc.idleMaxAgeInMinutes = 60
+jdbc.connectionTimeoutInMs = 60
+jdbc.idleConnectionTestPeriodInMinutes = 15
+jdbc.maxConnectionAgeInSeconds = 3600
+
+如果没有报表的数据源下面的不需要：
+jdbc.repo.idleMaxAgeInMinutes = 60
+jdbc.repo.connectionTimeoutInMs = 60
+jdbc.repo.idleConnectionTestPeriodInMinutes = 15
+jdbc.repo.maxConnectionAgeInSeconds = 3600
+
