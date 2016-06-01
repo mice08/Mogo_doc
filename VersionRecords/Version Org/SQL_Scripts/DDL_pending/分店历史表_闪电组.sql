@@ -24,7 +24,7 @@ CREATE TABLE `orga_org_his` (
   `operType` char(1) DEFAULT null COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
   `isSynch` tinyint(1) DEFAULT null COMMENT '是否同步到钉钉(1:是 0:否)',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='组织架构历史表'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='组织架构历史表';
 
 drop  table orga_org_position_his;
 CREATE TABLE `orga_org_position_his` (
