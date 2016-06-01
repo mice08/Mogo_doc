@@ -22,6 +22,7 @@ CREATE TABLE `orga_org_his` (
   `updateTime` datetime DEFAULT NULL COMMENT '更新时间',
   `soDoneCode` int(11) unsigned DEFAULT NULL COMMENT '对应common_business_record.id',
   `operType` char(1) DEFAULT null COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
+  `synchType` char(1) DEFAULT null COMMENT '是否同步到钉钉(Y:是 N:否)',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='组织架构历史表'
 
@@ -29,7 +30,7 @@ drop  table orga_org_position_his;
 CREATE TABLE `orga_org_position_his` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键id',
   `mapId` int(11) NOT NULL COMMENT '用户岗位关系表id',
-  `thirdId` varchar(50) DEFAULT NULL COMMENT '第三方系统的关联组织id',
+  `thirdId` varchar(50) DEFAULT NULL COMMENT '第三方系统的用户ID',
   `userId` int(11) DEFAULT NULL COMMENT '用户id',
   `orgId` int(11) DEFAULT NULL COMMENT '组织id',
   `positionId` int(11) DEFAULT NULL COMMENT '岗位ID',
