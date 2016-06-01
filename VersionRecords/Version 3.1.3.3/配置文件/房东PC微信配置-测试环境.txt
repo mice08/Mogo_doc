@@ -1,0 +1,8 @@
+#销售组配置如下
+
+#wxy test appld and appsecret
+sysconfig.weixin.weixinhuoBanAppID=wxeb44d92649e73fe6
+sysconfig.weixin.weixinhuoBanAppSecret=d4624c36b6795d1d99dcf0547af5443d
+
+#wxy test 预约请求提醒 tempId
+sysconfig.weixin.weixinhuobanReserveTempId=QLd1KXs2AU-8r-H4TJ9leYgmaIIeM3RimYzvSJsnNjg
