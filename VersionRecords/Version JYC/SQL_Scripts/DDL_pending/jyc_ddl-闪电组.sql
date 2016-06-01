@@ -143,7 +143,7 @@ create table `loan_contract` (
 
 
 /*房东贷款申请 新增贷款渠道id*/
-ALTER  TABLE loan_landlord_contract ADD COLUMN loanChannel INT(11) null comment '贷款来源 参考字典表 loan_channel(1:拉卡拉 2:蘑菇 3:聚有财)' after landlordId;
+ALTER  TABLE loan_landlord_contract ADD COLUMN loanChannel INT(11) DEFAULT  1 null comment '贷款来源 参考字典表 loan_channel(1:拉卡拉 2:蘑菇 3:聚有财)' after landlordId;
 
 /*房东贷款申请 新增一审图片上传*/
 ALTER  TABLE loan_landlord_contract ADD COLUMN picGroupId1 INT(11) NULL  comment '图片组id1(一审对应的图片附件)' after `status`;
@@ -228,6 +228,12 @@ ALTER TABLE loan_landlord_buyback ADD COLUMN waitRepayRenterPenalty DECIMAL(12,2
 
 /*贷款放款计划 新增贷款来源*/
 ALTER TABLE  loan_landlord_payplan ADD COLUMN loanChannel INT(11) DEFAULT 1 NULL COMMENT '贷款来源(参考字典表组名:loan_channel)' AFTER depositAmount;
+
+UPDATE loan_landlord_buyback SET loanChannel = 1;
+
+UPDATE loan_landlord_credit SET loanChannel = 1;
+
+UPDATE loan_landlord_contract SET loanChannel = 1;
 
 
 
