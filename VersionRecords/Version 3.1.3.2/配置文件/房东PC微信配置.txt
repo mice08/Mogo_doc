@@ -1,0 +1,23 @@
+﻿#配置
+
+#在房东PC的配置文件中添加以下配置
+
+#在测试环境 新增如下：
+#weixin
+sysconfig.weixin.weixinhuoBanAppID=wx33a9c566e3a2b08d
+sysconfig.weixin.weixinhuoBanAppSecret=d274ac99276d1e3338602356f7abeed8
+sysconfig.weixin.weixinhuobanBindUrl=https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx33a9c566e3a2b08d&redirect_uri=http%3A%2F%2Fppc.api.mogoroom.ngrok.cc%2Fmogoroom-partnerpc%2Fweixin%2Fhuobanbind%2FauthCallBackBindPage&response_type=code&scope=snsapi_userinfo&state=STATE&connect_redirect=1#wechat_redirect
+sysconfig.weixin.weixinhuobanBindTempId=AEOz02mC10CCxarG7OCCwJTwA42j6XfQ9S5vkvRKJjo
+sysconfig.weixin.weixinhuobanUnbindTempId=dkDx24GSmj0KcRaC0cyyxJHBODXJSpQyjZ3bjJCr8Bs
+sysconfig.weixin.weixinhuobanReportTempId=lPMRRKvvz2MEYaxzZHgL8HwIpJYv6qZVsXHceyPMmKM
+
+
+#在正式环境 新增如下：
+
+#weixin
+sysconfig.weixin.weixinhuoBanAppID=wx49d2b14dbc7ab226
+sysconfig.weixin.weixinhuoBanAppSecret=1f2b2590eb2d74e93eb7fe34495b0777
+sysconfig.weixin.weixinhuobanBindUrl=https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx49d2b14dbc7ab226&redirect_uri=http%3A%2F%2Fp.mogoroom.com%2Fmogoroom-partnerpc%2Fweixin%2Fhuobanbind%2FauthCallBackBindPage&response_type=code&scope=snsapi_userinfo&state=STATE&connect_redirect=1#wechat_redirect
+sysconfig.weixin.weixinhuobanBindTempId=7UHo1OTCmVMrrvmuWNqqyCQG0i6YoFdewtCqZEugfIo
+sysconfig.weixin.weixinhuobanUnbindTempId=OxzYMw2E6BpatORkogVZx0b8R_3HMJvk75fJViURvH4
+sysconfig.weixin.weixinhuobanReportTempId=ysziVbOsLHsZZPXVoMb78Vyovxjcl2g51dN-_6TtnpA
