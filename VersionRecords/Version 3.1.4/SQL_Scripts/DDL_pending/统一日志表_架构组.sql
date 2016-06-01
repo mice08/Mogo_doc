@@ -7,13 +7,13 @@ create table comm_business_record_mapping(
    busiType int(11) not null comment '业务唯一编码,对应comm_busitype表记录',
    tableName varchar(30) not null comment '业务编码对应的业务表',
    tableNameHis varchar(30) not null comment '业务编码对应的业务历史表',
-   tableKey varchar(50) not null comment '业务编码对应的业务历史表列中文显示名',
+   tableLabel varchar(50) not null comment '业务表描述',
    tableColumnLabel varchar(50) not null comment '业务编码对应的业务历史表列中文显示名',
    tableColumnName varchar(20) not null comment '业务编码对应的业务历史表列名' ,
    checkUniColumn varchar(50) not null comment '业务编码对应的业务历史表比较字段列名' ,
    isCommWrite int not null comment '是否在通用的写历史表(0:否 1:是)' ,
    sort int not null default 1 comment '排序数字越小越靠前'
-)ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='业务编码与日志历史表映射关系表';
+)ENGINE=InnoDB COMMENT='业务编码与日志历史表映射关系表';
 
  
 /*  添加树级结构*/ 

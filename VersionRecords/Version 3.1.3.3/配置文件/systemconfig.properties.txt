@@ -1,0 +1,3 @@
+# 在/data/tomcatconf/bs、partner、partnerpc、renter、renterpc、tasktracker、payapi等目录下的文件systemconfig.properties文件中加入以下两行
+sysconfig.SYNC_ROOM_THREADNUM=8
+sysconfig.ASYNC_ROOM_THREADNUM=8
