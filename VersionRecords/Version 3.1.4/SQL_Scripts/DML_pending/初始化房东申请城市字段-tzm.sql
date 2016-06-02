@@ -2055,3 +2055,4 @@ UPDATE user_landlord SET applyCityId=(SELECT id FROM city WHERE NAME='北京') WHE
 UPDATE user_landlord SET applyCityId=(SELECT id FROM city WHERE NAME='北京') WHERE id=	3102092    ;
 UPDATE user_landlord SET applyCityId=(SELECT id FROM city WHERE NAME='北京') WHERE id=	3102093    ;
 UPDATE user_landlord SET applyCityId=(SELECT id FROM city WHERE NAME='深圳') WHERE id=	3102094    ;
+UPDATE user_landlord_info a,user_landlord b SET a.`applyCityId` = b.`applyCityId` WHERE a.`userId`=b.`id` AND b.`id`>3000000 OR a.`userId`=b.`id`+3000000 AND b.`id`<3000000;
