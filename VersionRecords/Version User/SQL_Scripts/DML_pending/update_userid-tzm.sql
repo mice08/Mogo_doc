@@ -6,7 +6,7 @@ UPDATE user_landlord_info a,user_landlord b SET a.`editPwdNum`=b.`editPwdNum`,a.
 
 UPDATE user_info a,user_landlord b SET a.`phoneExt` =b.`phoneExt` ,a.`addr`=b.`address`,a.`create_by`=b.`createby` WHERE (a.`id`=b.`id` AND b.`id`>300000) OR (a.`id`=b.`id`+3000000 AND b.`id`<3000000);
 
-UPDATE user_password a,user_landlord b SET a.`password`=b.`password` WHERE (a.`userId`=b.`id` AND b.`id`>300000) OR (a.`userI`=b.`id`+3000000 AND b.`id`<3000000);
+UPDATE user_password a,user_landlord b SET a.`password`=b.`password` WHERE (a.`userId`=b.`id` AND b.`id`>300000) OR (a.`userId`=b.`id`+3000000 AND b.`id`<3000000);
 
 
 /*账单线下支付表*/
