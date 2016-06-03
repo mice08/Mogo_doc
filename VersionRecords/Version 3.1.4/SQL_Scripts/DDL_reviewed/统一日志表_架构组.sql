@@ -3,7 +3,7 @@
 use mogoroomdb;
 drop  table comm_business_record_mapping;
 create table comm_business_record_mapping(
-   id int(40) primary key AUTO_INCREMENT,
+   id int(40) primary key AUTO_INCREMENT comment 'Ö÷¼üID',
    busiType int(11) not null comment 'ÒµÎñÎ¨Ò»±àÂë,¶ÔÓ¦comm_busitype±í¼ÇÂ¼',
    tableName varchar(30) not null comment 'ÒµÎñ±àÂë¶ÔÓ¦µÄÒµÎñ±í',
    tableNameHis varchar(30) not null comment 'ÒµÎñ±àÂë¶ÔÓ¦µÄÒµÎñÀúÊ·±í',
@@ -13,7 +13,7 @@ create table comm_business_record_mapping(
    checkUniColumn varchar(50) not null comment 'ÒµÎñ±àÂë¶ÔÓ¦µÄÒµÎñÀúÊ·±í±È½Ï×Ö¶ÎÁĞÃû' ,
    isCommWrite int not null comment 'ÊÇ·ñÔÚÍ¨ÓÃµÄĞ´ÀúÊ·±í(0:·ñ 1:ÊÇ)' ,
    sort int not null default 1 comment 'ÅÅĞòÊı×ÖÔ½Ğ¡Ô½¿¿Ç°'
-)ENGINE=InnoDB COMMENT='ÒµÎñ±àÂëÓëÈÕÖ¾ÀúÊ·±íÓ³Éä¹ØÏµ±í';
+)ENGINE=InnoDB  default charset=utf8mb4 COMMENT='ÒµÎñ±àÂëÓëÈÕÖ¾ÀúÊ·±íÓ³Éä¹ØÏµ±í';
 
  
 /*  Ìí¼ÓÊ÷¼¶½á¹¹*/ 
@@ -21,4 +21,5 @@ ALTER TABLE `comm_busitype` ADD COLUMN `parentId` INT(11) NULL COMMENT '¸¸ID,¶ÔÓ
 ALTER TABLE `comm_busitype` ADD COLUMN `level` INT(1) default 1 COMMENT '¼¶±ğ,´Ó1¿ªÊ¼'  ;
 ALTER TABLE `comm_busitype` ADD COLUMN `isLeaf` INT(1) default 1 COMMENT 'ÊÇ·ñÄ©¼¶'  ;
 
-ALTER TABLE `comm_business_record` ADD COLUMN `orgId` INT(11) default 1 COMMENT '²Ù×÷Ô±¶ÔÓ¦µÄ×éÖ¯id'  ;
+ALTER TABLE `comm_business_record` MODIFY COLUMN `orgId` INT(11) default 1 COMMENT '²Ù×÷Ô±¶ÔÓ¦µÄ×éÖ¯id'  ;
+

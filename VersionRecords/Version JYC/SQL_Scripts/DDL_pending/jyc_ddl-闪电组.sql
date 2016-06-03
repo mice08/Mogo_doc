@@ -217,6 +217,7 @@ ALTER TABLE comm_sysconfig_his
   CHANGE `newVal` `newVal` VARCHAR(4096)  NULL  COMMENT '变更后配置项值';
 
 
+
 /*房东买回 新增贷款来源*/
 ALTER TABLE  loan_landlord_buyback ADD COLUMN loanChannel INT(11) DEFAULT 1 NULL COMMENT '贷款来源(参考字典表组名:loan_channel)' AFTER `status`;
 /*房东买回 新增租客逾期滞纳金*/
@@ -235,6 +236,7 @@ UPDATE loan_landlord_credit SET loanChannel = 1;
 
 UPDATE loan_landlord_contract SET loanChannel = 1;
 
+ALTER  TABLE loan_landlord_credit ADD COLUMN `credits2` decimal(12,2) DEFAULT '0.00' COMMENT '第二版信用额' AFTER credits;
 
 
 
