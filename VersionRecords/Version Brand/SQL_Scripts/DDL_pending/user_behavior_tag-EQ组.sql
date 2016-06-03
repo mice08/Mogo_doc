@@ -50,7 +50,7 @@ create table flat_attribute_his
    hasBalcony           tinyint(1) comment '是否有阳台(0:无阳台 1:有阳台)',
    hasAircond           tinyint(1) comment '是否有空调(0:无空调 1:有空调)',
    status               tinyint(1) not null default 1 comment '状态(0:无效 1:有效)',
-   createTime           datetime not null comment '创建时间',
+   createTime           datetime not null default CURRENT_TIMESTAMP  comment '创建时间',
    updateTime           datetime comment '修改时间',
    primary key (id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment '房源属性历史记录表';
