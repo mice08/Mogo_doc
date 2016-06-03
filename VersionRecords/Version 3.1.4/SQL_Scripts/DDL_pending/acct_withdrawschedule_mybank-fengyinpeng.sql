@@ -11,7 +11,7 @@ UPDATE acct.`acct_withdrawschedule` SET fundChannel = 9;
 DROP TABLE IF EXISTS `acct_withdrawschedule_mybank`;
 
 CREATE TABLE `acct_withdrawschedule_mybank` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
   `bizNo` varchar(64) NOT NULL COMMENT '业务批次号',
   `bizDate` date NOT NULL COMMENT '业务日期',
   `sendCount` int(11) NOT NULL COMMENT '标示在一个业务日期内发送次数',
