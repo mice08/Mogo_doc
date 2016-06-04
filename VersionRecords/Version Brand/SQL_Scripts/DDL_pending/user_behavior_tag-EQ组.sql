@@ -73,6 +73,6 @@ create table user_interest_tag
    detailTags           varchar(2048) comment '详细兴趣点取值，JSON字符串',
    priority             int(11) not null comment '兴趣的优先级（1为最高，2次之，以此类推）',
    status               tinyint(1) not null default 1 comment '状态(0:无效 1:有效)',
-   createTime           datetime not null comment '创建时间',
+   createTime           datetime not null default CURRENT_TIMESTAMP  comment '创建时间',
    primary key (id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment '用户兴趣标签表';
