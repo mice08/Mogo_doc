@@ -236,7 +236,11 @@ UPDATE loan_landlord_credit SET loanChannel = 1;
 
 UPDATE loan_landlord_contract SET loanChannel = 1;
 
+/*房东信用额度表  新版信用额度*/
 ALTER  TABLE loan_landlord_credit ADD COLUMN `credits2` decimal(12,2) DEFAULT '0.00' COMMENT '第二版信用额' AFTER credits;
+
+/*comm_picture  新增文件支持类型*/
+ALTER TABLE comm_picture ADD COLUMN fileType INT(11) DEFAULT 1 NULL COMMENT '文件类型 (1:图片 2:word 3:excel 4:pdf 5:video)' COMMENT '文件类型';
 
 
 
