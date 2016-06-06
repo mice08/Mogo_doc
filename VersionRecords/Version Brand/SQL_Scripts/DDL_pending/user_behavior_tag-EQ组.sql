@@ -46,7 +46,7 @@ create table flat_attribute_his
    area                 double(10,2) comment '面积',
    face                 varchar(10) comment '朝向',
    lng                  double comment '经度',
-   lat                  double comment '维度',
+   lat                  double comment '纬度',
    hasToilet            tinyint(1) comment '是否独卫(0:无独立卫生间 1:有独立卫生间)',
    hasBalcony           tinyint(1) comment '是否有阳台(0:无阳台 1:有阳台)',
    hasAircond           tinyint(1) comment '是否有空调(0:无空调 1:有空调)',
