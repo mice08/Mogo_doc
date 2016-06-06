@@ -44,7 +44,7 @@ SET @i = (SELECT auto_increment FROM information_schema.`TABLES` WHERE TABLE_SCH
 INSERT INTO `mogoroomdb`.`mesg_templet` (`id`, `templetCode`, `templetName`, `templetDesc`, `status`, `createBy`, `createTime`, `createByType`, `updateBy`, `updateTime`, `updateByType`, `valid`, `businessType`) 
 VALUES (@i, 'sms_subAccount_resetPassWord', '房东修改子重置密码', '房东修改子重置密码', '1', '0', '2016-05-23 19:28:50', '4', NULL, NULL, NULL, '1', '10');
 SET @ii = (SELECT auto_increment FROM information_schema.`TABLES` WHERE TABLE_SCHEMA= 'mogoroomdb' AND TABLE_NAME='mesg_subtemplet');
-INSERT INTO `mogoroomdbmogoroomdb`.`mesg_subtemplet` (`id`, `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`) 
+INSERT INTO `mogoroomdb`.`mesg_subtemplet` (`id`, `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`) 
 VALUES (@ii,@i, '1', '房东修改子重置密码', '${subName}您好，您的密码重置成功，具体咨询房东。请使用本手机号重新登录“蘑菇伙伴App”并修改密码。', '1', '1', NULL, NULL);
 
 
