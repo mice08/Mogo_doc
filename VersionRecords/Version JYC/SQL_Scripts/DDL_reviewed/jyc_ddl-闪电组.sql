@@ -1,3 +1,4 @@
+use mogoroomdb;
 /*贷款请求跟综器*/
 DROP TABLE if EXISTS loan_request_tracker;
 CREATE TABLE `loan_request_tracker` (
