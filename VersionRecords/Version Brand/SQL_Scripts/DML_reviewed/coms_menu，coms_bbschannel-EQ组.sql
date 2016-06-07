@@ -1,6 +1,6 @@
 /* Database name `mogoroomdb`， CMS菜单结构重新排版 v-brand */
 
-user mogoroomdb;
+use mogoroomdb;
 
 update coms_menu set name='内容管理' where code=100001;
 
