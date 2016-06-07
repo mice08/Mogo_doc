@@ -142,6 +142,21 @@ create table `loan_contract` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COMMENT='贷款合同明细表, 后期需要关联产品编号';
 
+/*贷款合同日志表*/
+DROP TABLE IF EXISTS `loan_contract_logs`;
+CREATE TABLE `loan_contract_logs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键id 自增长 ',
+  `loanContractId` int(11) NOT NULL COMMENT 'loan_contract id',
+  `soDoneCode` int(11) NOT NULL COMMENT 'comm_business_record id',
+  `workFlowStatus` int(3) DEFAULT NULL COMMENT '合同状态(4:待审核 8:验证失败 12:审核通过 16:审核失败 20:放款成功 24:提前还贷 28:终止合同)',
+  `mogoStatus` int(3) DEFAULT NULL COMMENT 'mogo状态(8:蘑菇审核通过 12:蘑菇审核失败)',
+  `lenderStatus` int(3) DEFAULT NULL COMMENT '资方状态(0:第三方待审核 4:资料内部验证失败 8:资料第三方验证失败)',
+  `createTime` datetime DEFAULT NULL COMMENT '更新时间',
+  `errmsg` varchar(150) DEFAULT NULL COMMENT '贷款流程中异常信息描述',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COMMENT='贷款合同日志表, 每次合同状态发生变化都要生成此表';
+
+
 
 /*房东贷款申请 新增贷款渠道id*/
 ALTER  TABLE loan_landlord_contract ADD COLUMN loanChannel INT(11)  null comment '贷款来源 参考字典表 loan_channel(1:拉卡拉 2:蘑菇 3:聚有财)' after landlordId;
