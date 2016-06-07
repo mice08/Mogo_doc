@@ -262,10 +262,10 @@ ALTER TABLE comm_picture ADD COLUMN fileType INT(11) DEFAULT 1 NULL COMMENT '文
 ALTER  TABLE loan_landlord_contract MODIFY COLUMN loanChannel INT(11) null comment '贷款来源 参考字典表 loan_channel(1:拉卡拉 2:蘑菇 3:聚有财)' after landlordId;
 
 /*房东贷款资质申请 新增信用配置hisId*/
-ALTER TABLE loan_landlord_contract ADD COLUMN creditHisId INT(11) NULL COMMENT '信用配置hisId';
+ALTER TABLE loan_landlord_contract ADD COLUMN creditHisId INT(11) NULL COMMENT '信用配置hisId(loan_landlord_credit_his)';
 
 /*房东贷款资质申请 新增信用配置hisId*/
-ALTER TABLE loan_landlord_contract_his ADD COLUMN creditHisId INT(11) NULL COMMENT '信用配置hisId';
+ALTER TABLE loan_landlord_contract_his ADD COLUMN creditHisId INT(11) NULL COMMENT '信用配置hisId(loan_landlord_credit_his)';
 
 
 
