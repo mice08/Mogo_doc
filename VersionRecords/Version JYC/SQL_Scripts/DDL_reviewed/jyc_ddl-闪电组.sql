@@ -264,6 +264,9 @@ ALTER  TABLE loan_landlord_contract MODIFY COLUMN loanChannel INT(11) null comme
 /*房东贷款资质申请 新增信用配置hisId*/
 ALTER TABLE loan_landlord_contract ADD COLUMN creditHisId INT(11) NULL COMMENT '信用配置hisId';
 
+/*房东贷款资质申请 新增信用配置hisId*/
+ALTER TABLE loan_landlord_contract_his ADD COLUMN creditHisId INT(11) NULL COMMENT '信用配置hisId';
+
 
 
 
