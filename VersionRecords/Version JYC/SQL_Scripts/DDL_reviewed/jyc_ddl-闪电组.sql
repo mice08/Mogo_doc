@@ -1,3 +1,4 @@
+use mogoroomdb;
 /*贷款请求跟综器*/
 DROP TABLE if EXISTS loan_request_tracker;
 CREATE TABLE `loan_request_tracker` (
@@ -143,7 +144,7 @@ create table `loan_contract` (
 
 
 /*房东贷款申请 新增贷款渠道id*/
-ALTER  TABLE loan_landlord_contract ADD COLUMN loanChannel INT(11) DEFAULT  1 null comment '贷款来源 参考字典表 loan_channel(1:拉卡拉 2:蘑菇 3:聚有财)' after landlordId;
+ALTER  TABLE loan_landlord_contract ADD COLUMN loanChannel INT(11)  null comment '贷款来源 参考字典表 loan_channel(1:拉卡拉 2:蘑菇 3:聚有财)' after landlordId;
 
 /*房东贷款申请 新增一审图片上传*/
 ALTER  TABLE loan_landlord_contract ADD COLUMN picGroupId1 INT(11) NULL  comment '图片组id1(一审对应的图片附件)' after `status`;
@@ -236,7 +237,14 @@ UPDATE loan_landlord_credit SET loanChannel = 1;
 
 UPDATE loan_landlord_contract SET loanChannel = 1;
 
+/*房东信用额度表  新版信用额度*/
 ALTER  TABLE loan_landlord_credit ADD COLUMN `credits2` decimal(12,2) DEFAULT '0.00' COMMENT '第二版信用额' AFTER credits;
+
+/*comm_picture  新增文件类型*/
+ALTER TABLE comm_picture ADD COLUMN fileType INT(11) DEFAULT 1 NULL COMMENT '文件类型 (1:图片 2:word 3:excel 4:pdf 5:video)';
+
+/*loan_landlord_contract 租金宝申请渠道允许为null同时去掉了默认值*/
+ALTER  TABLE loan_landlord_contract MODIFY COLUMN loanChannel INT(11) null comment '贷款来源 参考字典表 loan_channel(1:拉卡拉 2:蘑菇 3:聚有财)' after landlordId;
 
 
 

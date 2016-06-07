@@ -1,3 +1,4 @@
+use mogoroomdb;
 /*房东贷款申请 新增贷款渠道id*/
 ALTER  TABLE loan_landlord_contract ADD COLUMN loanChannel INT(11) null comment '贷款来源 参考字典表 loan_channel(1:拉卡拉 2:蘑菇 3:聚有财)' after landlordId;
 
@@ -80,7 +81,7 @@ create table loan_landlord_credit_his
    loanCreditId         int(11) comment '房东信用额度id',
    rangeAmount          decimal(12,2) comment '规模动态额度',
    roomCount            int(11) default 0 not null comment '房东房间数',
-   loanChannel		int(11) not NULL comment '贷款来源 参考字典表 loan_channel(1:拉卡拉 2:蘑菇 3:聚有财)',
+   loanChannel		    int(11) not NULL comment '贷款来源参考字典表 loan_channel(1:拉卡拉 2:蘑菇 3:聚有财)',
    onlineTradingAmount  decimal(12,2) default 0 not null comment '线上交易动态额度总额',
    deductionAmount      decimal(12,2) default 0 not null comment '额度扣减总额',
    restoreAmount        decimal(12,2) default 0 not null comment '额度恢复总额',
@@ -90,7 +91,7 @@ create table loan_landlord_credit_his
    shortestTerm         int(11) comment '最短蘑菇宝租期（6-12）',
    feeRate              int(11) comment '服务费费率',
    canLoan              int(11) DEFAULT 1 NOT NULL comment '是否可以贷款(0:不可以 1:可以)',
-   canOneTime              int(11) DEFAULT 1 NOT NULL comment '是否一次性付款(0:不可以 1:可以)',
+   canOneTime           int(11) DEFAULT 1 NOT NULL comment '是否一次性付款(0:不可以 1:可以)',
    createBy             int(11) NOT NULL comment '创建人员Id',
    createByType         int(11) NOT NULL comment '创建人类型(参考字典表组名:userType)',
    createTime           DATETIME NOT NULL comment '创建时间',

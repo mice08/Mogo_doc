@@ -1,3 +1,4 @@
+use mogoroomdb;
 /*租金宝合同 新增最长蘑菇宝租期*/
 ALTER TABLE loan_landlord_contract ADD COLUMN longestTerm INT(11) NULL COMMENT '最长蘑菇宝租期' AFTER shortestTerm;
 

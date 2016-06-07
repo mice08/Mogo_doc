@@ -1,9 +1,5 @@
 use acct;
 
-ALTER TABLE `acct_billdtltype`
-DROP INDEX `idx_billDtlName` ,
-ADD UNIQUE INDEX `idx_billDtlName` (`billDtlName`, `usageType`);
-
 
 begin;
 
@@ -23,6 +19,7 @@ INSERT INTO acct_billdtltype( billDtlType, billDtlName, status, sort, usageType,
 
 
 #增加账单类型与资金类型的映射
+INSERT INTO acct_billtypetofundtype (billType, fromFundType, toFundType) VALUES('10005','101','201');
 INSERT INTO acct_billtypetofundtype (billType, fromFundType, toFundType) VALUES('10006','101','201');
 INSERT INTO acct_billtypetofundtype (billType, fromFundType, toFundType) VALUES('10007','201','101');
 
