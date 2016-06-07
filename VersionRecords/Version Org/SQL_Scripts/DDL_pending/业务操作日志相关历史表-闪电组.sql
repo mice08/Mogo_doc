@@ -47,7 +47,7 @@ CREATE TABLE `cntr_salecontract_his` (
   `contractRemark` VARCHAR(128) DEFAULT NULL COMMENT '合同备注',
   `idPhotoUrl` VARCHAR(128) DEFAULT NULL COMMENT '合同证件照路径',
   `createTime` DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `effectiveTime` TIMESTAMP DEFAULT NULL COMMENT '有效时间',
+  `effectiveTime` TIMESTAMP COMMENT '有效时间',
   `emergencyContact` VARCHAR(30) DEFAULT NULL COMMENT '紧急联系人',
   `emergencyContactPhone` VARCHAR(30) DEFAULT NULL COMMENT '紧急联系人电话号码',
   `emergencyContactAddress` VARCHAR(70) DEFAULT NULL COMMENT '紧急联系人地址',
@@ -74,7 +74,7 @@ CREATE TABLE `cntr_salecontract_his` (
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='销售合同历史表';
 
 /** 房东贷款业主收款凭证图片历史表 **/
-CCREATE TABLE `host_flats_picture_his` (
+CREATE TABLE `host_flats_picture_his` (
   `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
   `host_pay_picId` INT(11) COMMENT '业主付款凭证图片ID',
   `host_flat_id` INT(11) COMMENT 'host_flats_relation表ID',
@@ -189,7 +189,6 @@ CREATE TABLE `oder_signedorder_his` (
   `signedManagerId` INT(11) DEFAULT NULL COMMENT '管家ID',
   `signedManagerType` INT(2) DEFAULT NULL COMMENT '管家类型(参考字典表groupName=userType)',
   `sendFlag` INT(2) DEFAULT '2' COMMENT '是否发送 1:未发送 2:已发送',
-  `soDoneCode` INT(11) DEFAULT NULL COMMENT '业务记录ID，参考comm_business_record表的id',
   `channel` VARCHAR(20) DEFAULT NULL COMMENT '签约来源（参考字典表groupName=channel）',
   `subsId` BIGINT(11) DEFAULT NULL COMMENT '订购ID',
   `signedNum` VARCHAR(30) DEFAULT NULL COMMENT '签约单号',
@@ -342,7 +341,6 @@ CREATE TABLE `bill_saleshouldaccount_his` (
   `landlordId` INT(11) NOT NULL DEFAULT '0' COMMENT '房东ID',
   `billType` INT(11) NOT NULL DEFAULT '0' COMMENT '账务类型，参考账单类型表的billType',
   `billDtlType` INT(11) NOT NULL DEFAULT '0' COMMENT '账务明细类型，参考账单明细类型表的billDtlType',
-  `soDoneCode` INT(11) DEFAULT NULL COMMENT '账务类型，参考comm_business_record表的id',
   `deadline` DATETIME NOT NULL COMMENT '付款最后日期',
   `title` VARCHAR(100) COLLATE utf8_bin DEFAULT NULL COMMENT '账单显示名称',
   `operType` CHAR(1) COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
