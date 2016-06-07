@@ -98,7 +98,9 @@ INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId)
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES('60101002','修改密码',1,1,3,1,'60101');
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES('70101001','删除消息',1,1,3,1,'70101');
 
+delete from `comm_busitype` where busiType=20101004;
 
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES('20101004','预定支付成功',1,1,3,1,'20102');
 
 commit;
 
