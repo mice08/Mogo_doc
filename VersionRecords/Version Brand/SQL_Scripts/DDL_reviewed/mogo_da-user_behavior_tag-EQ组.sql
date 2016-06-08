@@ -40,7 +40,7 @@ create table flat_attribute_his
    communityId          int(11) null comment '小区ID',
    stationIds           varchar(512) comment '地铁站ID集合，逗号分隔',
    roomPrice            decimal(10,2) comment '房间价格',
-   flatType              tinyint(1)  COMMENT '公寓类型(参考字典表组名:flatType)',
+   flatsTag              tinyint(1)  COMMENT '房源类型(1:分散式 2:集中式)',
    rentType             tinyint(1) comment '出租方式(1:单身公寓 2:合租 3:整租)',
    bedroomCount         tinyint(2) comment '卧室数(户型)',
    area                 double(10,2) comment '面积',
