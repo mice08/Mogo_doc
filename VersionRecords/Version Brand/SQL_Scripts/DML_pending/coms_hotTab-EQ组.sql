@@ -2,4 +2,4 @@
 
 use mogoroomdb;
 
-update coms_hotTab set tabType=1;
+update coms_hotTab set tabType=1 where tabType <> 2;
