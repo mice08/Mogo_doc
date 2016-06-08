@@ -1,5 +1,5 @@
 /* 创建用户行为标签表、房源属性历史记录表、用户兴趣标签表 */
-use mogo_da;
+use mogoroomdb;
 
 drop table if exists user_behavior_tag;
 
