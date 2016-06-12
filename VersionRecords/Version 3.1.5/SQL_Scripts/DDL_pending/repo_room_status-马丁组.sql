@@ -1,4 +1,4 @@
-/* 修改房间视图 */
+/* 修改房间视图, 添加显示flat_room的alias字段 */
 use mogoroomdb;
 
 CREATE OR REPLACE VIEW `repo_room_status` AS 
@@ -101,7 +101,8 @@ SELECT
   `fr`.`protoType` AS `roomProtoType`,
   `fr`.`onlineStatus` AS `onlineStatus`,
   `fr`.`mogoOfflineEndTime` AS `mogoOfflineEndTime`,
-  `fr`.`mogoOfflineMemo` AS `mogoOfflineMemo` 
+  `fr`.`mogoOfflineMemo` AS `mogoOfflineMemo` ,
+  `fr`.`alias` AS `alias`            /*新增显示列*/
 FROM
   (
     (
