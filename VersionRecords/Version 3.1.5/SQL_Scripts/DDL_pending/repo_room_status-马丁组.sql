@@ -102,7 +102,7 @@ SELECT
   `fr`.`onlineStatus` AS `onlineStatus`,
   `fr`.`mogoOfflineEndTime` AS `mogoOfflineEndTime`,
   `fr`.`mogoOfflineMemo` AS `mogoOfflineMemo` ,
-  'fr'.`alias` AS 'alias'
+  `fr`.`alias` AS `alias`            /*新增显示列*/
 FROM
   (
     (
