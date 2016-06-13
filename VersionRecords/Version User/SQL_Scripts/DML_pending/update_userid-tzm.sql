@@ -79,7 +79,7 @@ update  comm_picture set updateBy = updateBy +3000000  where updateBy<3000000 an
 update  comm_picture_group set createBy = createBy +3000000  where createBy<3000000 and createByType=0;
 
 /*个人建议表*/
-update comm_suggestion set proposer=proposer+3000000 where type=2;
+update comm_suggestion set proposer=proposer+3000000 where type=2 and proposer<3000000;
 
 /*小区表*/
 update flat_community set createBy = createBy+3000000 where createBy<3000000 and createByType=0;
@@ -401,6 +401,7 @@ update acct.acct_withdrawschedule set userid = userid +3000000 where userid < 30
  
  rename table user_renter to user_renter_old;
  
+ 
  CREATE VIEW user_landlord AS                                
                                                               
  SELECT                                                        
@@ -439,7 +440,10 @@ update acct.acct_withdrawschedule set userid = userid +3000000 where userid < 30
    `user_landlord_info`.`isVerified`           AS `label`,     
    `user_landlord_info`.`legalPerson`     AS `legalPerson`,    
    `user_password`.`password`             AS `password`,       
-   user_landlord_info.`signCount`         AS signCount         
+   user_landlord_info.`signCount`         AS signCount ,
+   user_landlord_info.applyCityId AS applyCityId,
+   user_landlord_info.acctType AS acctType,
+   user_landlord_info.creditCode as creditCode         
  FROM ((`user_info`                                            
      JOIN `user_landlord_info`)                                
      JOIN `user_password`)                                     
