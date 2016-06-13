@@ -1,5 +1,0 @@
-# old datasource
-jdbc.driverClassName_old=${filter.jdbc.driverClassName_old}
-jdbc.url_old=${filter.jdbc.url_old}
-jdbc.username_old= ${filter.jdbc.username_old}
-jdbc.password_old= ${filter.jdbc.password_old}
