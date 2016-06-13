@@ -12,7 +12,7 @@ UPDATE user_usertype a,user_info b SET a.status=b.status WHERE a.userid = b.id ;
                                                               
  SELECT                                                        
    `user_info`.`id`                       AS `id`,             
-   `user_info`.`user_name`                AS `NAME`,           
+   `user_info`.`real_name`                AS `NAME`,           
    `user_info`.`gender`                   AS `sex`,            
    `user_info`.`card_id`                  AS `identityId`,     
    `user_info`.`mobile`                   AS `phone`,          

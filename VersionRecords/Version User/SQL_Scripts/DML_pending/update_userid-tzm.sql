@@ -79,7 +79,7 @@ update  comm_picture set updateBy = updateBy +3000000  where updateBy<3000000 an
 update  comm_picture_group set createBy = createBy +3000000  where createBy<3000000 and createByType=0;
 
 /*个人建议表*/
-update comm_suggestion set proposer=proposer+3000000 where type=2;
+update comm_suggestion set proposer=proposer+3000000 where type=2 and proposer<3000000;
 
 /*小区表*/
 update flat_community set createBy = createBy+3000000 where createBy<3000000 and createByType=0;
