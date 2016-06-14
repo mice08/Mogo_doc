@@ -278,7 +278,7 @@ CREATE TABLE `bill_salebill_his` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='账单表';
 
 
-ALTER TABLE comm_business_record MODIFY COLUMN remark VARCHAR(2048) NULL COMMENT '动作描述 eg:更新了房屋的配置';
+ALTER TABLE comm_business_record MODIFY COLUMN remark VARCHAR(512) NULL COMMENT '动作描述 eg:更新了房屋的配置';
 
 ALTER TABLE comm_business_record_mapping ADD COLUMN decodeSql VARCHAR(256) NULL COMMENT '数据字典sql转码使用';
 
