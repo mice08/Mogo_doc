@@ -14,6 +14,8 @@ UPDATE user_info a,user_landlord b SET a.`phoneExt` =b.`phoneExt` ,a.`addr`=b.`a
 
 UPDATE user_password a,user_landlord b SET a.`password`=b.`password` WHERE (a.`userId`=b.`id` AND b.`id`>300000) OR (a.`userId`=b.`id`+3000000 AND b.`id`<3000000);
 
+UPDATE user_password a,user_renter b SET a.`password`=b.`password` WHERE a.`userId`=b.`id` ;
+
 
 /*账单线下支付表*/
 update bill_exemptinfo set createBy= createBy+3000000 where createBy<3000000 and createByType=0;
@@ -126,9 +128,8 @@ update flat_flatstag_relation set updateBy = updateBy +3000000 where updateBy <3
 /*赶集房东表*/
 update flat_joint_landlord set landlordId = landlordId +3000000 where landlordId <3000000 ;
 
-update flat_joint_landlord set createBy = createBy +3000000 where createBy <3000000  and createByType=0;
 
-update flat_joint_landlord set updateBy = updateBy +3000000 where updateBy <3000000  and updateByType=0;
+
 
 /*房价历史表*/
 update flat_price_his set createBy=createBy+3000000 where createByType=0 and createBy<3000000;
@@ -333,7 +334,7 @@ update user_landlord_info set salesManId = salesManId+2000000 where salesManId <
 update user_landlord_info_his set salesManId = salesManId+2000000 where salesManId < 2000000;
 
 /*房东账单类型表*/
-update user_landlord_billdtltype  set landlordId=landlordId+3000000 where landlordId < 3000000;
+update user_landlord_billdtltype  set landlordId=landlordId+3000000 where landlordId < 3000000 and landlordId!=0;
 
 /*子帐号表*/
 update user_landlord_childacc_rel  set landlordId=landlordId+3000000 where landlordId < 3000000;
