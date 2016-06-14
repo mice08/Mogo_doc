@@ -21,8 +21,7 @@ CREATE TABLE `host_flats_relation_his` (
   `remark` VARCHAR(250) DEFAULT NULL COMMENT '备注',
   `operType` CHAR(1) COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
   `soDoneCode` INT(11) DEFAULT NULL COMMENT '业务记录ID(参考comm_business_record表的id)',
-  PRIMARY KEY (`id`),
-  KEY `landlord_id` (`landlord_id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='业主和房源(公寓)的关系历史表';
 /** 销售合同历史表 **/
 CREATE TABLE `cntr_salecontract_his` (
@@ -69,8 +68,7 @@ CREATE TABLE `cntr_salecontract_his` (
   `deposit` DECIMAL(12,2) DEFAULT NULL COMMENT '押金',
   `operType` CHAR(1) COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
   `soDoneCode` INT(11) DEFAULT NULL COMMENT '业务记录ID(参考comm_business_record表的id)',
-  PRIMARY KEY (`id`),
-  KEY `IDX_RNETERID` (`renterId`)
+  PRIMARY KEY (`id`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='销售合同历史表';
 
 /** 签约单历史表 **/
@@ -100,11 +98,7 @@ CREATE TABLE `oder_signedorder_his` (
   `signedNum` VARCHAR(30) DEFAULT NULL COMMENT '签约单号',
   `operType` CHAR(1) COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
   `soDoneCode` INT(11) DEFAULT NULL COMMENT '业务记录ID(参考comm_business_record表的id)',
-  PRIMARY KEY (`id`),
-  KEY `renterId` (`renterId`),
-  KEY `os_saleContractId` (`saleContractId`) USING BTREE,
-  KEY `idx_oder_signedOrder_reservationOrderId` (`reservationOrderId`),
-  KEY `idx_oder_signedorder_roomId` (`roomId`)
+  PRIMARY KEY (`id`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='签约单历史表';
 
 /** 合同用户关系历史表 **/
@@ -118,9 +112,7 @@ CREATE TABLE `cntr_salecontractuserrel_his` (
   `createTime` DATETIME DEFAULT NULL COMMENT '创建时间',
   `operType` CHAR(1) COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
   `soDoneCode` INT(11) DEFAULT NULL COMMENT '业务记录ID(参考comm_business_record表的id)',
-  PRIMARY KEY (`id`),
-  KEY `contractId` (`contractId`),
-  KEY `userId` (`userId`)
+  PRIMARY KEY (`id`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='合同用户关系历史表';
 
 /** 分店信息扩展历史表 **/
@@ -242,46 +234,46 @@ CREATE TABLE `flat_community_property_his` (
   `elevatorCount` int(3) DEFAULT '0' COMMENT '电梯数',
   `operType` CHAR(1) COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
   `soDoneCode` INT(11) DEFAULT NULL COMMENT '业务记录ID(参考comm_business_record表的id)',
-  PRIMARY KEY (`id`),
-  KEY `fcp_landlordId` (`landlordId`) USING BTREE,
-  KEY `fcp_communityId` (`communityId`) USING BTREE
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='公寓大楼历史表';
 
 
 /** 销售应收账务历史表 **/
-CREATE TABLE `bill_saleshouldaccount_his` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
-  `bill_sale_accountId` INT(11) COMMENT '账务表ID',
-  `signedOrderId` INT(11) DEFAULT NULL COMMENT '签约单ID',
-  `flatsId` INT(11) DEFAULT NULL COMMENT '公寓ID',
-  `roomId` INT(11) DEFAULT NULL COMMENT '房间ID',
-  `saleBillId` INT(11) DEFAULT NULL COMMENT '账单ID',
-  `renterId` INT(11) DEFAULT NULL COMMENT '租客ID',
-  `consumeType` INT(11) DEFAULT NULL COMMENT '应收类型',
-  `periodYear` INT(11) DEFAULT NULL COMMENT '期数年(1-2期中的1)',
-  `periodStage` INT(11) DEFAULT NULL COMMENT '期数期(1-2期中的2)',
-  `startDate` DATETIME DEFAULT NULL COMMENT '起始日期',
-  `endDate` DATETIME DEFAULT NULL COMMENT '结束日期',
-  `billDate` DATETIME DEFAULT NULL COMMENT '账单日',
-  `payStatus` INT(1) DEFAULT '0' COMMENT '支付状态(0：未支付 1：已支付)',
-  `money` DECIMAL(12,2) DEFAULT NULL,
-  `realPayMoney` DECIMAL(12,2) DEFAULT NULL,
-  `preferentialMoney` DECIMAL(12,2) DEFAULT NULL,
-  `remark` VARCHAR(128) COLLATE utf8_bin DEFAULT NULL COMMENT '备注',
-  `createTime` DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `valid` INT(1) DEFAULT '1' COMMENT '数据有效性',
-  `landlordId` INT(11) NOT NULL DEFAULT '0' COMMENT '房东ID',
-  `billType` INT(11) NOT NULL DEFAULT '0' COMMENT '账务类型，参考账单类型表的billType',
-  `billDtlType` INT(11) NOT NULL DEFAULT '0' COMMENT '账务明细类型，参考账单明细类型表的billDtlType',
-  `deadline` DATETIME NOT NULL COMMENT '付款最后日期',
-  `title` VARCHAR(100) COLLATE utf8_bin DEFAULT NULL COMMENT '账单显示名称',
+CREATE TABLE `bill_salebill_his` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+  `saleBillId` int(11) COMMENT '原始账单ID',
+  `userType` int(11) DEFAULT NULL COMMENT '用户类型(1:租客 2:职业房东)',
+  `billType` int(11) DEFAULT NULL COMMENT '账单类型(枚举)',
+  `userId` int(11) DEFAULT NULL COMMENT '用户ID',
+  `roomId` int(11) DEFAULT NULL COMMENT '房间ID',
+  `signedOrderId` int(11) DEFAULT NULL COMMENT '签约单ID',
+  `amount` decimal(12,2) DEFAULT NULL,
+  `billDate` datetime DEFAULT NULL COMMENT '账单日',
+  `dueDate` datetime DEFAULT NULL COMMENT '应付款日',
+  `payTime` datetime DEFAULT NULL COMMENT '支付时间',
+  `serialNum` varchar(32) COLLATE utf8_bin DEFAULT NULL COMMENT '支付流水号',
+  `periodYear` int(11) DEFAULT NULL COMMENT '期数年(1-2期中的1)',
+  `periodStage` int(11) DEFAULT NULL COMMENT '期数期(1-2期中的2)',
+  `valid` int(1) DEFAULT '1' COMMENT '数据有效性',
+  `payStatus` int(1) DEFAULT '0' COMMENT '支付状态(0：未支付 1：已支付)',
+  `statusUpdateTime` datetime DEFAULT NULL COMMENT '状态更新时间',
+  `createTime` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `startDate` datetime DEFAULT NULL COMMENT '起始时间',
+  `endDate` datetime DEFAULT NULL COMMENT '结束时间',
+  `identification` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '标识',
+  `landlordId` int(11) DEFAULT '0' COMMENT '房东ID',
+  `exempt` int(11) DEFAULT NULL COMMENT '是否豁免 1:是 0:否',
+  `exemptType` int(11) DEFAULT NULL COMMENT '豁免方式 1:现金 2:非现金',
+  `sendFlag` int(2) NOT NULL DEFAULT '2' COMMENT '是否发送 1:未发送 2:已发送',
+  `title` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '账单显示名称',
+  `bill_type` int(11) DEFAULT '0' COMMENT '账单类型，参考账单类型表的billType',
+  `remark` varchar(128) COLLATE utf8_bin DEFAULT NULL COMMENT '备注',
+  `minPayAmount` decimal(10,2) DEFAULT NULL COMMENT '最小支付金额',
+  `unpayAmount` decimal(10,2) DEFAULT NULL COMMENT '未支付金额',
   `operType` CHAR(1) COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
   `soDoneCode` INT(11) DEFAULT NULL COMMENT '业务记录ID(参考comm_business_record表的id)',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `index5` (`signedOrderId`,`billType`,`billDtlType`,`startDate`,`soDoneCode`),
-  KEY `idx_bill_saleShouldAccount_signedOrderId` (`signedOrderId`),
-  KEY `salebillid` (`saleBillId`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='销售应收账务历史表';
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='账单表'；
 
 
 
