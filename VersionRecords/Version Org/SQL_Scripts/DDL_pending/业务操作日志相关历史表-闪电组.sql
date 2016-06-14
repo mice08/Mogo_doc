@@ -21,8 +21,7 @@ CREATE TABLE `host_flats_relation_his` (
   `remark` VARCHAR(250) DEFAULT NULL COMMENT '备注',
   `operType` CHAR(1) COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
   `soDoneCode` INT(11) DEFAULT NULL COMMENT '业务记录ID(参考comm_business_record表的id)',
-  PRIMARY KEY (`id`),
-  KEY `landlord_id` (`landlord_id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='业主和房源(公寓)的关系历史表';
 /** 销售合同历史表 **/
 CREATE TABLE `cntr_salecontract_his` (
@@ -47,7 +46,7 @@ CREATE TABLE `cntr_salecontract_his` (
   `contractRemark` VARCHAR(128) DEFAULT NULL COMMENT '合同备注',
   `idPhotoUrl` VARCHAR(128) DEFAULT NULL COMMENT '合同证件照路径',
   `createTime` DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `effectiveTime` TIMESTAMP DEFAULT NULL COMMENT '有效时间',
+  `effectiveTime` TIMESTAMP COMMENT '有效时间',
   `emergencyContact` VARCHAR(30) DEFAULT NULL COMMENT '紧急联系人',
   `emergencyContactPhone` VARCHAR(30) DEFAULT NULL COMMENT '紧急联系人电话号码',
   `emergencyContactAddress` VARCHAR(70) DEFAULT NULL COMMENT '紧急联系人地址',
@@ -69,103 +68,8 @@ CREATE TABLE `cntr_salecontract_his` (
   `deposit` DECIMAL(12,2) DEFAULT NULL COMMENT '押金',
   `operType` CHAR(1) COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
   `soDoneCode` INT(11) DEFAULT NULL COMMENT '业务记录ID(参考comm_business_record表的id)',
-  PRIMARY KEY (`id`),
-  KEY `IDX_RNETERID` (`renterId`)
+  PRIMARY KEY (`id`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='销售合同历史表';
-
-/** 房东贷款业主收款凭证图片历史表 **/
-CCREATE TABLE `host_flats_picture_his` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
-  `host_pay_picId` INT(11) COMMENT '业主付款凭证图片ID',
-  `host_flat_id` INT(11) COMMENT 'host_flats_relation表ID',
-  `pic_id` INT(11) COMMENT 'comm_picture表ID',
-  `status` TINYINT(2) DEFAULT '1' COMMENT '状态：0:失效; 1:可用',
-  `operType` CHAR(1) COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
-  `soDoneCode` INT(11) DEFAULT NULL COMMENT '业务记录ID(参考comm_business_record表的id)',
-  PRIMARY KEY (`id`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='房东贷款业主收款凭证图片历史表';
-
-/** 预约单历史表 **/
-CREATE TABLE `oder_reservationorder_his` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
-  `order_reser_id` INT(11) COMMENT '预约单ID',
-  `renterId` INT(11) DEFAULT NULL COMMENT '租客id',
-  `landlordId` INT(11) DEFAULT NULL COMMENT '职业房东id',
-  `reservationNum` VARCHAR(30) DEFAULT NULL COMMENT '预约单号',
-  `flatsId` INT(11) DEFAULT NULL COMMENT '公寓id',
-  `roomId` INT(11) DEFAULT NULL COMMENT '房间id',
-  `cellPhone` VARCHAR(16) DEFAULT NULL COMMENT '手机号码',
-  `lookTime` DATETIME COMMENT '看房时间',
-  `status` INT(11) DEFAULT NULL COMMENT '状态',
-  `createTime` DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `remark` VARCHAR(128) DEFAULT NULL COMMENT '备注',
-  `bookedName` VARCHAR(16) DEFAULT NULL COMMENT '预定人姓名',
-  `bookedSex` INT(1) DEFAULT NULL COMMENT '预定人性别',
-  `signedEndTime` DATETIME DEFAULT NULL COMMENT '签约截止时间',
-  `channel` VARCHAR(20) DEFAULT NULL COMMENT '预约来源，参考字段表groupName=channel',
-  `hasVisited` INT(2) DEFAULT '0' COMMENT '租客是否已看房 0:否 1:是',
-  `landlordRemark` VARCHAR(128) DEFAULT NULL COMMENT '房东备注内容',
-  `hasAgreed` INT(2) DEFAULT '0' COMMENT '房东是否同意预订 0:否 1:是',
-  `operType` CHAR(1) COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
-  `soDoneCode` INT(11) DEFAULT NULL COMMENT '业务记录ID(参考comm_business_record表的id)',
-  PRIMARY KEY (`id`),
-  KEY `idx_oder_reservationorder_roomId` (`roomId`),
-  KEY `renterid` (`renterId`),
-  KEY `createtime` (`createTime`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='预约单历史表';
-
-/** 预定单历史表 **/
-CREATE TABLE `oder_bookorder_his` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `order_book_id` INT(11) COMMENT '预定单ID',
-  `renterId` INT(11) DEFAULT NULL COMMENT '租客id',
-  `landlordId` INT(11) DEFAULT NULL COMMENT '职业房东id',
-  `bookNum` VARCHAR(30) DEFAULT NULL COMMENT '预订单号',
-  `flatsId` INT(11) DEFAULT NULL COMMENT '公寓ID',
-  `roomId` INT(11) DEFAULT NULL COMMENT '房间id',
-  `reservationOrderId` INT(11) DEFAULT NULL COMMENT '预约单ID',
-  `deposit` DECIMAL(12,2) DEFAULT NULL,
-  `status` INT(11) DEFAULT NULL COMMENT '状态',
-  `statusUpdateTime` DATETIME DEFAULT NULL COMMENT '状态更新时间',
-  `createTime` DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `remark` VARCHAR(128) DEFAULT NULL COMMENT '备注',
-  `predictInDate` DATETIME DEFAULT NULL COMMENT '预计入住日期',
-  `bookedName` VARCHAR(16) DEFAULT NULL COMMENT '预定人姓名',
-  `bookedSex` INT(1) DEFAULT NULL COMMENT '预定人性别',
-  `cellPhone` VARCHAR(16) DEFAULT NULL COMMENT '手机号码',
-  `signedEndTime` DATETIME DEFAULT NULL COMMENT '签约截止时间',
-  `orderPassTime` DATETIME DEFAULT NULL COMMENT '订单通过时间',
-  `orderPassType` INT(11) DEFAULT NULL COMMENT '订单通过类型(1：职业房东确认 2 ：系统自动确认)',
-  `depositPayTime` DATETIME DEFAULT NULL COMMENT '定金支付时间',
-  `orderLapsedTime` DATETIME DEFAULT NULL COMMENT '系统自动确认通过截止时间',
-  `refundStatus` INT(11) DEFAULT NULL COMMENT '退款状态：1.未涉及退款2.等待退款3.退款成功4.退款失败',
-  `confirmed` TINYINT(1) DEFAULT '0' COMMENT '房东是否确认过(默认0:未确认 1:已确认)',
-  `hasRemind` TINYINT(1) DEFAULT NULL COMMENT '是否已经提醒(0:未提醒 1:已提醒)',
-  `subsId` BIGINT(11) DEFAULT NULL COMMENT '订购ID',
-  `operType` CHAR(1) COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
-  `soDoneCode` INT(11) DEFAULT NULL COMMENT '业务记录ID(参考comm_business_record表的id)',
-  PRIMARY KEY (`id`),
-  KEY `idx_oder_bookorder_roomId` (`roomId`),
-  KEY `renterId` (`renterId`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='预定单历史表';
-
-/** 拒绝预定历史记录 **/
-CREATE TABLE `oder_refuseorderrecord_his` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
-  `order_refuse_id` INT(11) COMMENT '拒绝预定ID',
-  `renterId` INT(11) DEFAULT NULL COMMENT '租客id',
-  `landlordId` INT(11) DEFAULT NULL COMMENT '职业房东id',
-  `orderId` INT(11) DEFAULT NULL COMMENT '订单id',
-  `roomId` INT(11) DEFAULT NULL COMMENT '房间id',
-  `cerateTime` DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `remark` VARCHAR(128) DEFAULT NULL COMMENT '备注',
-  `refuseType` INT(11) DEFAULT NULL COMMENT '拒绝类型(1 资料问题    2 退定金     3不退定金)',
-  `orderType` INT(11) DEFAULT NULL COMMENT '订单类型（1 预订单  2 签约单）',
-  `liquidatedDamages` DECIMAL(12,2) DEFAULT NULL,
-  `operType` CHAR(1) COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
-  `soDoneCode` INT(11) DEFAULT NULL COMMENT '业务记录ID(参考comm_business_record表的id)',
-  PRIMARY KEY (`id`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='拒绝预定历史记录';
 
 /** 签约单历史表 **/
 CREATE TABLE `oder_signedorder_his` (
@@ -189,17 +93,12 @@ CREATE TABLE `oder_signedorder_his` (
   `signedManagerId` INT(11) DEFAULT NULL COMMENT '管家ID',
   `signedManagerType` INT(2) DEFAULT NULL COMMENT '管家类型(参考字典表groupName=userType)',
   `sendFlag` INT(2) DEFAULT '2' COMMENT '是否发送 1:未发送 2:已发送',
-  `soDoneCode` INT(11) DEFAULT NULL COMMENT '业务记录ID，参考comm_business_record表的id',
   `channel` VARCHAR(20) DEFAULT NULL COMMENT '签约来源（参考字典表groupName=channel）',
   `subsId` BIGINT(11) DEFAULT NULL COMMENT '订购ID',
   `signedNum` VARCHAR(30) DEFAULT NULL COMMENT '签约单号',
   `operType` CHAR(1) COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
   `soDoneCode` INT(11) DEFAULT NULL COMMENT '业务记录ID(参考comm_business_record表的id)',
-  PRIMARY KEY (`id`),
-  KEY `renterId` (`renterId`),
-  KEY `os_saleContractId` (`saleContractId`) USING BTREE,
-  KEY `idx_oder_signedOrder_reservationOrderId` (`reservationOrderId`),
-  KEY `idx_oder_signedorder_roomId` (`roomId`)
+  PRIMARY KEY (`id`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='签约单历史表';
 
 /** 合同用户关系历史表 **/
@@ -213,9 +112,7 @@ CREATE TABLE `cntr_salecontractuserrel_his` (
   `createTime` DATETIME DEFAULT NULL COMMENT '创建时间',
   `operType` CHAR(1) COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
   `soDoneCode` INT(11) DEFAULT NULL COMMENT '业务记录ID(参考comm_business_record表的id)',
-  PRIMARY KEY (`id`),
-  KEY `contractId` (`contractId`),
-  KEY `userId` (`userId`)
+  PRIMARY KEY (`id`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='合同用户关系历史表';
 
 /** 分店信息扩展历史表 **/
@@ -316,91 +213,67 @@ CREATE TABLE `supp_complain_his` (
   PRIMARY KEY (`id`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='投诉历史表';
 
+/**公寓大楼历史表**/
+CREATE TABLE `flat_community_property_his` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键值',
+  `propertyId` int(11) COMMENT '公寓大楼Id',
+  `landlordId` int(11) COMMENT '房东Id',
+  `communityId` int(11) COMMENT '小区Id（集中式公寓）',
+  `mansionName` varchar(255) COMMENT '公寓楼栋名称',
+  `floorCount` int(3) DEFAULT '0' COMMENT '大楼层数',
+  `isLift` int(1) DEFAULT '1' COMMENT '是否有电梯(0：无，1：有)',
+  `flatsTag` int(1) DEFAULT '2' COMMENT '公寓类别(2集中式，1分散式，见字典)',
+  `createBy` int(11) DEFAULT NULL COMMENT '创建人Id',
+  `createTime` datetime DEFAULT NULL COMMENT '创建时间',
+  `createByType` int(11) COMMENT '创建用户类型,见字典表groupName=userType。0:房东;4租客',
+  `updateBy` int(11) DEFAULT NULL COMMENT '更新人',
+  `updateTime` timestamp DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  `updateByType` int(11) COMMENT '更新用户类型,见字典表groupName=userType。0:房东;4租客',
+  `remark` varchar(255) DEFAULT NULL COMMENT '备注',
+  `status` int(1) DEFAULT '1' COMMENT '状态',
+  `elevatorCount` int(3) DEFAULT '0' COMMENT '电梯数',
+  `operType` CHAR(1) COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
+  `soDoneCode` INT(11) DEFAULT NULL COMMENT '业务记录ID(参考comm_business_record表的id)',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='公寓大楼历史表';
+
 
 /** 销售应收账务历史表 **/
-CREATE TABLE `bill_saleshouldaccount_his` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
-  `bill_sale_accountId` INT(11) COMMENT '账务表ID',
-  `signedOrderId` INT(11) DEFAULT NULL COMMENT '签约单ID',
-  `flatsId` INT(11) DEFAULT NULL COMMENT '公寓ID',
-  `roomId` INT(11) DEFAULT NULL COMMENT '房间ID',
-  `saleBillId` INT(11) DEFAULT NULL COMMENT '账单ID',
-  `renterId` INT(11) DEFAULT NULL COMMENT '租客ID',
-  `consumeType` INT(11) DEFAULT NULL COMMENT '应收类型',
-  `periodYear` INT(11) DEFAULT NULL COMMENT '期数年(1-2期中的1)',
-  `periodStage` INT(11) DEFAULT NULL COMMENT '期数期(1-2期中的2)',
-  `startDate` DATETIME DEFAULT NULL COMMENT '起始日期',
-  `endDate` DATETIME DEFAULT NULL COMMENT '结束日期',
-  `billDate` DATETIME DEFAULT NULL COMMENT '账单日',
-  `payStatus` INT(1) DEFAULT '0' COMMENT '支付状态(0：未支付 1：已支付)',
-  `money` DECIMAL(12,2) DEFAULT NULL,
-  `realPayMoney` DECIMAL(12,2) DEFAULT NULL,
-  `preferentialMoney` DECIMAL(12,2) DEFAULT NULL,
-  `remark` VARCHAR(128) COLLATE utf8_bin DEFAULT NULL COMMENT '备注',
-  `createTime` DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `valid` INT(1) DEFAULT '1' COMMENT '数据有效性',
-  `landlordId` INT(11) NOT NULL DEFAULT '0' COMMENT '房东ID',
-  `billType` INT(11) NOT NULL DEFAULT '0' COMMENT '账务类型，参考账单类型表的billType',
-  `billDtlType` INT(11) NOT NULL DEFAULT '0' COMMENT '账务明细类型，参考账单明细类型表的billDtlType',
-  `soDoneCode` INT(11) DEFAULT NULL COMMENT '账务类型，参考comm_business_record表的id',
-  `deadline` DATETIME NOT NULL COMMENT '付款最后日期',
-  `title` VARCHAR(100) COLLATE utf8_bin DEFAULT NULL COMMENT '账单显示名称',
+CREATE TABLE `bill_salebill_his` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+  `saleBillId` int(11) COMMENT '原始账单ID',
+  `userType` int(11) DEFAULT NULL COMMENT '用户类型(1:租客 2:职业房东)',
+  `billType` int(11) DEFAULT NULL COMMENT '账单类型(枚举)',
+  `userId` int(11) DEFAULT NULL COMMENT '用户ID',
+  `roomId` int(11) DEFAULT NULL COMMENT '房间ID',
+  `signedOrderId` int(11) DEFAULT NULL COMMENT '签约单ID',
+  `amount` decimal(12,2) DEFAULT NULL,
+  `billDate` datetime DEFAULT NULL COMMENT '账单日',
+  `dueDate` datetime DEFAULT NULL COMMENT '应付款日',
+  `payTime` datetime DEFAULT NULL COMMENT '支付时间',
+  `serialNum` varchar(32) COLLATE utf8_bin DEFAULT NULL COMMENT '支付流水号',
+  `periodYear` int(11) DEFAULT NULL COMMENT '期数年(1-2期中的1)',
+  `periodStage` int(11) DEFAULT NULL COMMENT '期数期(1-2期中的2)',
+  `valid` int(1) DEFAULT '1' COMMENT '数据有效性',
+  `payStatus` int(1) DEFAULT '0' COMMENT '支付状态(0：未支付 1：已支付)',
+  `statusUpdateTime` datetime DEFAULT NULL COMMENT '状态更新时间',
+  `createTime` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `startDate` datetime DEFAULT NULL COMMENT '起始时间',
+  `endDate` datetime DEFAULT NULL COMMENT '结束时间',
+  `identification` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '标识',
+  `landlordId` int(11) DEFAULT '0' COMMENT '房东ID',
+  `exempt` int(11) DEFAULT NULL COMMENT '是否豁免 1:是 0:否',
+  `exemptType` int(11) DEFAULT NULL COMMENT '豁免方式 1:现金 2:非现金',
+  `sendFlag` int(2) NOT NULL DEFAULT '2' COMMENT '是否发送 1:未发送 2:已发送',
+  `title` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '账单显示名称',
+  `bill_type` int(11) DEFAULT '0' COMMENT '账单类型，参考账单类型表的billType',
+  `remark` varchar(128) COLLATE utf8_bin DEFAULT NULL COMMENT '备注',
+  `minPayAmount` decimal(10,2) DEFAULT NULL COMMENT '最小支付金额',
+  `unpayAmount` decimal(10,2) DEFAULT NULL COMMENT '未支付金额',
   `operType` CHAR(1) COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
   `soDoneCode` INT(11) DEFAULT NULL COMMENT '业务记录ID(参考comm_business_record表的id)',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `index5` (`signedOrderId`,`billType`,`billDtlType`,`startDate`,`soDoneCode`),
-  KEY `idx_bill_saleShouldAccount_signedOrderId` (`signedOrderId`),
-  KEY `salebillid` (`saleBillId`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='销售应收账务历史表';
-
-/** 优选品牌历史表 **/
-CREATE TABLE `brand_his` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
-  `brandId` INT(11) COMMENT '品牌ID',
-  `name` VARCHAR(12) COMMENT '品牌名',
-  `landlordId` INT(11) COMMENT '职业房东ID',
-  `site` VARCHAR(32) DEFAULT NULL COMMENT '品牌站点网址',
-  `slogan` VARCHAR(20) DEFAULT NULL COMMENT '宣传语',
-  `brief` VARCHAR(1000) COMMENT '品牌介绍',
-  `comments` VARCHAR(1000) DEFAULT NULL COMMENT '创始人留言',
-  `picGroupId` INT(11) DEFAULT NULL COMMENT '品牌相关图片组ID',
-  `videoGroupId` INT(11) DEFAULT NULL COMMENT '品牌相关视频组ID',
-  `stars` INT(2) DEFAULT NULL COMMENT '品牌的星级(0无星...5五星)',
-  `approvalComments` VARCHAR(200) DEFAULT NULL COMMENT '审核信息',
-  `status` TINYINT(1) COMMENT '状态(0:删除 1:待审核 2:审核通过 3:审核不通过)',
-  `isOnline` TINYINT(1) COMMENT '状态(0:下线 1:上线)',
-  `createBy` INT(11) COMMENT '创建人Id',
-  `createByType` TINYINT(2) COMMENT '创建人类型(参考groupName=userType)',
-  `createTime` DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `updateBy` INT(11) DEFAULT NULL COMMENT '修改人Id',
-  `updateByType` TINYINT(2) DEFAULT NULL COMMENT '修改人类型(参考groupName=userType)',
-  `updateTime` DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '修改人时间',
-  `operType` CHAR(1) COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
-  `soDoneCode` INT(11) DEFAULT NULL COMMENT '业务记录ID(参考comm_business_record表的id)',
-  PRIMARY KEY (`id`),
-  KEY `brand_landlordId_idx` (`landlordId`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='优选品牌历史表';
-
-/** 支付密码历史表 **/
-CREATE TABLE acct.`acct_password_his` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '主键id',
-  `acctId` INT(11) COMMENT '会员编号',
-  `passType` TINYINT(4) COMMENT '密码类型',
-  `password` VARCHAR(64) COMMENT '支付密码',
-  `createTime` DATETIME COMMENT '创建时间',
-  `createBy` INT(11) COMMENT '创建人ID',
-  `createByType` INT(11) COMMENT '创建人类型',
-  `updateTime` DATETIME DEFAULT NULL COMMENT '更新时间',
-  `updateBy` INT(11) DEFAULT NULL COMMENT '更新人ID',
-  `updateByType` INT(11) DEFAULT NULL COMMENT '更新人类型',
-  `status` TINYINT(4) COMMENT '状态，是否有效',
-  `remark` VARCHAR(256) COMMENT '备注',
-  `operType` CHAR(1) COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
-  `soDoneCode` INT(11) DEFAULT NULL COMMENT '业务记录ID(参考comm_business_record表的id)',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `uniq_acid_passtp` (`acctId`,`passType`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='支付密码历史表';
-
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='账单表'；
 
 
 

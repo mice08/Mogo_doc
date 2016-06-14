@@ -37,8 +37,8 @@ CREATE TABLE `loan_landlord_contract_his` (
   `answerPaperId1` int(11) DEFAULT NULL COMMENT '答卷1(房东资料答卷)',
   `answerPaperId2` int(11) DEFAULT NULL COMMENT '答卷2(一审答卷)',
   `applyTime` datetime DEFAULT NULL COMMENT '申请时间',
-  `approvalUser1` int(11) DEFAULT NULL COMMENT '一审审核人',
-  `approvalTime1` datetime DEFAULT NULL COMMENT '一审时间',
+  `approvalUser1` int(11) DEFAULT NULL COMMENT '二审审核人',
+  `approvalTime1` datetime DEFAULT NULL COMMENT '二审时间',
   `approvalUser` int(11) DEFAULT NULL COMMENT '终审人',
   `approvalTime` datetime DEFAULT NULL COMMENT '终审时间',
   `remark` varchar(200) DEFAULT NULL COMMENT '一审备注',
@@ -141,6 +141,21 @@ create table `loan_contract` (
   `loanApplyTime` datetime DEFAULT NULL COMMENT '贷款申请时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COMMENT='贷款合同明细表, 后期需要关联产品编号';
+
+/*贷款合同日志表*/
+DROP TABLE IF EXISTS `loan_contract_logs`;
+CREATE TABLE `loan_contract_logs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键id 自增长 ',
+  `loanContractId` int(11) NOT NULL COMMENT 'loan_contract id',
+  `soDoneCode` int(11) NOT NULL COMMENT 'comm_business_record id',
+  `workFlowStatus` int(3) DEFAULT NULL COMMENT '合同状态(4:待审核 8:验证失败 12:审核通过 16:审核失败 20:放款成功 24:提前还贷 28:终止合同)',
+  `mogoStatus` int(3) DEFAULT NULL COMMENT 'mogo状态(8:蘑菇审核通过 12:蘑菇审核失败)',
+  `lenderStatus` int(3) DEFAULT NULL COMMENT '资方状态(0:第三方待审核 4:资料内部验证失败 8:资料第三方验证失败)',
+  `createTime` datetime DEFAULT NULL COMMENT '更新时间',
+  `errmsg` varchar(150) DEFAULT NULL COMMENT '贷款流程中异常信息描述',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COMMENT='贷款合同日志表, 每次合同状态发生变化都要生成此表';
+
 
 
 /*房东贷款申请 新增贷款渠道id*/
@@ -245,6 +260,12 @@ ALTER TABLE comm_picture ADD COLUMN fileType INT(11) DEFAULT 1 NULL COMMENT '文
 
 /*loan_landlord_contract 租金宝申请渠道允许为null同时去掉了默认值*/
 ALTER  TABLE loan_landlord_contract MODIFY COLUMN loanChannel INT(11) null comment '贷款来源 参考字典表 loan_channel(1:拉卡拉 2:蘑菇 3:聚有财)' after landlordId;
+
+/*房东贷款资质申请 新增信用配置hisId*/
+ALTER TABLE loan_landlord_contract ADD COLUMN creditHisId INT(11) NULL COMMENT '信用配置hisId(loan_landlord_credit_his)';
+
+/*房东贷款资质申请 新增信用配置hisId*/
+ALTER TABLE loan_landlord_contract_his ADD COLUMN creditHisId INT(11) NULL COMMENT '信用配置hisId(loan_landlord_credit_his)';
 
 
 

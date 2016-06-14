@@ -1,3 +1,4 @@
+use mogoroomdb;
 drop view `repo_room_status`;
 CREATE VIEW `repo_room_status`
  AS 

@@ -1,7 +1,0 @@
-jdbc.idleMaxAgeInMinutes = 60
-jdbc.maxConnectionsPerPartition= 10
-jdbc.minConnectionsPerPartition= 5
-jdbc.partitionCount= 2
-jdbc.acquireIncrement= 10
-jdbc.poolAvailabilityThreshold= 20
-jdbc.connectionTimeoutInMs=10000
