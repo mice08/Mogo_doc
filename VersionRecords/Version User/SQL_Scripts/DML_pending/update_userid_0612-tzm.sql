@@ -12,7 +12,7 @@ UPDATE user_usertype a,user_info b SET a.status=b.status WHERE a.userid = b.id ;
                                                               
  SELECT                                                        
    `user_info`.`id`                       AS `id`,             
-   `user_info`.`real_name`                AS `NAME`,           
+   `user_info`.`real_name`                AS `name`,           
    `user_info`.`gender`                   AS `sex`,            
    `user_info`.`card_id`                  AS `identityId`,     
    `user_info`.`mobile`                   AS `phone`,          
@@ -32,7 +32,7 @@ UPDATE user_usertype a,user_info b SET a.status=b.status WHERE a.userid = b.id ;
    `user_info`.`create_time`              AS `createtime`,     
    `user_info`.`id`                       AS `createBy`,       
    `user_info`.`remark`                   AS `remark`,         
-   `user_usertype`.`status`                   AS `STATUS`,         
+   `user_usertype`.`status`                   AS `status`,         
    `user_landlord_info`.`accountNum`      AS `accountNum`,     
    `user_info`.`member_num`               AS `memberNum`,      
    `user_landlord_info`.`editPwdNum`      AS `editPwdNum`,     
