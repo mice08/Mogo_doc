@@ -41,7 +41,7 @@ CREATE TABLE `loan_landlord_contract_his` (
   `approvalTime1` datetime DEFAULT NULL COMMENT '二审时间',
   `approvalUser` int(11) DEFAULT NULL COMMENT '终审人',
   `approvalTime` datetime DEFAULT NULL COMMENT '终审时间',
-  `remark` varchar(200) DEFAULT NULL COMMENT '二审备注',
+  `remark` varchar(200) DEFAULT NULL COMMENT '一审备注',
   `remark2` varchar(200) DEFAULT NULL COMMENT '二审备注',
   `operType` tinyint(1) NOT NULL COMMENT '操作类型(1:新增 2:修改 3:逻辑删除)',
   PRIMARY KEY (`id`)
