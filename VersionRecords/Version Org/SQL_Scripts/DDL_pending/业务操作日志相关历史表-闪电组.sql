@@ -1,3 +1,5 @@
+use mogoroomdb;
+
 /** 业主和房源(公寓)的关系历史表**/
 CREATE TABLE `host_flats_relation_his` (
   `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
@@ -273,7 +275,10 @@ CREATE TABLE `bill_salebill_his` (
   `operType` CHAR(1) COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
   `soDoneCode` INT(11) DEFAULT NULL COMMENT '业务记录ID(参考comm_business_record表的id)',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='账单表'；
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='账单表';
 
 
+ALTER TABLE comm_business_record MODIFY COLUMN remark VARCHAR(512) NULL COMMENT '动作描述 eg:更新了房屋的配置';
+
+ALTER TABLE comm_business_record_mapping ADD COLUMN decodeSql VARCHAR(256) NULL COMMENT '数据字典sql转码使用';
 

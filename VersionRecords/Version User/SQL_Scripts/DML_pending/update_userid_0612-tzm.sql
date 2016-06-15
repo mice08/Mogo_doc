@@ -3,7 +3,7 @@ use mogoroomdb;
 
 /*更新后来添加的字段数据*/
 
-UPDATE user_usertype a,user_info b SET a.status=b.status WHERE a.userid = b.id ;
+UPDATE user_usertype a,user_info b SET a.status=b.status WHERE a.userid = b.id and a.userType in (0,4,5);
 
  
   DROP VIEW IF EXISTS user_landlord;
@@ -12,7 +12,7 @@ UPDATE user_usertype a,user_info b SET a.status=b.status WHERE a.userid = b.id ;
                                                               
  SELECT                                                        
    `user_info`.`id`                       AS `id`,             
-   `user_info`.`real_name`                AS `NAME`,           
+   `user_info`.`real_name`                AS `name`,           
    `user_info`.`gender`                   AS `sex`,            
    `user_info`.`card_id`                  AS `identityId`,     
    `user_info`.`mobile`                   AS `phone`,          
@@ -32,7 +32,7 @@ UPDATE user_usertype a,user_info b SET a.status=b.status WHERE a.userid = b.id ;
    `user_info`.`create_time`              AS `createtime`,     
    `user_info`.`id`                       AS `createBy`,       
    `user_info`.`remark`                   AS `remark`,         
-   `user_usertype`.`status`                   AS `STATUS`,         
+   `user_usertype`.`status`                   AS `status`,         
    `user_landlord_info`.`accountNum`      AS `accountNum`,     
    `user_info`.`member_num`               AS `memberNum`,      
    `user_landlord_info`.`editPwdNum`      AS `editPwdNum`,     
@@ -101,4 +101,45 @@ UPDATE user_usertype a,user_info b SET a.status=b.status WHERE a.userid = b.id ;
         JOIN `user_password`                                         
           ON  `user_info`.`id` = `user_password`.`userId` 
          join user_usertype
-         	 on user_info.id = user_usertype.userId and user_usertype.usertype=4;        
+         	 on user_info.id = user_usertype.userId and user_usertype.usertype=4;   
+         	 
+         	 
+  DROP VIEW IF EXISTS user_employee;  	 
+ CREATE  VIEW `user_employee` AS 
+SELECT
+  `user_info`.`id`                     AS `id`,
+  `user_info`.`user_name`              AS `num`,
+  `user_info`.`real_name`              AS `name`,
+  `user_info`.`status`                 AS `status`,
+  `user_info`.`mobile`                 AS `phone`,
+  `user_info`.`email`                  AS `email`,
+  `user_employee_info`.`englishName`   AS `englishName`,
+  `user_info`.`gender`                 AS `sex`,
+  `user_info`.`birthday`               AS `birthday`,
+  `user_employee_info`.`province`      AS `province`,
+  `user_employee_info`.`hometown`      AS `hometown`,
+  `user_info`.`card_id`                AS `validDoc`,
+  `user_info`.`emergency`              AS `emergConName`,
+  `user_info`.`emerg_phone`            AS `emergConPhone`,
+  `user_info`.`constellation`          AS `constellation`,
+  `user_info`.`card_id`                AS `idCard`,
+  `user_info`.`remark`                 AS `remark`,
+  `user_info`.`latestLoginTime`        AS `lastvisitDate`,
+  `user_info`.`status`                 AS `valid`,
+  `user_employee_info`.`entryDate`     AS `entryDate`,
+  `user_info`.`photo`                  AS `imgLocation`,
+  `user_employee_info`.`bankCode`      AS `bankName`,
+  `user_employee_info`.`bankCard`       AS `bankNum`,
+  `user_employee_info`.`bankDetail`    AS `bankDetail`,
+  `user_info`.`phoneExt`               AS `phoneNum`,
+  `user_info`.`phoneExt`               AS `phoneExt`,
+  `user_password`.`password`                AS `password`,
+  `user_employee_info`.`fromExten`     AS `fromExten`,
+  0 as loginCount 
+FROM  `user_info`
+    JOIN `user_employee_info`
+      ON `user_info`.`id` = `user_employee_info`.`userId` 
+   JOIN `user_password`
+     ON  `user_info`.`id` = `user_password`.`userId` 
+   join user_usertype 
+   	 on user_info.id = user_usertype.userId and user_usertype.usertype=5;    
