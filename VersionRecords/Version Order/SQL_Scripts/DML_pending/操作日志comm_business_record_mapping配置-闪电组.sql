@@ -1,5 +1,5 @@
 use mogoroomdb;
-/** 财务管理28条**/
+/* 财务管理28条 */
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(10101001,'bill_salebill','bill_salebill_his','账单','账单名称','title','saleBillId',0,1,'');
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(10101001,'bill_salebill','bill_salebill_his','账单','账单类型','billType','saleBillId',0,2,'SELECT displayName FROM acct.`acct_billdtltype` WHERE billDtlType =%s');
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(10101001,'bill_salebill','bill_salebill_his','账单','最晚支付日期','endDate','saleBillId',0,3,'');
@@ -28,7 +28,7 @@ insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablela
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(10101004,'bill_salebill','bill_salebill_his','账单','开始时间','startDate','saleBillId',0,5,'');
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(10101004,'bill_salebill','bill_salebill_his','账单','结束时间','endDate','saleBillId',0,6,'');
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(10101004,'bill_salebill','bill_salebill_his','账单','每月收款日期','dueDate','saleBillId',0,7,'');
-/** 销售管理78条**/
+/* 销售管理78条 */
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(20101005,'user_info','user_info_his','入住人信息','入住人姓名','real_name','userId',0,1,'');
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(20101005,'user_info','user_info_his','入住人信息','入住人电话','mobile','userId',0,2,'');
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(20101005,'user_info','user_info_his','入住人信息','入住人性别','gender','userId',0,3,'SELECT CASE %s WHEN 0 THEN \'女\' WHEN 1 THEN \'男\' ELSE \'未知\' END  gender');
@@ -106,7 +106,7 @@ insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablela
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(20101019,'cntr_salecontract','cntr_salecontract_his','合同信息','租期结束时间','endDate','contractId',0,4,'');
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(20101019,'cntr_salecontract','cntr_salecontract_his','合同信息','租金收取方式','deadlineDate','contractId',0,5,'select case when  %s  <=0 then \'提前%s天付款\' else \'每月%s号付款\' end  deadlineDate');
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(20101019,'cntr_salecontract','cntr_salecontract_his','合同信息','下期收租日','payDate','contractId',0,6,'');
-/** 售后管理 6条**/
+/* 售后管理 6条 */
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(30101001,'supp_repair','supp_repair_his','报修','报修备注','remark','supp_repairId',0,1,'');
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(30101002,'supp_repair','supp_repair_his','报修','报修内容','content','supp_repairId',0,2,'');
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(30101002,'supp_repair','supp_repair_his','报修','处理完成时间','finishDate','supp_repairId',0,3,'');
@@ -114,7 +114,7 @@ insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablela
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(30101004,'supp_complain','supp_complain_his','投诉','投诉内容','content','supp_complainId',0,2,'');
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(30101004,'supp_complain','supp_complain_his','投诉','处理完成时间','completionTime','supp_complainId',0,3,'');
 
-/** 房源管理 92条**/
+/* 房源管理 92条 */
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(40101001,'flat_community','flat_community_his','小区信息','行政区','districtId','communityId',0,1,'select  name from city_district where id = %s');
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(40101001,'flat_community','flat_community_his','小区信息','地段','businessId','communityId',0,2,'select  name from city_business_area where id =%s');
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(40101001,'flat_community','flat_community_his','小区信息','小区名','name','communityId',0,3,'');
@@ -207,7 +207,7 @@ insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablela
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(40101008,'cntr_salecontract','cntr_salecontract_his ','合同信息','租金收取方式','deadlineDate','contractId',0,1,'select case when  %s  <=0 then \'提前%s天付款\' else \'每月%s号付款\' end  deadlineDate');
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(40101009,'flat_room','flat_room_his','房间信息','上下架','isPutaway','roomId',0,1,'SELECT CASE %s WHEN 1 THEN \'上架\'  ELSE \'下架\' END  isPutaway');
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(40101011,'flat_room','flat_room_his','房间信息','房态','status','roomId',0,1,'SELECT CASE %s WHEN 1 THEN \'有效\'  ELSE \'失效\' END  status');
-/** 业主管理 18条**/
+/* 业主管理 18条 */
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(40101012,'user_info','user_info_his','','业主姓名','real_name','userId',0,1,'');
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(40101012,'user_info','user_info_his','','业主电话','mobile','userId',0,2,'');
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(40101012,'user_info','user_info_his','','身份证号','card_id','userId',0,3,'');
@@ -226,7 +226,7 @@ insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablela
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(40101013,'host_flats_relation','host_flats_relation_his','','常用收款方式','pay_type','flat_id',0,3,'');
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(40101013,'host_flats_relation','host_flats_relation_his','','每期付款日','each_pay_day','flat_id',0,4,'');
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(40101013,'host_flats_relation','host_flats_relation_his','','下期付款日','start_pay_date','flat_id',0,5,'');
-/** 分店管理 12条**/
+/* 分店管理 12条 */
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(50101001,'orga_org','orga_org_his','分店设置','分店名称','orgName','orgId',0,1,'');
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(50101001,'orga_org_extend','orga_org_extend_his','分店设置','分店地址','mobile','org_extendId',0,4,'');
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(50101001,'orga_org_extend','orga_org_extend_his','分店设置','分店电话','telephone','org_extendId',0,7,'');
@@ -239,10 +239,10 @@ insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablela
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(50101008,'user_info','user_info_his','子账号','手机号','mobile','userId',0,2,'');
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(50101009,'user_info','user_info_his','子账号','姓名','real_name','userId',0,1,'');
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(50101009,'user_info','user_info_his','子账号','手机号','mobile','userId',0,2,'');
-/**个人中心 1条**/
+/* 个人中心 1条 */
 insert into comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql) values(60101001,'user_info','user_info_his','个人信息','修改联系电话','mobile','userId',0,1,'');
 
-/** 初始化TableKey 字段 **/
+/* 初始化TableKey 字段  */
 update comm_business_record_mapping set tableKey ='tid' where tableNameHis='user_info_his';
 update comm_business_record_mapping SET tableKey ='id' WHERE tableNameHis <>'user_info_his'; 
 
