@@ -1,6 +1,7 @@
 /*日历表数据初始化*/
 use mogoroomdb;
 
+drop procedure if exists calendarinit;
 truncate table comm_calendar;
 
 insert into comm_calendar(date, weekday, type) values('20160915', 4, 0);
