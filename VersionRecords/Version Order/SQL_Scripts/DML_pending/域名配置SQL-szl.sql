@@ -1,3 +1,6 @@
+/* 系统配置表新增数据 */
+use mogoroomdb;
+
 INSERT INTO `comm_sysconfig` ( `keyName`, `val`, `groupName`, `name`, `remark`, `updateByType`, `updateBy`) VALUES('partnerapp','sh.mogoroom.com','partnerapp','房东APP域名',NULL,'5','0');
 INSERT INTO `comm_sysconfig` ( `keyName`, `val`, `groupName`, `name`, `remark`, `updateByType`, `updateBy`) VALUES('partnerpc-p','p.mogoroom.com','partnerpc-p','房东PC域名',NULL,'5','0');
 INSERT INTO `comm_sysconfig` ( `keyName`, `val`, `groupName`, `name`, `remark`, `updateByType`, `updateBy`) VALUES('partnerpc','ppc.api.mogoroom.com','partnerpc','房东PC域名',NULL,'5','0');
