@@ -1,5 +1,5 @@
 use mogoroomdb;
-CREATE TABLE `mogo_dev`.`comm_picture_del_his`(  
+CREATE TABLE `comm_picture_del_his`(  
   `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `url` VARCHAR(1024) NOT NULL COMMENT '图片URL',
   `deleteTime` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP  COMMENT '删除时间',
