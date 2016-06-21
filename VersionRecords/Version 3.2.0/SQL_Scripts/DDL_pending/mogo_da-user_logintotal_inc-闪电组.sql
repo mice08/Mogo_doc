@@ -6,8 +6,9 @@ CREATE TABLE `user_logintotal_inc` (
   `userType` INT(11) DEFAULT NULL COMMENT '用户类型',
   `loginCount` INT(11) DEFAULT NULL COMMENT '每天的登录统计',
   `lastActiveTime` DATE DEFAULT NULL COMMENT '当天用户最后活跃时间',
-  `loginDate` DATE DEFAULT NULL COMMENT '登录日期',
+  `lastAcitveChannel` INT(11) DEFAULT NULL COMMENT '当天最后活跃的渠道类型,参考(groupName=channel)',
+  `loginDate` DATE DEFAULT NULL COMMENT '登录时间',
   PRIMARY KEY (`id`),
   INDEX `user_id_type` (`userid`,`userType`),
   INDEX `loginDate` (`loginDate`)
-) ENGINE=INNODB COMMENT '用户登录次数统计结果临时存储表，每天增量添加数据';
+) ENGINE=INNODB COMMENT='用户登录次数统计结果临时存储表，每天增量添加数据';
