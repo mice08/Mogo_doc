@@ -1,3 +1,5 @@
+use mogoroomdb;
+
 /*消息模板表*/
 insert into `mesg_templet` (`id`, `templetCode`, `templetName`, `templetDesc`, `status`, `createBy`, `createTime`, `createByType`, `updateBy`, `updateTime`, `updateByType`, `valid`, `businessType`) values('1','sms_alert_landlordInitPwd','房东初始化密码','房东初始化密码','1','2','2015-12-05 16:29:15','3',NULL,NULL,NULL,'1',NULL);
 insert into `mesg_templet` (`id`, `templetCode`, `templetName`, `templetDesc`, `status`, `createBy`, `createTime`, `createByType`, `updateBy`, `updateTime`, `updateByType`, `valid`, `businessType`) values('2','sms_flats_verify_landlord','房源审核通过','房源审核通过','1','2','2015-12-07 12:26:20','3',NULL,NULL,NULL,'1','6');
