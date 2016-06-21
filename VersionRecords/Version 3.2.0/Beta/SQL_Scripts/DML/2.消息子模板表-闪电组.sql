@@ -1,3 +1,4 @@
+use mogoroomdb;
 
 insert into `mesg_subtemplet` (`id`, `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`) values('3','2','3','公寓审核','您好，您提交的房源${roomInfo}审核已通过并上线，若有租客请求，请及时处理。','1','1',NULL,NULL);
 insert into `mesg_subtemplet` (`id`, `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`) values('5','3','3','公寓审核','您好，您提交的房源${roomInfo}审核未通过，请及时修正重新提交审核。','1','1',NULL,NULL);
