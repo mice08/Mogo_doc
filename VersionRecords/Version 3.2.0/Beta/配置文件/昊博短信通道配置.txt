@@ -5,6 +5,6 @@ sysconfig.haobo_account=92CB3CF630074130D96D030606976467
 sysconfig.haobo_password=E77392F1B198C4D2E6E01BCF4A4AE930
 
 #生产环境
-sysconfig.mesgEnvir=pro
+#sysconfig.mesgEnvir=pro
 #公测环境
-#sysconfig.mesgEnvir=pubtest
+sysconfig.mesgEnvir=pubtest
