@@ -6,7 +6,7 @@ CREATE TABLE `user_logintotal_daily` (
   `userType` INT(11) DEFAULT NULL COMMENT '用户类型,参考(groupName=userType)，如果是子账号登录此处记录房东id',
   `loginCount` INT(11) DEFAULT NULL COMMENT '每天的登录统计',
   `lastActiveTime` DATE DEFAULT NULL COMMENT '当天用户最后活跃时间',
-  `lastAcitveUserType` INT(11) DEFAULT NULL COMMENT '当天最后活跃的渠道类型,参考(groupName=userType)',
+  `lastAcitveUserType` INT(11) DEFAULT NULL COMMENT '当天最后活跃的用户类型,参考(groupName=userType)',
   `loginDate` DATE DEFAULT NULL COMMENT '登录时间',
   PRIMARY KEY (`id`),
   INDEX `user_id_type` (`userid`,`userType`),
