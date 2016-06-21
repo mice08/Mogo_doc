@@ -280,5 +280,5 @@ CREATE TABLE `bill_salebill_his` (
 
 ALTER TABLE comm_business_record MODIFY COLUMN remark VARCHAR(512) NULL COMMENT '动作描述 eg:更新了房屋的配置';
 
-ALTER TABLE comm_business_record_mapping ADD COLUMN decodeSql VARCHAR(256) NULL COMMENT '数据字典sql转码使用';
+ALTER TABLE comm_business_record_mapping ADD COLUMN decodeSql VARCHAR(512) NULL COMMENT '数据字典sql转码使用';
 

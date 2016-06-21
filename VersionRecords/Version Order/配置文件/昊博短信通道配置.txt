@@ -1,0 +1,10 @@
+
+#消息独立发送包增加配置
+filter.sysconfig.haobo_req_url=http://101.227.68.49:7891/mt
+filter.sysconfig.haobo_account=92CB3CF630074130D96D030606976467
+filter.sysconfig.haobo_password=E77392F1B198C4D2E6E01BCF4A4AE930
+
+#生产环境
+filter.sysconfig.mesgEnvir=pro
+#公测环境
+#filter.sysconfig.mesgEnvir=pubtest
