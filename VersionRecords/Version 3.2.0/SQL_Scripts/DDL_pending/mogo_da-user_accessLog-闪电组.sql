@@ -11,5 +11,5 @@ CREATE TABLE `user_accesslog` (
   `channel` VARCHAR(25) DEFAULT NULL COMMENT '渠道类型(参考groupName=channel)',
   `accessTime` DATETIME DEFAULT NULL COMMENT '访问时间',
   PRIMARY KEY (`id`),
-  KEY `userid` (`userId`)
+  INDEX `user_id_type` (`userId`,`userType`)
 ) ENGINE=INNODB COMMENT='用户访问日志记录';
