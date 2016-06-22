@@ -2,4 +2,4 @@
 
 use mogoroomdb;
 
-ALTER TABLE `cntr_salecontract` ADD COLUMN `confirmDate` DATETIME NULL  COMMENT '转客确认时间';
+ALTER TABLE `cntr_salecontract` ADD COLUMN `confirmDate` DATETIME NULL  COMMENT '双方在线确认时间';
