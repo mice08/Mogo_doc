@@ -1,3 +1,4 @@
+use mogoroomdb;
 UPDATE comm_dictionary t
 SET t.`status` = '0'
 WHERE
