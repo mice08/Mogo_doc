@@ -6,19 +6,19 @@ values('LOAN_CREDIT_CONFIG_KEY_3_0','[{\"id\":1,\"groupCode\":\"A\",\"groupName\
 
 /*房东动态规模额度上限*/
 insert into `comm_sysconfig` ( `keyName`, `val`, `groupName`, `name`, `remark`, `updateTime`, `updateByType`, `updateBy`, `extra1`, `extra2`)
-values('LOAN_CREDIT_RANGEAMOUNT_MAX_3_0','100000','LOAN_CREDIT_RANGEAMOUNT','房东动态规模额度上限',"房东动态规模额度上限",'2016-04-23 18:32:33',5,2000681,'3','0');
+values('LOAN_CREDIT_RANGEAMOUNT_MAX_3_0','500000','LOAN_CREDIT_RANGEAMOUNT','房东动态规模额度上限',"房东动态规模额度上限",'2016-04-23 18:32:33',5,2000681,'3','0');
 
 /*房东动态规模额度下限*/
 insert into `comm_sysconfig` ( `keyName`, `val`, `groupName`, `name`, `remark`, `updateTime`, `updateByType`, `updateBy`, `extra1`, `extra2`)
-values('LOAN_CREDIT_RANGEAMOUNT_MIN_3_0','10000','LOAN_CREDIT_RANGEAMOUNT','房东动态规模额度下限',"房东动态规模额度下限",'2016-04-23 18:34:04',5,2000681,'3','0');
+values('LOAN_CREDIT_RANGEAMOUNT_MIN_3_0','0','LOAN_CREDIT_RANGEAMOUNT','房东动态规模额度下限',"房东动态规模额度下限",'2016-04-23 18:34:04',5,2000681,'3','0');
 
 /*线上支付动态额度上限*/
 insert into `comm_sysconfig` (`keyName`, `val`, `groupName`, `name`, `remark`, `updateTime`, `updateByType`, `updateBy`, `extra1`, `extra2`)
-values('LOAN_CREDIT_ONLINETRADINGAMOUNT_MAX_3_0','300000','LOAN_CREDIT_ONLINETRADINGAMOUNT','线上支付动态额度上限','线上支付动态额度上限',current_timestamp,5,2000681,'3','0');
+values('LOAN_CREDIT_ONLINETRADINGAMOUNT_MAX_3_0','2000000','LOAN_CREDIT_ONLINETRADINGAMOUNT','线上支付动态额度上限','线上支付动态额度上限',current_timestamp,5,2000681,'3','0');
 
 /*线上支付动态额度下限*/
 insert into `comm_sysconfig` (`keyName`, `val`, `groupName`, `name`, `remark`, `updateTime`, `updateByType`, `updateBy`, `extra1`, `extra2`)
-values('LOAN_CREDIT_ONLINETRADINGAMOUNT_MIN_3_0','10000','LOAN_CREDIT_ONLINETRADINGAMOUNT','线上支付动态额度下限','线上支付动态额度下限',current_timestamp,5,2000681,'3','0');
+values('LOAN_CREDIT_ONLINETRADINGAMOUNT_MIN_3_0','0','LOAN_CREDIT_ONLINETRADINGAMOUNT','线上支付动态额度下限','线上支付动态额度下限',current_timestamp,5,2000681,'3','0');
 
 /*
 上海 cityid 289
