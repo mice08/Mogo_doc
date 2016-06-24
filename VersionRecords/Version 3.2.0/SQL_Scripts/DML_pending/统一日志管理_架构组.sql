@@ -35,3 +35,5 @@ INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId)
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES('50101009','修改子账号',1,1,3,1,'50102');
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES('50101010','离职子账号',1,1,3,1,'50102');
 
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES('10101012','合并支付',1,1,3,1,'10103');
+
