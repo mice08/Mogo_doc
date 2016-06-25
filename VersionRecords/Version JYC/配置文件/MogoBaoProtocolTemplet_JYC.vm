@@ -65,6 +65,9 @@ label.lg{
 label.md{
 	width:90px;
 }
+label.md2{
+	width:100px;
+}
 .banner{
 	margin:8px 0;
 }
@@ -129,12 +132,13 @@ table td{
 	
 	
 	<h2>申请人银行卡信息</h2>
-	<p><label class="md">借记卡开户行</label>：${debitbank}</p> 
-	<p><label class="md">单位借记卡卡号</label>：${debitcard}</p> 
+	<p><label class="md2">借记卡开户行</label>：${debitbank}</p> 
+	<p><label class="md2">单位借记卡卡号</label>：${debitcard}</p> 
+	<p><label class="md2">银行预留手机号码</label>：${debitMobile}</p> 
 
 	<h2>申请人联系人信息</h2>
-	<p><label class="lg">联系人姓名</label>：${contactname}</p> 
-	<p><label class="lg">联系人手机号码</label>：${contactmobile}</p> 
+	<p><label class="lg">联系人姓名</label>：${emergencyname}</p> 
+	<p><label class="lg">联系人手机号码</label>：${emergencymobile}</p> 
 	<p class="hp"><label>证件照片</label><span class="fl">：</span><span class="img-wrapper img-list-wrapper">${mogoBaoIdPhoto}</span></p>
 	
 
