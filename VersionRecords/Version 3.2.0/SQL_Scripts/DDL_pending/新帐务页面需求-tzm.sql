@@ -12,7 +12,6 @@ ALTER TABLE bill_salebill
 ALTER TABLE acct.acct_busirec  
 					ADD COLUMN verifyPerson Int(11)  DEFAULT NULL COMMENT '核销人',
 					ADD COLUMN verifyDate datetime  DEFAULT NULL COMMENT '核销时间',
-					ADD COLUMN subsId Int(11)  DEFAULT NULL COMMENT '统一订购id',
 					ADD COLUMN verified tinyint(3) DEFAULT NULL COMMENT '核销标识(0:未核销 1:已核销)';
 															
 															
