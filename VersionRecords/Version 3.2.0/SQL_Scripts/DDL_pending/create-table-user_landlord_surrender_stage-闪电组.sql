@@ -17,6 +17,4 @@ create table user_landlord_surrender_stage
    updateByType         int(1) comment '修改人类型(参照字典表组名:userType)',
    updateTime           datetime comment '对应步骤的修改时间',
    primary key (id)
-);
-
-alter table user_landlord_surrender_stage comment '房东解约步骤表';
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment '房东解约步骤表';
