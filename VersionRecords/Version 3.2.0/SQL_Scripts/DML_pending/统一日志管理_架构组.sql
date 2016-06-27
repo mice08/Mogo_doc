@@ -43,3 +43,4 @@ INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId)
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES('10104001','房东添加退房优惠',1,1,3,1,'10104');
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES('10104003','房东添加退房收款',1,1,3,1,'10104');
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES('10104004','房东记为退房坏账',1,1,3,1,'10104');
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES('10104005','房东优惠账单',1,1,3,1,'10104');
