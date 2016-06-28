@@ -7,5 +7,5 @@ ALTER TABLE `loan_landlord_payplan`  ADD  INDEX `index_subsId` (`subsId`);
 ALTER TABLE `loan_landlord_repayplan`  ADD  INDEX `index_subsId` (`subsId`);
 
 use `acct`;
-ALTER TABLE `acct`.`acct_bill`  ADD  INDEX `index_subsId` (`subsId`);
+ALTER TABLE `acct_bill`  ADD  INDEX `index_subsId` (`subsId`);
 
