@@ -1,5 +1,5 @@
 select @id:=id from perm_functioninfo where fname = '统计';
-select @seq:=max(seq) from perm_functioninfo where functionpId=@id;
+select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@id;
 select @fcode:= CONCAT('2',lpad(@id,4,0),@seq ) from perm_functioninfo where fname = '统计';
 INSERT INTO `perm_functioninfo` 
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`) 
