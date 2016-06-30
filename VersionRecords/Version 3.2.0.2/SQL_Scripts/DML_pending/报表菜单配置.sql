@@ -1,8 +1,8 @@
 select @id:=id from perm_functioninfo where fname = '统计';
-select @fcode:= CONCAT('2',lpad(@id,4,0),'01' ) from perm_functioninfo where fname = '统计';
+select @fcode:= CONCAT('2',lpad(@id,4,0),'20' ) from perm_functioninfo where fname = '统计';
 INSERT INTO `perm_functioninfo` 
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`) 
-VALUES (@fcode, '房东登录情况统计报表', 'report/loginInfoReport', '17', '2', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+VALUES (@fcode, '房东登录情况统计报表', 'report/loginInfoReport', '20', '2', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
 
 
 
