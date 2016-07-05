@@ -309,7 +309,8 @@ GROUP BY `房间挂牌唯一识别号`;
 房屋交易唯一识别号、房屋挂牌唯一识别号、房间唯一识别号、房屋唯一识别号、签约人ID、
 签约方式（线上、线下）、签约人使用网络设备标识（如网络设备号、IP地址、MAC地址）、
 取消签约标识（提前解约标识或提前解约时间）、职业房东ID、拓展人员ID、APP来源（百度、搜狗、360等）*/
-CREATE TABLE test.jz17 AS SELECT sign.id AS '签约流水号',
+/*（线上）1.拆分线上 */
+CREATE TABLE test.jz171 AS SELECT sign.id AS '签约流水号',
     IFNULL(sale.signingDate, sale.createTime) AS '签约时间',
     CONCAT(DATE_FORMAT(sale.beginDate, '%Y/%m/%d'),
             '--',
@@ -406,8 +407,109 @@ WHERE
         3100388,
         3100752,
         3101630)
-        AND sale.createTime < '2016-6-1';
+        AND sale.createTime < '2016-6-1'
+        AND sale.turnStrtus = 0;
 
+/*（线下）1.添加转客待确认  2.签约时间为NULL 取 合同起始日 3.拆分线下 */
+CREATE TABLE test.jz172 AS SELECT sign.id AS '签约流水号',
+    IFNULL(sale.signingDate, sale.beginDate) AS '签约时间',
+    CONCAT(DATE_FORMAT(sale.beginDate, '%Y/%m/%d'),
+            '--',
+            DATE_FORMAT(sale.endDate, '%Y/%m/%d'),
+            '(',
+            TIMESTAMPDIFF(MONTH,
+                begindate,
+                DATE_ADD(enddate, INTERVAL 1 DAY)),
+            '个月',
+            CASE
+                WHEN
+                    TIMESTAMPDIFF(DAY,
+                        DATE_ADD(begindate,
+                            INTERVAL TIMESTAMPDIFF(MONTH,
+                                begindate,
+                                DATE_ADD(enddate, INTERVAL 1 DAY)) MONTH),
+                        enddate) > 0
+                THEN
+                    CONCAT(TIMESTAMPDIFF(DAY,
+                                DATE_ADD(begindate,
+                                    INTERVAL TIMESTAMPDIFF(MONTH,
+                                        begindate,
+                                        DATE_ADD(enddate, INTERVAL 1 DAY)) MONTH),
+                                enddate),
+                            '天')
+                ELSE ''
+            END,
+            ')') AS '签约周期',
+    sale.realRentPrice AS '签约金额（月租）',
+    (SELECT 
+            SUM(account.money)
+        FROM
+            bill_saleshouldaccount account
+        WHERE
+            account.signedOrderId = sign.id
+                AND account.valid = 1
+                AND account.billType = 1003
+                AND account.billDtlType = 10003) AS '违约金',
+    sign.id AS '房屋交易唯一识别号',
+    flat.flatsNum AS '房屋挂牌唯一识别号',
+    sign.roomId AS '房间唯一识别号',
+    sign.flatsId AS '房屋唯一识别号',
+    sign.renterId AS '签约人ID',
+    CASE
+        WHEN sale.turnStrtus = 0 THEN '线上'
+        ELSE '线下'
+    END AS '签约方式',
+    CASE
+        WHEN
+            sign.status = 5
+        THEN
+            (SELECT 
+                    CASE
+                            WHEN surr.checkOutType = 1 THEN '正常解约'
+                            ELSE CONCAT('提前解约(',
+                                    DATE_FORMAT(surr.checkingOutDate, '%Y-%m-%d'),
+                                    ')')
+                        END
+                FROM
+                    oder_surrenderapply surr
+                WHERE
+                    surr.signedOrderId = sign.id
+                        AND surr.status = 2
+                ORDER BY surr.id DESC
+                LIMIT 1)
+        ELSE ''
+    END AS '取消签约标识',
+    sign.landlordId AS '职业房东ID',
+    land.salesmanId AS '拓展人员ID',
+    reg.value AS 'APP来源' FROM
+    oder_signedorder sign
+        LEFT JOIN
+    cntr_salecontract sale ON sign.saleContractId = sale.id
+        LEFT JOIN
+    user_landlord land ON sign.landlordId = land.id
+        LEFT JOIN
+    user_renter renter ON sign.renterId = renter.id
+        LEFT JOIN
+    (SELECT 
+        keypro, value
+    FROM
+        comm_dictionary
+    WHERE
+        groupName = 'regChannelDtl') reg ON renter.regChannelDtl = reg.keypro
+        LEFT JOIN
+    flat_flats flat ON sign.flatsId = flat.id
+WHERE
+    sign.status IN (4,5,6,7)
+        AND sign.landlordId NOT IN (123 , 124,
+        3100059,
+        3100230,
+        3100241,
+        3100387,
+        3100388,
+        3100752,
+        3101630)
+        AND sale.createTime < '2016-6-1'
+        AND sale.turnStrtus <> 0;
 /*1.8	房屋租赁交易数据，包含交易流水号、交易时间、交易金额、付款标识（线上/线下）、
 房屋交易唯一识别号、房屋签约唯一识别号、房屋挂牌唯一识别号、房间唯一识别号、房屋唯一识别号、
 用户ID/签约人ID（是两个字段吗？可能是不一样的人吗？）、入住人ID、
