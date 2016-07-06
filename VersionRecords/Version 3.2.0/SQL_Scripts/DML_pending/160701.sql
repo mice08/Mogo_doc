@@ -240,10 +240,11 @@ WHERE
 drop table if exists test.jz15;
 
 CREATE TABLE test.jz15 AS SELECT ue.id AS '拓展人员ID',
-    SHA2(CONCAT(phone, 'jZ*rS$5'), 512) AS '手机号',
-    SHA2(CONCAT(validDoc, 'jZ*rS$6'), 512) AS '身份证号码',
-    oo.orgName,
-    entryDate AS '用户注册时间' FROM
+    name,
+    SHA2(CONCAT(MIN(phone), 'jZ*rS$5'), 512) AS '手机号',
+    SHA2(CONCAT(MIN(validDoc), 'jZ*rS$6'), 512) AS '身份证号码',
+    MIN(oo.orgName) AS orgName,
+    MIN(entryDate) AS '用户注册时间' FROM
     user_employee ue
         LEFT JOIN
     orga_org_position oop ON ue.id = oop.userid
@@ -259,7 +260,8 @@ WHERE
         FROM
             user_landlord ul
         WHERE
-            ue.id = ul.salesmanId));
+            ue.id = ul.salesmanId))
+GROUP BY ue.id;
 
 /*1.6	房屋挂牌数据，包含房屋挂牌唯一识别号、挂牌时间、租赁时间、
 结束租赁时间、房屋唯一识别号、房屋方式（单身公寓、整租、合租）、职业房东ID*/
@@ -282,7 +284,14 @@ CREATE TABLE test.jz161 AS SELECT fr.`roomNum` AS '房间挂牌唯一识别号',
         LEFT JOIN
     flat_flats ff ON ff.`id` = fr.`flatsId`
 WHERE
-    fr.`status` = 1 AND ff.`status` = 1
+    (fr.`status` = 1 AND ff.`status` = 1
+        OR EXISTS( SELECT 
+            1
+        FROM
+            test.jz111 jz111
+        WHERE
+            ff.id = jz111.flatsId
+                AND fr.id = jz111.id))
         AND ff.landlordId NOT IN (123 , 124,
         3100059,
         3100230,
@@ -291,7 +300,8 @@ WHERE
         3100388,
         3100752,
         3101630)
-        AND fr.`createTime` < '2016-6-1';
+        AND fr.`createTime` < '2016-6-1'
+        AND ff.`createTime` < '2016-6-1';
 
 drop table if exists test.jz16;
 
@@ -310,6 +320,8 @@ GROUP BY `房间挂牌唯一识别号`;
 签约方式（线上、线下）、签约人使用网络设备标识（如网络设备号、IP地址、MAC地址）、
 取消签约标识（提前解约标识或提前解约时间）、职业房东ID、拓展人员ID、APP来源（百度、搜狗、360等）*/
 /*（线上）1.拆分线上 */
+drop table if exists test.jz171;
+
 CREATE TABLE test.jz171 AS SELECT sign.id AS '签约流水号',
     IFNULL(sale.signingDate, sale.createTime) AS '签约时间',
     CONCAT(DATE_FORMAT(sale.beginDate, '%Y/%m/%d'),
@@ -411,8 +423,10 @@ WHERE
         AND sale.turnStrtus = 0;
 
 /*（线下）1.添加转客待确认  2.签约时间为NULL 取 合同起始日 3.拆分线下 */
+drop table if exists test.jz172;
+
 CREATE TABLE test.jz172 AS SELECT sign.id AS '签约流水号',
-    IFNULL(sale.signingDate, sale.beginDate) AS '签约时间',
+    null AS '签约时间',
     CONCAT(DATE_FORMAT(sale.beginDate, '%Y/%m/%d'),
             '--',
             DATE_FORMAT(sale.endDate, '%Y/%m/%d'),
@@ -499,7 +513,7 @@ CREATE TABLE test.jz172 AS SELECT sign.id AS '签约流水号',
         LEFT JOIN
     flat_flats flat ON sign.flatsId = flat.id
 WHERE
-    sign.status IN (4,5,6,7)
+    sign.status IN (4 , 5, 6, 7)
         AND sign.landlordId NOT IN (123 , 124,
         3100059,
         3100230,
@@ -639,6 +653,8 @@ WHERE
 
 /*1.10 付款记录（明细）数据，包含房屋交易唯一识别号，签约人ID，职业房东ID，支付金额，
 支付日期，支付方式（支付宝/微信/线下），支付人使用网络设备标识（如网络设备号、IP地址、MAC地址）、支付人信息等*/
+drop table if exists test.jz1a;
+
 CREATE TABLE test.jz1a AS SELECT so.id AS '签约流水号',
     so.`renterId` AS '签约人ID',
     so.`landlordId` '职业房东ID',
@@ -680,3 +696,104 @@ WHERE
         3100752,
         3101630)
         AND abr.`createTime` < '2016-06-01';
+
+-- 1.11 查询201506月底到201605月底，每个月底的空置房间价格
+drop table if exists test.jz1b;
+
+CREATE TABLE test.jz1b AS SELECT tmp.roomId '房间id',
+    tmp.checkTime '检查时间',
+    tmp.salePrice '销售价格' FROM
+    (SELECT 
+        tmp1.roomId,
+            tmp1.checkTime,
+            tmp1.defPrice,
+            IFNULL(tmp2.amount, tmp1.defPrice) salePrice,
+            tmp2.amount,
+            tmp2.startTime,
+            tmp2.endTime
+    FROM
+        (SELECT 
+        fr.id roomId,
+            ct.checkTime,
+            (SELECT 
+                    rpd.amount
+                FROM
+                    flat_roomprice rp
+                JOIN flat_roompricedtl rpd ON rpd.priceId = rp.id
+                JOIN flat_roompricebiztype bt ON bt.bizType = rp.bizType
+                JOIN comm_paytype pt ON pt.id = bt.payTypeId
+                WHERE
+                    pt.payTypeGroup = '1'
+                        AND bt.payStage = 3
+                        AND rpd.billDtlType = 10002
+                        AND rp.goodsIdType = 1
+                        AND rp.goodsId = fr.id
+                ORDER BY rp.startTime
+                LIMIT 1) defPrice
+    FROM
+        flat_room fr
+    JOIN flat_flats ff ON fr.flatsId = ff.id
+    JOIN (SELECT '2015-06-30' checkTime UNION SELECT '2015-07-31' checkTime UNION SELECT '2015-08-31' checkTime UNION SELECT '2015-09-30' checkTime UNION SELECT '2015-10-31' checkTime UNION SELECT '2015-11-30' checkTime UNION SELECT '2015-12-31' checkTime UNION SELECT '2016-01-31' checkTime UNION SELECT '2016-02-29' checkTime UNION SELECT '2016-03-31' checkTime UNION SELECT '2016-04-30' checkTime UNION SELECT '2016-05-31' checkTime) ct ON 1 = 1
+    WHERE
+        ff.rentType = 1
+            AND NOT EXISTS( SELECT 
+                *
+            FROM
+                flat_room fr2
+            JOIN flat_flats ff2 ON fr2.flatsId = ff2.id
+            JOIN oder_signedorder oso ON fr2.id = oso.roomId
+            JOIN cntr_salecontract csc ON csc.id = oso.saleContractId
+            WHERE
+                ff2.rentType = 1 AND fr.id = fr2.id
+                    AND csc.status IN (3 , 5)
+                    AND ct.checkTime >= DATE(csc.beginDate)
+                    AND ct.checkTime <= DATE(IFNULL(csc.loseEfficacyDate, csc.endDate)))) tmp1
+    LEFT JOIN (SELECT 
+        rp.goodsId roomId,
+            pt.payTypeGroup payTypeGroup,
+            ct.checkTime,
+            rpd.amount,
+            rp.startTime,
+            rp.endTime
+    FROM
+        flat_roomprice rp
+    JOIN flat_roompricedtl rpd ON rpd.priceId = rp.id
+    JOIN flat_roompricebiztype bt ON bt.bizType = rp.bizType
+    JOIN comm_paytype pt ON pt.id = bt.payTypeId
+    JOIN (SELECT '2015-06-30' checkTime UNION SELECT '2015-07-31' checkTime UNION SELECT '2015-08-31' checkTime UNION SELECT '2015-09-30' checkTime UNION SELECT '2015-10-31' checkTime UNION SELECT '2015-11-30' checkTime UNION SELECT '2015-12-31' checkTime UNION SELECT '2016-01-31' checkTime UNION SELECT '2016-02-29' checkTime UNION SELECT '2016-03-31' checkTime UNION SELECT '2016-04-30' checkTime UNION SELECT '2016-05-31' checkTime) ct ON rp.startTime <= ct.checkTime
+        AND (rp.endTime > ct.checkTime
+        OR rp.endTime IS NULL)
+    WHERE
+        rp.goodsIdType = 1 AND bt.payStage = 3
+            AND rpd.billDtlType = 10002) tmp2 ON tmp1.roomId = tmp2.roomId
+        AND tmp1.checkTime = tmp2.checkTime
+    ORDER BY tmp1.roomId , tmp1.checkTime , tmp2.amount) tmp
+GROUP BY tmp.roomId , tmp.checkTime;
+
+-- 1.12从201506月底到201605月底，每个月底的逾期租金账单
+drop table if exists test.jz1c;
+CREATE TABLE test.jz1c AS SELECT oso.roomId '房间id',
+    csc.realRentPrice '月租',
+    sb.amount '账单金额',
+    sb.dueDate '应交日期',
+    sb.payTime '最终交款日期',
+    ct.checkTime '检查日期' FROM
+    bill_salebill sb
+        JOIN
+    oder_signedorder oso ON sb.signedOrderId = oso.id
+        JOIN
+    cntr_salecontract csc ON csc.id = oso.saleContractId
+        AND csc.status IN (3 , 5)
+        JOIN
+    flat_room fr ON fr.id = oso.roomId
+        JOIN
+    flat_flats ff ON fr.flatsId = ff.id
+        JOIN
+    (SELECT '2015-06-30' checkTime UNION SELECT '2015-07-31' checkTime UNION SELECT '2015-08-31' checkTime UNION SELECT '2015-09-30' checkTime UNION SELECT '2015-10-31' checkTime UNION SELECT '2015-11-30' checkTime UNION SELECT '2015-12-31' checkTime UNION SELECT '2016-01-31' checkTime UNION SELECT '2016-02-29' checkTime UNION SELECT '2016-03-31' checkTime UNION SELECT '2016-04-30' checkTime UNION SELECT '2016-05-31' checkTime) ct ON LAST_DAY(sb.dueDate) = LAST_DAY(ct.checkTime)
+        AND (DATE(sb.dueDate) < DATE(sb.payTime)
+        OR sb.payTime IS NULL)
+        AND sb.valid = 1
+WHERE
+    sb.bill_type IN (1004 , 10003)
+        AND ff.rentType = 1
+ORDER BY oso.roomId , ct.checkTime;
