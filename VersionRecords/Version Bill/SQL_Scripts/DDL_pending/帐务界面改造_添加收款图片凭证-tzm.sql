@@ -2,6 +2,6 @@
 use mogoroomdb;
 
 ALTER TABLE acct.acct_busifeedtl
-ADD COLUMN prooofPicId int(11) DEFAULT NULL COMMENT 'ƾ֤ͼƬ',
-ADD COLUMN prooofNumber String(45) DEFAULT NULL COMMENT 'ƾ֤���';
+ADD COLUMN proofPicId int(11) DEFAULT NULL COMMENT 'ƾ֤ͼƬ',
+ADD COLUMN proofNumber String(45) DEFAULT NULL COMMENT 'ƾ֤���';
 									
