@@ -142,6 +142,52 @@ WHERE
             ff.id = jz111.flatsId
                 AND fr.id = jz111.id));
 
+create index testjz12idx on jz12(`房屋唯一识别号`);
+
+ALTER TABLE `test`.`jz12`
+  ADD COLUMN `小区` VARCHAR(32) NULL ,
+  ADD COLUMN `单元` VARCHAR(32) NULL ,
+  ADD COLUMN `小区是否有效` tinyint NULL ,
+  ADD COLUMN `合同状态` tinyint NULL ,
+  ADD COLUMN `是否有效` tinyint NULL ,
+  ADD COLUMN `是否显示` tinyint NULL ;
+
+UPDATE `test`.`jz12` jz12
+        INNER JOIN
+    `flat_room` `fr` ON `fr`.`id` = `jz12`.`房间唯一识别号`
+        LEFT JOIN
+    `flat_flats` `ff` ON `ff`.`id` = `jz12`.`房屋唯一识别号`
+        LEFT JOIN
+    `flat_community` `fc` ON `fc`.`id` = `ff`.`communityId`
+        LEFT JOIN
+    `cntr_salecontract` `cs` ON `cs`.`roomId` = `jz12`.`房间唯一识别号`
+        AND `首次租赁周期` = CONCAT(`cs`.`beginDate`, '--', `cs`.`endDate`) 
+SET 
+    `jz12`.`单元` = `ff`.`unit`,
+    `jz12`.`小区是否有效` = (IF(`fc`.`status` = 1, 1, 0)),
+    `jz12`.`合同状态` = (CASE
+        WHEN
+            `cs`.`status` IN (3 , 5)
+                AND (cs.loseEfficacyDate > cs.beginDate
+                OR cs.loseEfficacyDate IS NULL)
+        THEN
+            1
+        ELSE 0
+    END),
+    `jz12`.`是否显示` = (CASE
+        WHEN
+            `fr`.`mogoOfflineEndTime` IS NOT NULL
+                AND `fr`.`mogoOfflineEndTime` >= NOW()
+        THEN
+            0
+        WHEN `fr`.`onlineStatus` = 2 THEN 0
+        WHEN `fr`.`rentStatus` = 2 THEN 0
+        ELSE 1
+    END),
+    `jz12`.`是否有效` = IF(`fr`.`status` = 1, 1, 0)
+WHERE
+    jz12.`房间唯一识别号` > 0;
+
 /*1.3	用户主（包括签约人）数据，包含用户ID、手机号、用户属性（如身份证号码）、
 用户注册时间（账号生成时间）、最近登录时间、该用户交易明细（每笔签约信息）、首次租赁的周期*/
 drop table if exists test.jz131;
@@ -426,7 +472,7 @@ WHERE
 drop table if exists test.jz172;
 
 CREATE TABLE test.jz172 AS SELECT sign.id AS '签约流水号',
-    null AS '签约时间',
+    NULL AS '签约时间',
     CONCAT(DATE_FORMAT(sale.beginDate, '%Y/%m/%d'),
             '--',
             DATE_FORMAT(sale.endDate, '%Y/%m/%d'),
