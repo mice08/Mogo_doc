@@ -438,7 +438,11 @@ CREATE TABLE test.jz171 AS SELECT sign.id AS '签约流水号',
     END AS '取消签约标识',
     sign.landlordId AS '职业房东ID',
     land.salesmanId AS '拓展人员ID',
-    reg.value AS 'APP来源' FROM
+    reg.value AS 'APP来源', 
+    CASE WHEN sign.status IN (4 , 5, 6)  
+    		 THEN '有效' 
+    		 ELSE '无效'	
+    END	AS '有效性' FROM
     oder_signedorder sign
         LEFT JOIN
     cntr_salecontract sale ON sign.saleContractId = sale.id
@@ -456,8 +460,7 @@ CREATE TABLE test.jz171 AS SELECT sign.id AS '签约流水号',
         LEFT JOIN
     flat_flats flat ON sign.flatsId = flat.id
 WHERE
-    sign.status IN (4 , 5, 6)
-        AND sign.landlordId NOT IN (123 , 124,
+				sign.landlordId NOT IN (123 , 124,
         3100059,
         3100230,
         3100241,
@@ -466,7 +469,8 @@ WHERE
         3100752,
         3101630)
         AND sale.createTime < '2016-6-1'
-        AND sale.turnStrtus = 0;
+        AND sale.turnStrtus = 0
+        ORDER BY sign.id ASC;
 
 /*（线下）1.添加转客待确认  2.签约时间为NULL 取 合同起始日 3.拆分线下 */
 drop table if exists test.jz172;
@@ -541,7 +545,11 @@ CREATE TABLE test.jz172 AS SELECT sign.id AS '签约流水号',
     END AS '取消签约标识',
     sign.landlordId AS '职业房东ID',
     land.salesmanId AS '拓展人员ID',
-    reg.value AS 'APP来源' FROM
+    reg.value AS 'APP来源',
+        CASE WHEN sign.status IN (4 , 5, 6, 7)  
+    		 THEN '有效' 
+    		 ELSE '无效'	
+    END	AS '有效性' FROM
     oder_signedorder sign
         LEFT JOIN
     cntr_salecontract sale ON sign.saleContractId = sale.id
@@ -559,8 +567,7 @@ CREATE TABLE test.jz172 AS SELECT sign.id AS '签约流水号',
         LEFT JOIN
     flat_flats flat ON sign.flatsId = flat.id
 WHERE
-    sign.status IN (4 , 5, 6, 7)
-        AND sign.landlordId NOT IN (123 , 124,
+      sign.landlordId NOT IN (123 , 124,
         3100059,
         3100230,
         3100241,
@@ -569,7 +576,8 @@ WHERE
         3100752,
         3101630)
         AND sale.createTime < '2016-6-1'
-        AND sale.turnStrtus <> 0;
+        AND sale.turnStrtus <> 0
+       ORDER BY sign.id asc;
 /*1.8	房屋租赁交易数据，包含交易流水号、交易时间、交易金额、付款标识（线上/线下）、
 房屋交易唯一识别号、房屋签约唯一识别号、房屋挂牌唯一识别号、房间唯一识别号、房屋唯一识别号、
 用户ID/签约人ID（是两个字段吗？可能是不一样的人吗？）、入住人ID、
