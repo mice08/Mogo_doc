@@ -90,6 +90,84 @@ WHERE
         3101630)
         AND ff.`createTime` < '2016-06-01';
 
+create index testjz11idx on test.jz11(`房屋唯一识别号`);
+
+ALTER TABLE `test`.`jz11`   
+  ADD COLUMN `单元` VARCHAR(20) NULL ,    
+  ADD COLUMN `小区是否有效` VARCHAR(16) NULL,
+  ADD COLUMN `合同状态` VARCHAR(32) NULL ,
+  ADD COLUMN `是否已下线` VARCHAR(32) NULL,
+  ADD COLUMN `小区名称` VARCHAR(128) NULL ,
+  ADD COLUMN `城市` VARCHAR(128) NULL ;
+  
+UPDATE test.jz11 `jz11`
+        INNER JOIN
+    `flat_flats` `ff` ON `jz11`.`房屋唯一识别号` = ff.id
+        LEFT JOIN
+    `flat_community` `fc` ON `fc`.`id` = `ff`.`communityId`
+        LEFT JOIN
+    `city_district` cd ON cd.`id` = `fc`.`districtId`
+        LEFT JOIN
+    `city` ON `city`.`id` = cd.`cityId`
+        LEFT JOIN
+    (SELECT 
+        `sale`.`flatsId`,
+            `sale`.`status`,
+            `sale`.`loseEfficacyDate`,
+            `sale`.`beginDate`
+    FROM
+        (SELECT 
+        flatsId, cs.`status`, cs.`loseEfficacyDate`, cs.`beginDate`
+    FROM
+        `cntr_salecontract` cs
+    ORDER BY cs.`createTime` ASC) `sale`
+    GROUP BY `sale`.flatsId) `contract` ON `ff`.`id` = `contract`.`flatsId`
+        LEFT JOIN
+    (SELECT 
+        rooms.flatsId, COUNT(*) AS statusCount
+    FROM
+        (SELECT 
+        flatsid flatsid,
+            CASE
+                WHEN
+                    mogoOfflineEndTime IS NOT NULL
+                        AND mogoOfflineEndTime >= NOW()
+                THEN
+                    1
+                WHEN onlineStatus = 2 THEN 1
+                WHEN rentStatus != 1 THEN 1
+                WHEN verifyStatus = 3 THEN 1
+                ELSE 2
+            END onlineStatu
+    FROM
+        flat_room
+    WHERE
+        STATUS = 1) rooms
+    WHERE
+        rooms.onlineStatu = 2
+    GROUP BY rooms.flatsId) linesCount ON linesCount.flatsId = `jz11`.`房屋唯一识别号` 
+SET 
+    `jz11`.`单元` = `ff`.unit,
+    `jz11`.`小区是否有效` = IF(`fc`.`status` = 1,
+        '有效',
+        '无效'),
+    `jz11`.`合同状态` = (CASE
+        WHEN
+            (`contract`.`status` = 3
+                OR `contract`.`status` = 5)
+                AND (`contract`.`loseEfficacyDate` > `contract`.`beginDate`
+                OR `contract`.`loseEfficacyDate` IS NULL)
+                AND `contract`.`beginDate` IS NOT NULL
+        THEN
+            '有效'
+        ELSE '无效'
+    END),
+    `jz11`.`是否已下线` = IF(`linesCount`.`statusCount` > 0,
+        '否',
+        '是'),
+    `jz11`.`小区名称` = `fc`.name,
+    `jz11`.`城市` = `city`.`name`;
+
 /*1.2	房间主数据，包含房间唯一识别号、房间基础信息如：房间面积、
 地址（门牌号、房号、房间号等）、对应职业房东ID、对应拓展人员ID、首次租赁周期*/
 drop table if exists test.jz12;
@@ -170,6 +248,7 @@ SET
             `cs`.`status` IN (3 , 5)
                 AND (cs.loseEfficacyDate > cs.beginDate
                 OR cs.loseEfficacyDate IS NULL)
+                AND cs.`beginDate` IS NOT NULL
         THEN
             1
         ELSE 0
@@ -181,7 +260,8 @@ SET
         THEN
             0
         WHEN `fr`.`onlineStatus` = 2 THEN 0
-        WHEN `fr`.`rentStatus` = 2 THEN 0
+        WHEN `fr`.`rentStatus` != 1 THEN 0
+        WHEN `fr`.`verifyStatus` = 3 THEN 0
         ELSE 1
     END),
     `jz12`.`是否有效` = IF(`fr`.`status` = 1, 1, 0)
