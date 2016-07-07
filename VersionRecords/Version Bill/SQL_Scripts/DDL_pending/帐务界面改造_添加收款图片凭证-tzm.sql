@@ -3,5 +3,5 @@ use mogoroomdb;
 
 ALTER TABLE acct.acct_busifeedtl
 ADD COLUMN proofPicId int(11) DEFAULT NULL COMMENT 'Æ¾Ö¤Í¼Æ¬',
-ADD COLUMN proofNumber String(45) DEFAULT NULL COMMENT 'Æ¾Ö¤±àºÅ';
+ADD COLUMN proofNumber varchar(45) DEFAULT NULL COMMENT 'Æ¾Ö¤±àºÅ';
 									
