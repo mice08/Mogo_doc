@@ -64,4 +64,16 @@ update mesg_templet set templetName='房东_退款审批',templetDesc='房东_退款审批'
 update mesg_subtemplet set templetTitle='房东_退款审批',templetContent='您有一笔${userInfoName}发起的退款${money}元待审核，请至退款审核页面进行操作。'
  where templetId=(select id from mesg_templet where templetCode='sms_refund_approval_wait');
 
- 
+
+ /*消息 sms_outhome_renter  租客_退房申请反馈 */
+select @templet_outhome_id:= (select id from mesg_templet where templetCode='sms_outhome_renter' and status =1 and valid = 1)
+	　　,@templet_outhome_msg:='一开始我很难接受，但相信您会过的更好，我们正通知房东您的退房请求，请保持手机畅通，耐心等待，蘑菇租房，期待您再次回来~';
+update mesg_templet set templetName='租客_退房申请反馈',templetDesc='租客_退房申请反馈'  where id = @templet_outhome_id;
+update 	mesg_subtemplet set templetContent = @templet_outhome_msg,templetTitle ='租客_退房申请反馈'  where 	templetId  =  @templet_outhome_id  and 	valid = 1  and 	status = 1;
+
+ /*消息 sms_outhome_landlord  房东_租客退房申请 */
+select @templet_outhomelandlord_id:= (select id from mesg_templet where templetCode='sms_outhome_landlord' and status =1 and valid = 1)
+	　　,@templet_outhomelandlord_msg:='${landlordName}您好，${roomInfo}申请退房，租客：${renterName}（号码：${renterPhone}），请及时处理。';
+update mesg_templet set templetName='房东_租客退房申请',templetDesc='房东_租客退房申请'  where id = @templet_outhomelandlord_id;
+update 	mesg_subtemplet set templetContent = @templet_outhomelandlord_msg,templetTitle ='房东_租客退房申请'   where 	templetId  =  @templet_outhomelandlord_id  and 	valid = 1  and 	status = 1;
+INSERT INTO mesg_subtemplet (templetId,templetType,templetTitle,templetContent,status,valid) VALUES (@templet_outhomelandlord_id, '1', '房东_租客退房申请', @templet_outhomelandlord_msg,'1', '1');
