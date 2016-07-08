@@ -42,4 +42,26 @@ INSERT INTO mesg_templet(templetCode,templetName,templetDesc,status,createBy,cre
 SELECT @templet_20001overdue_id:= LAST_INSERT_ID();
 INSERT INTO mesg_subtemplet (templetId,templetType,templetTitle,templetContent,status,valid) VALUES (@templet_20001overdue_id, '3', '自定义账单逾期提醒', @templet_20001overdue_msg,'1', '1');
 
+
+
+/* === 已有消息修改如下：===  */
+
+/*消息 sms_renter_update_customBill  账务 房东修改账单 */
+update mesg_templet set templetName='租客_推送账单_修改',templetDesc='租客_推送账单_修改' 
+ where templetCode='sms_renter_update_customBill';
+update mesg_subtemplet set templetTitle='租客_推送账单_修改',templetContent='${renterName}您好，房东已修改您${roomInfo}的#${billName}#账单，您可打开账单查看详情并尽快支付，若有疑问请与房东联系。'
+ where templetId=(select id from mesg_templet where templetCode='sms_renter_update_customBill');
+ 
+/*消息 sms_renter_revoke_customBill  账务 房东作废账单 */
+update mesg_templet set templetName='租客_账单_作废',templetDesc='租客_账单_作废' 
+ where templetCode='sms_renter_revoke_customBill';
+update mesg_subtemplet set templetTitle='租客_账单_作废',templetContent='${renterName}您好，房东已将您${roomInfo}的#${billName}#的账单作废，您可打开账单查看详情。'
+ where templetId=(select id from mesg_templet where templetCode='sms_renter_revoke_customBill');
+
+/*消息 sms_refund_approval_wait  账务 房东退款审批 */
+update mesg_templet set templetName='房东_退款审批',templetDesc='房东_退款审批' 
+ where templetCode='sms_refund_approval_wait';
+update mesg_subtemplet set templetTitle='房东_退款审批',templetContent='您有一笔${userInfoName}发起的退款${money}元待审核，请至退款审核页面进行操作。'
+ where templetId=(select id from mesg_templet where templetCode='sms_refund_approval_wait');
+
  
