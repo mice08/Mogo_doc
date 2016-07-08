@@ -626,8 +626,10 @@ CREATE TABLE test.jz172 AS SELECT sign.id AS '签约流水号',
     sign.landlordId AS '职业房东ID',
     land.salesmanId AS '拓展人员ID',
     reg.value AS 'APP来源',
-        CASE WHEN sign.status IN (4 , 5, 6, 7)  
-    		 THEN '有效' 
+        CASE WHEN sign.status IN (4 , 5, 6)  
+    		 THEN '有效'
+             WHEN sign.status = 7
+    		 THEN '补录待确认'
     		 ELSE '无效'	
     END	AS '有效性' FROM
     oder_signedorder sign
