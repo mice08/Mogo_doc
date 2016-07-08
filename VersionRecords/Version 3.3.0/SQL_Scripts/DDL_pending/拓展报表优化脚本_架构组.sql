@@ -36,8 +36,8 @@ create table report_landlord_hourse_sum(
    currentRentCount int(11) default 0 comment '当前签约总量',
    currentRentRatio      DECIMAL(7,4) default 0 comment '当前签约占比',
    
-   firstPayCount       int(11) default 0 comment '首次在线支付总数',
-   allFirstOnlinePayCount  int(11) default 0 comment '在线支付总数',
+   firstPayCount             int(11) comment '首期款,不包括蘑菇宝',
+   allFirstOnlinePayCount  int(11) default 0 comment '首次在线支付总数',
    allOnlinePayCount   int(11) default 0 comment '在线支付总数',
    
    selfBillCount  int(11) default 0 comment '自定义账单总数',
@@ -57,7 +57,7 @@ create table report_landlord_hourse_detail(
    salesmanId int(11) comment '拓展员ID',
    salesmanName varchar(50) comment '拓展员姓名',
    salesmanDeptName varchar(50) comment '拓展员所属部门',
-   salesmanDeptId varchar(50) comment '拓展员所属部门id',
+   salesmanDeptId int(11) comment '拓展员所属部门id',
    salesmanDeptFullPath varchar(50) comment '拓展员所属部门全编码',
    salesmanDeptLevel int comment '拓展员所属部门级别',
    receivable     int(11) comment '应收总量',
@@ -65,12 +65,11 @@ create table report_landlord_hourse_detail(
    firstPay       int(11) comment '首期款,不包括蘑菇宝',
    mogufirstPay   int(11) comment '蘑菇宝支付总量',
    nomalPay       int(11) comment '常规款支付总量',
-   onlineCount    int(11) comment '在线签约(不包括补录、蘑菇宝)',
-   allOnlineCount int(11) comment '在线支付总数',
+   onlinePayCount    int(11) comment '在线签约(不包括补录、蘑菇宝)',
+   allOnlinePayCount int(11) comment '在线支付总数',
    unlineFreshCheckout int(11) comment '线下支付总数',
    firstConfirmBulu int(11) comment '补录首次支付确认总量',
    buluCount      int(11) comment '补录租约总量',
    confirmBulu    int(11) comment '补录确认租约总量',
    noConfirmBulu    int(11) comment '补录未确认租约总量'
 ) ENGINE=INNODB COMMENT='房东拓展报表每日明细表';
-
