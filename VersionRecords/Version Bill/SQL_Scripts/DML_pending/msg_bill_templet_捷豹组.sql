@@ -77,3 +77,9 @@ select @templet_outhomelandlord_id:= (select id from mesg_templet where templetC
 update mesg_templet set templetName='房东_租客退房申请',templetDesc='房东_租客退房申请'  where id = @templet_outhomelandlord_id;
 update 	mesg_subtemplet set templetContent = @templet_outhomelandlord_msg,templetTitle ='房东_租客退房申请'   where 	templetId  =  @templet_outhomelandlord_id  and 	valid = 1  and 	status = 1;
 INSERT INTO mesg_subtemplet (templetId,templetType,templetTitle,templetContent,status,valid) VALUES (@templet_outhomelandlord_id, '1', '房东_租客退房申请', @templet_outhomelandlord_msg,'1', '1');
+
+ /*消息 sms_CreateCustomBillByBill  租客_新增账单_提醒 */
+SELECT @custombill_templet_id:=(SELECT id FROM `mesg_templet` t WHERE t.`templetCode`='sms_CreateCustomBillByBill' AND t.`status`=1 AND t.`valid`=1),@custombill_desc:='租客_新增账单_提醒',
+	@custombill_msg_templet:='${renterName}您好，房东为您${roomInfo}新增${billTimes}#${billName}#账单共计${amount}元，最晚支付日为${dueDate}24点，请登录蘑菇租房APP查看并支付，如有疑问请与房东联系。';
+UPDATE `mesg_templet` t SET t.`templetName`=@custombill_desc, t.`templetDesc`=@custombill_desc WHERE t.id=@custombill_templet_id;
+UPDATE `mesg_subtemplet` t SET t.`templetTitle`=@custombill_desc, t.`templetContent`=@custombill_msg_templet WHERE t.`status`=1 ant t.`valid`=1;
