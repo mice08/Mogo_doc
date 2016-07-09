@@ -80,6 +80,6 @@ INSERT INTO mesg_subtemplet (templetId,templetType,templetTitle,templetContent,s
 
  /*消息 sms_CreateCustomBillByBill  租客_新增账单_提醒 */
 SELECT @custombill_templet_id:=(SELECT id FROM `mesg_templet` t WHERE t.`templetCode`='sms_CreateCustomBillByBill' AND t.`status`=1 AND t.`valid`=1),@custombill_desc:='租客_新增账单_提醒',
-	@custombill_msg_templet:='${renterName}您好，房东为您${roomInfo}新增${billTimes}#${billName}#账单共计${amount}元，最晚支付日为${dueDate}24点，请登录蘑菇租房APP查看并支付，如有疑问请与房东联系。';
+	@custombill_msg_templet:='${renterName}您好，房东为您${roomInfo}房间新增#${billName}#等${billNum}项${billTimes}共${amount}元，请于${dueDate}的24点前完成支付，可登录蘑菇租房APP查看并支付，如有疑问请与房东联系。';
 UPDATE `mesg_templet` t SET t.`templetName`=@custombill_desc, t.`templetDesc`=@custombill_desc WHERE t.id=@custombill_templet_id;
 UPDATE `mesg_subtemplet` t SET t.`templetTitle`=@custombill_desc, t.`templetContent`=@custombill_msg_templet WHERE t.`templetId`=@custombill_templet_id AND t.`status`=1 AND t.`valid`=1;
