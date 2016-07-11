@@ -28,7 +28,7 @@ INSERT INTO mesg_subtemplet (templetId,templetType,templetTitle,templetContent,s
 
 /*5.消息提醒（add） MSG_RENTER_BILL_20001_PAYDAY 账单提醒 -->租客_自定义账单_当天*/
 select @templet_20001paydate_code:= 'bill_renter_20001_payday'
-	　　,@templet_20001paydate_msg:='您好，您租住的${roomInfo}的#${billName}#账单将在今日24点逾期，请尽快完成支付。蘑菇租房400-800-4949';
+	　　,@templet_20001paydate_msg:='您好，您租住的${roomInfo}的#${billName}#等${billNum}项账单将在今日24点逾期，请尽快完成支付。';
 INSERT INTO mesg_templet(templetCode,templetName,templetDesc,status,createBy,createTime,createByType,valid,businessType) VALUES (@templet_20001paydate_code, '自定义账单当天提醒', '自定义账单当天提醒', '1', '2', now(), '4', '1', '5');
 SELECT @templet_20001paydate_id:= LAST_INSERT_ID();
 INSERT INTO mesg_subtemplet (templetId,templetType,templetTitle,templetContent,status,valid) VALUES (@templet_20001paydate_id, '1', '自定义账单当天提醒', @templet_20001paydate_msg,'1', '1');
@@ -77,3 +77,31 @@ select @templet_outhomelandlord_id:= (select id from mesg_templet where templetC
 update mesg_templet set templetName='房东_租客退房申请',templetDesc='房东_租客退房申请'  where id = @templet_outhomelandlord_id;
 update 	mesg_subtemplet set templetContent = @templet_outhomelandlord_msg,templetTitle ='房东_租客退房申请'   where 	templetId  =  @templet_outhomelandlord_id  and 	valid = 1  and 	status = 1;
 INSERT INTO mesg_subtemplet (templetId,templetType,templetTitle,templetContent,status,valid) VALUES (@templet_outhomelandlord_id, '1', '房东_租客退房申请', @templet_outhomelandlord_msg,'1', '1');
+
+ /*消息 sms_CreateCustomBillByBill  租客_新增账单_提醒 */
+SELECT @custombill_templet_id:=(SELECT id FROM `mesg_templet` t WHERE t.`templetCode`='sms_CreateCustomBillByBill' AND t.`status`=1 AND t.`valid`=1),@custombill_desc:='租客_新增账单_提醒',
+	@custombill_msg_templet:='${renterName}您好，房东为您${roomInfo}房间新增#${billName}#等${billNum}项${billTimes}共${amount}元，请于${dueDate}的24点前完成支付，可登录蘑菇租房APP查看并支付，如有疑问请与房东联系。';
+UPDATE `mesg_templet` t SET t.`templetName`=@custombill_desc, t.`templetDesc`=@custombill_desc WHERE t.id=@custombill_templet_id;
+UPDATE `mesg_subtemplet` t SET t.`templetTitle`=@custombill_desc, t.`templetContent`=@custombill_msg_templet WHERE t.`templetId`=@custombill_templet_id AND t.`status`=1 AND t.`valid`=1;
+INSERT INTO mesg_subtemplet (templetId, templetType, templetTitle, templetContent, STATUS, valid) VALUES (@custombill_templet_id, 3, @custombill_desc, @custombill_msg_templet, 1, 1);
+
+ /*消息 renter_checkout_dealwith_success  租客_退房完成 */
+select @templet_renter_checkout_id:= (select id from mesg_templet where templetCode='renter_checkout_dealwith_success' and status =1 and valid = 1)
+	　　,@templet_renter_checkout_msg:='您租住的${roomInfo}退房已完成，房东将退款${amount}元给您，请与房东联系。';
+update mesg_templet set templetName='租客_退房完成',templetDesc='租客_退房完成'  where id = @templet_renter_checkout_id;
+update 	mesg_subtemplet set templetContent = @templet_renter_checkout_msg,templetTitle ='租客_退房完成'   where 	templetId  =  @templet_renter_checkout_id  and 	valid = 1  and 	status = 1;
+INSERT INTO mesg_subtemplet (templetId,templetType,templetTitle,templetContent,status,valid) VALUES (@templet_renter_checkout_id, '1', '租客_退房完成', @templet_renter_checkout_msg,'1', '1');
+
+
+ /*消息 renter_checkout_dealwith_success  房东_退款审批_拒绝 */
+select @templet_approval_inform_id:= (select id from mesg_templet where templetCode='sms_refund_approval_inform' and status =1 and valid = 1)
+	　　,@templet_approval_inform_msg:='您的${roomInfo}退款审核被${landlordName}拒绝，原因为${approvalReason}。';
+update mesg_templet set templetName='房东_退款审批_拒绝',templetDesc='房东_退款审批_拒绝'  where id = @templet_approval_inform_id;
+update 	mesg_subtemplet set templetContent = @templet_approval_inform_msg,templetTitle ='房东_退款审批_拒绝'   where 	templetId  =  @templet_approval_inform_id  and 	valid = 1  and 	status = 1;
+
+/*消息 landlord_checkout_audit_agree  房东_退款审批_通过 */
+select @landlord_checkout_audit_agree_code:= 'landlord_checkout_audit_agree'
+	　　,@landlord_checkout_audit_agree_msg:='${userInfoName}您好，您的${roomInfo}退款申请已通过审核。';
+INSERT INTO mesg_templet(templetCode,templetName,templetDesc,status,createBy,createTime,createByType,valid,businessType) VALUES (@landlord_checkout_audit_agree_code, '子账号_退款审核_拒绝', '子账号_退款审核_拒绝', '1', '2', now(), '4', '1', '5');
+SELECT @landlord_checkout_audit_agree_id:= LAST_INSERT_ID();
+INSERT INTO mesg_subtemplet (templetId,templetType,templetTitle,templetContent,status,valid) VALUES (@landlord_checkout_audit_agree_id, '3', '子账号_退款审核_拒绝', @landlord_checkout_audit_agree_msg,'1', '1');
