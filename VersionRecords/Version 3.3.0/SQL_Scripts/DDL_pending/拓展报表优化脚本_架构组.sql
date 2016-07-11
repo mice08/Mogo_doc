@@ -2,8 +2,8 @@
 /* Database name `mogoroomdb`， 添加拓展报表相关字段 */
 use mogoroomdb;
 
-drop table if exists report_landlord_hourse_sum;
-create table report_landlord_hourse_sum(
+drop table if exists rept_landlord_house_sum;
+create table rept_landlord_house_sum(
    id INT(11) NOT NULL AUTO_INCREMENT primary key COMMENT '主键',
    reportDate date    comment '报表汇总日期',
    contractDate date    comment '合同日期',
@@ -47,8 +47,8 @@ create table report_landlord_hourse_sum(
    mogoaActualAmount DECIMAL(11,2) default 0 comment '蘑菇包放款总额'
 ) ENGINE=INNODB COMMENT='房东拓展报表汇总表';
 
-drop table if exists report_landlord_hourse_detail;
-create table report_landlord_hourse_detail(
+drop table if exists rept_landlord_house_detail;
+create table rept_landlord_house_detail(
    id INT(11) NOT NULL AUTO_INCREMENT primary key COMMENT '主键',
    reportDate date    comment '当前账务日期',
    landlordId int(11) comment '房东id',
