@@ -140,8 +140,8 @@ create table perm_childacct_identitylog
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment '子账号登陆身份日志';
  
 ALTER TABLE perm_role ADD COLUMN roleAttribute INT(2) NOT NULL DEFAULT 1 COMMENT '角色属性(0:直属角色 1:分店角色)';
- 
-/*ALTER TABLE perm_role ADD COLUMN dataAttribute INT(2) NOT NULL DEFAULT 1 COMMENT '角色数据范围(0:全局 1:限当前组织)';*/
+
+ALTER TABLE perm_role ADD COLUMN dataAttribute INT(2) NOT NULL DEFAULT 1 COMMENT '角色数据范围(0:全局 1:限当前组织)';
  
 ALTER TABLE  perm_menu_group
    ADD COLUMN parentId INT(11) NULL  COMMENT '父节点id',
