@@ -146,5 +146,20 @@ ALTER TABLE  perm_menu_group
    ADD COLUMN gcode VARCHAR(7) NULL  COMMENT '编码',
    ADD COLUMN channel INT(2) NOT NULL  COMMENT '频道来源(参考groupName=channel)',
    ADD COLUMN glevel int(2) NULL COMMENT '菜单分组层级';
- 
- 
+   
+   
+drop table if exists perm_mutex_group;
+
+/*==============================================================*/
+/* Table: perm_mutex_group                                      */
+/*==============================================================*/
+create table perm_mutex_group
+(
+   id                   int(11) not null auto_increment comment '互斥权限配置ID',
+   srcGroupId           int(11) not null comment '互斥源权限组id',
+   tarGroupId           int(11 not null comment '互斥目标权限组id',
+   createBy             int(11) comment '创建人',
+   createByType         int(2) comment '创建人类型',
+   createTime           datetime comment '创建时间',
+   primary key (id)
+)  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment '互斥权限配置表';
