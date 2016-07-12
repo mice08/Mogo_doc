@@ -148,18 +148,19 @@ ALTER TABLE  perm_menu_group
    ADD COLUMN glevel int(2) NULL COMMENT '菜单分组层级';
    
    
-drop table if exists perm_mutex_group;
-
+drop table if exists perm_group_rel;
+ 
 /*==============================================================*/
-/* Table: perm_mutex_group                                      */
+/* Table: perm_group_rel                                      */
 /*==============================================================*/
-create table perm_mutex_group
+create table perm_group_rel
 (
-   id                   int(11) not null auto_increment comment '互斥权限配置ID',
-   srcGroupId           int(11) not null comment '互斥源权限组id',
-   tarGroupId           int(11 not null comment '互斥目标权限组id',
-   createBy             int(11) comment '创建人',
-   createByType         int(2) comment '创建人类型',
-   createTime           datetime comment '创建时间',
-   primary key (id)
-)  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment '互斥权限配置表';
+    id                   int(11) not null auto_increment comment '权限组关系ID',
+    srcGroupId           int(11) not null comment '源权限组id',
+    dstGroupId           int(11) not null comment '目标权限组id',
+    relType              int(2) comment '关系类型(1:互斥 2:依赖)',
+    createBy             int(11) comment '创建人',
+    createByType         int(2) comment '创建人类型',
+    createTime           datetime comment '创建时间',
+    primary key (id)
+)  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment '权限组关系表';
