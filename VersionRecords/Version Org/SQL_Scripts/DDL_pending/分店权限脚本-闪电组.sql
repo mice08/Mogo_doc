@@ -139,14 +139,28 @@ create table perm_childacct_identitylog
     primary key (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment '子账号登陆身份日志';
  
-ALTER TABLE perm_role ADD COLUMN roleAttribute INT(2) NOT NULL DEFAULT 1 COMMENT '角色属性(0:直属角色 1:分店角色)';
-
-ALTER TABLE perm_role ADD COLUMN dataAttribute INT(2) NOT NULL DEFAULT 1 COMMENT '角色数据范围(0:全局 1:限当前组织)';
+ALTER TABLE perm_role ADD COLUMN intendOrg INT(2) NOT NULL DEFAULT 2 COMMENT '角色属性(0:总部角色 1:旗舰店角色 2:分店角色 )';
  
 ALTER TABLE  perm_menu_group
    ADD COLUMN parentId INT(11) NULL  COMMENT '父节点id',
    ADD COLUMN gcode VARCHAR(7) NULL  COMMENT '编码',
    ADD COLUMN channel INT(2) NOT NULL  COMMENT '频道来源(参考groupName=channel)',
    ADD COLUMN glevel int(2) NULL COMMENT '菜单分组层级';
+   
+   
+drop table if exists perm_group_rel;
  
- 
+/*==============================================================*/
+/* Table: perm_group_rel                                      */
+/*==============================================================*/
+create table perm_group_rel
+(
+    id                   int(11) not null auto_increment comment '权限组关系ID',
+    srcGroupId           int(11) not null comment '源权限组id',
+    dstGroupId           int(11) not null comment '目标权限组id',
+    relType              int(2) comment '关系类型(1:互斥 2:依赖)',
+    createBy             int(11) comment '创建人',
+    createByType         int(2) comment '创建人类型',
+    createTime           datetime comment '创建时间',
+    primary key (id)
+)  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment '权限组关系表';
