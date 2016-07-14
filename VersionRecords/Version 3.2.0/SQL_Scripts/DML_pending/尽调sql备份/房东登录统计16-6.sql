@@ -31,13 +31,13 @@ SELECT
   ) '主账号首次登录日期',
   COUNT(
     CASE
-      WHEN ISNULL(user_loginlog.`terminalid`) 
+      WHEN user_loginlog.`url` LIKE '%partnerpc/%' 
       THEN 1 
     END
   ) '浏览器总登录次数',
   COUNT(
     CASE
-      WHEN user_loginlog.`terminalid` IS NOT NULL 
+      WHEN user_loginlog.`url` LIKE '%partner/%' 
       THEN 1 
     END
   ) 'APP总登录次数' 
@@ -50,6 +50,6 @@ FROM
     ON user_special.userid = user_landlord.`id` 
     AND user_special.usertype = 0 
     AND user_special.specialtype = 0 
-WHERE ISNULL(user_special.id) #AND user_landlord.`status` = 1   
+WHERE ISNULL(user_special.id)
   AND user_landlord.`createTime` < '2016-06-01 00:00:00' 
 GROUP BY user_landlord.`id` 
