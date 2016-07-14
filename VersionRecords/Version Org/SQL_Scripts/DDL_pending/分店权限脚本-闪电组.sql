@@ -14,9 +14,7 @@ create table mesg_category_role
     createTime           datetime not null comment '创建时间',
     createByType         int(1) not null comment '创建人类型(参考字典表groupName=userType)',
     primary key (id)
-);
- 
-alter table mesg_category_role comment '消息类别角色关系表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment '消息类别角色关系表';
  
  
 drop table if exists mesg_category;
@@ -33,9 +31,7 @@ create table mesg_category
     createTime           datetime not null comment '创建时间',
     createByType         int(1) not null comment '创建人类型(参考字典表groupName=userType)',
     primary key (id)
-);
- 
-alter table mesg_category comment '消息类别表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment '消息类别表';
  
  
 drop table if exists mesg_category_templet;
@@ -53,9 +49,8 @@ create table mesg_category_templet
     createTime           datetime not null comment '创建时间',
     createByType         int(1) not null comment '创建人类型(参考字典表groupName=userType)',
     primary key (id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment '消息类别与模板关联表';
  
-alter table mesg_category_templet comment '消息类别与模板关联表';
  
 drop table if exists mesg_record_org;
  
@@ -71,9 +66,7 @@ create table mesg_record_org
     receiveByType        int(1) not null comment '接收人类型',
     createTime           datetime not null comment '创建时间',
     primary key (id)
-);
- 
-alter table mesg_record_org comment '消息记录分店关系表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment '消息记录分店关系表';
  
  
 drop table if exists mesg_user_category_filter;
@@ -94,9 +87,7 @@ create table mesg_user_category_filter
     createTime           datetime not null comment '创建时间',
     createByType         int(1) not null comment '创建人类型(参考字典表groupName=userType)',
     primary key (id)
-);
- 
-alter table mesg_user_category_filter comment '用户分店消息过滤表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment '用户分店消息过滤表';
  
  
 drop table if exists perm_user_org_role;
@@ -114,10 +105,7 @@ create table perm_user_org_role
     createBy             int(11) not null comment '创建人',
     createByType         int(1) not null comment '创建人类型(参考字典表groupName=userType)',
     primary key (id)
-);
- 
-alter table perm_user_org_role comment '用户组织角色关系表';
- 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment '用户组织角色关系表';
  
 drop table if exists perm_landlord_menu;
  
@@ -133,9 +121,7 @@ create table perm_landlord_menu
     createTime           datetime not null comment '创建时间',
     createByType         int(1) not null comment '创建人类型(参考字典表groupName=userType)',
     primary key (id)
-);
- 
-alter table perm_landlord_menu comment '房东个性化角色关系表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment '房东个性化角色关系表';
  
  
 drop table if exists perm_childacct_identitylog;
@@ -151,19 +137,33 @@ create table perm_childacct_identitylog
     loginTime            datetime not null comment '登陆时间',
     remark               varchar(200) comment '备注',
     primary key (id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment '子账号登陆身份日志';
  
-alter table perm_childacct_identitylog comment '子账号登陆身份日志';
- 
- 
-/*ALTER TABLE perm_role ADD COLUMN roleAttribute INT(2) NOT NULL DEFAULT 1 COMMENT '角色属性(0:直属角色 1:分店角色)';*/
- 
-/*ALTER TABLE perm_role ADD COLUMN dataAttribute INT(2) NOT NULL DEFAULT 1 COMMENT '角色数据范围(0:全局 1:限当前组织)';*/
+ALTER TABLE perm_role ADD COLUMN intendOrg INT(2) NOT NULL DEFAULT 2 COMMENT '角色属性(0:总部角色 1:旗舰店角色 2:分店角色 )';
  
 ALTER TABLE  perm_menu_group
    ADD COLUMN parentId INT(11) NULL  COMMENT '父节点id',
    ADD COLUMN gcode VARCHAR(7) NULL  COMMENT '编码',
    ADD COLUMN channel INT(2) NOT NULL  COMMENT '频道来源(参考groupName=channel)',
    ADD COLUMN glevel int(2) NULL COMMENT '菜单分组层级';
+   
+   
+drop table if exists perm_group_rel;
  
- 
+/*==============================================================*/
+/* Table: perm_group_rel                                      */
+/*==============================================================*/
+create table perm_group_rel
+(
+    id                   int(11) not null auto_increment comment '权限组关系ID',
+    srcGroupId           int(11) not null comment '源权限组id',
+    dstGroupId           int(11) not null comment '目标权限组id',
+    relType              int(2) comment '关系类型(1:互斥 2:依赖)',
+    createBy             int(11) comment '创建人',
+    createByType         int(2) comment '创建人类型',
+    createTime           datetime comment '创建时间',
+    primary key (id)
+)  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment '权限组关系表';
+
+
+ALTER TABLE perm_role ADD COLUMN `roleCode` varchar(10) DEFAULT NULL COMMENT '角色编码';
