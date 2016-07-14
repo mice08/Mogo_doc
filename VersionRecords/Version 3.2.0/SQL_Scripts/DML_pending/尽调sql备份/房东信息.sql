@@ -11,7 +11,13 @@ SELECT
     WHEN 0 
     THEN '女' 
   END '性别',
-  user_landlord.name '房东姓名',
+  CASE
+    user_landlord.status 
+    WHEN 1 
+    THEN SUBSTRING(user_landlord.name, 1, 1) 
+    WHEN 0 
+    THEN SUBSTRING(user_landlord.name, 5, 1) 
+  END '房东姓氏',
   SUBSTRING(user_landlord.`identityId`, 1, 3) '身份证前3位',
   SUBSTRING(user_landlord.`birthday`, 1, 4) '出生年份',
   city.`name` '城市',
