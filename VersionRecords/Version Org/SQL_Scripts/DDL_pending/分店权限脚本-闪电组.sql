@@ -164,3 +164,6 @@ create table perm_group_rel
     createTime           datetime comment '创建时间',
     primary key (id)
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment '权限组关系表';
+
+
+ALTER TABLE perm_role ADD COLUMN roleType INT(2) DEFAULT NULL COMMENT '角色类型(1:分店管理者类型)';
