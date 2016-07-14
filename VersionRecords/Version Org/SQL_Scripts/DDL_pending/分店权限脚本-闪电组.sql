@@ -166,4 +166,4 @@ create table perm_group_rel
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment '权限组关系表';
 
 
-ALTER TABLE perm_role ADD COLUMN roleType INT(2) DEFAULT NULL COMMENT '角色类型(1:分店管理者类型)';
+ALTER TABLE perm_role ADD COLUMN `roleCode` varchar(10) DEFAULT NULL COMMENT '角色编码';
