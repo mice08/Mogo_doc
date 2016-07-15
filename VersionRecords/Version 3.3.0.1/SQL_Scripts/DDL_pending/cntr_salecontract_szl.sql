@@ -1,4 +1,4 @@
-/* Database name `mogoroomdb`， 合同表添加双方在线确认时间字段 */
+/* Database name `mogoroomdb`， 房间表及房间历史表添加别名字段 */
 
 use mogoroomdb;
 
