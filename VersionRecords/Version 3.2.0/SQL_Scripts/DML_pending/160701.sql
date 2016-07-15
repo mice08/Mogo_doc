@@ -168,6 +168,208 @@ SET
     `jz11`.`小区名称` = `fc`.name,
     `jz11`.`城市` = `city`.`name`;
 
+INSERT INTO  test.jz11  (`房屋唯一识别号`,`房屋面积`,`房间间数`,`路`,`弄`,`栋`,`室`,`职业房东ID`,`拓展人员ID`,`首次租赁周期`)
+SELECT ff.`id` AS '房屋唯一识别号',
+    ff.`area` AS '房屋面积',
+    room.roomNum AS '房间间数',
+    fc.`street` AS '路',
+    concat(ifnull(fc.`nong`,''),'*') AS '弄',
+    ff.`building` AS '栋',
+    ff.`roomNum` AS '室',
+    ff.`landlordId` AS '职业房东ID',
+    ff.`saleManId` AS '拓展人员ID',
+    CONCAT(`contract`.`beginDate`, '--',`contract`.`endDate`) AS '首次租赁周期' 
+    FROM `flat_flats` ff 
+    LEFT JOIN
+    `flat_community` fc ON fc.`id` = ff.`communityId`
+    JOIN
+	     (SELECT 
+    flatsId, COUNT(*) AS roomNum
+FROM
+    flat_room fr
+WHERE
+    id IN (20940 , 21979,
+        23022,
+        186781,
+        186781,
+        27772,
+        27774,
+        27773,
+        61614,
+        2125,
+        2124,
+        2126,
+        2127,
+        103003,
+        4108,
+        107626,
+        19742,
+        19744,
+        19745,
+        19746,
+        19747,
+        19748,
+        19755,
+        19765,
+        19779,
+        19790,
+        19795,
+        19797,
+        19798,
+        19805,
+        19806,
+        19807,
+        19809,
+        19816,
+        19819,
+        19820,
+        19871)
+GROUP BY flatsId) room ON room.flatsId = ff.`id`
+        LEFT JOIN
+		(SELECT 
+			`sale`.`flatsId`, `sale`.`beginDate`, `sale`.`endDate`
+		FROM
+		(SELECT 
+			flatsId, cs.`beginDate`, cs.`endDate`
+		FROM
+		`cntr_salecontract` cs
+	    ORDER BY cs.`createTime` ASC) `sale`
+	    GROUP BY `sale`.flatsId) `contract` ON `contract`.flatsId = ff.`id`;
+
+UPDATE test.jz11 `jz11`
+        INNER JOIN
+    `flat_flats` `ff` ON `jz11`.`房屋唯一识别号` = ff.id
+        AND `ff`.`id` IN (10406 , 11218,
+        11873,
+        138250,
+        138250,
+        15174,
+        15175,
+        15175,
+        36412,
+        419,
+        419,
+        419,
+        419,
+        68698,
+        702,
+        73110,
+        9332,
+        9334,
+        9335,
+        9336,
+        9337,
+        9338,
+        9345,
+        9355,
+        9369,
+        9380,
+        9385,
+        9387,
+        9388,
+        9395,
+        9396,
+        9397,
+        9399,
+        9406,
+        9409,
+        9410,
+        9461)
+        LEFT JOIN
+    `flat_community` `fc` ON `fc`.`id` = `ff`.`communityId`
+        LEFT JOIN
+    `city_district` cd ON cd.`id` = `fc`.`districtId`
+        LEFT JOIN
+    `city` ON `city`.`id` = cd.`cityId`
+        LEFT JOIN
+    (SELECT 
+        `sale`.`flatsId`,
+            `sale`.`status`,
+            `sale`.`loseEfficacyDate`,
+            `sale`.`beginDate`
+    FROM
+        (SELECT 
+        flatsId, cs.`status`, cs.`loseEfficacyDate`, cs.`beginDate`
+    FROM
+        `cntr_salecontract` cs
+    ORDER BY cs.`createTime` ASC) `sale`
+    GROUP BY `sale`.flatsId) `contract` ON `ff`.`id` = `contract`.`flatsId`
+        LEFT JOIN
+    (SELECT 
+        rooms.flatsId, COUNT(*) AS statusCount
+    FROM
+        (SELECT 
+        flatsid flatsid,
+            CASE
+                WHEN
+                    mogoOfflineEndTime IS NOT NULL
+                        AND mogoOfflineEndTime >= NOW()
+                THEN
+                    1
+                WHEN onlineStatus = 2 THEN 1
+                WHEN rentStatus != 1 THEN 1
+                WHEN verifyStatus = 3 THEN 1
+                ELSE 2
+            END onlineStatu
+    FROM
+        flat_room
+    WHERE
+        STATUS = 1) rooms
+    WHERE
+        rooms.onlineStatu = 2
+    GROUP BY rooms.flatsId) linesCount ON linesCount.flatsId = `jz11`.`房屋唯一识别号` 
+SET 
+    `jz11`.`单元` = `ff`.unit,
+    `jz11`.`小区是否有效` = IF(`fc`.`status` = 1,
+        '有效',
+        '无效'),
+    `jz11`.`合同状态` = (CASE
+        WHEN
+            (`contract`.`status` = 3
+                OR `contract`.`status` = 5)
+                AND (`contract`.`loseEfficacyDate` > `contract`.`beginDate`
+                OR `contract`.`loseEfficacyDate` IS NULL)
+                AND `contract`.`beginDate` IS NOT NULL
+        THEN
+            '有效'
+        ELSE '无效'
+    END),
+    `jz11`.`是否已下线` = IF(`linesCount`.`statusCount` > 0,
+        '否',
+        '是'),
+    `jz11`.`小区名称` = `fc`.name,
+    `jz11`.`城市` = `city`.`name`;
+
+#添加一列新字段
+ALTER TABLE `test`.`jz11`   
+  ADD COLUMN `当前房屋状态` VARCHAR(20) NULL ;
+
+UPDATE test.jz11 `jz11` 
+SET 
+    `当前房屋状态` = '1'
+WHERE
+    `是否已下线` = '否';
+    OR EXISTS( SELECT 
+            *
+        FROM
+            test.jz171 jz171
+        WHERE
+            NOW() BETWEEN SUBSTR(`签约周期`, 1, 10) AND SUBSTR(`签约周期`, 13, 10)
+                AND (`取消签约标识` IS NULL
+                OR `取消签约标识` = '')
+                AND `有效性` != '无效'
+                AND `房屋唯一识别号` = jz11.`房屋唯一识别号`)
+    OR EXISTS( SELECT 
+            *
+        FROM
+            test.jz172 jz172
+        WHERE
+            NOW() BETWEEN SUBSTR(`签约周期`, 1, 10) AND SUBSTR(`签约周期`, 13, 10)
+                AND (`取消签约标识` IS NULL
+                OR `取消签约标识` = '')
+                AND `有效性` != '无效'
+                AND `房屋唯一识别号` = jz11.`房屋唯一识别号`);
+
 /*1.2	房间主数据，包含房间唯一识别号、房间基础信息如：房间面积、
 地址（门牌号、房号、房间号等）、对应职业房东ID、对应拓展人员ID、首次租赁周期*/
 drop table if exists test.jz12;
@@ -660,6 +862,10 @@ WHERE
         AND sale.createTime < '2016-6-1'
         AND sale.turnStrtus <> 0
        ORDER BY sign.id asc;
+
+create index idxjz171 on test.jz171(`房屋唯一识别号`);
+create index idxjz172 on test.jz172(`房屋唯一识别号`);
+
 /*1.8	房屋租赁交易数据，包含交易流水号、交易时间、交易金额、付款标识（线上/线下）、
 房屋交易唯一识别号、房屋签约唯一识别号、房屋挂牌唯一识别号、房间唯一识别号、房屋唯一识别号、
 用户ID/签约人ID（是两个字段吗？可能是不一样的人吗？）、入住人ID、
