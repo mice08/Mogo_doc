@@ -41,7 +41,10 @@ SELECT
     END
   ) '总线上签约蘑菇宝线下收款' 
 FROM
-  oder_signedorder 
+  user_landlord 
+  LEFT JOIN oder_signedorder 
+    ON user_landlord.id = oder_signedorder.`landlordId` 
+    AND oder_signedorder.`createTime` < '2016-01-01 00:00:00' 
   LEFT JOIN cntr_salecontract 
     ON cntr_salecontract.id = oder_signedorder.`saleContractId` 
   LEFT JOIN bill_salebill 
@@ -49,13 +52,10 @@ FROM
     AND bill_salebill.`payStatus` = 1 
     AND bill_salebill.`createTime` < '2016-01-01 00:00:00' 
     AND bill_salebill.`valid` = 1 
-  LEFT JOIN user_landlord 
-    ON user_landlord.id = oder_signedorder.`landlordId` 
   LEFT JOIN user_special 
     ON user_special.userid = user_landlord.`id` 
     AND user_special.usertype = 0 
     AND user_special.specialtype = 0 
 WHERE ISNULL(user_special.id) 
   AND user_landlord.`createTime` < '2016-01-01 00:00:00' 
-  AND oder_signedorder.`createTime` < '2016-01-01 00:00:00' 
 GROUP BY user_landlord.`id` 
