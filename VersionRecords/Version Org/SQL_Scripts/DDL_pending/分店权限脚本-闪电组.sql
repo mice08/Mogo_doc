@@ -167,3 +167,7 @@ create table perm_group_rel
 
 
 ALTER TABLE perm_role ADD COLUMN `roleCode` varchar(10) DEFAULT NULL COMMENT '角色编码';
+
+ALTER TABLE perm_role ADD COLUMN `roleScope` int(2) DEFAULT 1 COMMENT '角色应用范围(0:为部分用户特供的角色 1:全局共享角色)';
+
+ALTER TABLE mesg_category ADD COLUMN cateDesc VARCHAR(128) COMMENT '消息类别描述'; 
