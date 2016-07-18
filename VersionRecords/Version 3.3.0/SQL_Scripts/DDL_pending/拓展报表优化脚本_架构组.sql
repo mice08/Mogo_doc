@@ -1,5 +1,5 @@
 
-/* Database name `mogoroomdb`， 添加拓展报表相关字段 */
+/* Database name `mogoroomdb`， 添加拓展报表相关字段 */theoryAmount
 use mogoroomdb;
 
 drop table if exists repo_landlord_house_sum;
