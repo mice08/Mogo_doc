@@ -32,7 +32,8 @@ SELECT
     WHEN 3 
     THEN '整租' 
   END '出租类型',
-  COUNT(DISTINCT
+  COUNT(
+    DISTINCT 
     CASE
       WHEN flat_room.`status` = 1 
       THEN flat_room.`id` 
@@ -49,6 +50,7 @@ FROM
   LEFT JOIN oder_signedorder 
     ON oder_signedorder.roomid = flat_room.`id` 
     AND oder_signedorder.`createTime` < '2016-06-01 00:00:00' 
+    AND oder_signedorder.`status` NOT IN (0, 98, 99, 22) 
   LEFT JOIN flat_community 
     ON flat_community.id = flat_flats.`communityId` 
   LEFT JOIN city_district 
