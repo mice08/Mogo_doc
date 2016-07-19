@@ -1,3 +1,6 @@
+#在systemconfig.properties删除原品牌缓存时间配置   renter和renterpc项目
+filter.sysconfig.memcache.brand.time=1800
+
 #在systemconfig.properties新增品牌缓存时间配置    renter和renterpc项目
 sysconfig.memcache.brand.shortexpire=300
 sysconfig.memcache.brand.longexpire=3600
