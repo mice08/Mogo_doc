@@ -171,3 +171,8 @@ ALTER TABLE perm_role ADD COLUMN `roleCode` varchar(10) DEFAULT NULL COMMENT '角
 ALTER TABLE perm_role ADD COLUMN `roleScope` int(2) DEFAULT 1 COMMENT '角色应用范围(0:为部分用户特供的角色 1:全局共享角色)';
 
 ALTER TABLE mesg_category ADD COLUMN cateDesc VARCHAR(128) COMMENT '消息类别描述'; 
+/*2016-07-19 新增*/
+ALTER TABLE perm_role ADD COLUMN `quantity` int(11) DEFAULT null COMMENT '角色可分配的数量';
+ALTER TABLE perm_role ADD COLUMN `isTop` int(1) DEFAULT 0 COMMENT '角色是否置顶(0:否  1：是)';
+ALTER TABLE perm_role modify status tinyint(4) NOT NULL comment '有效：1，删除:0, 禁用:2';
+
