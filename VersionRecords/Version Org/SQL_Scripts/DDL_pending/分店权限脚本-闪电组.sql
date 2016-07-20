@@ -172,7 +172,7 @@ ALTER TABLE perm_role ADD COLUMN `roleScope` int(2) DEFAULT 1 COMMENT '╫ги╚с╕сц╥
 
 ALTER TABLE mesg_category ADD COLUMN cateDesc VARCHAR(128) COMMENT 'оШо╒юЮ╠ПцХйЖ'; 
 /*2016-07-19 пбтЖ*/
-ALTER TABLE perm_role ADD COLUMN `quantity` int(11) DEFAULT null COMMENT '╫ги╚©и╥жеД╣дйЩа©';
+ALTER TABLE perm_role ADD COLUMN `quantity` int(11) DEFAULT null COMMENT '╣╠г╟╫ги╚тзм╛р╩вИж╞жп©ирт╥жеД╦Ь╤Юиысц╩╖';
 ALTER TABLE perm_role ADD COLUMN `isTop` int(1) DEFAULT 0 COMMENT '╫ги╚йг╥Яжц╤╔(0:╥Я  1ё╨йг)';
 ALTER TABLE perm_role modify column status int(1) NOT NULL comment '1ё╨спп╖    0ё╨и╬ЁЩ    2ё╨╫Шсц';
 
