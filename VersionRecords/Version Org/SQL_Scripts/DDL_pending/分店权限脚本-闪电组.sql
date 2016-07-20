@@ -174,5 +174,5 @@ ALTER TABLE mesg_category ADD COLUMN cateDesc VARCHAR(128) COMMENT '消息类别描述
 /*2016-07-19 新增*/
 ALTER TABLE perm_role ADD COLUMN `quantity` int(11) DEFAULT null COMMENT '当前角色在同一组织中可以分配给多少用户';
 ALTER TABLE perm_role ADD COLUMN `isTop` int(1) DEFAULT 0 COMMENT '角色是否置顶(0:否  1：是)';
-ALTER TABLE perm_role modify column status int(1) NOT NULL comment '1：有效    0：删除    2：禁用';
+ALTER TABLE perm_role modify column status int(1) NOT NULL comment '角色状态(1:有效  0:删除 2:禁用)';
 
