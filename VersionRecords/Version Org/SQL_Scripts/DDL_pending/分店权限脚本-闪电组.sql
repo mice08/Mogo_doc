@@ -176,3 +176,89 @@ ALTER TABLE perm_role ADD COLUMN `quantity` int(11) DEFAULT null COMMENT '当前角
 ALTER TABLE perm_role ADD COLUMN `isTop` int(1) DEFAULT 0 COMMENT '角色是否置顶(0:否  1：是)';
 ALTER TABLE perm_role modify column status int(1) NOT NULL comment '角色状态(1:有效  0:删除 2:禁用)';
 
+/**2016-07-21 新增*/
+ALTER TABLE perm_menu_group ADD COLUMN `remark` varchar(256) DEFAULT NULL COMMENT '描述';
+ALTER TABLE comm_business_record ADD COLUMN `operatorRoleId` int(11) DEFAULT NULL COMMENT '操作人角色';
+
+/*角色历史表*/
+CREATE TABLE `perm_role_his` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键id',
+  `roleId`  int(11) NOT NULL COMMENT '角色id',
+  `roleName` varchar(20) DEFAULT NULL COMMENT '角色名称',
+  `status` int(1) DEFAULT NULL COMMENT '角色状态(1:有效  0:删除 2:禁用)',
+  `createTime` datetime DEFAULT NULL COMMENT '创建时间',
+  `createEmp` int(11) DEFAULT NULL COMMENT '创建人',
+  `channel` tinyint(2) NULL COMMENT '角色所属的系统，参考字典表groupName=channel',
+  `intendOrg` int(2) NULL DEFAULT '2' COMMENT '角色属性(0:总部角色 1:旗舰店角色 2:分店角色 )',
+  `roleCode` varchar(10) DEFAULT NULL COMMENT '角色编码',
+  `roleScope` int(2) DEFAULT '1' COMMENT '角色应用范围(0:为部分用户特供的角色 1:全局共享角色)',
+  `quantity` int(11) DEFAULT NULL COMMENT '当前角色在同一组织中可以分配给多少用户',
+  `isTop` int(1) DEFAULT '0' COMMENT '角色是否置顶(0:否  1：是)',
+  `soDoneCode` int(11) DEFAULT NULL COMMENT '对应common_business_record.id',
+  `operType` char(1) DEFAULT null COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COMMENT='角色历史表';
+
+/*菜单分组表历史表*/
+CREATE TABLE `perm_menu_group_his` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键id',
+  `groupId` int(11) NOT NULL COMMENT '菜单分组表id',
+  `menuGroupName` varchar(50) NOT NULL COMMENT '菜单分组名称',
+  `grantorId` int(11) NULL COMMENT '菜单分组对应的授权人ID',
+  `grantorType` tinyint(1) NULL COMMENT '菜单分组对应的授权人类型,参照groupName=userType',
+  `status` int(1) NULL COMMENT '菜单分组状态(0：无效 1：有效)',
+  `createTime` datetime NULL COMMENT '分组创建时间',
+  `updateTime` datetime DEFAULT NULL COMMENT '分组更新时间',
+  `parentId` int(11) DEFAULT NULL COMMENT '父节点id',
+  `gcode` varchar(7) DEFAULT NULL COMMENT '编码',
+  `channel` int(2) NULL COMMENT '频道来源(参考groupName=channel)',
+  `glevel` int(2) DEFAULT NULL COMMENT '菜单分组层级',
+  `remark` varchar(256) DEFAULT NULL COMMENT '描述',
+  `soDoneCode` int(11) DEFAULT NULL COMMENT '对应common_business_record.id',
+  `operType` char(1) DEFAULT null COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='菜单分组表历史表';
+
+/*菜单历史表*/
+CREATE TABLE `perm_functioninfo_his` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+  `functionId` int(11) NOT NULL COMMENT '节点ID',
+  `fcode` char(7) NULL COMMENT '标识号生成规则   functionLevel + functionPid(不足4位前面补0) + seq （不足两位前面补0）',
+  `fname` varchar(600) DEFAULT NULL COMMENT '名称',
+  `furl` varchar(765) DEFAULT NULL COMMENT '请求url',
+  `seq` int(11) NULL COMMENT '顺序号 同一个Pid 下面的排序',
+  `functionLevel` int(11) NULL COMMENT '树结构的级别 0为菜单编码（无跳转链接） 1为二级菜单编码（无跳转链接） 2为三级菜单编码（有跳转链接）3为功能权限编码',
+  `functionpId` int(11) NULL COMMENT '父节点的主键ID',
+  `functionisMenu` int(11) DEFAULT NULL COMMENT '是否要在树结构中节点显示',
+  `functionVcode` varchar(60) DEFAULT NULL,
+  `functionParam` varchar(765) DEFAULT NULL,
+  `functionFaclass` varchar(60) DEFAULT NULL COMMENT '节点显示对应的css的class',
+  `isAjax` tinyint(1) DEFAULT '1' COMMENT '是否是ajax请求',
+  `functionType` int(11) DEFAULT NULL COMMENT '类型：0：后台权限 1:os权限',
+  `createdBy` int(11) DEFAULT NULL COMMENT '创建人',
+  `createdTime` datetime DEFAULT NULL COMMENT '创建时间',
+  `updatedBy` int(11) DEFAULT NULL COMMENT '更新人',
+  `updatedTime` datetime DEFAULT NULL COMMENT '更新时间',
+  `status` tinyint(1) DEFAULT '1' COMMENT '状态是否可用',
+  `channel` int(2) DEFAULT '0' COMMENT '菜单所属系统，参照groupName=channel',
+  `soDoneCode` int(11) DEFAULT NULL COMMENT '对应common_business_record.id',
+  `operType` char(1) DEFAULT null COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='临时功能节点历史表';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
