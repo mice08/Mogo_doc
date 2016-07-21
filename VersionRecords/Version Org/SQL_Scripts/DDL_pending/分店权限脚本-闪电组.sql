@@ -172,7 +172,93 @@ ALTER TABLE perm_role ADD COLUMN `roleScope` int(2) DEFAULT 1 COMMENT '½ÇÉ«Ó¦ÓÃ·
 
 ALTER TABLE mesg_category ADD COLUMN cateDesc VARCHAR(128) COMMENT 'ÏûÏ¢Àà±ğÃèÊö'; 
 /*2016-07-19 ĞÂÔö*/
-ALTER TABLE perm_role ADD COLUMN `quantity` int(11) DEFAULT null COMMENT '½ÇÉ«¿É·ÖÅäµÄÊıÁ¿';
+ALTER TABLE perm_role ADD COLUMN `quantity` int(11) DEFAULT null COMMENT 'µ±Ç°½ÇÉ«ÔÚÍ¬Ò»×éÖ¯ÖĞ¿ÉÒÔ·ÖÅä¸ø¶àÉÙÓÃ»§';
 ALTER TABLE perm_role ADD COLUMN `isTop` int(1) DEFAULT 0 COMMENT '½ÇÉ«ÊÇ·ñÖÃ¶¥(0:·ñ  1£ºÊÇ)';
 ALTER TABLE perm_role modify column status int(1) NOT NULL comment '½ÇÉ«×´Ì¬(1:ÓĞĞ§  0:É¾³ı 2:½ûÓÃ)';
+
+/**2016-07-21 ĞÂÔö*/
+ALTER TABLE perm_menu_group ADD COLUMN `remark` varchar(256) DEFAULT NULL COMMENT 'ÃèÊö';
+ALTER TABLE comm_business_record ADD COLUMN `operatorRoleId` int(11) DEFAULT NULL COMMENT '²Ù×÷ÈË½ÇÉ«';
+
+/*½ÇÉ«ÀúÊ·±í*/
+CREATE TABLE `perm_role_his` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Ö÷¼üid',
+  `roleId`  int(11) NOT NULL COMMENT '½ÇÉ«id',
+  `roleName` varchar(20) DEFAULT NULL COMMENT '½ÇÉ«Ãû³Æ',
+  `status` int(1) DEFAULT NULL COMMENT '½ÇÉ«×´Ì¬(1:ÓĞĞ§  0:É¾³ı 2:½ûÓÃ)',
+  `createTime` datetime DEFAULT NULL COMMENT '´´½¨Ê±¼ä',
+  `createEmp` int(11) DEFAULT NULL COMMENT '´´½¨ÈË',
+  `channel` tinyint(2) NULL COMMENT '½ÇÉ«ËùÊôµÄÏµÍ³£¬²Î¿¼×Öµä±ígroupName=channel',
+  `intendOrg` int(2) NULL DEFAULT '2' COMMENT '½ÇÉ«ÊôĞÔ(0:×Ü²¿½ÇÉ« 1:Æì½¢µê½ÇÉ« 2:·Öµê½ÇÉ« )',
+  `roleCode` varchar(10) DEFAULT NULL COMMENT '½ÇÉ«±àÂë',
+  `roleScope` int(2) DEFAULT '1' COMMENT '½ÇÉ«Ó¦ÓÃ·¶Î§(0:Îª²¿·ÖÓÃ»§ÌØ¹©µÄ½ÇÉ« 1:È«¾Ö¹²Ïí½ÇÉ«)',
+  `quantity` int(11) DEFAULT NULL COMMENT 'µ±Ç°½ÇÉ«ÔÚÍ¬Ò»×éÖ¯ÖĞ¿ÉÒÔ·ÖÅä¸ø¶àÉÙÓÃ»§',
+  `isTop` int(1) DEFAULT '0' COMMENT '½ÇÉ«ÊÇ·ñÖÃ¶¥(0:·ñ  1£ºÊÇ)',
+  `soDoneCode` int(11) DEFAULT NULL COMMENT '¶ÔÓ¦common_business_record.id',
+  `operType` char(1) DEFAULT null COMMENT '¸ÃÀúÊ·¼ÇÂ¼²úÉúÊ±µÄ²Ù×÷ÀàĞÍ(A:ĞÂÔö U:¸üĞÂ D:É¾³ı)',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COMMENT='½ÇÉ«ÀúÊ·±í';
+
+/*²Ëµ¥·Ö×é±íÀúÊ·±í*/
+CREATE TABLE `perm_menu_group_his` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Ö÷¼üid',
+  `groupId` int(11) NOT NULL COMMENT '²Ëµ¥·Ö×é±íid',
+  `menuGroupName` varchar(50) NOT NULL COMMENT '²Ëµ¥·Ö×éÃû³Æ',
+  `grantorId` int(11) NULL COMMENT '²Ëµ¥·Ö×é¶ÔÓ¦µÄÊÚÈ¨ÈËID',
+  `grantorType` tinyint(1) NULL COMMENT '²Ëµ¥·Ö×é¶ÔÓ¦µÄÊÚÈ¨ÈËÀàĞÍ,²ÎÕÕgroupName=userType',
+  `status` int(1) NULL COMMENT '²Ëµ¥·Ö×é×´Ì¬(0£ºÎŞĞ§ 1£ºÓĞĞ§)',
+  `createTime` datetime NULL COMMENT '·Ö×é´´½¨Ê±¼ä',
+  `updateTime` datetime DEFAULT NULL COMMENT '·Ö×é¸üĞÂÊ±¼ä',
+  `parentId` int(11) DEFAULT NULL COMMENT '¸¸½Úµãid',
+  `gcode` varchar(7) DEFAULT NULL COMMENT '±àÂë',
+  `channel` int(2) NULL COMMENT 'ÆµµÀÀ´Ô´(²Î¿¼groupName=channel)',
+  `glevel` int(2) DEFAULT NULL COMMENT '²Ëµ¥·Ö×é²ã¼¶',
+  `remark` varchar(256) DEFAULT NULL COMMENT 'ÃèÊö',
+  `soDoneCode` int(11) DEFAULT NULL COMMENT '¶ÔÓ¦common_business_record.id',
+  `operType` char(1) DEFAULT null COMMENT '¸ÃÀúÊ·¼ÇÂ¼²úÉúÊ±µÄ²Ù×÷ÀàĞÍ(A:ĞÂÔö U:¸üĞÂ D:É¾³ı)',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='²Ëµ¥·Ö×é±íÀúÊ·±í';
+
+/*²Ëµ¥ÀúÊ·±í*/
+CREATE TABLE `perm_functioninfo_his` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Ö÷¼üID',
+  `functionId` int(11) NOT NULL COMMENT '½ÚµãID',
+  `fcode` char(7) NULL COMMENT '±êÊ¶ºÅÉú³É¹æÔò   functionLevel + functionPid(²»×ã4Î»Ç°Ãæ²¹0) + seq £¨²»×ãÁ½Î»Ç°Ãæ²¹0£©',
+  `fname` varchar(600) DEFAULT NULL COMMENT 'Ãû³Æ',
+  `furl` varchar(765) DEFAULT NULL COMMENT 'ÇëÇóurl',
+  `seq` int(11) NULL COMMENT 'Ë³ĞòºÅ Í¬Ò»¸öPid ÏÂÃæµÄÅÅĞò',
+  `functionLevel` int(11) NULL COMMENT 'Ê÷½á¹¹µÄ¼¶±ğ 0Îª²Ëµ¥±àÂë£¨ÎŞÌø×ªÁ´½Ó£© 1Îª¶ş¼¶²Ëµ¥±àÂë£¨ÎŞÌø×ªÁ´½Ó£© 2ÎªÈı¼¶²Ëµ¥±àÂë£¨ÓĞÌø×ªÁ´½Ó£©3Îª¹¦ÄÜÈ¨ÏŞ±àÂë',
+  `functionpId` int(11) NULL COMMENT '¸¸½ÚµãµÄÖ÷¼üID',
+  `functionisMenu` int(11) DEFAULT NULL COMMENT 'ÊÇ·ñÒªÔÚÊ÷½á¹¹ÖĞ½ÚµãÏÔÊ¾',
+  `functionVcode` varchar(60) DEFAULT NULL,
+  `functionParam` varchar(765) DEFAULT NULL,
+  `functionFaclass` varchar(60) DEFAULT NULL COMMENT '½ÚµãÏÔÊ¾¶ÔÓ¦µÄcssµÄclass',
+  `isAjax` tinyint(1) DEFAULT '1' COMMENT 'ÊÇ·ñÊÇajaxÇëÇó',
+  `functionType` int(11) DEFAULT NULL COMMENT 'ÀàĞÍ£º0£ººóÌ¨È¨ÏŞ 1:osÈ¨ÏŞ',
+  `createdBy` int(11) DEFAULT NULL COMMENT '´´½¨ÈË',
+  `createdTime` datetime DEFAULT NULL COMMENT '´´½¨Ê±¼ä',
+  `updatedBy` int(11) DEFAULT NULL COMMENT '¸üĞÂÈË',
+  `updatedTime` datetime DEFAULT NULL COMMENT '¸üĞÂÊ±¼ä',
+  `status` tinyint(1) DEFAULT '1' COMMENT '×´Ì¬ÊÇ·ñ¿ÉÓÃ',
+  `channel` int(2) DEFAULT '0' COMMENT '²Ëµ¥ËùÊôÏµÍ³£¬²ÎÕÕgroupName=channel',
+  `soDoneCode` int(11) DEFAULT NULL COMMENT '¶ÔÓ¦common_business_record.id',
+  `operType` char(1) DEFAULT null COMMENT '¸ÃÀúÊ·¼ÇÂ¼²úÉúÊ±µÄ²Ù×÷ÀàĞÍ(A:ĞÂÔö U:¸üĞÂ D:É¾³ı)',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='ÁÙÊ±¹¦ÄÜ½ÚµãÀúÊ·±í';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
