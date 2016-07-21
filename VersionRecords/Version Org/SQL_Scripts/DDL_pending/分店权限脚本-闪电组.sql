@@ -246,6 +246,141 @@ CREATE TABLE `perm_functioninfo_his` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='临时功能节点历史表';
 
+/*菜单分组关系历史表 */
+CREATE TABLE `perm_menu_group_rel_his` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+  `menuId` int(11) NULL COMMENT '功能菜单id',
+  `menuGroupId` int(11) NULL COMMENT '菜单分组ID',
+  `status` tinyint(1) NULL COMMENT '功能菜单分组状态',
+  `createTime` datetime DEFAULT NULL COMMENT '菜单分组创建时间',
+  `updateTime` datetime DEFAULT NULL COMMENT '菜单分组更新时间',
+  `soDoneCode` int(11) DEFAULT NULL COMMENT '对应common_business_record.id',
+  `operType` char(1) DEFAULT null COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='菜单分组关系历史表';
+
+/*菜单分组与角色关系历史表*/
+CREATE TABLE `perm_menugroup_role_rel_his` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键id',
+  `roleId` int(11) NULL COMMENT '对应的角色表id',
+  `menuGroupId` int(11) NULL COMMENT '对应的菜单id',
+  `status` tinyint(1) NULL COMMENT '菜单分组角色关系状态(0：无效 1：有效）',
+  `createTime` datetime DEFAULT NULL COMMENT '创建时间',
+  `updateTime` datetime DEFAULT NULL COMMENT '修改时间',
+  `soDoneCode` int(11) DEFAULT NULL COMMENT '对应common_business_record.id',
+  `operType` char(1) DEFAULT null COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COMMENT='菜单分组与角色关系历史表';
+
+/*角色菜单关系历史表 */
+CREATE TABLE `perm_role_function_his` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键id',
+  `role_id` int(11) NULL,
+  `function_id` int(11) NULL,
+  `soDoneCode` int(11) DEFAULT NULL COMMENT '对应common_business_record.id',
+  `operType` char(1) DEFAULT null COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='角色菜单关系历史表';
+
+/*用户组织角色关系历史表*/
+CREATE TABLE `perm_user_org_role_his` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+  `userId` int(11) NULL COMMENT '用户Id',
+  `roleId` int(11) NULL COMMENT '角色Id',
+  `orgId` int(11) NULL COMMENT '组织Id',
+  `createTime` datetime DEFAULT NULL COMMENT '创建时间',
+  `createBy` int(11) NULL COMMENT '创建人',
+  `createByType` int(1) NULL COMMENT '创建人类型(参考字典表groupName=userType)',
+  `soDoneCode` int(11) DEFAULT NULL COMMENT '对应common_business_record.id',
+  `operType` char(1) DEFAULT null COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户组织角色关系历史表';
+
+/*房东个性化角色关系历史表*/
+CREATE TABLE `perm_landlord_menu_his` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+  `landlordId` int(11) NULL COMMENT '房东id',
+  `roleId` int(11) NULL COMMENT '角色id',
+  `createBy` int(11) NULL COMMENT '创建人',
+  `createTime` datetime DEFAULT NULL COMMENT '创建时间',
+  `createByType` int(1) NULL COMMENT '创建人类型(参考字典表groupName=userType)',
+  `soDoneCode` int(11) DEFAULT NULL COMMENT '对应common_business_record.id',
+  `operType` char(1) DEFAULT null COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='房东个性化角色关系历史表';
+
+/*消息类别历史表*/
+CREATE TABLE `mesg_category_his` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+  `categoryId` int(11) NOT NULL AUTO_INCREMENT COMMENT '消息类别表id',
+  `categoryName` varchar(50) NULL COMMENT '消息类别名',
+  `categoryCode` varchar(50) DEFAULT NULL COMMENT '消息类别编码',
+  `createBy` int(11) NULL COMMENT '创建人',
+  `createTime` datetime DEFAULT NULL COMMENT '创建时间',
+  `createByType` int(1) NULL COMMENT '创建人类型(参考字典表groupName=userType)',
+  `cateDesc` varchar(128) DEFAULT NULL COMMENT '消息类别描述',
+  `soDoneCode` int(11) DEFAULT NULL COMMENT '对应common_business_record.id',
+  `operType` char(1) DEFAULT null COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='消息类别历史表';
+
+/*消息类别角色关系历史表*/
+CREATE TABLE `mesg_category_role_his` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键id',
+  `categoryId` int(11) DEFAULT NULL COMMENT '消息类别id',
+  `roleId` int(11) DEFAULT NULL COMMENT '角色id',
+  `createBy` int(11) NOT NULL COMMENT '创建人',
+  `createTime` datetime NOT NULL COMMENT '创建时间',
+  `createByType` int(1) NOT NULL COMMENT '创建人类型(参考字典表groupName=userType)',
+  `soDoneCode` int(11) DEFAULT NULL COMMENT '对应common_business_record.id',
+  `operType` char(1) DEFAULT null COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='消息类别角色关系历史表';
+
+/* 消息模板历史表  */
+CREATE TABLE `mesg_templet_his` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键id',
+  `templetId` int(11) NULL COMMENT '消息模板id',
+  `templetCode` varchar(50) NULL COMMENT '消息code，根据code查询模板内容',
+  `templetName` varchar(100) NULL COMMENT '模板名称',
+  `templetDesc` varchar(300) DEFAULT NULL COMMENT '模板描述',
+  `status` int(1) NULL COMMENT '模板状态，0禁用，1启用',
+  `createBy` int(11) NULL COMMENT '模板创建人',
+  `createTime` datetime DEFAULT NULL COMMENT '模板创建时间',
+  `createByType` int(2) NULL COMMENT '模板创建人类型（参考字典表groupName=userType）',
+  `updateBy` int(11) DEFAULT NULL COMMENT '模板修改人',
+  `updateTime` datetime DEFAULT NULL COMMENT '模板修改时间',
+  `updateByType` int(2) DEFAULT NULL COMMENT '模板修改人类型（参考字典表groupName=userType）',
+  `valid` int(1) NULL COMMENT '删除标志，0删除，1未删除',
+  `businessType` int(2) DEFAULT NULL COMMENT '模板的业务类型 1:预约,2:预订,3签约,4:售后,5:资金,10:其他',
+  `soDoneCode` int(11) DEFAULT NULL COMMENT '对应common_business_record.id',
+  `operType` char(1) DEFAULT null COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='消息模板历史表';
+
+/*消息子模板历史表*/
+CREATE TABLE `mesg_subtemplet_his` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键id',
+  `templetId` int(11) NULL COMMENT '消息模板id',
+  `templetType` int(2) NULL COMMENT '类型（参考字典表groupName=templetType，1-短信，2-邮件，3-推送，4-微信）',
+  `templetTitle` varchar(100) NULL COMMENT '模板标题',
+  `templetContent` varchar(3000) NULL COMMENT '模板内容',
+  `status` int(1) NULL COMMENT '模板状态，0禁用，1启用',
+  `valid` int(1) NULL COMMENT '删除标志，0删除，1未删除',
+  `outTempletId` varchar(64) DEFAULT NULL COMMENT '第三方消息模板id',
+  `jumpCode` varchar(30) DEFAULT NULL COMMENT '跳转编码',
+  `soDoneCode` int(11) DEFAULT NULL COMMENT '对应common_business_record.id',
+  `operType` char(1) DEFAULT null COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=435 DEFAULT CHARSET=utf8 COMMENT='消息子模板历史表'
+
+
+
+
+
+
+
+
 
 
 
