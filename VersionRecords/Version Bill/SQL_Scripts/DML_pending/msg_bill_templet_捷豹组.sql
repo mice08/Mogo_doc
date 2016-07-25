@@ -105,3 +105,42 @@ select @landlord_checkout_audit_agree_code:= 'landlord_checkout_audit_agree'
 INSERT INTO mesg_templet(templetCode,templetName,templetDesc,status,createBy,createTime,createByType,valid,businessType) VALUES (@landlord_checkout_audit_agree_code, '子账号_退款审核_拒绝', '子账号_退款审核_拒绝', '1', '2', now(), '4', '1', '5');
 SELECT @landlord_checkout_audit_agree_id:= LAST_INSERT_ID();
 INSERT INTO mesg_subtemplet (templetId,templetType,templetTitle,templetContent,status,valid) VALUES (@landlord_checkout_audit_agree_id, '3', '子账号_退款审核_拒绝', @landlord_checkout_audit_agree_msg,'1', '1');
+
+/* 消息脚本 */
+
+INSERT INTO `mesg_templet` (`templetCode`, `templetName`, `templetDesc`, `status`, `createBy`, `createTime`, `createByType`, `updateBy`, `updateTime`, `updateByType`, `valid`, `businessType`) VALUES ('runter_bill_favorable', '租客账单优惠', '租客账单优惠', '1', '2', NOW(), '3', NULL, NULL, NULL, '1', '10');
+
+INSERT INTO `mesg_templet` (`templetCode`, `templetName`, `templetDesc`, `status`, `createBy`, `createTime`, `createByType`, `updateBy`, `updateTime`, `updateByType`, `valid`, `businessType`) VALUES ('runter_bill_split', '租客账单拆分', '租客账单拆分', '1', '2', NOW(), '3', NULL, NULL, NULL, '1', '10');
+
+INSERT INTO `mesg_subtemplet` (`templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`) 
+VALUES ((select t.id from mesg_templet t where t.templetCode ='runter_bill_favorable'), 1, '租客账单优惠', '${renterName}您好，房东${landlordName}已为您${roomInfo} 的${billName}账单优惠${reduceMoney}元，详情请查看账单，如有疑问请与房东联系。', '1', '1', NULL, NULL);
+
+INSERT INTO `mesg_subtemplet` (`templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`) 
+VALUES ((select t.id from mesg_templet t where t.templetCode ='runter_bill_favorable'), 3, '租客账单优惠', '${renterName}您好，房东${landlordName}已为您${roomInfo} 的${billName}账单优惠${reduceMoney}元，详情请查看账单，如有疑问请与房东联系。', '1', '1', NULL, NULL);
+ 
+ 
+INSERT INTO `mesg_subtemplet` (`templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`) 
+VALUES ((select t.id from mesg_templet t where t.templetCode ='runter_bill_split'), 1, '租客账单拆分', '${renterName}您好，房东${landlordName}已将您${roomInfo} 的${billName}账单进行拆分，最低支付金额${leastMoney}元，最晚支付日为${dueDate}24点，请尽快支付，详情请查看账单，如有疑问请与房东联系。', '1', '1', NULL, NULL);
+
+INSERT INTO `mesg_subtemplet` (`templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`) 
+VALUES ((select t.id from mesg_templet t where t.templetCode ='runter_bill_split'), 3, '租客账单拆分', '${renterName}您好，房东${landlordName}已将您${roomInfo} 的${billName}账单进行拆分，最低支付金额${leastMoney}元，最晚支付日为${dueDate}24点，请尽快支付，详情请查看账单，如有疑问请与房东联系。', '1', '1', NULL, NULL);
+ 
+-- 82 
+UPDATE mesg_subtemplet t SET t.`status` = '0' WHERE t.templetId = (SELECT t.id FROM mesg_templet t WHERE t.templetCode = 'sms_landlordinfo_afterpaid_withdefinedbill');  
+INSERT INTO `mesg_subtemplet` (`templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`) 
+VALUES ((select t.id from mesg_templet t where t.templetCode ='sms_landlordinfo_afterpaid_withdefinedbill'), 3,'房东_推送账单_已付', '租客${renterName}已成功支付${roomInfo}的#${billName}#账单，可打开账单收款查看明细。', '1', '1', NULL, NULL);
+ 
+-- 83 
+UPDATE mesg_subtemplet t SET t.`status` = '0' WHERE t.templetType = '1' and t.templetId = (SELECT t.id FROM mesg_templet t WHERE t.templetCode = 'sms_landlord_repayPlan'); 
+update mesg_subtemplet t set t.templetTitle ='房东_租金已付', t.templetContent = '${landlordName}您好，租客${renterName}（${roomInfo}）已通过蘑菇成功支付${startMonth}-${endMonth}月租金。' where t.templetType = '3' and t.templetId = (select t.id from mesg_templet t where t.templetCode ='sms_landlord_repayPlan');
+ 
+-- 88
+UPDATE mesg_subtemplet t SET t.`status` = '0' WHERE t.templetId = (SELECT t.id FROM mesg_templet t WHERE t.templetCode = 'sms_renterinfo_afterpaid_withdefinedbill'); 
+INSERT INTO `mesg_subtemplet` (`templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`) 
+VALUES ((select t.id from mesg_templet t where t.templetCode ='sms_renterinfo_afterpaid_withdefinedbill'), 3,'租客_新增账单_已付','${renterName}您好，感谢您支付${roomInfo}#${billName}#账单。', '1', '1', NULL, NULL);
+ 
+-- 89
+UPDATE mesg_subtemplet t SET t.`status` = '0' WHERE t.templetId = (SELECT t.id FROM mesg_templet t WHERE t.templetCode = 'sms_renterinfo_afterpaid_withroutinebill'); 
+INSERT INTO `mesg_subtemplet` (`templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`) 
+VALUES ((select t.id from mesg_templet t where t.templetCode ='sms_renterinfo_afterpaid_withroutinebill'), 3,'租客_新增账单_已付','${renterName}，您已成功支付${roomInfo} ${startMonth}-${endMonth}月租金账单，可进入账单查看详情。', '1', '1', NULL, NULL);
+
