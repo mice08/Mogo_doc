@@ -1,5 +1,5 @@
-/*  Database name `mogoroomdb` £¬ÎªĞÂÕÊÎñÒ³ÃæĞèÇóĞÂÕËµ¥ÀàĞÍ*/
+ï»¿/*  Database name `mogoroomdb` ï¼Œä¸ºæ–°å¸åŠ¡é¡µé¢éœ€æ±‚æ–°è´¦å•ç±»å‹*/
 use mogoroomdb;
 
-INSERT INTO acct.`acct_billtype` (billType,billName,STATUS,sort,penaltyRate,displayName,remark) VALUES(10008,'Ñº½ğÕËµ¥',1,10008,NULL,'Ñº½ğÕËµ¥','');
-INSERT INTO acct.`acct_billtype` (billType,billName,STATUS,sort,penaltyRate,displayName,remark) VALUES(10009,'ÄæÏòÍË·¿ÕËµ¥',1,10009,NULL,'ÄæÏòÍË·¿ÕËµ¥','');
+INSERT INTO acct.`acct_billtype` (billType,billName,STATUS,sort,penaltyRate,displayName,remark) VALUES(10008,'æŠ¼é‡‘è´¦å•',1,10008,NULL,'æŠ¼é‡‘è´¦å•','');
+INSERT INTO acct.`acct_billtype` (billType,billName,STATUS,sort,penaltyRate,displayName,remark) VALUES(10009,'é€†å‘é€€æˆ¿è´¦å•',1,10009,NULL,'é€†å‘é€€æˆ¿è´¦å•','');
