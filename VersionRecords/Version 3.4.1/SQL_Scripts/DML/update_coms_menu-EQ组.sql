@@ -7,7 +7,7 @@ update coms_menu set channel=2 where code=100017;
 update coms_menu set pid=0, isMenu=0 where code in (201016,201007);
  
 insert into `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, channel, isMenu) 
-values(100018,'ÓÑÁ´ÍÆ¼ö','/cms/friendlink','14','2','2000082',now(),'2000082',now(),'1','1','3', '2', '1');
+values(100018,'ÓÑÁ´ÍÆ¼ö','/cms/friendlinkForQuery','14','2','2000082',now(),'2000082',now(),'1','1','3', '2', '1');
 
 insert into `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, channel, isMenu) 
 values(202007,'Á¢¼´ÕÒ·¿Ò³_ÓÑÇéÁ´½Ó','','0','2','2000082',now(),'2000082',now(),'1','1','0', '3', '0');

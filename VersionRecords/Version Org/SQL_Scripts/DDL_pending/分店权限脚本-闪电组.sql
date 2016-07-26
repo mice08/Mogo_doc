@@ -312,7 +312,7 @@ CREATE TABLE `perm_landlord_menu_his` (
 /*消息类别历史表*/
 CREATE TABLE `mesg_category_his` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
-  `categoryId` int(11) NOT NULL AUTO_INCREMENT COMMENT '消息类别表id',
+  `categoryId` int(11) NOT NULL COMMENT '消息类别表id',
   `categoryName` varchar(50) NULL COMMENT '消息类别名',
   `categoryCode` varchar(50) DEFAULT NULL COMMENT '消息类别编码',
   `createBy` int(11) NULL COMMENT '创建人',
@@ -372,28 +372,10 @@ CREATE TABLE `mesg_subtemplet_his` (
   `soDoneCode` int(11) DEFAULT NULL COMMENT '对应common_business_record.id',
   `operType` char(1) DEFAULT null COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=435 DEFAULT CHARSET=utf8 COMMENT='消息子模板历史表'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='消息子模板历史表';
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*2016_07-25*/
+ALTER TABLE PERM_FUNCTIONINFO DROP INDEX fcode; 
+ALTER TABLE PERM_FUNCTIONINFO ADD UNIQUE INDEX(fcode,channel);
 
 
