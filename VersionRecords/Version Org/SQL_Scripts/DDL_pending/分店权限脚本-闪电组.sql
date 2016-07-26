@@ -372,7 +372,7 @@ CREATE TABLE `mesg_subtemplet_his` (
   `soDoneCode` int(11) DEFAULT NULL COMMENT '对应common_business_record.id',
   `operType` char(1) DEFAULT null COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='消息子模板历史表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='消息子模板历史表';
 
 /*2016_07-25*/
 ALTER TABLE PERM_FUNCTIONINFO DROP INDEX fcode; 
