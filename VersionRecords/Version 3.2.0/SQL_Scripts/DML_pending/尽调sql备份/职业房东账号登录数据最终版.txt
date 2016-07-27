@@ -1,0 +1,44 @@
+SELECT 
+  user_landlord.`id` '房东id',
+  SUM(logincount.total) '登录次数',
+  apptotal 'APP登录次数',
+  pctotal 'PC登录次数',
+  SUM(logincount.daycount) '登录天数',
+  user_landlord.`createTime` '创建时间',
+  MIN(mintime) '首次登录时间',
+  MAX(maxtime) '最后一次登录时间' 
+FROM
+  user_landlord 
+  LEFT JOIN 
+    (SELECT 
+      userid,
+      loginaccount,
+      COUNT(1) total,
+      COUNT(
+        DISTINCT DATE_FORMAT(
+          user_loginlog.`accessTime`,
+          '%Y-%m-%d'
+        )
+      ) daycount,
+      MIN(user_loginlog.`accessTime`) mintime,
+      MAX(user_loginlog.`accessTime`) maxtime,
+      COUNT(
+        CASE
+          WHEN user_loginlog.`url` LIKE '%partner/%' 
+          THEN 1 
+        END
+      ) apptotal,
+      COUNT(
+        CASE
+          WHEN user_loginlog.`url` LIKE '%partnerpc/%' 
+          THEN 1 
+        END
+      ) pctotal 
+    FROM
+      user_loginlog 
+    WHERE user_loginlog.`accessResult` = 'SUCCESS' 
+    GROUP BY loginaccount,
+      userid) logincount 
+    ON logincount.userid = user_landlord.`id` 
+    OR logincount.loginaccount = user_landlord.phone 
+GROUP BY user_landlord.`id` 

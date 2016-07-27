@@ -1,0 +1,47 @@
+SELECT 
+  user_landlord.`id` '房东id',
+  user_landlord.`phone` '房东手机号',
+  user_landlord.`identityId` '身份证号码',
+  DATE_FORMAT(
+    user_landlord.`birthday`,
+    '%Y-%m-%d'
+  ) '生日',
+  CASE
+    WHEN SUBSTRING(user_landlord.`identityId`, 7, 4) = SUBSTRING(user_landlord.`birthday`, 1, 4) 
+    THEN '是' 
+    ELSE '否' 
+  END '是否符合',
+  user_landlord.`salesmanId` '拓展员id',
+  salesman.real_name '拓展员姓名',
+  DATE_FORMAT(
+    user_landlord.`contractDate`,
+    '%Y-%m-%d'
+  ) '签约时间',
+  city.`name` '签约城市',
+  DATE_FORMAT(
+    user_landlord.`createTime`,
+    '%Y-%m-%d'
+  ) '房东创建时间',
+  createby.real_name '创建人',
+  CASE
+    user_landlord.`status` 
+    WHEN 1 
+    THEN '是' 
+    ELSE '无效' 
+  END '是否有效',
+  user_landlord.`signCount` '签约体量',
+  user_landlord.name '房东姓名',
+  user_landlord.`remark` '备注',
+  CASE
+    user_landlord.acctType 
+    WHEN 1 
+    THEN '公司' 
+  END '是否是公司' 
+FROM
+  user_landlord 
+  LEFT JOIN user_info salesman 
+    ON salesman.id = user_landlord.`salesmanId` 
+  LEFT JOIN city 
+    ON city.id = user_landlord.`applyCityId` 
+  LEFT JOIN user_info createby 
+    ON createby.id = user_landlord.`createby` 
