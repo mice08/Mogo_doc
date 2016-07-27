@@ -1,5 +1,9 @@
 DELIMITER $$
-
+/**
+ * 视图新增返回字段，
+ * 1、付款计划表状态字段；
+ * 2、公寓单元号字段；
+ */
 CREATE OR REPLACE VIEW `repo_host_bill` AS 
 SELECT
   `hostrec`.`id`            AS `hostRecId`,

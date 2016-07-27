@@ -1,0 +1,73 @@
+SELECT 
+  flat_flats.`flatsNum` '房源编号',
+  flat_flats.`id` '房屋id',
+  city.`name` '城市',
+  city_district.`name` '区域',
+  city_business_area.`name` '商圈',
+  CONCAT_WS(
+    '-',
+    flat_community.`street`,
+    flat_community.`nong`
+  ) '地址',
+  GROUP_CONCAT(DISTINCT city_station.`name`) '附近地铁站',
+  flat_community.`name` '小区名称',
+  flat_community.`id` '小区id',
+  CASE
+    flat_community.`status` 
+    WHEN 1 
+    THEN '是' 
+    WHEN 0 
+    THEN '无效' 
+  END '小区是否有效',
+  flat_flats.`building` '栋座',
+  flat_flats.`unit` '单元',
+  flat_flats.`roomNum` '室',
+  flat_flats.`bedroomCount` '房间数',
+  flat_flats.`area` '房屋面积',
+  flat_flats.`landlordId` '房东id',
+  flat_flats.`createTime` '创建时间',
+  CASE
+    flat_flats.`status` 
+    WHEN 1 
+    THEN '是' 
+    WHEN 0 
+    THEN '无效' 
+  END '房屋是否有效',
+  CASE
+    flat_flats.`rentType` 
+    WHEN 1 
+    THEN '单身公寓' 
+    WHEN 2 
+    THEN '合租' 
+    WHEN 3 
+    THEN '整租' 
+  END '出租类型',
+  CASE
+    flat_flats.flatsTag 
+    WHEN 1 
+    THEN '分散式' 
+    WHEN 2 
+    THEN '集中式' 
+  END '房源类型',
+  CASE
+    WHEN user_special.id IS NOT NULL 
+    THEN '是' 
+  END '是否是测试数据' 
+FROM
+  flat_flats 
+  LEFT JOIN flat_community 
+    ON flat_community.id = flat_flats.`communityId` 
+  LEFT JOIN city_district 
+    ON city_district.id = flat_community.`districtId` 
+  LEFT JOIN city_business_area 
+    ON city_business_area.id = flat_community.`businessId` 
+  LEFT JOIN city 
+    ON city.id = city_district.`cityId` 
+  LEFT JOIN city_community_station 
+    ON city_community_station.`communityId` = flat_community.`id` 
+  LEFT JOIN city_station 
+    ON city_station.id = city_community_station.`stationId` 
+  LEFT JOIN user_special 
+    ON user_special.`userId` = flat_flats.`landlordId` 
+    AND user_special.`userType` = 0 
+GROUP BY flat_flats.`id` 
