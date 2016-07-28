@@ -144,3 +144,15 @@ UPDATE mesg_subtemplet t SET t.`status` = '0' WHERE t.templetId = (SELECT t.id F
 INSERT INTO `mesg_subtemplet` (`templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`) 
 VALUES ((select t.id from mesg_templet t where t.templetCode ='sms_renterinfo_afterpaid_withroutinebill'), 3,'租客_新增账单_已付','${renterName}，您已成功支付${roomInfo} ${startMonth}-${endMonth}月租金账单，可进入账单查看详情。', '1', '1', NULL, NULL);
 
+/*消息优化 sms_additional_renter -- 租客_补录租约_已有账号*/
+UPDATE mesg_templet SET templetName='租客_补录租约_已有账号',templetDesc='租客_补录租约_已有账号' WHERE templetCode='sms_additional_renter';
+UPDATE mesg_subtemplet SET templetContent='${renterName}您好，为提升服务品质，方便您在线报修及缴租，您的房东${landlordName}已与白领租房平台“蘑菇租房”开展合作。请关注并绑定“蘑菇租房”支付宝服务窗/微信公众号，或登录蘑菇租房APP使用您的手机号${cellPhone}确认租约。' WHERE templetId = (SELECT id FROM mesg_templet WHERE templetCode='sms_additional_renter');
+
+/*消息优化 sms_additional_new_renter -- 租客_补录租约_新账号*/
+UPDATE mesg_templet SET templetName='租客_补录租约_新账号',templetDesc='租客_补录租约_新账号' WHERE templetCode='sms_additional_new_renter';
+UPDATE mesg_subtemplet SET templetContent='${renterName}您好，为提升服务品质，方便您在线报修及缴费，房东${landlordName}已与白领租房平台“蘑菇租房”开展合作。请关注并绑定“蘑菇租房”支付宝服务窗/微信公众号，或登录蘑菇租房APP（账号为手机：${cellPhone}，临时密码${PASSWORD}）确认租约，登录后请及时修改密码。' WHERE templetId = (SELECT id FROM mesg_templet WHERE templetCode='sms_additional_new_renter');
+
+/*消息优化 sms_renter_saleContractConvert_success -- 房东_租客同意补录*/
+UPDATE mesg_templet SET templetName='房东_租客同意补录',templetDesc='房东_租客同意补录' WHERE templetCode='sms_renter_saleContractConvert_success';
+UPDATE mesg_subtemplet SET templetContent='${landlordname}您好，租客${renterName}同意了您${roominfo}的转客租约。',templetTitle='补录租约确认' WHERE templetId = (SELECT id FROM mesg_templet WHERE templetCode='sms_renter_saleContractConvert_success');
+
