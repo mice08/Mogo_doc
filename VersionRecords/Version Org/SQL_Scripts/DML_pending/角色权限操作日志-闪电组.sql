@@ -1,5 +1,5 @@
-
-/* 消息模板*/
+/* 消息模板  操作日志映射关系表*/
+use mogoroomdb;
 INSERT INTO comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql,tableKey) VALUES(160103001,'mesg_category','mesg_category_his','消息类别','消息类别名称','categoryName','categoryId',0,1,'','id');
 INSERT INTO comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql,tableKey) VALUES(160103001,'mesg_category','mesg_category_his','消息类别','消息类别描述','cateDesc','categoryId',0,2,'','id');
 INSERT INTO comm_business_record_mapping(busiType,tableName,tableNameHis,tablelabel,tableColumnlabel,tableColumnName,checkUnicolumn,isCommwrite,sort,decodeSql,tableKey) VALUES(160103002,'mesg_category','mesg_category_his','消息类别','消息类别名称','categoryName','categoryId',0,1,'','id');
