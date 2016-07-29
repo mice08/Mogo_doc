@@ -22,6 +22,6 @@ create table cntr_salecontract_snapshot
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment '合同快照表';
 
 
-ALTER TABLE cntr_salecontract ADD COLUMN effectTime DATETIME NOT NULL DEFAULT '2010-01-01 00:00:00' COMMENT '合同模板生效时间';
+ALTER TABLE cntr_contract_templet ADD COLUMN beginTime DATETIME NOT NULL DEFAULT '2010-01-01 00:00:00' COMMENT '合同模板生效时间';
 
-ALTER TABLE cntr_salecontract ADD COLUMN invalidTime DATETIME NOT NULL DEFAULT '2020-12-31 23:59:59' COMMENT '合同模板失效时间';
+ALTER TABLE cntr_contract_templet ADD COLUMN endTime DATETIME NOT NULL DEFAULT '2020-12-31 23:59:59' COMMENT '合同模板失效时间';
