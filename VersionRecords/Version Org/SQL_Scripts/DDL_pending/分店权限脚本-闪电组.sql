@@ -378,4 +378,7 @@ CREATE TABLE `mesg_subtemplet_his` (
 ALTER TABLE PERM_FUNCTIONINFO DROP INDEX fcode; 
 ALTER TABLE PERM_FUNCTIONINFO ADD UNIQUE INDEX(fcode,channel);
 
+/**增加分店备注字段长度**/
+ALTER TABLE orga_org MODIFY column remark varchar(512) DEFAULT NULL COMMENT '关闭分店时记录历史状态';
+
 
