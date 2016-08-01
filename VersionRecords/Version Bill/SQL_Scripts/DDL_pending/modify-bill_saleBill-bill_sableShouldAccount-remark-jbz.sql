@@ -1,5 +1,5 @@
-/*  Database name `mogoroomdb` ，为账单修改remark长度*/
+/*  Database name `mogoroomdb` 锛屼负璐﹀崟淇敼remark闀垮害*/
 use mogoroomdb;
 
-ALTER TABLE bill_saleshouldaccount MODIFY COLUMN remark VARCHAR(256) COLLATE utf8_bin DEFAULT NULL COMMENT '备注';
-ALTER TABLE bill_salebill MODIFY COLUMN remark VARCHAR(256) COLLATE utf8_bin DEFAULT NULL COMMENT '备注';
+ALTER TABLE bill_saleshouldaccount MODIFY COLUMN remark VARCHAR(256) DEFAULT NULL COMMENT '澶囨敞';
+ALTER TABLE bill_salebill MODIFY COLUMN remark VARCHAR(256)  DEFAULT NULL COMMENT '澶囨敞';
