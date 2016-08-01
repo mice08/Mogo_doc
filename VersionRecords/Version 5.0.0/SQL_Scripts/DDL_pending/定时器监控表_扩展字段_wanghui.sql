@@ -1,4 +1,4 @@
-------------------------------------- 变更------------------------------------------------
+USE mogoroomdb;
 /*第一次运行 不保存的字段去除 not null 约束*/
 ALTER TABLE opex_timer_monitor MODIFY endTime datetime NULL COMMENT ' 执行结束时间';  
 ALTER TABLE opex_timer_monitor MODIFY targetBeginTime datetime NULL COMMENT ' 被影响数据的开始时间';  
