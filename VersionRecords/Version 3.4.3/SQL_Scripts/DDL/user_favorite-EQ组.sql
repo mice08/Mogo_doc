@@ -1,4 +1,4 @@
-/* Database name `mogoroomdb` , 鐢ㄦ埛鏀惰棌(鍝佺墝鍠滄)璁板綍琛ㄥ鍔燿evice_uuid瀛楁 */
-use mogoroomdb;
-ALTER TABLE user_favorite ADD COLUMN device_uuid VARCHAR(50) DEFAULT NULL COMMENT '缁堢璁惧鍞竴鏍囪瘑(瀛樻斁app鐨刄UID,pc鍜寃ap娴忚鍣ㄧ殑cookie(鏈嶅姟绔敓鎴愮殑uuid))';
-ALTER TABLE user_favorite ADD COLUMN channelDtl INT(1) DEFAULT NULL COMMENT '娓犻亾鏄庣粏(鍙傝�冨瓧鍏歌〃缁勫悕:regChannelDtl)';
+/* Database name `mogoroomdb` , 用户收藏(品牌喜欢)记录表增加device_uuid字段 */
+USE mogoroomdb;
+ALTER TABLE user_favorite ADD COLUMN device_uuid VARCHAR(50) DEFAULT NULL COMMENT '终端设备唯一标识(存放app的UUID,pc和wap浏览器的cookie(服务端生成的uuid))';
+ALTER TABLE user_favorite ADD COLUMN channelDtl INT(3) DEFAULT NULL COMMENT '渠道明细(参考字典表组名:regChannelDtl)';
