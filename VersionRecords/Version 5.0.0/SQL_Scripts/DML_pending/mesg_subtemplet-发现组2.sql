@@ -1,14 +1,9 @@
-/* Database name `mogoroomdb` , 子帐号消息发送*/ 测试库请更改mogoroomdb为测试库名
+/* Database name `mogoroomdb` , 子帐号消息发送 测试库请更改mogoroomdb为测试库名*/
 /*  update by 吕崇新 */
 use mogoroomdb;
 BEGIN;
 
-SET @i = (SELECT auto_increment FROM information_schema.`TABLES` WHERE TABLE_SCHEMA= 'mogoroomdb' AND TABLE_NAME='mesg_templet');
-INSERT INTO `mogoroomdb`.`mesg_templet` (`id`, `templetCode`, `templetName`, `templetDesc`, `status`, `createBy`, `createTime`, `createByType`, `updateBy`, `updateTime`, `updateByType`, `valid`, `businessType`)
- VALUES (@i, 'push_subAccount_add', '新建子账号', '新建子账号', '1', '0', '2016-05-21 17:26:46', '4', NULL, NULL, NULL, '1', '10');
-SET @ii = (SELECT auto_increment FROM information_schema.`TABLES` WHERE TABLE_SCHEMA= 'mogoroomdb' AND TABLE_NAME='mesg_subtemplet');
-INSERT INTO `mogoroomdb`.`mesg_subtemplet` (`id`, `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`) 
-VALUES (@ii,@i, '3', '新建子账号', '${landlordName}您好，您新增了${num}个子账号，具体信息如下：${contents}。请将密码告知相应员工，并妥善保管。', '1', '1', NULL, NULL);
+
 
 SET @i = (SELECT auto_increment FROM information_schema.`TABLES` WHERE TABLE_SCHEMA= 'mogoroomdb' AND TABLE_NAME='mesg_templet');
 INSERT INTO `mogoroomdb`.`mesg_templet` (`id`, `templetCode`, `templetName`, `templetDesc`, `status`, `createBy`, `createTime`, `createByType`, `updateBy`, `updateTime`, `updateByType`, `valid`, `businessType`) 
