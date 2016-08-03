@@ -255,5 +255,9 @@ SELECT @templet_id:=(SELECT id FROM `mesg_templet` t WHERE t.`templetCode`='msg_
 	@templet_desc:='租客_退房结束',
 	@templet_content:='${renterName}您好，房东${landlordName}已完成您租住的${roomInfo}的退房（退款${amount}元），详情请查看租约，如有疑问请与房东联系。';
 INSERT INTO mesg_subtemplet (templetId, templetType, templetTitle, templetContent, STATUS, valid) VALUES (@templet_id, 3, @templet_desc, @templet_content, 1, 1);
+/*sms_renter_order_quickSign模板信息删除*/
+SELECT @templet_id :=( SELECT t.id from mesg_templet t WHERE t.templetCode = 'sms_renter_order_quickSign');
+UPDATE mesg_templet set valid = 0 , `status` = 0 where id = @templet_id;
+UPDATE mesg_subtemplet set valid = 0 , `status` = 0 WHERE templetId = @templet_id;
 
 
