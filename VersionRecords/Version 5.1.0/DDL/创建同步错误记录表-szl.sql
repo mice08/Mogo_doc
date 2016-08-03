@@ -1,7 +1,7 @@
 /*同步错误数据记录表*/
 use mogoroomdb;
 
-CREATE TABLE `comm_syn_error`(  
+CREATE TABLE `comm_synerr_record`(  
   `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `keyId` INT(11) NOT NULL COMMENT '同步数据ID',
   `keyType` VARCHAR(20) NOT NULL COMMENT '同步数据类型',
