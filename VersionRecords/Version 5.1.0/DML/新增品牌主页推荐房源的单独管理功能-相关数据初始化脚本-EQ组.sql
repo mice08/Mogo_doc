@@ -1,4 +1,4 @@
-/* Database name `mogoroomdb` , 修改cms的部分数据*/
+/* Database name `mogoroomdb` , 提交原因：新增了品牌主页推荐房源的单独管理功能-需要配置一些初始化数据*/
 use mogoroomdb;
 
 DELETE FROM coms_menu WHERE CODE = 212004 AND NAME='品牌主页房源推荐';
