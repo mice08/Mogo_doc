@@ -384,5 +384,8 @@ ALTER TABLE orga_org MODIFY column remark varchar(512) DEFAULT NULL COMMENT '关
 ALTER TABLE user_info_his DROP INDEX IDX_DONECODE;
 /*2016-08-04 */
 ALTER TABLE perm_role ADD COLUMN updateTime datetime DEFAULT NULL COMMENT '修改时间';
+ALTER TABLE perm_role ADD COLUMN updateEmp int(11) NULL COMMENT '修改人';
+ALTER TABLE perm_role ADD COLUMN soDoneCode int(11) NULL COMMENT '对应common_business_record.id';
+
 
 
