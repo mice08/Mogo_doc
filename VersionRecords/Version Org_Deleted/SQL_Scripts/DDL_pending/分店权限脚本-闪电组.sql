@@ -381,6 +381,4 @@ ALTER TABLE PERM_FUNCTIONINFO ADD UNIQUE INDEX(fcode,channel);
 /**增加分店备注字段长度**/
 ALTER TABLE orga_org MODIFY column remark varchar(512) DEFAULT NULL COMMENT '关闭分店时记录历史状态';
 
-ALTER TABLE user_info_his DROP INDEX IDX_DONECODE;
-
 
