@@ -1,5 +1,5 @@
-USE mogoroomdb;
 /*  Database name `mogoroomdb` 新增comm_biztypeOrder_record表*/
+USE mogoroomdb;
 DROP TABLE IF EXISTS comm_biztypeOrder_record;
 CREATE TABLE  comm_biztypeOrder_record (
 	id INT(11) PRIMARY KEY  AUTO_INCREMENT COMMENT '主键id',
