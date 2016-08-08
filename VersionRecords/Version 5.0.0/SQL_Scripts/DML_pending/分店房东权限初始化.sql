@@ -1,65 +1,44 @@
+/**权限数据初始化**/
 use mogoroomdb;
 
-INSERT INTO perm_functioninfo (
-  fcode,
-  fname,
-  furl,
-  seq,
-  functionLevel,
-  functionpId,
-  functionisMenu,
-  functionVcode,
-  functionParam,
-  functionFaclass,
-  isAjax,
-  functionType,
-  createdBy,
-  createdTime,
-  updatedBy,
-  updatedTime,
-  STATUS,
-  channel
+/**删除房东PC与房东APP配置的菜单**/
+DELETE FROM perm_functioninfo WHERE channel IN (4,5);
+
+/**房东下的子账号都分配到直属组织**/
+INSERT INTO orga_org_position (
+  userId,
+  orgId,
+  positionId,
+  label,
+  `status`,
+  createBy,
+  createByType,
+  createTime
 ) 
-VALUES
-  (
-    '5552002',
-    '组织小区查询',
-    '/mogoroom-partnerpc/flats/findCommunityByOrg',
-    '2002',
-    '2',
-    '0',
-    '0',
-    NULL,
-    NULL,
-    NULL,
-    '1',
-    '0',
-    NULL,
-    NOW(),
-    NULL,
-    NULL,
-    '1',
-    5
-  ) ;
-  
-  
-INSERT INTO perm_menu_group_rel (
-	menuId,
-	menuGroupId,
-	STATUS,
-	soDoneCode,
-	createTime,
-	updateTime
-) SELECT
-	perm_functioninfo.id,
-	perm_menu_group.id,
-	1,
-	0,
-	NOW(),
-	NOW()
+SELECT 
+  rel.`userId`,
+  -1,
+  (SELECT 
+    id 
+  FROM
+    `orga_position` t 
+  WHERE t.`positionCode` = 'subShopEmp'),
+  '分店员工',
+  1,
+  rel.`landlordId`,
+  0,
+  NOW() 
 FROM
-	perm_menu_group,
-	perm_functioninfo
-WHERE
-	perm_functioninfo.channel = 5 
-AND perm_functioninfo.furl='/mogoroom-partnerpc/flats/findCommunityByOrg' AND perm_menu_group.menuGroupName='房东PC子账号菜单分组';
+  user_landlord_childacc_rel rel 
+  JOIN user_info ui 
+    ON rel.`userId` = ui.`id` 
+    AND ui.`status` = 1 
+  JOIN user_landlord ul ON ul.id = rel.landlordId AND ul.status=1
+WHERE rel.`status` = 1 
+  AND NOT EXISTS 
+  (SELECT 
+    1 
+  FROM
+    orga_org_position oop 
+    WHERE oop.`userId` = rel.`userId` 
+    AND oop.`status`=1);
