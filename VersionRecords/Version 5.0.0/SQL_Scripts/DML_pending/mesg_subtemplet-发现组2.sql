@@ -7,7 +7,7 @@ BEGIN;
 
 SET @i = (SELECT auto_increment FROM information_schema.`TABLES` WHERE TABLE_SCHEMA= 'mogoroomdb' AND TABLE_NAME='mesg_templet');
 INSERT INTO `mogoroomdb`.`mesg_templet` (`id`, `templetCode`, `templetName`, `templetDesc`, `status`, `createBy`, `createTime`, `createByType`, `updateBy`, `updateTime`, `updateByType`, `valid`, `businessType`) 
-VALUES (@i, 'push_orgDel_notice', '×éÖ¯±ä¶¯ÌáĞÑ', '×éÖ¯¼õÉÙÊ±ÌáĞÑÏûÏ¢', '1', '2000031', '2016-07-27 17:42:53', '5', NULL, NULL, NULL, '1', NULL);
+VALUES (@i, 'push_orgDel_notice', '×éÖ¯±ä¶¯ÌáĞÑ', '×éÖ¯¼õÉÙÊ±ÌáĞÑÏûÏ¢', '1', '2000031', '2016-07-27 17:42:53', '5', NULL, NULL, NULL, '1', '10');
 SET @ii = (SELECT auto_increment FROM information_schema.`TABLES` WHERE TABLE_SCHEMA= 'mogoroomdb' AND TABLE_NAME='mesg_subtemplet');
 INSERT INTO `mogoroomdb`.`mesg_subtemplet` (`id`, `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`) 
 VALUES (@ii, @i, '3', '×¢Òâ£¬ÄúµÄ×éÖ¯ÒÑ·¢Éú±ä¸ü', 'ÄúºÃ£¬ÄúµÄËùÊô×éÖ¯ÒÑ±»¸ü¸Ä£¬ÇëÖØĞÂµÇÂ¼ºó½øĞĞ²é¿´¼°ÇĞ»»¡£', '1', '1', NULL, NULL);
@@ -15,14 +15,14 @@ VALUES (@ii, @i, '3', '×¢Òâ£¬ÄúµÄ×éÖ¯ÒÑ·¢Éú±ä¸ü', 'ÄúºÃ£¬ÄúµÄËùÊô×éÖ¯ÒÑ±»¸ü¸Ä£¬Ç
 
 SET @i = (SELECT auto_increment FROM information_schema.`TABLES` WHERE TABLE_SCHEMA= 'mogoroomdb' AND TABLE_NAME='mesg_templet');
 INSERT INTO `mogoroomdb`.`mesg_templet` (`id`, `templetCode`, `templetName`, `templetDesc`, `status`, `createBy`, `createTime`, `createByType`, `updateBy`, `updateTime`, `updateByType`, `valid`, `businessType`)
- VALUES (@i, 'push_orgAdd_notice', '×éÖ¯±ä¶¯ÌáĞÑ', 'ĞÂÔö×éÖ¯ÌáĞÑÏûÏ¢', '1', '2000031', '2016-07-27 17:41:31', '5', NULL, NULL, NULL, '1', NULL);
+ VALUES (@i, 'push_orgAdd_notice', '×éÖ¯±ä¶¯ÌáĞÑ', 'ĞÂÔö×éÖ¯ÌáĞÑÏûÏ¢', '1', '2000031', '2016-07-27 17:41:31', '5', NULL, NULL, NULL, '1', '10');
 SET @ii = (SELECT auto_increment FROM information_schema.`TABLES` WHERE TABLE_SCHEMA= 'mogoroomdb' AND TABLE_NAME='mesg_subtemplet');
 INSERT INTO `mogoroomdb`.`mesg_subtemplet` (`id`, `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`) 
 VALUES (@ii, @i, '3', '×¢Òâ£¬ÄúÒÑÓµÓĞĞÂµÄ×éÖ¯', 'ÄúºÃ£¬ÄúÒÑ±»¸³ÓèĞÂµÄ×éÖ¯È¨ÏŞ£¬¿ÉÔÚÖØĞÂµÇÂ¼ºó¿ªÊ¼Ê¹ÓÃ¡£', '1', '1', NULL, NULL);
 
 SET @i = (SELECT auto_increment FROM information_schema.`TABLES` WHERE TABLE_SCHEMA= 'mogoroomdb' AND TABLE_NAME='mesg_templet');
 INSERT INTO `mogoroomdb`.`mesg_templet` (`id`, `templetCode`, `templetName`, `templetDesc`, `status`, `createBy`, `createTime`, `createByType`, `updateBy`, `updateTime`, `updateByType`, `valid`, `businessType`) 
-VALUES (@i, 'push_roleAdd_notice', '½ÇÉ«±ä¶¯ÌáĞÑ', '½ÇÉ«ĞÂÔöÌáÊ¾', '1', '2000031', '2016-07-27 17:34:51', '5', NULL, NULL, NULL, '1', NULL);
+VALUES (@i, 'push_roleAdd_notice', '½ÇÉ«±ä¶¯ÌáĞÑ', '½ÇÉ«ĞÂÔöÌáÊ¾', '1', '2000031', '2016-07-27 17:34:51', '5', NULL, NULL, NULL, '1', '10');
 SET @ii = (SELECT auto_increment FROM information_schema.`TABLES` WHERE TABLE_SCHEMA= 'mogoroomdb' AND TABLE_NAME='mesg_subtemplet');
 INSERT INTO `mogoroomdb`.`mesg_subtemplet` (`id`, `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`) 
 VALUES (@ii, @i, '3', 'ÌáÊ¾£¬ÄúÒÑÓµÓĞĞÂµÄ½ÇÉ«', 'ÄúºÃ£¬ÄúÒÑ±»¸³ÓèĞÂµÄ½ÇÉ«£¬¿ÉÔÚÖØĞÂµÇÂ¼ºó¿ªÊ¼Ê¹ÓÃ¡£', '1', '1', NULL, NULL);
