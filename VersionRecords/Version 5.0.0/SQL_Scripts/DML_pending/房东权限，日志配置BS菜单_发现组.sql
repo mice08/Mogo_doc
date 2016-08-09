@@ -1,4 +1,7 @@
-﻿/**默认不自动提交事务**/
+﻿/**权限数据初始化**/
+use mogoroomdb;
+
+/**默认不自动提交事务**/
 set autocommit = 0;
 /*查询房东管理的id，level*/
 select @id:=id,@functionLevel:=functionLevel  from perm_functioninfo where fname = '房东管理';
