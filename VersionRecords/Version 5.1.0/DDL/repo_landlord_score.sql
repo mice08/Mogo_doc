@@ -3,7 +3,7 @@ use mogoroomdb;
 
 ALTER TABLE brand_vscore COMMENT = '房东评分表';
 
-ALTER TABLE brand_vscore ADD COLUMN `rankingType` tinyint(1) NOT NULL DEFAULT '0' COMMENT '评分类别' AFTER `landlordId`; 
+ALTER TABLE brand_vscore ADD COLUMN `rankingType` tinyint(1) NOT NULL DEFAULT '0' COMMENT '评分类别(0:V分 1:活跃分)' AFTER `landlordId`; 
 
 ALTER TABLE brand_vscore RENAME TO repo_landlord_score;
 
