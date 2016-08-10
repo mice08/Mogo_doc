@@ -389,6 +389,10 @@ ALTER TABLE perm_role ADD COLUMN soDoneCode int(11) NULL COMMENT '对应common_b
 
 ALTER TABLE perm_role_his ADD COLUMN updateTime datetime DEFAULT NULL COMMENT '修改时间';
 ALTER TABLE perm_role_his ADD COLUMN updateEmp int(11) NULL COMMENT '修改人';
+
+/*2016-08-10*/
+ ALTER TABLE comm_business_record ADD INDEX index_operationTime (`operationTime`); 
+ ALTER TABLE comm_busitype ADD UNIQUE(`busiType`); 
  
 
 
