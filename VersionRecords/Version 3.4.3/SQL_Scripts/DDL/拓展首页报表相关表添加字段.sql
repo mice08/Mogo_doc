@@ -15,3 +15,6 @@ ALTER TABLE repo_landlord_house_sum ADD COLUMN customerMgrDeptName VARCHAR(50) C
 ALTER TABLE repo_landlord_house_sum ADD COLUMN customerMgrDeptId INT(11) COMMENT '服务人所属部门id' AFTER customerMgrDeptName;
 ALTER TABLE repo_landlord_house_sum ADD COLUMN customerMgrDeptFullPath VARCHAR(50) COMMENT '服务人所属部门全编码' AFTER customerMgrDeptId;
 ALTER TABLE repo_landlord_house_sum ADD COLUMN customerMgrDeptLevel INT(11) COMMENT '服务人所属部门级别' AFTER customerMgrDeptFullPath;
+
+/* 调大repo_landlord_house_sum表roomInputRatio字段 */
+ALTER TABLE `repo_landlord_house_sum` CHANGE `roomInputRatio` `roomInputRatio` DECIMAL(11,4) NULL COMMENT '房东房源录入占比'; 
