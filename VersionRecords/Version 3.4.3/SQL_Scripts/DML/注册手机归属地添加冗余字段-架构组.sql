@@ -15,11 +15,15 @@ commit;
 
 begin
 
-update user_renter ur,comm_dictionary cd,comm_dictionary cd2
-set ur.regChannelValue=cd.value,ur.regChannelDtlValue=cd2.value
+update user_renter ur,comm_dictionary cd
+set ur.regChannelValue=cd.value
 where 1=1
- and cd.keyPro=ur.regChannel and cd.groupName='channel'
- and  cd2.keyPro=ur.regChannelDtl and cd2.groupName='regChannelDtl'
+ and cd.keyPro=ur.regChannel and cd.groupName='channel';
+
+update user_renter ur,comm_dictionary cd2
+set ur.regChannelDtlValue=cd2.value
+where 1=1
+ and  cd2.keyPro=ur.regChannelDtl and cd2.groupName='regChannelDtl';
 
 /* 校验数据*/
 
