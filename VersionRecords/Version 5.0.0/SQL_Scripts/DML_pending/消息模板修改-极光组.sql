@@ -53,4 +53,9 @@ WHERE  templetId IN (SELECT id FROM mesg_templet WHERE templetCode='sms_renter_m
 UPDATE mesg_subtemplet SET valid='0'
 WHERE  templetId IN (SELECT id FROM mesg_templet WHERE templetCode='sms_renter_mogobao_finalapprove_success')  AND templetType=1;
 
+/*蘑菇宝资料有误（房东）*/
+INSERT INTO mesg_templet (templetCode, templetName, templetDesc, STATUS, createBy, createTime, createByType, updateBy, updateTime, updateByType, valid, businessType) VALUES ('sms_mogoverify_validfail_topartner', '蘑菇宝资料有误', '蘑菇宝资料有误', 1, 2, NOW(), 3, NULL, NULL, NULL, 1, 5);
+INSERT INTO mesg_subtemplet (templetId, templetType, templetTitle, templetContent, STATUS, valid, outTempletId, jumpCode) VALUES ((SELECT id FROM mesg_templet WHERE templetCode = 'sms_mogoverify_validfail_topartner'), 1, '蘑菇宝资料有误', '[蘑菇宝]尊敬的房东，您的租客${renterName}（{${roomAddr}}）申请的蘑菇宝由于资料有误被退回。请协助通知租客及时提交修改资料。', 1, 1, '', NULL);
+INSERT INTO mesg_subtemplet (templetId, templetType, templetTitle, templetContent, STATUS, valid, outTempletId, jumpCode) VALUES ((SELECT id FROM mesg_templet WHERE templetCode = 'sms_mogoverify_validfail_topartner'), 3, '蘑菇宝资料有误', '[蘑菇宝]尊敬的房东，您的租客${renterName}（{${roomAddr}}）申请的蘑菇宝由于资料有误被退回。请协助通知租客及时提交修改资料。', 1, 1, '', NULL);
+
 COMMIT;
