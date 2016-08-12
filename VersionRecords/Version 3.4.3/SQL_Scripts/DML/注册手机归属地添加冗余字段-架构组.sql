@@ -9,6 +9,12 @@ where t.regMobileCity=mc.areaCode
 and t.regMobileCity is not null
 and t.regMobileCity!='';
 
+/* 修改后*/
+update user_renter ur,city c,city_province cp
+set ur.regMobileCityValue=concat(cp.proName,'-',c.name)
+where ur.regMobileCity=c.areaCode
+   and c.fid=cp.id ;
+
 /* 校验数据*/
 
 commit;
