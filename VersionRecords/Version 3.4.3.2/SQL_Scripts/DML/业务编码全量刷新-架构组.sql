@@ -185,6 +185,8 @@ delete from `comm_busitype` where busiType in (210101001);
 delete from `comm_busitype` where busiType in (210101002);
 delete from `comm_busitype` where busiType in (210102001);
 delete from `comm_busitype` where busiType in (210103001);
+delete from `comm_busitype` where busiType in (50102008);
+delete from `comm_busitype` where busiType in (50102009);
 
 
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(10101001,'新增一次账单',1,1,3,1,10101);
@@ -258,6 +260,8 @@ INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId)
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(50102005,'账号登录记录',1,1,3,1,50102);
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(50102006,'批量修改分店',1,1,3,1,50102);
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(50102007,'房东密码修改',1,1,3,1,50102);
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(50102008,'修改个人信息',1,1,3,1,50102);
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(50102009,'修改密码',1,1,3,1,50102);
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(50103001,'批量分配房源',1,1,3,1,50103);
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(50103002,'更改分店',1,1,3,1,50103);
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(50103003,'取消关联分店',1,1,3,1,50103);
