@@ -1,3 +1,8 @@
+/* Database name `mogoroomdb` , 极光组修改消息模板*/
+
+USE mogoroomdb;
+
+
 update mesg_subtemplet set templetContent='[蘑菇宝]尊敬的房东，您的租客${renterName}，对应房源${roomInfo}，蘑菇宝首次申请审批失败，请协助通知租客及时提交修改资料。' where templetId in (select id from mesg_templet where templetCode = 'sms_landlord_mogobao_lakala_one_failure');
 update mesg_subtemplet set templetContent='[蘑菇宝]尊敬的房东，您的租客{renterName}（{roomInfo}）申请的蘑菇宝审核未通过，请联系租客退房并以其它支付方式重新签约。' where templetId in (select id from mesg_templet where templetCode = 'sms_landlord_mogobao_lakala_two_failure');
 update mesg_subtemplet set templetContent='[蘑菇宝]尊敬的房东，您的租客${renterName}，对应房源${roomInfo}，蘑菇宝申请已通过审批，等待放款中，请知悉。' where templetId in (select id from mesg_templet where templetCode = 'sms_landlord_mogobao_lakala_success');
