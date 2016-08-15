@@ -53,7 +53,7 @@ INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId)
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 40102,'业主操作',1,1,2,0,401 );
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 50101,'分店设置',1,1,2,0,501 );
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 50102,'账号管理',1,1,2,0,501 );
-INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 50103,'分店管理',1,1,2,0,501 );
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 50103,'房源管理',1,1,2,0,501 );
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 50104,'角色设置',1,1,2,0,501 );
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 50105,'消息设置',1,1,2,0,501 );
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 50106,'系统',1,1,2,0,501 );
