@@ -26,6 +26,9 @@ delete from `comm_busitype` where busiType in (160104,1601);
 delete from `comm_busitype` where busiType in (120101,1201);
 delete from `comm_busitype` where busiType in (60101,601);
 delete from `comm_busitype` where busiType in (70101,701);
+delete from `comm_busitype` where busiType in (210101,2101);
+delete from `comm_busitype` where busiType in (210102,2101);
+delete from `comm_busitype` where busiType in (210103,2101);
 
 
 
@@ -38,6 +41,7 @@ INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId)
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 1201,'通用模块',1,1,1,0,null);
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 601,'用户管理',1,1,1,0,null);
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 701,'消息管理',1,1,1,0,null);
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 2101,'房源搜索管理',1,1,1,0,null);
 
 
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 10101,'账单推送',1,1,2,0,101 );
@@ -53,7 +57,7 @@ INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId)
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 40102,'业主操作',1,1,2,0,401 );
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 50101,'分店设置',1,1,2,0,501 );
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 50102,'账号管理',1,1,2,0,501 );
-INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 50103,'分店管理',1,1,2,0,501 );
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 50103,'房源管理',1,1,2,0,501 );
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 50104,'角色设置',1,1,2,0,501 );
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 50105,'消息设置',1,1,2,0,501 );
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 50106,'系统',1,1,2,0,501 );
@@ -64,6 +68,9 @@ INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId)
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 120101,'操作日志',1,1,2,0,1201 );
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 60101,'修改账号',1,1,2,0,601 );
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 70101,'消息操作',1,1,2,0,701 );
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 210101,'房源搜索',1,1,2,0,2101 );
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 210102,'自动联想',1,1,2,0,2101 );
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 210103,'帮助',1,1,2,0,2101 );
 
 
 delete from `comm_busitype` where busiType in (10101001);
@@ -174,116 +181,10 @@ delete from `comm_busitype` where busiType in (60101001);
 delete from `comm_busitype` where busiType in (60101002);
 delete from `comm_busitype` where busiType in (60101003);
 delete from `comm_busitype` where busiType in (70101001);
-
-
-delete from `comm_busitype` where busiType in (10101001);
-delete from `comm_busitype` where busiType in (10101002);
-delete from `comm_busitype` where busiType in (10101003);
-delete from `comm_busitype` where busiType in (10101004);
-delete from `comm_busitype` where busiType in (10101005);
-delete from `comm_busitype` where busiType in (10101006);
-delete from `comm_busitype` where busiType in (10101007);
-delete from `comm_busitype` where busiType in (10101008);
-delete from `comm_busitype` where busiType in (10101009);
-delete from `comm_busitype` where busiType in (10101010);
-delete from `comm_busitype` where busiType in (10101011);
-delete from `comm_busitype` where busiType in (10101012);
-delete from `comm_busitype` where busiType in (10101013);
-delete from `comm_busitype` where busiType in (10104001);
-delete from `comm_busitype` where busiType in (10104002);
-delete from `comm_busitype` where busiType in (10104003);
-delete from `comm_busitype` where busiType in (10104004);
-delete from `comm_busitype` where busiType in (10104005);
-delete from `comm_busitype` where busiType in (20101001);
-delete from `comm_busitype` where busiType in (20101002);
-delete from `comm_busitype` where busiType in (20101003);
-delete from `comm_busitype` where busiType in (20101004);
-delete from `comm_busitype` where busiType in (20101005);
-delete from `comm_busitype` where busiType in (20101006);
-delete from `comm_busitype` where busiType in (20101007);
-delete from `comm_busitype` where busiType in (20101008);
-delete from `comm_busitype` where busiType in (20101009);
-delete from `comm_busitype` where busiType in (20101010);
-delete from `comm_busitype` where busiType in (20101011);
-delete from `comm_busitype` where busiType in (20101012);
-delete from `comm_busitype` where busiType in (20101013);
-delete from `comm_busitype` where busiType in (20101014);
-delete from `comm_busitype` where busiType in (20101015);
-delete from `comm_busitype` where busiType in (20101016);
-delete from `comm_busitype` where busiType in (20101017);
-delete from `comm_busitype` where busiType in (20101018);
-delete from `comm_busitype` where busiType in (20101019);
-delete from `comm_busitype` where busiType in (30101001);
-delete from `comm_busitype` where busiType in (30101002);
-delete from `comm_busitype` where busiType in (30101003);
-delete from `comm_busitype` where busiType in (30101004);
-delete from `comm_busitype` where busiType in (40101001);
-delete from `comm_busitype` where busiType in (40101002);
-delete from `comm_busitype` where busiType in (40101003);
-delete from `comm_busitype` where busiType in (40101004);
-delete from `comm_busitype` where busiType in (40101005);
-delete from `comm_busitype` where busiType in (40101006);
-delete from `comm_busitype` where busiType in (40101007);
-delete from `comm_busitype` where busiType in (40101008);
-delete from `comm_busitype` where busiType in (40101009);
-delete from `comm_busitype` where busiType in (40101010);
-delete from `comm_busitype` where busiType in (40101011);
-delete from `comm_busitype` where busiType in (40101012);
-delete from `comm_busitype` where busiType in (40101013);
-delete from `comm_busitype` where busiType in (50101001);
-delete from `comm_busitype` where busiType in (50101002);
-delete from `comm_busitype` where busiType in (50101003);
-delete from `comm_busitype` where busiType in (50101004);
-delete from `comm_busitype` where busiType in (50101005);
-delete from `comm_busitype` where busiType in (50101006);
-delete from `comm_busitype` where busiType in (50101007);
-delete from `comm_busitype` where busiType in (50101008);
-delete from `comm_busitype` where busiType in (50101009);
-delete from `comm_busitype` where busiType in (50101010);
-delete from `comm_busitype` where busiType in (50102001);
-delete from `comm_busitype` where busiType in (50102002);
-delete from `comm_busitype` where busiType in (50102003);
-delete from `comm_busitype` where busiType in (50102004);
-delete from `comm_busitype` where busiType in (50102005);
-delete from `comm_busitype` where busiType in (50102006);
-delete from `comm_busitype` where busiType in (50102007);
-delete from `comm_busitype` where busiType in (50103001);
-delete from `comm_busitype` where busiType in (50103002);
-delete from `comm_busitype` where busiType in (50103003);
-delete from `comm_busitype` where busiType in (50104001);
-delete from `comm_busitype` where busiType in (50104002);
-delete from `comm_busitype` where busiType in (50104003);
-delete from `comm_busitype` where busiType in (50105001);
-delete from `comm_busitype` where busiType in (50105002);
-delete from `comm_busitype` where busiType in (50106001);
-delete from `comm_busitype` where busiType in (160101001);
-delete from `comm_busitype` where busiType in (160101002);
-delete from `comm_busitype` where busiType in (160101003);
-delete from `comm_busitype` where busiType in (160101004);
-delete from `comm_busitype` where busiType in (160101006);
-delete from `comm_busitype` where busiType in (160101008);
-delete from `comm_busitype` where busiType in (160102001);
-delete from `comm_busitype` where busiType in (160102002);
-delete from `comm_busitype` where busiType in (160102003);
-delete from `comm_busitype` where busiType in (160102004);
-delete from `comm_busitype` where busiType in (160102005);
-delete from `comm_busitype` where busiType in (160102006);
-delete from `comm_busitype` where busiType in (160102007);
-delete from `comm_busitype` where busiType in (160102008);
-delete from `comm_busitype` where busiType in (160103001);
-delete from `comm_busitype` where busiType in (160103002);
-delete from `comm_busitype` where busiType in (160103003);
-delete from `comm_busitype` where busiType in (160104001);
-delete from `comm_busitype` where busiType in (160104002);
-delete from `comm_busitype` where busiType in (160104003);
-delete from `comm_busitype` where busiType in (160104004);
-delete from `comm_busitype` where busiType in (160104005);
-delete from `comm_busitype` where busiType in (160104006);
-delete from `comm_busitype` where busiType in (120101001);
-delete from `comm_busitype` where busiType in (60101001);
-delete from `comm_busitype` where busiType in (60101002);
-delete from `comm_busitype` where busiType in (60101003);
-delete from `comm_busitype` where busiType in (70101001);
+delete from `comm_busitype` where busiType in (210101001);
+delete from `comm_busitype` where busiType in (210101002);
+delete from `comm_busitype` where busiType in (210102001);
+delete from `comm_busitype` where busiType in (210103001);
 
 
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(10101001,'新增一次账单',1,1,3,1,10101);
@@ -394,5 +295,9 @@ INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId)
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(60101002,'修改密码',1,1,3,1,60101);
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(60101003,'修改房东服务人',1,1,3,1,60101);
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(70101001,'删除消息',1,1,3,1,70101);
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(210101001,'官网房源搜索',1,1,3,1,210101);
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(210101002,'租客APP房源搜索',1,1,3,1,210101);
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(210102001,'官网关键字搜索',1,1,3,1,210102);
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(210103001,'帮助搜索',1,1,3,1,210103);
 
 
