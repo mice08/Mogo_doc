@@ -178,7 +178,6 @@ ALTER TABLE perm_role modify column status int(1) NOT NULL comment '角色状态
 
 /**2016-07-21 新增*/
 ALTER TABLE perm_menu_group ADD COLUMN `remark` varchar(256) DEFAULT NULL COMMENT '描述';
-ALTER TABLE comm_business_record ADD COLUMN `operatorRoleId` int(11) DEFAULT NULL COMMENT '操作人角色';
 
 /*角色历史表*/
 CREATE TABLE `perm_role_his` (
