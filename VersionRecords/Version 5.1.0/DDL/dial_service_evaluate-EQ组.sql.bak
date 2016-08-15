@@ -20,4 +20,4 @@ CREATE TABLE supp_service_evaluate
 
 
 
-alter table supp_service_evaluate add column device_uuid varchar(50) COMMENT '终端设备唯一标识';
+alter table supp_service_evaluate add device_uuid varchar(100) COMMENT '终端设备唯一标识';
