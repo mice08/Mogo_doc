@@ -2429,6 +2429,19 @@ INSERT INTO `perm_functioninfo`
 SELECT '6110000', '申请租金宝', 'finance/myLoanBill', @seq, @level2+1, @parentid2, 0, NULL, NULL, NULL, 1, 1, NULL, now(), NULL, now(), 1, 5
 FROM dual WHERE not exists (select id from perm_functioninfo where fcode = '6110000' and channel=5);
 
+/**生成新的顺序号**/
+select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@parentid2;
+select @seq:=(case when @seq is null then 1 else @seq end);
+
+/**更新节点记录，如果记录存在**/
+update perm_functioninfo set fname='租金宝保证金',furl='',functionLevel=@level2+1,functionpId=@parentid2,functionisMenu=0,isAjax=0,functionType=1,updatedTime=now() where fcode='6120000' and channel=5;
+
+/**插入新节点记录，如果记录不存在**/
+INSERT INTO `perm_functioninfo`
+( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
+SELECT '6120000', '租金宝保证金', '', @seq, @level2+1, @parentid2, 0, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, now(), 1, 5
+FROM dual WHERE not exists (select id from perm_functioninfo where fcode = '6120000' and channel=5);
+
 
 
 -- 我的
