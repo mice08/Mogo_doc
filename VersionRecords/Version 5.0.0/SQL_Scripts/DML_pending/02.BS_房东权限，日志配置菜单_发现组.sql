@@ -255,7 +255,7 @@ select @fcode:= CONCAT(@level2+1,lpad(@parentid2,4,0),@seq ) from dual;
 /**插入新节点记录-'添加角色'**/
 INSERT INTO `perm_functioninfo`
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES (@fcode, '添加角色', 'landlordpermission/addRole_step1', @seq, @level2+1, @parentid2, 1, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, NULL, 1, 2);
+VALUES (@fcode, '添加角色', 'landlordpermission/addRole', @seq, @level2+1, @parentid2, 1, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, NULL, 1, 2);
 
 /**生成新的顺序号,null默认是1**/
 select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@parentid2;

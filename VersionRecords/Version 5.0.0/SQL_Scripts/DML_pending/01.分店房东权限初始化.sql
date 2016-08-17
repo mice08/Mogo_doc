@@ -3,6 +3,11 @@ use mogoroomdb;
 
 /**删除房东PC与房东APP配置的菜单**/
 DELETE FROM perm_functioninfo WHERE channel IN (4,5);
+/*清空数据*/
+DELETE FROM `perm_menu_group`;
+DELETE FROM `perm_menu_group_rel`;
+DELETE FROM `perm_role` where id = 66;
+DELETE FROM `perm_menugroup_role_rel`;
 
 /**房东下的子账号都分配到直属组织**/
 INSERT INTO orga_org_position (
