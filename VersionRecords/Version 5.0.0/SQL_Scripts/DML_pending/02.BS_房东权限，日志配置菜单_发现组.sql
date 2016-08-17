@@ -345,6 +345,17 @@ INSERT INTO `perm_functioninfo`
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
 VALUES (@fcode, '编辑角色提交', 'landlordpermission/editRole', @seq, @level2+1, @parentid2, 0, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, NULL, 1, 2);
 	
+/**生成新的顺序号,null默认是1**/
+select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@rootId;
+select @seq:=(case when @seq is null then 1 else @seq end);
+
+/**生成新的fcode**/
+select @fcode:= CONCAT(@rootLevel+1,lpad(@rootId,4,0),@seq ) from dual;
+/**插入新节点记录-'查看功能互斥'**/
+INSERT INTO `perm_functioninfo`
+( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
+VALUES (@fcode, '查看功能互斥', 'landlordfunctree/landlordfuncMutexShow', @seq, @rootLevel+1, @rootId, 1, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, NULL, 1, 2);
+
 
 -- 日志管理
 
