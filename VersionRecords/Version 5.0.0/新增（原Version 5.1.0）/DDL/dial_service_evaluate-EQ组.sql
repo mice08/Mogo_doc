@@ -1,8 +1,7 @@
 /* Database name `mogoroomdb`， 服务评价表 */
  
 use mogoroomdb;
- 
- 
+  
 CREATE TABLE supp_service_evaluate 
 (
   id int(11) auto_increment NOT NULL COMMENT 'ID',
