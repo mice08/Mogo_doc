@@ -1,8 +1,7 @@
 /* Database name `mogoroomdb`， 服务评价表 */
  
 use mogoroomdb;
- 
- 
+  
 CREATE TABLE supp_service_evaluate 
 (
   id int(11) auto_increment NOT NULL COMMENT 'ID',
@@ -21,3 +20,8 @@ CREATE TABLE supp_service_evaluate
 
 
 alter table supp_service_evaluate add column device_uuid varchar(50) COMMENT '终端设备唯一标识';
+
+
+alter table supp_service_evaluate add column status TINYINT(1) NOT NULL  COMMENT '状态(1:有效 0:无效)';
+
+alter table supp_service_evaluate add column updateTime datetime DEFAULT CURRENT_TIMESTAMP COMMENT '更新时间';
