@@ -5047,41 +5047,31 @@ FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_com
 and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=3);
 
 /* 更新模版 */
-update mesg_templet set templetName='新室友入住',templetDesc='新室友入住',status=1,valid=1,updateTime=now() where templetCode = 'sms_sendWelcomeNewRoommate';
-/* 插入模版 'sms_sendWelcomeNewRoommate' */
+update mesg_templet set templetName='补录租约（集中式）',templetDesc='补录租约（集中式）',status=1,valid=1,updateTime=now() where templetCode = 'sms_renter_saleContractConvert_foucs_success';
+/* 插入模版 'sms_renter_saleContractConvert_foucs_success' */
 INSERT INTO `mesg_templet`
 ( `templetCode`, `templetName`, `templetDesc`, `status`, `createBy`, `createTime`, `createByType`, `updateBy`, `updateTime`, `updateByType`, `valid`, `businessType`)
-SELECT 'sms_sendWelcomeNewRoommate','新室友入住','新室友入住',1,0,now(),0,0,now(),0,1,14
-FROM dual WHERE not exists (select id from mesg_templet where templetCode = 'sms_sendWelcomeNewRoommate');
+SELECT 'sms_renter_saleContractConvert_foucs_success','补录租约（集中式）','补录租约（集中式）',1,0,now(),0,0,now(),0,1,9
+FROM dual WHERE not exists (select id from mesg_templet where templetCode = 'sms_renter_saleContractConvert_foucs_success');
 
 /* 查询模版id */
-select @mesgTempletId:=id from mesg_templet where templetCode='sms_sendWelcomeNewRoommate';
+select @mesgTempletId:=id from mesg_templet where templetCode='sms_renter_saleContractConvert_foucs_success';
 /* 更新子模版 */
-update mesg_subtemplet set templetTitle='欢迎新室友',templetContent='[欢迎新室友]${realName}您好，很高兴第一时间通知您，我们迎来了一位新室友，Ta是@${renterName}，会在${checkInDate}日入住咱们的小家庭，让我们一起欢迎Ta吧，颜值、姓名什么的到时候就知道啦【蘑菇租房-让我们住得更好】',status=1 where templetId=@mesgTempletId and templetType=3;
+update mesg_subtemplet set templetTitle='补录租约确认',templetContent='租客${realName},同意了您${communityName}${flatRoomNum}号的补录租约。',status=1 where templetId=@mesgTempletId and templetType=1;
 /* 插入子模版 */
 INSERT INTO `mesg_subtemplet`
 ( `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`)
-SELECT @mesgTempletId,3,'欢迎新室友','[欢迎新室友]${realName}您好，很高兴第一时间通知您，我们迎来了一位新室友，Ta是@${renterName}，会在${checkInDate}日入住咱们的小家庭，让我们一起欢迎Ta吧，颜值、姓名什么的到时候就知道啦【蘑菇租房-让我们住得更好】',1,1,null,''
-FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_sendWelcomeNewRoommate')
-and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=3);
+SELECT @mesgTempletId,1,'补录租约确认','租客${realName},同意了您${communityName}${flatRoomNum}号的补录租约。',1,1,null,''
+FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_renter_saleContractConvert_foucs_success')
+and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=1);
 
-/* 更新模版 */
-update mesg_templet set templetName='预约单通知',templetDesc='可快速签约的预约单通知',status=1,valid=1,updateTime=now() where templetCode = 'sms_renter_order_quickSign';
-/* 插入模版 'sms_renter_order_quickSign' */
-INSERT INTO `mesg_templet`
-( `templetCode`, `templetName`, `templetDesc`, `status`, `createBy`, `createTime`, `createByType`, `updateBy`, `updateTime`, `updateByType`, `valid`, `businessType`)
-SELECT 'sms_renter_order_quickSign','预约单通知','可快速签约的预约单通知',1,0,now(),0,0,now(),0,1,1
-FROM dual WHERE not exists (select id from mesg_templet where templetCode = 'sms_renter_order_quickSign');
-
-/* 查询模版id */
-select @mesgTempletId:=id from mesg_templet where templetCode='sms_renter_order_quickSign';
 /* 更新子模版 */
-update mesg_subtemplet set templetTitle='预约单通知',templetContent='你有一个预约单可快速签约！请在6小时内完成快速签约，过期将失效！',status=0 where templetId=@mesgTempletId and templetType=3;
+update mesg_subtemplet set templetTitle='补录租约确认',templetContent='租客${realName},同意了您${communityName}${flatRoomNum}号的补录租约。',status=1 where templetId=@mesgTempletId and templetType=3;
 /* 插入子模版 */
 INSERT INTO `mesg_subtemplet`
 ( `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`)
-SELECT @mesgTempletId,3,'预约单通知','你有一个预约单可快速签约！请在6小时内完成快速签约，过期将失效！',0,1,null,''
-FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_renter_order_quickSign')
+SELECT @mesgTempletId,3,'补录租约确认','租客${realName},同意了您${communityName}${flatRoomNum}号的补录租约。',1,1,null,''
+FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_renter_saleContractConvert_foucs_success')
 and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=3);
 
 /* 更新模版 */
@@ -5123,31 +5113,22 @@ FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_Cre
 and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=3);
 
 /* 更新模版 */
-update mesg_templet set templetName='补录租约（集中式）',templetDesc='补录租约（集中式）',status=1,valid=1,updateTime=now() where templetCode = 'sms_renter_saleContractConvert_foucs_success';
-/* 插入模版 'sms_renter_saleContractConvert_foucs_success' */
+update mesg_templet set templetName='租客投诉撤销通知',templetDesc='租客投诉撤销通知',status=1,valid=1,updateTime=now() where templetCode = 'sms_renter_complainUndo';
+/* 插入模版 'sms_renter_complainUndo' */
 INSERT INTO `mesg_templet`
 ( `templetCode`, `templetName`, `templetDesc`, `status`, `createBy`, `createTime`, `createByType`, `updateBy`, `updateTime`, `updateByType`, `valid`, `businessType`)
-SELECT 'sms_renter_saleContractConvert_foucs_success','补录租约（集中式）','补录租约（集中式）',1,0,now(),0,0,now(),0,1,9
-FROM dual WHERE not exists (select id from mesg_templet where templetCode = 'sms_renter_saleContractConvert_foucs_success');
+SELECT 'sms_renter_complainUndo','租客投诉撤销通知','租客投诉撤销通知',1,0,now(),0,0,now(),0,1,12
+FROM dual WHERE not exists (select id from mesg_templet where templetCode = 'sms_renter_complainUndo');
 
 /* 查询模版id */
-select @mesgTempletId:=id from mesg_templet where templetCode='sms_renter_saleContractConvert_foucs_success';
+select @mesgTempletId:=id from mesg_templet where templetCode='sms_renter_complainUndo';
 /* 更新子模版 */
-update mesg_subtemplet set templetTitle='补录租约确认',templetContent='租客${realName},同意了您${communityName}${flatRoomNum}号的补录租约。',status=1 where templetId=@mesgTempletId and templetType=1;
+update mesg_subtemplet set templetTitle='投诉已撤销',templetContent='[投诉已撤销]您的投诉服务已被撤销，立即登录蘑菇租房查看详情，若有疑问，请直接与房东联系【蘑菇租房-让我们住得更好】',status=1 where templetId=@mesgTempletId and templetType=3;
 /* 插入子模版 */
 INSERT INTO `mesg_subtemplet`
 ( `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`)
-SELECT @mesgTempletId,1,'补录租约确认','租客${realName},同意了您${communityName}${flatRoomNum}号的补录租约。',1,1,null,''
-FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_renter_saleContractConvert_foucs_success')
-and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=1);
-
-/* 更新子模版 */
-update mesg_subtemplet set templetTitle='补录租约确认',templetContent='租客${realName},同意了您${communityName}${flatRoomNum}号的补录租约。',status=1 where templetId=@mesgTempletId and templetType=3;
-/* 插入子模版 */
-INSERT INTO `mesg_subtemplet`
-( `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`)
-SELECT @mesgTempletId,3,'补录租约确认','租客${realName},同意了您${communityName}${flatRoomNum}号的补录租约。',1,1,null,''
-FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_renter_saleContractConvert_foucs_success')
+SELECT @mesgTempletId,3,'投诉已撤销','[投诉已撤销]您的投诉服务已被撤销，立即登录蘑菇租房查看详情，若有疑问，请直接与房东联系【蘑菇租房-让我们住得更好】',1,1,null,''
+FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_renter_complainUndo')
 and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=3);
 
 /* 更新模版 */
@@ -5170,25 +5151,6 @@ FROM dual WHERE exists (select id from mesg_templet where templetCode = 'bill_re
 and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=3);
 
 /* 更新模版 */
-update mesg_templet set templetName='租客投诉撤销通知',templetDesc='租客投诉撤销通知',status=1,valid=1,updateTime=now() where templetCode = 'sms_renter_complainUndo';
-/* 插入模版 'sms_renter_complainUndo' */
-INSERT INTO `mesg_templet`
-( `templetCode`, `templetName`, `templetDesc`, `status`, `createBy`, `createTime`, `createByType`, `updateBy`, `updateTime`, `updateByType`, `valid`, `businessType`)
-SELECT 'sms_renter_complainUndo','租客投诉撤销通知','租客投诉撤销通知',1,0,now(),0,0,now(),0,1,12
-FROM dual WHERE not exists (select id from mesg_templet where templetCode = 'sms_renter_complainUndo');
-
-/* 查询模版id */
-select @mesgTempletId:=id from mesg_templet where templetCode='sms_renter_complainUndo';
-/* 更新子模版 */
-update mesg_subtemplet set templetTitle='投诉已撤销',templetContent='[投诉已撤销]您的投诉服务已被撤销，立即登录蘑菇租房查看详情，若有疑问，请直接与房东联系【蘑菇租房-让我们住得更好】',status=1 where templetId=@mesgTempletId and templetType=3;
-/* 插入子模版 */
-INSERT INTO `mesg_subtemplet`
-( `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`)
-SELECT @mesgTempletId,3,'投诉已撤销','[投诉已撤销]您的投诉服务已被撤销，立即登录蘑菇租房查看详情，若有疑问，请直接与房东联系【蘑菇租房-让我们住得更好】',1,1,null,''
-FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_renter_complainUndo')
-and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=3);
-
-/* 更新模版 */
 update mesg_templet set templetName='帐号登录通知',templetDesc='您的帐号已在其他设备登录',status=1,valid=1,updateTime=now() where templetCode = 'push_renter_noticeLogoff';
 /* 插入模版 'push_renter_noticeLogoff' */
 INSERT INTO `mesg_templet`
@@ -5205,6 +5167,34 @@ INSERT INTO `mesg_subtemplet`
 ( `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`)
 SELECT @mesgTempletId,3,'帐号登录通知','您的帐号已在其他设备登录，如有疑问请联系客服。蘑菇租房-让我们住得更好！',1,1,null,''
 FROM dual WHERE exists (select id from mesg_templet where templetCode = 'push_renter_noticeLogoff')
+and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=3);
+
+/* 更新模版 */
+update mesg_templet set templetName='补录租约（集中式）',templetDesc='补录租约（集中式）',status=1,valid=1,updateTime=now() where templetCode = 'sms_renter_saleContractConvert_failure';
+/* 插入模版 'sms_renter_saleContractConvert_failure' */
+INSERT INTO `mesg_templet`
+( `templetCode`, `templetName`, `templetDesc`, `status`, `createBy`, `createTime`, `createByType`, `updateBy`, `updateTime`, `updateByType`, `valid`, `businessType`)
+SELECT 'sms_renter_saleContractConvert_failure','补录租约（集中式）','补录租约（集中式）',1,0,now(),0,0,now(),0,1,8
+FROM dual WHERE not exists (select id from mesg_templet where templetCode = 'sms_renter_saleContractConvert_failure');
+
+/* 查询模版id */
+select @mesgTempletId:=id from mesg_templet where templetCode='sms_renter_saleContractConvert_failure';
+/* 更新子模版 */
+update mesg_subtemplet set templetTitle='补录租约意见',templetContent='租客${realName},不同意您${communityName}小区${building}栋${flatRoomNum}号Room${roomName}的补录租约，请及时联系与其沟通。',status=1 where templetId=@mesgTempletId and templetType=1;
+/* 插入子模版 */
+INSERT INTO `mesg_subtemplet`
+( `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`)
+SELECT @mesgTempletId,1,'补录租约意见','租客${realName},不同意您${communityName}小区${building}栋${flatRoomNum}号Room${roomName}的补录租约，请及时联系与其沟通。',1,1,null,''
+FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_renter_saleContractConvert_failure')
+and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=1);
+
+/* 更新子模版 */
+update mesg_subtemplet set templetTitle='补录租约意见',templetContent='租客${realName},不同意您${communityName}小区${building}栋${flatRoomNum}号Room${roomName}的补录租约，请及时联系与其沟通。',status=1 where templetId=@mesgTempletId and templetType=3;
+/* 插入子模版 */
+INSERT INTO `mesg_subtemplet`
+( `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`)
+SELECT @mesgTempletId,3,'补录租约意见','租客${realName},不同意您${communityName}小区${building}栋${flatRoomNum}号Room${roomName}的补录租约，请及时联系与其沟通。',1,1,null,''
+FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_renter_saleContractConvert_failure')
 and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=3);
 
 /* 更新模版 */
@@ -5246,34 +5236,6 @@ FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_Cre
 and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=3);
 
 /* 更新模版 */
-update mesg_templet set templetName='补录租约（集中式）',templetDesc='补录租约（集中式）',status=1,valid=1,updateTime=now() where templetCode = 'sms_renter_saleContractConvert_failure';
-/* 插入模版 'sms_renter_saleContractConvert_failure' */
-INSERT INTO `mesg_templet`
-( `templetCode`, `templetName`, `templetDesc`, `status`, `createBy`, `createTime`, `createByType`, `updateBy`, `updateTime`, `updateByType`, `valid`, `businessType`)
-SELECT 'sms_renter_saleContractConvert_failure','补录租约（集中式）','补录租约（集中式）',1,0,now(),0,0,now(),0,1,8
-FROM dual WHERE not exists (select id from mesg_templet where templetCode = 'sms_renter_saleContractConvert_failure');
-
-/* 查询模版id */
-select @mesgTempletId:=id from mesg_templet where templetCode='sms_renter_saleContractConvert_failure';
-/* 更新子模版 */
-update mesg_subtemplet set templetTitle='补录租约意见',templetContent='租客${realName},不同意您${communityName}小区${building}栋${flatRoomNum}号Room${roomName}的补录租约，请及时联系与其沟通。',status=1 where templetId=@mesgTempletId and templetType=1;
-/* 插入子模版 */
-INSERT INTO `mesg_subtemplet`
-( `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`)
-SELECT @mesgTempletId,1,'补录租约意见','租客${realName},不同意您${communityName}小区${building}栋${flatRoomNum}号Room${roomName}的补录租约，请及时联系与其沟通。',1,1,null,''
-FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_renter_saleContractConvert_failure')
-and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=1);
-
-/* 更新子模版 */
-update mesg_subtemplet set templetTitle='补录租约意见',templetContent='租客${realName},不同意您${communityName}小区${building}栋${flatRoomNum}号Room${roomName}的补录租约，请及时联系与其沟通。',status=1 where templetId=@mesgTempletId and templetType=3;
-/* 插入子模版 */
-INSERT INTO `mesg_subtemplet`
-( `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`)
-SELECT @mesgTempletId,3,'补录租约意见','租客${realName},不同意您${communityName}小区${building}栋${flatRoomNum}号Room${roomName}的补录租约，请及时联系与其沟通。',1,1,null,''
-FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_renter_saleContractConvert_failure')
-and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=3);
-
-/* 更新模版 */
 update mesg_templet set templetName='租客提交报修通知',templetDesc='租客提交报修通知',status=1,valid=1,updateTime=now() where templetCode = 'sms_renter_repairAdd';
 /* 插入模版 'sms_renter_repairAdd' */
 INSERT INTO `mesg_templet`
@@ -5291,6 +5253,34 @@ INSERT INTO `mesg_subtemplet`
 SELECT @mesgTempletId,3,'报修成功','[报修成功]很高兴能为您服务，我们正通知房东您的报修请求，请保持手机畅通，耐心等待，超过一小时未收到响应，请直接与房东联系【蘑菇租房-让我们住得更好】',1,1,null,''
 FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_renter_repairAdd')
 and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=3);
+
+/* 更新模版 */
+update mesg_templet set templetName='账单通知',templetDesc='账单通知',status=1,valid=1,updateTime=now() where templetCode = 'sms_FirstDayArrears';
+/* 插入模版 'sms_FirstDayArrears' */
+INSERT INTO `mesg_templet`
+( `templetCode`, `templetName`, `templetDesc`, `status`, `createBy`, `createTime`, `createByType`, `updateBy`, `updateTime`, `updateByType`, `valid`, `businessType`)
+SELECT 'sms_FirstDayArrears','账单通知','账单通知',1,0,now(),0,0,now(),0,1,5
+FROM dual WHERE not exists (select id from mesg_templet where templetCode = 'sms_FirstDayArrears');
+
+/* 查询模版id */
+select @mesgTempletId:=id from mesg_templet where templetCode='sms_FirstDayArrears';
+/* 更新子模版 */
+update mesg_subtemplet set templetTitle='账单通知',templetContent='账单通知,你${beginAndEnd}月的租金账单已生成, 请在${date}之前完成支付。',status=1 where templetId=@mesgTempletId and templetType=3;
+/* 插入子模版 */
+INSERT INTO `mesg_subtemplet`
+( `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`)
+SELECT @mesgTempletId,3,'账单通知','账单通知,你${beginAndEnd}月的租金账单已生成, 请在${date}之前完成支付。',1,1,null,''
+FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_FirstDayArrears')
+and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=3);
+
+/* 更新子模版 */
+update mesg_subtemplet set templetTitle='账单通知',templetContent='账单通知,你${beginAndEnd}月的租金账单已生成, 请在${date}之前完成支付。',status=1 where templetId=@mesgTempletId and templetType=1;
+/* 插入子模版 */
+INSERT INTO `mesg_subtemplet`
+( `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`)
+SELECT @mesgTempletId,1,'账单通知','账单通知,你${beginAndEnd}月的租金账单已生成, 请在${date}之前完成支付。',1,1,null,''
+FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_FirstDayArrears')
+and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=1);
 
 /* 更新模版 */
 update mesg_templet set templetName='房间上下架',templetDesc='房间上下架',status=1,valid=1,updateTime=now() where templetCode = 'sms_room_onlineStatus_landlord';
@@ -5331,32 +5321,32 @@ FROM dual WHERE exists (select id from mesg_templet where templetCode = 'landlor
 and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=3);
 
 /* 更新模版 */
-update mesg_templet set templetName='账单通知',templetDesc='账单通知',status=1,valid=1,updateTime=now() where templetCode = 'sms_FirstDayArrears';
-/* 插入模版 'sms_FirstDayArrears' */
+update mesg_templet set templetName='补录租约（集中式）',templetDesc='补录租约（集中式）',status=1,valid=1,updateTime=now() where templetCode = 'sms_renter_saleContractConvert_foucs_failure';
+/* 插入模版 'sms_renter_saleContractConvert_foucs_failure' */
 INSERT INTO `mesg_templet`
 ( `templetCode`, `templetName`, `templetDesc`, `status`, `createBy`, `createTime`, `createByType`, `updateBy`, `updateTime`, `updateByType`, `valid`, `businessType`)
-SELECT 'sms_FirstDayArrears','账单通知','账单通知',1,0,now(),0,0,now(),0,1,5
-FROM dual WHERE not exists (select id from mesg_templet where templetCode = 'sms_FirstDayArrears');
+SELECT 'sms_renter_saleContractConvert_foucs_failure','补录租约（集中式）','补录租约（集中式）',1,0,now(),0,0,now(),0,1,8
+FROM dual WHERE not exists (select id from mesg_templet where templetCode = 'sms_renter_saleContractConvert_foucs_failure');
 
 /* 查询模版id */
-select @mesgTempletId:=id from mesg_templet where templetCode='sms_FirstDayArrears';
+select @mesgTempletId:=id from mesg_templet where templetCode='sms_renter_saleContractConvert_foucs_failure';
 /* 更新子模版 */
-update mesg_subtemplet set templetTitle='账单通知',templetContent='账单通知,你${beginAndEnd}月的租金账单已生成, 请在${date}之前完成支付。',status=1 where templetId=@mesgTempletId and templetType=3;
+update mesg_subtemplet set templetTitle='补录租约意见',templetContent='租客${realName},不同意您${communityName}${flatRoomNum}号的补录租约，请及时联系与其沟通。',status=1 where templetId=@mesgTempletId and templetType=1;
 /* 插入子模版 */
 INSERT INTO `mesg_subtemplet`
 ( `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`)
-SELECT @mesgTempletId,3,'账单通知','账单通知,你${beginAndEnd}月的租金账单已生成, 请在${date}之前完成支付。',1,1,null,''
-FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_FirstDayArrears')
-and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=3);
+SELECT @mesgTempletId,1,'补录租约意见','租客${realName},不同意您${communityName}${flatRoomNum}号的补录租约，请及时联系与其沟通。',1,1,null,''
+FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_renter_saleContractConvert_foucs_failure')
+and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=1);
 
 /* 更新子模版 */
-update mesg_subtemplet set templetTitle='账单通知',templetContent='账单通知,你${beginAndEnd}月的租金账单已生成, 请在${date}之前完成支付。',status=1 where templetId=@mesgTempletId and templetType=1;
+update mesg_subtemplet set templetTitle='补录租约意见',templetContent='租客${realName},不同意您${communityName}${flatRoomNum}号的补录租约，请及时联系与其沟通。',status=1 where templetId=@mesgTempletId and templetType=3;
 /* 插入子模版 */
 INSERT INTO `mesg_subtemplet`
 ( `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`)
-SELECT @mesgTempletId,1,'账单通知','账单通知,你${beginAndEnd}月的租金账单已生成, 请在${date}之前完成支付。',1,1,null,''
-FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_FirstDayArrears')
-and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=1);
+SELECT @mesgTempletId,3,'补录租约意见','租客${realName},不同意您${communityName}${flatRoomNum}号的补录租约，请及时联系与其沟通。',1,1,null,''
+FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_renter_saleContractConvert_foucs_failure')
+and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=3);
 
 /* 更新模版 */
 update mesg_templet set templetName='批量修改租客密码推送消息',templetDesc='批量修改租客密码推送消息',status=1,valid=1,updateTime=now() where templetCode = 'sms_renter_initPW';
@@ -5397,31 +5387,22 @@ FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_Cre
 and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=3);
 
 /* 更新模版 */
-update mesg_templet set templetName='补录租约（集中式）',templetDesc='补录租约（集中式）',status=1,valid=1,updateTime=now() where templetCode = 'sms_renter_saleContractConvert_foucs_failure';
-/* 插入模版 'sms_renter_saleContractConvert_foucs_failure' */
+update mesg_templet set templetName='租客报修完成通知',templetDesc='租客报修完成通知',status=1,valid=1,updateTime=now() where templetCode = 'sms_renter_repairSolve';
+/* 插入模版 'sms_renter_repairSolve' */
 INSERT INTO `mesg_templet`
 ( `templetCode`, `templetName`, `templetDesc`, `status`, `createBy`, `createTime`, `createByType`, `updateBy`, `updateTime`, `updateByType`, `valid`, `businessType`)
-SELECT 'sms_renter_saleContractConvert_foucs_failure','补录租约（集中式）','补录租约（集中式）',1,0,now(),0,0,now(),0,1,8
-FROM dual WHERE not exists (select id from mesg_templet where templetCode = 'sms_renter_saleContractConvert_foucs_failure');
+SELECT 'sms_renter_repairSolve','租客报修完成通知','租客报修完成通知',1,0,now(),0,0,now(),0,1,4
+FROM dual WHERE not exists (select id from mesg_templet where templetCode = 'sms_renter_repairSolve');
 
 /* 查询模版id */
-select @mesgTempletId:=id from mesg_templet where templetCode='sms_renter_saleContractConvert_foucs_failure';
+select @mesgTempletId:=id from mesg_templet where templetCode='sms_renter_repairSolve';
 /* 更新子模版 */
-update mesg_subtemplet set templetTitle='补录租约意见',templetContent='租客${realName},不同意您${communityName}${flatRoomNum}号的补录租约，请及时联系与其沟通。',status=1 where templetId=@mesgTempletId and templetType=1;
+update mesg_subtemplet set templetTitle='报修已解决',templetContent='[报修已解决]您的报修服务已得到解决，期待您能住的愉快和开心，若有需要，记得找我噢【蘑菇租房-让我们住得更好】',status=1 where templetId=@mesgTempletId and templetType=3;
 /* 插入子模版 */
 INSERT INTO `mesg_subtemplet`
 ( `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`)
-SELECT @mesgTempletId,1,'补录租约意见','租客${realName},不同意您${communityName}${flatRoomNum}号的补录租约，请及时联系与其沟通。',1,1,null,''
-FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_renter_saleContractConvert_foucs_failure')
-and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=1);
-
-/* 更新子模版 */
-update mesg_subtemplet set templetTitle='补录租约意见',templetContent='租客${realName},不同意您${communityName}${flatRoomNum}号的补录租约，请及时联系与其沟通。',status=1 where templetId=@mesgTempletId and templetType=3;
-/* 插入子模版 */
-INSERT INTO `mesg_subtemplet`
-( `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`)
-SELECT @mesgTempletId,3,'补录租约意见','租客${realName},不同意您${communityName}${flatRoomNum}号的补录租约，请及时联系与其沟通。',1,1,null,''
-FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_renter_saleContractConvert_foucs_failure')
+SELECT @mesgTempletId,3,'报修已解决','[报修已解决]您的报修服务已得到解决，期待您能住的愉快和开心，若有需要，记得找我噢【蘑菇租房-让我们住得更好】',1,1,null,''
+FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_renter_repairSolve')
 and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=3);
 
 /* 更新模版 */
@@ -5453,22 +5434,31 @@ FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_lan
 and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=3);
 
 /* 更新模版 */
-update mesg_templet set templetName='租客报修完成通知',templetDesc='租客报修完成通知',status=1,valid=1,updateTime=now() where templetCode = 'sms_renter_repairSolve';
-/* 插入模版 'sms_renter_repairSolve' */
+update mesg_templet set templetName='房东退款通知',templetDesc='房东退款通知',status=1,valid=1,updateTime=now() where templetCode = 'sms_landlordRefund_affirm';
+/* 插入模版 'sms_landlordRefund_affirm' */
 INSERT INTO `mesg_templet`
 ( `templetCode`, `templetName`, `templetDesc`, `status`, `createBy`, `createTime`, `createByType`, `updateBy`, `updateTime`, `updateByType`, `valid`, `businessType`)
-SELECT 'sms_renter_repairSolve','租客报修完成通知','租客报修完成通知',1,0,now(),0,0,now(),0,1,4
-FROM dual WHERE not exists (select id from mesg_templet where templetCode = 'sms_renter_repairSolve');
+SELECT 'sms_landlordRefund_affirm','房东退款通知','房东退款通知',1,0,now(),0,0,now(),0,1,4
+FROM dual WHERE not exists (select id from mesg_templet where templetCode = 'sms_landlordRefund_affirm');
 
 /* 查询模版id */
-select @mesgTempletId:=id from mesg_templet where templetCode='sms_renter_repairSolve';
+select @mesgTempletId:=id from mesg_templet where templetCode='sms_landlordRefund_affirm';
 /* 更新子模版 */
-update mesg_subtemplet set templetTitle='报修已解决',templetContent='[报修已解决]您的报修服务已得到解决，期待您能住的愉快和开心，若有需要，记得找我噢【蘑菇租房-让我们住得更好】',status=1 where templetId=@mesgTempletId and templetType=3;
+update mesg_subtemplet set templetTitle='房东退款',templetContent='[合约解除，房东退款]${roomInfo}的房东已向你退还${amount}元，完成财务结算和合同解除。有任何疑问可联系房东或向蘑菇租房投诉。',status=1 where templetId=@mesgTempletId and templetType=1;
 /* 插入子模版 */
 INSERT INTO `mesg_subtemplet`
 ( `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`)
-SELECT @mesgTempletId,3,'报修已解决','[报修已解决]您的报修服务已得到解决，期待您能住的愉快和开心，若有需要，记得找我噢【蘑菇租房-让我们住得更好】',1,1,null,''
-FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_renter_repairSolve')
+SELECT @mesgTempletId,1,'房东退款','[合约解除，房东退款]${roomInfo}的房东已向你退还${amount}元，完成财务结算和合同解除。有任何疑问可联系房东或向蘑菇租房投诉。',1,1,null,''
+FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_landlordRefund_affirm')
+and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=1);
+
+/* 更新子模版 */
+update mesg_subtemplet set templetTitle='房东退款',templetContent='[合约解除，房东退款]${roomInfo}的房东已向你退还${amount}元，完成财务结算和合同解除。有任何疑问可联系房东或向蘑菇租房投诉。',status=1 where templetId=@mesgTempletId and templetType=3;
+/* 插入子模版 */
+INSERT INTO `mesg_subtemplet`
+( `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`)
+SELECT @mesgTempletId,3,'房东退款','[合约解除，房东退款]${roomInfo}的房东已向你退还${amount}元，完成财务结算和合同解除。有任何疑问可联系房东或向蘑菇租房投诉。',1,1,null,''
+FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_landlordRefund_affirm')
 and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=3);
 
 /* 更新模版 */
@@ -5510,31 +5500,22 @@ FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_ren
 and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=1);
 
 /* 更新模版 */
-update mesg_templet set templetName='房东退款通知',templetDesc='房东退款通知',status=1,valid=1,updateTime=now() where templetCode = 'sms_landlordRefund_affirm';
-/* 插入模版 'sms_landlordRefund_affirm' */
+update mesg_templet set templetName='租客注册通知',templetDesc='租客注册通知',status=1,valid=1,updateTime=now() where templetCode = 'sms_renter_register';
+/* 插入模版 'sms_renter_register' */
 INSERT INTO `mesg_templet`
 ( `templetCode`, `templetName`, `templetDesc`, `status`, `createBy`, `createTime`, `createByType`, `updateBy`, `updateTime`, `updateByType`, `valid`, `businessType`)
-SELECT 'sms_landlordRefund_affirm','房东退款通知','房东退款通知',1,0,now(),0,0,now(),0,1,4
-FROM dual WHERE not exists (select id from mesg_templet where templetCode = 'sms_landlordRefund_affirm');
+SELECT 'sms_renter_register','租客注册通知','租客注册通知',1,0,now(),0,0,now(),0,1,11
+FROM dual WHERE not exists (select id from mesg_templet where templetCode = 'sms_renter_register');
 
 /* 查询模版id */
-select @mesgTempletId:=id from mesg_templet where templetCode='sms_landlordRefund_affirm';
+select @mesgTempletId:=id from mesg_templet where templetCode='sms_renter_register';
 /* 更新子模版 */
-update mesg_subtemplet set templetTitle='房东退款',templetContent='[合约解除，房东退款]${roomInfo}的房东已向你退还${amount}元，完成财务结算和合同解除。有任何疑问可联系房东或向蘑菇租房投诉。',status=1 where templetId=@mesgTempletId and templetType=1;
+update mesg_subtemplet set templetTitle='帐号注册成功',templetContent='[欢迎加入]欢迎您加入蘑菇租房，关注蘑菇租房微信号“mogoroom”，优惠打折天天送，精彩活动周周有。【蘑菇租房-让我们住得更好】',status=1 where templetId=@mesgTempletId and templetType=3;
 /* 插入子模版 */
 INSERT INTO `mesg_subtemplet`
 ( `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`)
-SELECT @mesgTempletId,1,'房东退款','[合约解除，房东退款]${roomInfo}的房东已向你退还${amount}元，完成财务结算和合同解除。有任何疑问可联系房东或向蘑菇租房投诉。',1,1,null,''
-FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_landlordRefund_affirm')
-and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=1);
-
-/* 更新子模版 */
-update mesg_subtemplet set templetTitle='房东退款',templetContent='[合约解除，房东退款]${roomInfo}的房东已向你退还${amount}元，完成财务结算和合同解除。有任何疑问可联系房东或向蘑菇租房投诉。',status=1 where templetId=@mesgTempletId and templetType=3;
-/* 插入子模版 */
-INSERT INTO `mesg_subtemplet`
-( `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`)
-SELECT @mesgTempletId,3,'房东退款','[合约解除，房东退款]${roomInfo}的房东已向你退还${amount}元，完成财务结算和合同解除。有任何疑问可联系房东或向蘑菇租房投诉。',1,1,null,''
-FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_landlordRefund_affirm')
+SELECT @mesgTempletId,3,'帐号注册成功','[欢迎加入]欢迎您加入蘑菇租房，关注蘑菇租房微信号“mogoroom”，优惠打折天天送，精彩活动周周有。【蘑菇租房-让我们住得更好】',1,1,null,''
+FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_renter_register')
 and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=3);
 
 /* 更新模版 */
@@ -5555,25 +5536,6 @@ INSERT INTO `mesg_subtemplet`
 SELECT @mesgTempletId,1,'服务验证码','${code}（手机验证码，十分钟内有效）畅快沟通，让我们住得更好。',1,1,null,''
 FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_renter_verificationCode')
 and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=1);
-
-/* 更新模版 */
-update mesg_templet set templetName='租客注册通知',templetDesc='租客注册通知',status=1,valid=1,updateTime=now() where templetCode = 'sms_renter_register';
-/* 插入模版 'sms_renter_register' */
-INSERT INTO `mesg_templet`
-( `templetCode`, `templetName`, `templetDesc`, `status`, `createBy`, `createTime`, `createByType`, `updateBy`, `updateTime`, `updateByType`, `valid`, `businessType`)
-SELECT 'sms_renter_register','租客注册通知','租客注册通知',1,0,now(),0,0,now(),0,1,11
-FROM dual WHERE not exists (select id from mesg_templet where templetCode = 'sms_renter_register');
-
-/* 查询模版id */
-select @mesgTempletId:=id from mesg_templet where templetCode='sms_renter_register';
-/* 更新子模版 */
-update mesg_subtemplet set templetTitle='帐号注册成功',templetContent='[欢迎加入]欢迎您加入蘑菇租房，关注蘑菇租房微信号“mogoroom”，优惠打折天天送，精彩活动周周有。【蘑菇租房-让我们住得更好】',status=1 where templetId=@mesgTempletId and templetType=3;
-/* 插入子模版 */
-INSERT INTO `mesg_subtemplet`
-( `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`)
-SELECT @mesgTempletId,3,'帐号注册成功','[欢迎加入]欢迎您加入蘑菇租房，关注蘑菇租房微信号“mogoroom”，优惠打折天天送，精彩活动周周有。【蘑菇租房-让我们住得更好】',1,1,null,''
-FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_renter_register')
-and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=3);
 
 /* 更新模版 */
 update mesg_templet set templetName='租客撤销报修通知',templetDesc='租客撤销报修通知',status=1,valid=1,updateTime=now() where templetCode = 'sms_renter_repairUndo';
@@ -5623,6 +5585,25 @@ FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_ren
 and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=3);
 
 /* 更新模版 */
+update mesg_templet set templetName='租客投诉',templetDesc='租客投诉',status=1,valid=1,updateTime=now() where templetCode = 'sms_renter_complainAdd';
+/* 插入模版 'sms_renter_complainAdd' */
+INSERT INTO `mesg_templet`
+( `templetCode`, `templetName`, `templetDesc`, `status`, `createBy`, `createTime`, `createByType`, `updateBy`, `updateTime`, `updateByType`, `valid`, `businessType`)
+SELECT 'sms_renter_complainAdd','租客投诉','租客投诉',1,0,now(),0,0,now(),0,1,12
+FROM dual WHERE not exists (select id from mesg_templet where templetCode = 'sms_renter_complainAdd');
+
+/* 查询模版id */
+select @mesgTempletId:=id from mesg_templet where templetCode='sms_renter_complainAdd';
+/* 更新子模版 */
+update mesg_subtemplet set templetTitle='投诉成功',templetContent='[投诉成功]很遗憾给您带来不愉快的体验，我们正在受理您的诉求和意见，请保持手机畅通，耐心等待我们的联系与处理【蘑菇租房-我们会努力更好】',status=1 where templetId=@mesgTempletId and templetType=3;
+/* 插入子模版 */
+INSERT INTO `mesg_subtemplet`
+( `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`)
+SELECT @mesgTempletId,3,'投诉成功','[投诉成功]很遗憾给您带来不愉快的体验，我们正在受理您的诉求和意见，请保持手机畅通，耐心等待我们的联系与处理【蘑菇租房-我们会努力更好】',1,1,null,''
+FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_renter_complainAdd')
+and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=3);
+
+/* 更新模版 */
 update mesg_templet set templetName='租金账单当天提醒',templetDesc='租金账单当天提醒',status=1,valid=1,updateTime=now() where templetCode = 'bill_landlord_1004_payday';
 /* 插入模版 'bill_landlord_1004_payday' */
 INSERT INTO `mesg_templet`
@@ -5661,44 +5642,6 @@ FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_ren
 and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=1);
 
 /* 更新模版 */
-update mesg_templet set templetName='租客投诉',templetDesc='租客投诉',status=1,valid=1,updateTime=now() where templetCode = 'sms_renter_complainAdd';
-/* 插入模版 'sms_renter_complainAdd' */
-INSERT INTO `mesg_templet`
-( `templetCode`, `templetName`, `templetDesc`, `status`, `createBy`, `createTime`, `createByType`, `updateBy`, `updateTime`, `updateByType`, `valid`, `businessType`)
-SELECT 'sms_renter_complainAdd','租客投诉','租客投诉',1,0,now(),0,0,now(),0,1,12
-FROM dual WHERE not exists (select id from mesg_templet where templetCode = 'sms_renter_complainAdd');
-
-/* 查询模版id */
-select @mesgTempletId:=id from mesg_templet where templetCode='sms_renter_complainAdd';
-/* 更新子模版 */
-update mesg_subtemplet set templetTitle='投诉成功',templetContent='[投诉成功]很遗憾给您带来不愉快的体验，我们正在受理您的诉求和意见，请保持手机畅通，耐心等待我们的联系与处理【蘑菇租房-我们会努力更好】',status=1 where templetId=@mesgTempletId and templetType=3;
-/* 插入子模版 */
-INSERT INTO `mesg_subtemplet`
-( `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`)
-SELECT @mesgTempletId,3,'投诉成功','[投诉成功]很遗憾给您带来不愉快的体验，我们正在受理您的诉求和意见，请保持手机畅通，耐心等待我们的联系与处理【蘑菇租房-我们会努力更好】',1,1,null,''
-FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_renter_complainAdd')
-and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=3);
-
-/* 更新模版 */
-update mesg_templet set templetName='租客App服务验证码',templetDesc='租客App服务验证码',status=1,valid=1,updateTime=now() where templetCode = 'email_renter_verificationCode';
-/* 插入模版 'email_renter_verificationCode' */
-INSERT INTO `mesg_templet`
-( `templetCode`, `templetName`, `templetDesc`, `status`, `createBy`, `createTime`, `createByType`, `updateBy`, `updateTime`, `updateByType`, `valid`, `businessType`)
-SELECT 'email_renter_verificationCode','租客App服务验证码','租客App服务验证码',1,0,now(),0,0,now(),0,1,11
-FROM dual WHERE not exists (select id from mesg_templet where templetCode = 'email_renter_verificationCode');
-
-/* 查询模版id */
-select @mesgTempletId:=id from mesg_templet where templetCode='email_renter_verificationCode';
-/* 更新子模版 */
-update mesg_subtemplet set templetTitle='服务验证码',templetContent='【蘑菇租房】${code} （邮件验证码，30分钟内有效）畅快沟通，让我们住得更好。',status=1 where templetId=@mesgTempletId and templetType=2;
-/* 插入子模版 */
-INSERT INTO `mesg_subtemplet`
-( `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`)
-SELECT @mesgTempletId,2,'服务验证码','【蘑菇租房】${code} （邮件验证码，30分钟内有效）畅快沟通，让我们住得更好。',1,1,null,''
-FROM dual WHERE exists (select id from mesg_templet where templetCode = 'email_renter_verificationCode')
-and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=2);
-
-/* 更新模版 */
 update mesg_templet set templetName='租客修改登录密码',templetDesc='租客修改登录密码通知',status=1,valid=1,updateTime=now() where templetCode = 'sms_renter_updateLoginPwd';
 /* 插入模版 'sms_renter_updateLoginPwd' */
 INSERT INTO `mesg_templet`
@@ -5725,6 +5668,25 @@ INSERT INTO `mesg_subtemplet`
 SELECT @mesgTempletId,3,'登录密码已修改','登录密码已修改，你的蘑菇租房登录密码已经修改成功，请妥善保管，切勿泄露！',1,1,null,''
 FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_renter_updateLoginPwd')
 and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=3);
+
+/* 更新模版 */
+update mesg_templet set templetName='租客App服务验证码',templetDesc='租客App服务验证码',status=1,valid=1,updateTime=now() where templetCode = 'email_renter_verificationCode';
+/* 插入模版 'email_renter_verificationCode' */
+INSERT INTO `mesg_templet`
+( `templetCode`, `templetName`, `templetDesc`, `status`, `createBy`, `createTime`, `createByType`, `updateBy`, `updateTime`, `updateByType`, `valid`, `businessType`)
+SELECT 'email_renter_verificationCode','租客App服务验证码','租客App服务验证码',1,0,now(),0,0,now(),0,1,11
+FROM dual WHERE not exists (select id from mesg_templet where templetCode = 'email_renter_verificationCode');
+
+/* 查询模版id */
+select @mesgTempletId:=id from mesg_templet where templetCode='email_renter_verificationCode';
+/* 更新子模版 */
+update mesg_subtemplet set templetTitle='服务验证码',templetContent='【蘑菇租房】${code} （邮件验证码，30分钟内有效）畅快沟通，让我们住得更好。',status=1 where templetId=@mesgTempletId and templetType=2;
+/* 插入子模版 */
+INSERT INTO `mesg_subtemplet`
+( `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`)
+SELECT @mesgTempletId,2,'服务验证码','【蘑菇租房】${code} （邮件验证码，30分钟内有效）畅快沟通，让我们住得更好。',1,1,null,''
+FROM dual WHERE exists (select id from mesg_templet where templetCode = 'email_renter_verificationCode')
+and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=2);
 
 /* 更新模版 */
 update mesg_templet set templetName='房东推送自定义账单',templetDesc='房东推送自定义账单',status=1,valid=1,updateTime=now() where templetCode = 'sms_renter_push_customBill';
@@ -5802,6 +5764,25 @@ FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_ren
 and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=3);
 
 /* 更新模版 */
+update mesg_templet set templetName='租客投诉解决通知',templetDesc='租客投诉解决通知',status=1,valid=1,updateTime=now() where templetCode = 'sms_renter_complainSolve';
+/* 插入模版 'sms_renter_complainSolve' */
+INSERT INTO `mesg_templet`
+( `templetCode`, `templetName`, `templetDesc`, `status`, `createBy`, `createTime`, `createByType`, `updateBy`, `updateTime`, `updateByType`, `valid`, `businessType`)
+SELECT 'sms_renter_complainSolve','租客投诉解决通知','租客投诉解决通知',1,0,now(),0,0,now(),0,1,12
+FROM dual WHERE not exists (select id from mesg_templet where templetCode = 'sms_renter_complainSolve');
+
+/* 查询模版id */
+select @mesgTempletId:=id from mesg_templet where templetCode='sms_renter_complainSolve';
+/* 更新子模版 */
+update mesg_subtemplet set templetTitle='投诉已解决',templetContent='[投诉已解决]您的投诉服务已得到解决，谢谢您的信任与支持，让我们不断改善和提升服务品质，为您带来更好的租房体验【蘑菇租房-我们会努力更好】',status=1 where templetId=@mesgTempletId and templetType=3;
+/* 插入子模版 */
+INSERT INTO `mesg_subtemplet`
+( `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`)
+SELECT @mesgTempletId,3,'投诉已解决','[投诉已解决]您的投诉服务已得到解决，谢谢您的信任与支持，让我们不断改善和提升服务品质，为您带来更好的租房体验【蘑菇租房-我们会努力更好】',1,1,null,''
+FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_renter_complainSolve')
+and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=3);
+
+/* 更新模版 */
 update mesg_templet set templetName='自定义账单当天提醒',templetDesc='自定义账单当天提醒',status=1,valid=1,updateTime=now() where templetCode = 'bill_renter_20001_payday';
 /* 插入模版 'bill_renter_20001_payday' */
 INSERT INTO `mesg_templet`
@@ -5849,22 +5830,41 @@ FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_ren
 and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=3);
 
 /* 更新模版 */
-update mesg_templet set templetName='租客投诉解决通知',templetDesc='租客投诉解决通知',status=1,valid=1,updateTime=now() where templetCode = 'sms_renter_complainSolve';
-/* 插入模版 'sms_renter_complainSolve' */
+update mesg_templet set templetName='预约单通知',templetDesc='可快速签约的预约单通知',status=1,valid=1,updateTime=now() where templetCode = 'sms_renter_order_quickSign';
+/* 插入模版 'sms_renter_order_quickSign' */
 INSERT INTO `mesg_templet`
 ( `templetCode`, `templetName`, `templetDesc`, `status`, `createBy`, `createTime`, `createByType`, `updateBy`, `updateTime`, `updateByType`, `valid`, `businessType`)
-SELECT 'sms_renter_complainSolve','租客投诉解决通知','租客投诉解决通知',1,0,now(),0,0,now(),0,1,12
-FROM dual WHERE not exists (select id from mesg_templet where templetCode = 'sms_renter_complainSolve');
+SELECT 'sms_renter_order_quickSign','预约单通知','可快速签约的预约单通知',1,0,now(),0,0,now(),0,1,1
+FROM dual WHERE not exists (select id from mesg_templet where templetCode = 'sms_renter_order_quickSign');
 
 /* 查询模版id */
-select @mesgTempletId:=id from mesg_templet where templetCode='sms_renter_complainSolve';
+select @mesgTempletId:=id from mesg_templet where templetCode='sms_renter_order_quickSign';
 /* 更新子模版 */
-update mesg_subtemplet set templetTitle='投诉已解决',templetContent='[投诉已解决]您的投诉服务已得到解决，谢谢您的信任与支持，让我们不断改善和提升服务品质，为您带来更好的租房体验【蘑菇租房-我们会努力更好】',status=1 where templetId=@mesgTempletId and templetType=3;
+update mesg_subtemplet set templetTitle='预约单通知',templetContent='你有一个预约单可快速签约！请在6小时内完成快速签约，过期将失效！',status=0 where templetId=@mesgTempletId and templetType=3;
 /* 插入子模版 */
 INSERT INTO `mesg_subtemplet`
 ( `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`)
-SELECT @mesgTempletId,3,'投诉已解决','[投诉已解决]您的投诉服务已得到解决，谢谢您的信任与支持，让我们不断改善和提升服务品质，为您带来更好的租房体验【蘑菇租房-我们会努力更好】',1,1,null,''
-FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_renter_complainSolve')
+SELECT @mesgTempletId,3,'预约单通知','你有一个预约单可快速签约！请在6小时内完成快速签约，过期将失效！',0,1,null,''
+FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_renter_order_quickSign')
+and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=3);
+
+/* 更新模版 */
+update mesg_templet set templetName='新室友入住',templetDesc='新室友入住',status=1,valid=1,updateTime=now() where templetCode = 'sms_sendWelcomeNewRoommate';
+/* 插入模版 'sms_sendWelcomeNewRoommate' */
+INSERT INTO `mesg_templet`
+( `templetCode`, `templetName`, `templetDesc`, `status`, `createBy`, `createTime`, `createByType`, `updateBy`, `updateTime`, `updateByType`, `valid`, `businessType`)
+SELECT 'sms_sendWelcomeNewRoommate','新室友入住','新室友入住',1,0,now(),0,0,now(),0,1,14
+FROM dual WHERE not exists (select id from mesg_templet where templetCode = 'sms_sendWelcomeNewRoommate');
+
+/* 查询模版id */
+select @mesgTempletId:=id from mesg_templet where templetCode='sms_sendWelcomeNewRoommate';
+/* 更新子模版 */
+update mesg_subtemplet set templetTitle='欢迎新室友',templetContent='[欢迎新室友]${realName}您好，很高兴第一时间通知您，我们迎来了一位新室友，Ta是@${renterName}，会在${checkInDate}日入住咱们的小家庭，让我们一起欢迎Ta吧，颜值、姓名什么的到时候就知道啦【蘑菇租房-让我们住得更好】',status=1 where templetId=@mesgTempletId and templetType=3;
+/* 插入子模版 */
+INSERT INTO `mesg_subtemplet`
+( `templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`)
+SELECT @mesgTempletId,3,'欢迎新室友','[欢迎新室友]${realName}您好，很高兴第一时间通知您，我们迎来了一位新室友，Ta是@${renterName}，会在${checkInDate}日入住咱们的小家庭，让我们一起欢迎Ta吧，颜值、姓名什么的到时候就知道啦【蘑菇租房-让我们住得更好】',1,1,null,''
+FROM dual WHERE exists (select id from mesg_templet where templetCode = 'sms_sendWelcomeNewRoommate')
 and not exists (select id from mesg_subtemplet where templetId=@mesgTempletId and templetType=3);
 
 

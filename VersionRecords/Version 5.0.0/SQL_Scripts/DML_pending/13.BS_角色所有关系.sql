@@ -5,9 +5,15 @@ set autocommit = 0;
 select @roleId:=id from perm_role where roleName='总部租金宝管理' and channel=45;
 
 /*插入角色和功能树关系*/
+INSERT INTO `perm_menugroup_role_rel` (`roleId`,`menuGroupId`,`status`,`soDoneCode`,`createTime`,`updateTime`) VALUES (@roleId,42,1,0,now(),NULL);
+/*插入角色和功能树关系*/
 INSERT INTO `perm_menugroup_role_rel` (`roleId`,`menuGroupId`,`status`,`soDoneCode`,`createTime`,`updateTime`) VALUES (@roleId,77,1,0,now(),NULL);
 /*插入角色和功能树关系*/
+INSERT INTO `perm_menugroup_role_rel` (`roleId`,`menuGroupId`,`status`,`soDoneCode`,`createTime`,`updateTime`) VALUES (@roleId,47,1,0,now(),NULL);
+/*插入角色和功能树关系*/
 INSERT INTO `perm_menugroup_role_rel` (`roleId`,`menuGroupId`,`status`,`soDoneCode`,`createTime`,`updateTime`) VALUES (@roleId,74,1,0,now(),NULL);
+/*插入角色和功能树关系*/
+INSERT INTO `perm_menugroup_role_rel` (`roleId`,`menuGroupId`,`status`,`soDoneCode`,`createTime`,`updateTime`) VALUES (@roleId,44,1,0,now(),NULL);
 /*插入角色和功能树关系*/
 INSERT INTO `perm_menugroup_role_rel` (`roleId`,`menuGroupId`,`status`,`soDoneCode`,`createTime`,`updateTime`) VALUES (@roleId,105,1,0,now(),NULL);
 
@@ -473,37 +479,44 @@ INSERT INTO `mesg_category_role` (`categoryId`,`roleId`,`createBy`,`createTime`,
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '2120001' and channel=5;
 /*插入角色和数据展示关系*/
-INSERT INTO `perm_role_function` (`role_id`,`function_id`) VALUES (@roleId,@menuId);
+INSERT INTO `perm_role_function` (`role_id`,`function_id`)
+SELECT @roleId,@menuId from dual where not EXISTS (select role_id from perm_role_function where role_id = @roleId and function_id=@menuId);
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '9230000' and channel=4;
 /*插入角色和数据展示关系*/
-INSERT INTO `perm_role_function` (`role_id`,`function_id`) VALUES (@roleId,@menuId);
+INSERT INTO `perm_role_function` (`role_id`,`function_id`)
+SELECT @roleId,@menuId from dual where not EXISTS (select role_id from perm_role_function where role_id = @roleId and function_id=@menuId);
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '9420000' and channel=4;
 /*插入角色和数据展示关系*/
-INSERT INTO `perm_role_function` (`role_id`,`function_id`) VALUES (@roleId,@menuId);
+INSERT INTO `perm_role_function` (`role_id`,`function_id`)
+SELECT @roleId,@menuId from dual where not EXISTS (select role_id from perm_role_function where role_id = @roleId and function_id=@menuId);
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4370000' and channel=5;
 /*插入角色和数据展示关系*/
-INSERT INTO `perm_role_function` (`role_id`,`function_id`) VALUES (@roleId,@menuId);
+INSERT INTO `perm_role_function` (`role_id`,`function_id`)
+SELECT @roleId,@menuId from dual where not EXISTS (select role_id from perm_role_function where role_id = @roleId and function_id=@menuId);
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '2210001' and channel=5;
 /*插入角色和数据展示关系*/
-INSERT INTO `perm_role_function` (`role_id`,`function_id`) VALUES (@roleId,@menuId);
+INSERT INTO `perm_role_function` (`role_id`,`function_id`)
+SELECT @roleId,@menuId from dual where not EXISTS (select role_id from perm_role_function where role_id = @roleId and function_id=@menuId);
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '11M0000' and channel=5;
 /*插入角色和数据展示关系*/
-INSERT INTO `perm_role_function` (`role_id`,`function_id`) VALUES (@roleId,@menuId);
+INSERT INTO `perm_role_function` (`role_id`,`function_id`)
+SELECT @roleId,@menuId from dual where not EXISTS (select role_id from perm_role_function where role_id = @roleId and function_id=@menuId);
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '12N0000' and channel=5;
 /*插入角色和数据展示关系*/
-INSERT INTO `perm_role_function` (`role_id`,`function_id`) VALUES (@roleId,@menuId);
+INSERT INTO `perm_role_function` (`role_id`,`function_id`)
+SELECT @roleId,@menuId from dual where not EXISTS (select role_id from perm_role_function where role_id = @roleId and function_id=@menuId);
 
 
 /*根据角色名称查询id*/
@@ -705,22 +718,26 @@ INSERT INTO `mesg_category_role` (`categoryId`,`roleId`,`createBy`,`createTime`,
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '2120001' and channel=5;
 /*插入角色和数据展示关系*/
-INSERT INTO `perm_role_function` (`role_id`,`function_id`) VALUES (@roleId,@menuId);
+INSERT INTO `perm_role_function` (`role_id`,`function_id`)
+SELECT @roleId,@menuId from dual where not EXISTS (select role_id from perm_role_function where role_id = @roleId and function_id=@menuId);
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '9230000' and channel=4;
 /*插入角色和数据展示关系*/
-INSERT INTO `perm_role_function` (`role_id`,`function_id`) VALUES (@roleId,@menuId);
+INSERT INTO `perm_role_function` (`role_id`,`function_id`)
+SELECT @roleId,@menuId from dual where not EXISTS (select role_id from perm_role_function where role_id = @roleId and function_id=@menuId);
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '9420000' and channel=4;
 /*插入角色和数据展示关系*/
-INSERT INTO `perm_role_function` (`role_id`,`function_id`) VALUES (@roleId,@menuId);
+INSERT INTO `perm_role_function` (`role_id`,`function_id`)
+SELECT @roleId,@menuId from dual where not EXISTS (select role_id from perm_role_function where role_id = @roleId and function_id=@menuId);
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '2210001' and channel=5;
 /*插入角色和数据展示关系*/
-INSERT INTO `perm_role_function` (`role_id`,`function_id`) VALUES (@roleId,@menuId);
+INSERT INTO `perm_role_function` (`role_id`,`function_id`)
+SELECT @roleId,@menuId from dual where not EXISTS (select role_id from perm_role_function where role_id = @roleId and function_id=@menuId);
 
 
 /*根据角色名称查询id*/
@@ -778,12 +795,14 @@ INSERT INTO `mesg_category_role` (`categoryId`,`roleId`,`createBy`,`createTime`,
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '11M0000' and channel=5;
 /*插入角色和数据展示关系*/
-INSERT INTO `perm_role_function` (`role_id`,`function_id`) VALUES (@roleId,@menuId);
+INSERT INTO `perm_role_function` (`role_id`,`function_id`)
+SELECT @roleId,@menuId from dual where not EXISTS (select role_id from perm_role_function where role_id = @roleId and function_id=@menuId);
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '12N0000' and channel=5;
 /*插入角色和数据展示关系*/
-INSERT INTO `perm_role_function` (`role_id`,`function_id`) VALUES (@roleId,@menuId);
+INSERT INTO `perm_role_function` (`role_id`,`function_id`)
+SELECT @roleId,@menuId from dual where not EXISTS (select role_id from perm_role_function where role_id = @roleId and function_id=@menuId);
 
 
 /*根据角色名称查询id*/
@@ -1030,37 +1049,44 @@ INSERT INTO `mesg_category_role` (`categoryId`,`roleId`,`createBy`,`createTime`,
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '2120001' and channel=5;
 /*插入角色和数据展示关系*/
-INSERT INTO `perm_role_function` (`role_id`,`function_id`) VALUES (@roleId,@menuId);
+INSERT INTO `perm_role_function` (`role_id`,`function_id`)
+SELECT @roleId,@menuId from dual where not EXISTS (select role_id from perm_role_function where role_id = @roleId and function_id=@menuId);
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '9230000' and channel=4;
 /*插入角色和数据展示关系*/
-INSERT INTO `perm_role_function` (`role_id`,`function_id`) VALUES (@roleId,@menuId);
+INSERT INTO `perm_role_function` (`role_id`,`function_id`)
+SELECT @roleId,@menuId from dual where not EXISTS (select role_id from perm_role_function where role_id = @roleId and function_id=@menuId);
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '9420000' and channel=4;
 /*插入角色和数据展示关系*/
-INSERT INTO `perm_role_function` (`role_id`,`function_id`) VALUES (@roleId,@menuId);
+INSERT INTO `perm_role_function` (`role_id`,`function_id`)
+SELECT @roleId,@menuId from dual where not EXISTS (select role_id from perm_role_function where role_id = @roleId and function_id=@menuId);
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4370000' and channel=5;
 /*插入角色和数据展示关系*/
-INSERT INTO `perm_role_function` (`role_id`,`function_id`) VALUES (@roleId,@menuId);
+INSERT INTO `perm_role_function` (`role_id`,`function_id`)
+SELECT @roleId,@menuId from dual where not EXISTS (select role_id from perm_role_function where role_id = @roleId and function_id=@menuId);
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '2210001' and channel=5;
 /*插入角色和数据展示关系*/
-INSERT INTO `perm_role_function` (`role_id`,`function_id`) VALUES (@roleId,@menuId);
+INSERT INTO `perm_role_function` (`role_id`,`function_id`)
+SELECT @roleId,@menuId from dual where not EXISTS (select role_id from perm_role_function where role_id = @roleId and function_id=@menuId);
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '11M0000' and channel=5;
 /*插入角色和数据展示关系*/
-INSERT INTO `perm_role_function` (`role_id`,`function_id`) VALUES (@roleId,@menuId);
+INSERT INTO `perm_role_function` (`role_id`,`function_id`)
+SELECT @roleId,@menuId from dual where not EXISTS (select role_id from perm_role_function where role_id = @roleId and function_id=@menuId);
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '12N0000' and channel=5;
 /*插入角色和数据展示关系*/
-INSERT INTO `perm_role_function` (`role_id`,`function_id`) VALUES (@roleId,@menuId);
+INSERT INTO `perm_role_function` (`role_id`,`function_id`)
+SELECT @roleId,@menuId from dual where not EXISTS (select role_id from perm_role_function where role_id = @roleId and function_id=@menuId);
 
 
 /*根据角色名称查询id*/
@@ -1432,12 +1458,14 @@ INSERT INTO `mesg_category_role` (`categoryId`,`roleId`,`createBy`,`createTime`,
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '11M0000' and channel=5;
 /*插入角色和数据展示关系*/
-INSERT INTO `perm_role_function` (`role_id`,`function_id`) VALUES (@roleId,@menuId);
+INSERT INTO `perm_role_function` (`role_id`,`function_id`)
+SELECT @roleId,@menuId from dual where not EXISTS (select role_id from perm_role_function where role_id = @roleId and function_id=@menuId);
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '12N0000' and channel=5;
 /*插入角色和数据展示关系*/
-INSERT INTO `perm_role_function` (`role_id`,`function_id`) VALUES (@roleId,@menuId);
+INSERT INTO `perm_role_function` (`role_id`,`function_id`)
+SELECT @roleId,@menuId from dual where not EXISTS (select role_id from perm_role_function where role_id = @roleId and function_id=@menuId);
 
 
 /*根据角色名称查询id*/
@@ -1515,22 +1543,26 @@ INSERT INTO `mesg_category_role` (`categoryId`,`roleId`,`createBy`,`createTime`,
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '2120001' and channel=5;
 /*插入角色和数据展示关系*/
-INSERT INTO `perm_role_function` (`role_id`,`function_id`) VALUES (@roleId,@menuId);
+INSERT INTO `perm_role_function` (`role_id`,`function_id`)
+SELECT @roleId,@menuId from dual where not EXISTS (select role_id from perm_role_function where role_id = @roleId and function_id=@menuId);
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '9230000' and channel=4;
 /*插入角色和数据展示关系*/
-INSERT INTO `perm_role_function` (`role_id`,`function_id`) VALUES (@roleId,@menuId);
+INSERT INTO `perm_role_function` (`role_id`,`function_id`)
+SELECT @roleId,@menuId from dual where not EXISTS (select role_id from perm_role_function where role_id = @roleId and function_id=@menuId);
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '9420000' and channel=4;
 /*插入角色和数据展示关系*/
-INSERT INTO `perm_role_function` (`role_id`,`function_id`) VALUES (@roleId,@menuId);
+INSERT INTO `perm_role_function` (`role_id`,`function_id`)
+SELECT @roleId,@menuId from dual where not EXISTS (select role_id from perm_role_function where role_id = @roleId and function_id=@menuId);
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '2210001' and channel=5;
 /*插入角色和数据展示关系*/
-INSERT INTO `perm_role_function` (`role_id`,`function_id`) VALUES (@roleId,@menuId);
+INSERT INTO `perm_role_function` (`role_id`,`function_id`)
+SELECT @roleId,@menuId from dual where not EXISTS (select role_id from perm_role_function where role_id = @roleId and function_id=@menuId);
 
 
 /*根据角色名称查询id*/
@@ -1553,12 +1585,14 @@ INSERT INTO `perm_menugroup_role_rel` (`roleId`,`menuGroupId`,`status`,`soDoneCo
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '11M0000' and channel=5;
 /*插入角色和数据展示关系*/
-INSERT INTO `perm_role_function` (`role_id`,`function_id`) VALUES (@roleId,@menuId);
+INSERT INTO `perm_role_function` (`role_id`,`function_id`)
+SELECT @roleId,@menuId from dual where not EXISTS (select role_id from perm_role_function where role_id = @roleId and function_id=@menuId);
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '12N0000' and channel=5;
 /*插入角色和数据展示关系*/
-INSERT INTO `perm_role_function` (`role_id`,`function_id`) VALUES (@roleId,@menuId);
+INSERT INTO `perm_role_function` (`role_id`,`function_id`)
+SELECT @roleId,@menuId from dual where not EXISTS (select role_id from perm_role_function where role_id = @roleId and function_id=@menuId);
 
 
 /*根据角色名称查询id*/
@@ -1581,12 +1615,14 @@ INSERT INTO `perm_menugroup_role_rel` (`roleId`,`menuGroupId`,`status`,`soDoneCo
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '11M0000' and channel=5;
 /*插入角色和数据展示关系*/
-INSERT INTO `perm_role_function` (`role_id`,`function_id`) VALUES (@roleId,@menuId);
+INSERT INTO `perm_role_function` (`role_id`,`function_id`)
+SELECT @roleId,@menuId from dual where not EXISTS (select role_id from perm_role_function where role_id = @roleId and function_id=@menuId);
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '12N0000' and channel=5;
 /*插入角色和数据展示关系*/
-INSERT INTO `perm_role_function` (`role_id`,`function_id`) VALUES (@roleId,@menuId);
+INSERT INTO `perm_role_function` (`role_id`,`function_id`)
+SELECT @roleId,@menuId from dual where not EXISTS (select role_id from perm_role_function where role_id = @roleId and function_id=@menuId);
 
 
 

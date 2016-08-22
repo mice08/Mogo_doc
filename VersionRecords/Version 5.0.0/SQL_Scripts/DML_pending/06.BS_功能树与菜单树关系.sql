@@ -1407,6 +1407,11 @@ select @menuId:=id from perm_functioninfo where fcode = '4800000' and channel=4;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 114, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4850000' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 114, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4830000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 114, 1, 0, now(), now());
@@ -1457,6 +1462,11 @@ select @menuId:=id from perm_functioninfo where fcode = '4300000' and channel=5;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 116, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '43B0000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 116, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4000000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 116, 1, 0, now(), now());
@@ -1502,12 +1512,27 @@ select @menuId:=id from perm_functioninfo where fcode = '4000000' and channel=5;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 117, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4300000' and channel=5;
+select @menuId:=id from perm_functioninfo where fcode = '4100000' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 117, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4320000' and channel=5;
+select @menuId:=id from perm_functioninfo where fcode = '4130000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 117, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4200000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 117, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4250000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 117, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4300000' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 117, 1, 0, now(), now());
 
@@ -1542,7 +1567,27 @@ select @menuId:=id from perm_functioninfo where fcode = '4000000' and channel=4;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 117, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4300000' and channel=4;
+select @menuId:=id from perm_functioninfo where fcode = '4700000' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 117, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4720000' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 117, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4800000' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 117, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4860000' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 117, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4100000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 117, 1, 0, now(), now());
 
@@ -1562,6 +1607,16 @@ select @menuId:=id from perm_functioninfo where fcode = '4330000' and channel=5;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 118, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4370000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 118, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4370002' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 118, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4000000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 118, 1, 0, now(), now());
@@ -1572,7 +1627,7 @@ select @menuId:=id from perm_functioninfo where fcode = '4100000' and channel=4;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 118, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4400000' and channel=4;
+select @menuId:=id from perm_functioninfo where fcode = '4120000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 118, 1, 0, now(), now());
 
@@ -1592,6 +1647,16 @@ select @menuId:=id from perm_functioninfo where fcode = '4350000' and channel=5;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 119, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4370000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 119, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4370003' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 119, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4000000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 119, 1, 0, now(), now());
@@ -1602,7 +1667,7 @@ select @menuId:=id from perm_functioninfo where fcode = '4100000' and channel=4;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 119, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4500000' and channel=4;
+select @menuId:=id from perm_functioninfo where fcode = '4130000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 119, 1, 0, now(), now());
 
@@ -1622,6 +1687,26 @@ select @menuId:=id from perm_functioninfo where fcode = '4340000' and channel=5;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 120, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4340001' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 120, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4340002' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 120, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4370000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 120, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4370004' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 120, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4000000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 120, 1, 0, now(), now());
@@ -1632,7 +1717,17 @@ select @menuId:=id from perm_functioninfo where fcode = '4100000' and channel=4;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 120, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4600000' and channel=4;
+select @menuId:=id from perm_functioninfo where fcode = '4110000' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 120, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4140000' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 120, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4120000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 120, 1, 0, now(), now());
 
@@ -1662,6 +1757,21 @@ select @menuId:=id from perm_functioninfo where fcode = '12C0000' and channel=5;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 121, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4000000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 121, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4300000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 121, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4370000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 121, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4000000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 121, 1, 0, now(), now());
@@ -1672,22 +1782,17 @@ select @menuId:=id from perm_functioninfo where fcode = '4100000' and channel=4;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 121, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4110000' and channel=4;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 121, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4110001' and channel=4;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 121, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4200000' and channel=4;
+select @menuId:=id from perm_functioninfo where fcode = '4900000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 121, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4910000' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 121, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4200000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 121, 1, 0, now(), now());
 
@@ -1713,6 +1818,11 @@ insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '12D0000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 122, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '7520001' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 122, 1, 0, now(), now());
 
@@ -1747,26 +1857,6 @@ select @menuId:=id from perm_functioninfo where fcode = '4100000' and channel=4;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 122, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4110000' and channel=4;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 122, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4110001' and channel=4;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 122, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4110002' and channel=4;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 122, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4200000' and channel=4;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 122, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4900000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 122, 1, 0, now(), now());
@@ -1777,17 +1867,32 @@ select @menuId:=id from perm_functioninfo where fcode = '4910000' and channel=4;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 122, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4910001' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 122, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4200000' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 122, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '8110000' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 122, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4000000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 123, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4300000' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 123, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4380000' and channel=5;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 123, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4380001' and channel=5;
+select @menuId:=id from perm_functioninfo where fcode = '4370000' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 123, 1, 0, now(), now());
 
@@ -1802,6 +1907,11 @@ select @menuId:=id from perm_functioninfo where fcode = '4390001' and channel=5;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 123, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4390002' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 123, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4000000' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 124, 1, 0, now(), now());
@@ -1812,22 +1922,12 @@ select @menuId:=id from perm_functioninfo where fcode = '4300000' and channel=5;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 124, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4380000' and channel=5;
+select @menuId:=id from perm_functioninfo where fcode = '4370000' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 124, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4380002' and channel=5;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 124, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4390000' and channel=5;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 124, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4390002' and channel=5;
+select @menuId:=id from perm_functioninfo where fcode = '43C0000' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 124, 1, 0, now(), now());
 
@@ -1903,6 +2003,16 @@ insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '3490000' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 146, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = 'G000000' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 146, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = 'G300000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 146, 1, 0, now(), now());
 
@@ -2027,6 +2137,31 @@ select @menuId:=id from perm_functioninfo where fcode = '4400000' and channel=5;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 149, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4450000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 149, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = 'G000000' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 149, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = 'G300000' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 149, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = 'G320000' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 149, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = 'G320005' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 149, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '1000000' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 150, 1, 0, now(), now());
@@ -2052,6 +2187,11 @@ select @menuId:=id from perm_functioninfo where fcode = '12H0000' and channel=5;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 150, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4000000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 150, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4400000' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 150, 1, 0, now(), now());
@@ -2073,6 +2213,11 @@ insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = 'G320000' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 150, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = 'G320002' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 150, 1, 0, now(), now());
 
@@ -2177,6 +2322,11 @@ select @menuId:=id from perm_functioninfo where fcode = '4300000' and channel=5;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 153, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4370000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 153, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4310000' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 153, 1, 0, now(), now());
@@ -2192,17 +2342,17 @@ select @menuId:=id from perm_functioninfo where fcode = '4500000' and channel=5;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 153, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4510000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 153, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4000000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 153, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4100000' and channel=4;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 153, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4110000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 153, 1, 0, now(), now());
 
@@ -2222,11 +2372,6 @@ select @menuId:=id from perm_functioninfo where fcode = '4920007' and channel=4;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 153, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4930000' and channel=4;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 153, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4C00000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 153, 1, 0, now(), now());
@@ -2235,6 +2380,16 @@ insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime
 select @menuId:=id from perm_functioninfo where fcode = '4C10000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 153, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4C10001' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 153, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4000000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 158, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4700000' and channel=5;
@@ -2247,12 +2402,32 @@ select @menuId:=id from perm_functioninfo where fcode = '4710000' and channel=5;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 158, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '5000000' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 158, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '5700000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 158, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '5710000' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 158, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4000000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 159, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4700000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 159, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '5000000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 159, 1, 0, now(), now());
 
@@ -2302,6 +2477,11 @@ select @menuId:=id from perm_functioninfo where fcode = '8100000' and channel=5;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 163, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '5000000' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 163, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '5A00000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 163, 1, 0, now(), now());
@@ -2327,6 +2507,26 @@ select @menuId:=id from perm_functioninfo where fcode = '8110000' and channel=5;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 165, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '7000000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 167, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '7100000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 167, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '7140000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 167, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4000000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 167, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4600000' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 167, 1, 0, now(), now());
@@ -2345,6 +2545,16 @@ insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime
 select @menuId:=id from perm_functioninfo where fcode = 'G200000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 167, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = 'G220000' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 167, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4000000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 168, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4600000' and channel=5;
@@ -2372,7 +2582,27 @@ select @menuId:=id from perm_functioninfo where fcode = 'G210000' and channel=4;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 168, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '11G0000' and channel=5;
+select @menuId:=id from perm_functioninfo where fcode = '4000000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 169, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4300000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 169, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4370000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 169, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4310000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 169, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4310004' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 169, 1, 0, now(), now());
 
@@ -2387,14 +2617,59 @@ select @menuId:=id from perm_functioninfo where fcode = '4620000' and channel=5;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 169, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = 'G000000' and channel=4;
+select @menuId:=id from perm_functioninfo where fcode = '4000000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 169, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = 'G200000' and channel=4;
+select @menuId:=id from perm_functioninfo where fcode = '4100000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 169, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4900000' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 169, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4920000' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 169, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4920008' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 169, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4000000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 170, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4600000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 170, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4660000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 170, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4610000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 170, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4000000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 171, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4310005' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 171, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4600000' and channel=5;
@@ -2407,7 +2682,7 @@ select @menuId:=id from perm_functioninfo where fcode = '4630000' and channel=5;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 171, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4640000' and channel=5;
+select @menuId:=id from perm_functioninfo where fcode = '4680000' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 171, 1, 0, now(), now());
 
@@ -2432,12 +2707,17 @@ select @menuId:=id from perm_functioninfo where fcode = '4000000' and channel=5;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 172, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4310005' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 172, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4600000' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 172, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4640000' and channel=5;
+select @menuId:=id from perm_functioninfo where fcode = '4630000' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 172, 1, 0, now(), now());
 
@@ -2452,22 +2732,7 @@ select @menuId:=id from perm_functioninfo where fcode = 'F600000' and channel=4;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 172, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '1000000' and channel=5;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 173, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '1100000' and channel=5;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 173, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '11N0000' and channel=5;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 173, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '1200000' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 173, 1, 0, now(), now());
 
@@ -2487,37 +2752,17 @@ select @menuId:=id from perm_functioninfo where fcode = '4300000' and channel=5;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 173, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4370000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 173, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4310000' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 173, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4800000' and channel=5;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 173, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '3000000' and channel=4;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 173, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '3300000' and channel=4;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 173, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '3330000' and channel=4;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 173, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '3400000' and channel=4;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 173, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '3430000' and channel=4;
+select @menuId:=id from perm_functioninfo where fcode = '4310006' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 173, 1, 0, now(), now());
 
@@ -2528,11 +2773,6 @@ insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4100000' and channel=4;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 173, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4110000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 173, 1, 0, now(), now());
 
@@ -2552,21 +2792,6 @@ select @menuId:=id from perm_functioninfo where fcode = '4920005' and channel=4;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 173, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = 'A000000' and channel=4;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 173, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = 'H000000' and channel=4;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 173, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = 'I000000' and channel=4;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 173, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4000000' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 174, 1, 0, now(), now());
@@ -2577,17 +2802,22 @@ select @menuId:=id from perm_functioninfo where fcode = '4300000' and channel=5;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 174, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4370000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 174, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4310000' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 174, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4800000' and channel=5;
+select @menuId:=id from perm_functioninfo where fcode = '4310006' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 174, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4810000' and channel=5;
+select @menuId:=id from perm_functioninfo where fcode = '4310010' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 174, 1, 0, now(), now());
 
@@ -2602,17 +2832,17 @@ select @menuId:=id from perm_functioninfo where fcode = '4100000' and channel=4;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 174, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4110000' and channel=4;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 174, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4900000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 174, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4920000' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 174, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4920005' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 174, 1, 0, now(), now());
 
@@ -2622,6 +2852,16 @@ select @menuId:=id from perm_functioninfo where fcode = '4920004' and channel=4;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 174, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = 'G220001' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 174, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = 'G220005' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 174, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4000000' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 175, 1, 0, now(), now());
@@ -2632,17 +2872,27 @@ select @menuId:=id from perm_functioninfo where fcode = '4300000' and channel=5;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 175, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4370000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 175, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4310000' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 175, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4800000' and channel=5;
+select @menuId:=id from perm_functioninfo where fcode = '4310006' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 175, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4820000' and channel=5;
+select @menuId:=id from perm_functioninfo where fcode = '4310009' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 175, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4310011' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 175, 1, 0, now(), now());
 
@@ -2657,17 +2907,17 @@ select @menuId:=id from perm_functioninfo where fcode = '4100000' and channel=4;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 175, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4110000' and channel=4;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 175, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4900000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 175, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4920000' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 175, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4920005' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 175, 1, 0, now(), now());
 
@@ -2677,6 +2927,11 @@ select @menuId:=id from perm_functioninfo where fcode = '4920002' and channel=4;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 175, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4920009' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 175, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4000000' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 176, 1, 0, now(), now());
@@ -2692,12 +2947,17 @@ select @menuId:=id from perm_functioninfo where fcode = '4310000' and channel=5;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 176, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4800000' and channel=5;
+select @menuId:=id from perm_functioninfo where fcode = '4310006' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 176, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4830000' and channel=5;
+select @menuId:=id from perm_functioninfo where fcode = '4310008' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 176, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4310011' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 176, 1, 0, now(), now());
 
@@ -2708,11 +2968,6 @@ insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4100000' and channel=4;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 176, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4110000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 176, 1, 0, now(), now());
 
@@ -2727,7 +2982,17 @@ select @menuId:=id from perm_functioninfo where fcode = '4920000' and channel=4;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 176, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4920005' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 176, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4920003' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 176, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4920009' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 176, 1, 0, now(), now());
 
@@ -2742,7 +3007,27 @@ select @menuId:=id from perm_functioninfo where fcode = '4300000' and channel=5;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 177, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4370000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 177, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4310000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 177, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4310006' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 177, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4310007' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 177, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4310011' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 177, 1, 0, now(), now());
 
@@ -2752,22 +3037,7 @@ select @menuId:=id from perm_functioninfo where fcode = '4600000' and channel=5;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 177, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4650000' and channel=5;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 177, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4660000' and channel=5;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 177, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4800000' and channel=5;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 177, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4840000' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 177, 1, 0, now(), now());
 
@@ -2778,11 +3048,6 @@ insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4100000' and channel=4;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 177, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4110000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 177, 1, 0, now(), now());
 
@@ -2807,14 +3072,9 @@ select @menuId:=id from perm_functioninfo where fcode = '4920006' and channel=4;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 177, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '7000000' and channel=5;
+select @menuId:=id from perm_functioninfo where fcode = '4920009' and channel=4;
 /*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 179, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '7100000' and channel=5;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 179, 1, 0, now(), now());
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 177, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '7150000' and channel=5;
@@ -2832,6 +3092,11 @@ select @menuId:=id from perm_functioninfo where fcode = '4300000' and channel=5;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 179, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4370000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 179, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4310000' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 179, 1, 0, now(), now());
@@ -2842,17 +3107,37 @@ select @menuId:=id from perm_functioninfo where fcode = '4310001' and channel=5;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 179, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '1000000' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 179, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '1100000' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 179, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '1200000' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 179, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '1300000' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 179, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '1400000' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 179, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4000000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 179, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4100000' and channel=4;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 179, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4110000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 179, 1, 0, now(), now());
 
@@ -2882,7 +3167,7 @@ select @menuId:=id from perm_functioninfo where fcode = '5400000' and channel=4;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 179, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '5800000' and channel=4;
+select @menuId:=id from perm_functioninfo where fcode = '5410000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 179, 1, 0, now(), now());
 
@@ -2893,6 +3178,11 @@ insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4300000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 180, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4370000' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 180, 1, 0, now(), now());
 
@@ -2913,11 +3203,6 @@ insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4100000' and channel=4;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 180, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4110000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 180, 1, 0, now(), now());
 
@@ -2952,12 +3237,12 @@ select @menuId:=id from perm_functioninfo where fcode = '4310000' and channel=5;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 181, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4360000' and channel=5;
+select @menuId:=id from perm_functioninfo where fcode = '4310012' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 181, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4360001' and channel=5;
+select @menuId:=id from perm_functioninfo where fcode = '4310013' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 181, 1, 0, now(), now());
 
@@ -2968,11 +3253,6 @@ insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4100000' and channel=4;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 181, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4110000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 181, 1, 0, now(), now());
 
@@ -3007,12 +3287,17 @@ select @menuId:=id from perm_functioninfo where fcode = '4300000' and channel=5;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 182, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4370000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 182, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4310000' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 182, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4360000' and channel=5;
+select @menuId:=id from perm_functioninfo where fcode = '4310012' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 182, 1, 0, now(), now());
 
@@ -3023,11 +3308,6 @@ insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4100000' and channel=4;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 182, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4110000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 182, 1, 0, now(), now());
 
@@ -3047,6 +3327,36 @@ select @menuId:=id from perm_functioninfo where fcode = '4930002' and channel=4;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 182, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4000000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 183, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4300000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 183, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4370000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 183, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4310000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 183, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4310012' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 183, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4310014' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 183, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4000000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 183, 1, 0, now(), now());
@@ -3057,17 +3367,17 @@ select @menuId:=id from perm_functioninfo where fcode = '4100000' and channel=4;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 183, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '4110000' and channel=4;
-/*插入rel记录*/
-insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 183, 1, 0, now(), now());
-
-/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4900000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 183, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '4930000' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 183, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '4930002' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 183, 1, 0, now(), now());
 
@@ -3103,6 +3413,11 @@ insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '1300000' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 186, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '5000000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 186, 1, 0, now(), now());
 
@@ -3152,12 +3467,17 @@ select @menuId:=id from perm_functioninfo where fcode = '1400000' and channel=4;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 187, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '5000000' and channel=4;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 187, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '5400000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 187, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '5800000' and channel=4;
+select @menuId:=id from perm_functioninfo where fcode = '5410000' and channel=4;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 187, 1, 0, now(), now());
 
@@ -3197,12 +3517,32 @@ select @menuId:=id from perm_functioninfo where fcode = '7320000' and channel=5;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 191, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '7000000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 193, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '7200000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 193, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '7210000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 193, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '7250000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 193, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '7000000' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 194, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '7210000' and channel=5;
+select @menuId:=id from perm_functioninfo where fcode = '7200000' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 194, 1, 0, now(), now());
 
@@ -3212,12 +3552,12 @@ select @menuId:=id from perm_functioninfo where fcode = '7220000' and channel=5;
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 194, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '7200000' and channel=5;
+select @menuId:=id from perm_functioninfo where fcode = '7000000' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 195, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
-select @menuId:=id from perm_functioninfo where fcode = '7210000' and channel=5;
+select @menuId:=id from perm_functioninfo where fcode = '7200000' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 195, 1, 0, now(), now());
 
@@ -3225,6 +3565,21 @@ insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime
 select @menuId:=id from perm_functioninfo where fcode = '7230000' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 195, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '7000000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 196, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '7200000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 196, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '7240000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 196, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '7400000' and channel=5;
@@ -3235,6 +3590,26 @@ insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime
 select @menuId:=id from perm_functioninfo where fcode = '7410000' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 196, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '7000000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 198, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '7400000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 198, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '7410000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 198, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '7000000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 199, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '7400000' and channel=5;
@@ -3250,6 +3625,11 @@ insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime
 select @menuId:=id from perm_functioninfo where fcode = '7420000' and channel=5;
 /*插入rel记录*/
 insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 199, 1, 0, now(), now());
+
+/**根据fcode换取menuId**/
+select @menuId:=id from perm_functioninfo where fcode = '7000000' and channel=5;
+/*插入rel记录*/
+insert into perm_menu_group_rel (menuId,menuGroupId,status,soDoneCode,createTime,updateTime)values (@menuId, 200, 1, 0, now(), now());
 
 /**根据fcode换取menuId**/
 select @menuId:=id from perm_functioninfo where fcode = '7400000' and channel=5;
