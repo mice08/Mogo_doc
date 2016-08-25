@@ -393,6 +393,9 @@ ALTER TABLE perm_role_his ADD COLUMN updateEmp int(11) NULL COMMENT '修改人';
  ALTER TABLE comm_business_record ADD INDEX index_operationTime (`operationTime`); 
  ALTER TABLE comm_busitype ADD UNIQUE(`busiType`); 
  
+ /*历史表新增字段*/
+ ALTER TABLE flat_room_his ADD COLUMN mogoOfflineEndTime DATETIME NULL COMMENT '蘑菇下架状态的有效截止时间(超过之后下架状态无效)';
+ 
 
 
 
