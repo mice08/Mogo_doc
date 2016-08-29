@@ -3,9 +3,9 @@
 set autocommit = 0;
 
 /*角色和数据元素关系*/
-delete from  perm_role_function a where a.role_id in (select id from perm_role where channel=45);
+delete from  perm_role_function where perm_role_function.role_id in (select id from perm_role where channel=45);
 /*角色和子帐号关系*/
-delete from  perm_user_org_role a where a.roleId in (select id from perm_role where channel=45);
+delete from  perm_user_org_role where roleId not in (select id from perm_role where channel=2 or channel=1);
 
 delete  from perm_role where channel=45;
 
