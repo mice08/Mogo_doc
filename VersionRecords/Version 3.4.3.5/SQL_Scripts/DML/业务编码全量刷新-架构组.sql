@@ -215,7 +215,7 @@ delete from `comm_busitype` where busiType in (100101001);
 delete from `comm_busitype` where busiType in (100101002);
 delete from `comm_busitype` where busiType in (60102001);
 delete from `comm_busitype` where busiType in (60103002);
-delete from `comm_busitype` where busiType in (60103002);
+delete from `comm_busitype` where busiType in (60103001);	
 
 
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(10101001,'新增一次账单',1,1,3,1,10101);
@@ -348,7 +348,7 @@ INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId)
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(100101001,'租户确认在线合同',1,1,3,1,100101);
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(100101002,'租户确认补录租约',1,1,3,1,100101);
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(60102001,'解锁房东账户',1,1,3,1,60102);
-INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(60103002,'修改个人信息',1,1,3,1,60103);
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(60103001,'修改个人信息',1,1,3,1,60103);
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(60103002,'修改密码',1,1,3,1,60103);
 
 
