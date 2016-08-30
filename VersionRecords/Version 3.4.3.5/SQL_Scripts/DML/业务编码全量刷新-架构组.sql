@@ -77,7 +77,8 @@ INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId)
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 210103,'帮助',1,1,2,0,2101 );
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 220101,'租户数据分析',1,1,2,0,2201 );
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 220102,'房东数据分析',1,1,2,0,2101 );
-INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 100101,'租约处理',1,1,2,0,1001 );
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 100101,'租约确认',1,1,2,0,1001 );
+
 
 
 delete from `comm_busitype` where busiType in (10101001);
@@ -338,7 +339,7 @@ INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId)
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(220101003,'租户行为轨迹',1,1,3,1,220101);
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(220101004,'租户每日注册',1,1,3,1,220101);
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(220102001,'房东房源体量',1,1,3,1,220102);
-INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(100101001,'租户确认合同',1,1,3,1,100101);
-INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(100101002,'转客确认合同',1,1,3,1,100101);
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(100101001,'租户确认在线合同',1,1,3,1,100101);
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(100101002,'租户确认补录租约',1,1,3,1,100101);
 
 
