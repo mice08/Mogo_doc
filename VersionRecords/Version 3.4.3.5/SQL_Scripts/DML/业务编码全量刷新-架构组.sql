@@ -32,6 +32,7 @@ delete from `comm_busitype` where busiType in (210103,2101);
 delete from `comm_busitype` where busiType in (10105);
 delete from `comm_busitype` where busiType in (220101,2201);
 delete from `comm_busitype` where busiType in (100101,1001);
+delete from `comm_busitype` where busiType in (60101,601);
 
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 101,'财务管理',1,1,1,0,null);
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 201,'销售管理',1,1,1,0,null);
@@ -45,6 +46,7 @@ INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId)
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 2101,'房源搜索管理',1,1,1,0,null);
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 2201,'数据分析管理',1,1,1,0,null);
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 1001,'合同管理',1,1,1,0,null);
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 601,'用户管理',1,1,1,0,null);
 
 
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 10101,'账单推送',1,1,2,0,101 );
@@ -77,7 +79,10 @@ INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId)
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 210103,'帮助',1,1,2,0,2101 );
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 220101,'租户数据分析',1,1,2,0,2201 );
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 220102,'房东数据分析',1,1,2,0,2101 );
-INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 100101,'租约处理',1,1,2,0,1001 );
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 100101,'租约确认',1,1,2,0,1001 );
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 60102,'房东账号管理',1,1,2,0,601 );
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 60103,'租户账号管理',1,1,2,0,601 );
+
 
 
 delete from `comm_busitype` where busiType in (10101001);
@@ -209,6 +214,9 @@ delete from `comm_busitype` where busiType in (220101004);
 delete from `comm_busitype` where busiType in (220102001);
 delete from `comm_busitype` where busiType in (100101001);
 delete from `comm_busitype` where busiType in (100101002);
+delete from `comm_busitype` where busiType in (60102001);
+delete from `comm_busitype` where busiType in (60103002);
+delete from `comm_busitype` where busiType in (60103002);
 
 
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(10101001,'新增一次账单',1,1,3,1,10101);
@@ -338,7 +346,10 @@ INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId)
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(220101003,'租户行为轨迹',1,1,3,1,220101);
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(220101004,'租户每日注册',1,1,3,1,220101);
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(220102001,'房东房源体量',1,1,3,1,220102);
-INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(100101001,'租户确认合同',1,1,3,1,100101);
-INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(100101002,'转客确认合同',1,1,3,1,100101);
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(100101001,'租户确认在线合同',1,1,3,1,100101);
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(100101002,'租户确认补录租约',1,1,3,1,100101);
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(60102001,'解锁房东账户',1,1,3,1,60102);
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(60103002,'修改个人信息',1,1,3,1,60103);
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(60103002,'修改密码',1,1,3,1,60103);
 
 
