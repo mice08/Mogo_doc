@@ -84,7 +84,6 @@ INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId)
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES( 60103,'租户账号管理',1,1,2,0,601 );
 
 
-
 delete from `comm_busitype` where busiType in (10101001);
 delete from `comm_busitype` where busiType in (10101002);
 delete from `comm_busitype` where busiType in (10101003);
