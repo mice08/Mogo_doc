@@ -217,6 +217,7 @@ delete from `comm_busitype` where busiType in (60102001);
 delete from `comm_busitype` where busiType in (60103002);
 delete from `comm_busitype` where busiType in (60103001);	
 delete from `comm_busitype` where busiType in (10105007);	
+delete from `comm_busitype` where busiType in (40101014);	
 
 
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(10101001,'新增一次账单',1,1,3,1,10101);
@@ -274,6 +275,7 @@ INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId)
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(40101003,'新增公寓楼',1,1,3,1,40103);
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(40101004,'修改公寓楼',1,1,3,1,40103);
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(40101005,'删除公寓楼',1,1,3,1,40103);
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(40101014,'公寓审核',1,1,3,1,40103);
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(40101006,'新增房源',1,1,3,1,40103);
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(40101007,'修改房源',1,1,3,1,40103);
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(40101008,'删除房源',1,1,3,1,40103);
