@@ -216,6 +216,7 @@ delete from `comm_busitype` where busiType in (100101002);
 delete from `comm_busitype` where busiType in (60102001);
 delete from `comm_busitype` where busiType in (60103002);
 delete from `comm_busitype` where busiType in (60103001);	
+delete from `comm_busitype` where busiType in (10105007);	
 
 
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(10101001,'新增一次账单',1,1,3,1,10101);
@@ -244,6 +245,7 @@ INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId)
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(10105004,'账单拆分',1,1,3,1,10105);
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(10105005,'账单优惠',1,1,3,1,10105);
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(10105006,'账单合并',1,1,3,1,10105);
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(10105007,'设定可入住日 ',1,1,3,1,10105);
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(20101001,'新增预约',1,1,3,1,20101);
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(20101002,'新增预定',1,1,3,1,20102);
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(20101003,'预定审核',1,1,3,1,20102);
