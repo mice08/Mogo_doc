@@ -1,3 +1,6 @@
+/* Database name `mogoroomdb`， 新增菜单 */
+
+use mogoroomdb;
 
 INSERT INTO `perm_functioninfo` (`fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`) 
 VALUES((SELECT CONCAT(3,(SELECT LPAD((SELECT id FROM perm_functioninfo e WHERE e.fname = '租金宝申请列表'),4,0)),'22')),'导出租金宝申请列表','loanManageExport/listRentVerifyExport','22','3',(SELECT id FROM perm_functioninfo e WHERE e.fname = '租金宝申请列表'),'0',NULL,NULL,NULL,'0','1',NULL,NULL,NULL,NULL,'1','2');
