@@ -29,5 +29,10 @@ join oder_signedorder so on sb.signedOrderId=so.id and so.status in (4, 7) where
 ) sbid on bam.orderId=sbid.id
 set ab.sendFlag = 2;
 
+/*
+ *签约待支付签约单状态-->签约已撤销状态
+ */
+update oder_signedorder set status=22 where status=2;
+
 commit;
 

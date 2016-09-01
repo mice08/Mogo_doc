@@ -2,34 +2,7 @@
 
 set autocommit = 0;
 
-INSERT INTO `perm_functioninfo`
-( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( '1000000', '房源', '', 1, 0, 0, 1, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, NULL, 1, 5);
-
-INSERT INTO `perm_functioninfo`
-( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ('2000000', '售后', '', 1, 0, 0, 1, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, NULL, 1, 5);
-
-
-INSERT INTO `perm_functioninfo`
-( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ('3000000', '管理', '', 5, 0, 0, 1, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, NULL, 1, 5);
-
-INSERT INTO `perm_functioninfo`
-( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ('7000000', '报表', '', 1, 0, 0, 1, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, NULL, 1, 5);
-
-INSERT INTO `perm_functioninfo`
-( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ('4000000', '销售', '', 2, 0, 0, 1, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, NULL, 1, 5);
-
-INSERT INTO `perm_functioninfo`
-( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ('6000000', '金融', '', 4, 0, 0, 1, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, NULL, 1, 5);
-
-INSERT INTO `perm_functioninfo`
-( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ('8000000', '我的', '', 1, 0, 0, 1, NULL, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, 1, 5);
+delete from perm_functioninfo where channel=5 and functionLevel>0;
 
 select @begindate:=NOW();
 -- 房源
@@ -1096,12 +1069,12 @@ select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@parentid2;
 select @seq:=(case when @seq is null then 1 else @seq end);
 
 /**更新节点记录，如果记录存在**/
-update perm_functioninfo set fname='取消关联',furl='',functionLevel=@level2+1,functionpId=@parentid2,functionisMenu=0,isAjax=0,functionType=1,updatedTime=now() where fcode='3230000' and channel=5;
+update perm_functioninfo set fname='取消关联',furl='/mogoroom-partnerpc/orgExtend/batchChangeOrg',functionLevel=@level2+1,functionpId=@parentid2,functionisMenu=0,isAjax=0,functionType=1,updatedTime=now() where fcode='3230000' and channel=5;
 
 /**插入新节点记录，如果记录不存在**/
 INSERT INTO `perm_functioninfo`
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-SELECT '3230000', '取消关联', '', @seq, @level2+1, @parentid2, 0, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, now(), 1, 5
+SELECT '3230000', '取消关联', '/mogoroom-partnerpc/orgExtend/batchChangeOrg', @seq, @level2+1, @parentid2, 0, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, now(), 1, 5
 FROM dual WHERE not exists (select id from perm_functioninfo where fcode = '3230000' and channel=5);
 
 /**生成新的顺序号**/
@@ -2013,12 +1986,12 @@ select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@parentid3;
 select @seq:=(case when @seq is null then 1 else @seq end);
 
 /**更新节点记录，如果记录存在**/
-update perm_functioninfo set fname='账单详情',furl='',functionLevel=@level3+1,functionpId=@parentid3,functionisMenu=0,isAjax=0,functionType=1,updatedTime=now() where fcode='4310006' and channel=5;
+update perm_functioninfo set fname='账单详情',furl='/mogoroom-partnerpc/account/findAcctBillById',functionLevel=@level3+1,functionpId=@parentid3,functionisMenu=0,isAjax=0,functionType=1,updatedTime=now() where fcode='4310006' and channel=5;
 
 /**插入新节点记录，如果记录不存在**/
 INSERT INTO `perm_functioninfo`
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-SELECT '4310006', '账单详情', '', @seq, @level3+1, @parentid3, 0, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, now(), 1, 5
+SELECT '4310006', '账单详情', '/mogoroom-partnerpc/account/findAcctBillById', @seq, @level3+1, @parentid3, 0, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, now(), 1, 5
 FROM dual WHERE not exists (select id from perm_functioninfo where fcode = '4310006' and channel=5);
 
 /**生成新的顺序号**/

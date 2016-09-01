@@ -2,57 +2,7 @@
 
 set autocommit = 0;
 
-INSERT INTO `perm_functioninfo`
-( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ('1000000', '欠款', '', 1, 0, 0, 1, NULL, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, 1, 4);
-
-INSERT INTO `perm_functioninfo`
-( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ('2000000', '待付', '/mogoroom-partner/finance/ownerBillStatistics', 2, 0, 0, 1, NULL, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, 1, 4);
-
-INSERT INTO `perm_functioninfo`
-( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ('3000000', '房源', '', 3, 0, 0, 1, NULL, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, 1, 4);
-
-INSERT INTO `perm_functioninfo`
-( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ('4000000', '销售', '', 4, 0, 0, 1, NULL, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, 1, 4);
-
-INSERT INTO `perm_functioninfo`
-( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ('5000000', '财务', '', 5, 0, 0, 1, NULL, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, 1, 4);
-
-INSERT INTO `perm_functioninfo`
-( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ('6000000', '待办', '', 6, 0, 0, 1, NULL, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, 1, 4);
-
-INSERT INTO `perm_functioninfo`
-( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ('7000000', '业主', '', 7, 0, 0, 1, NULL, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, 1, 4);
-
-INSERT INTO `perm_functioninfo`
-( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ('8000000', '租客', '', 8, 0, 0, 1, NULL, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, 1, 4);
-
-INSERT INTO `perm_functioninfo`
-( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ('9000000', '售后', '', 9, 0, 0, 1, NULL, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, 1, 4);
-
-INSERT INTO `perm_functioninfo`
-( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ('A000000', '首页房态图展示', '', 10, 0, 0, 1, NULL, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, 1, 4);
-
-INSERT INTO `perm_functioninfo`
-( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ('E000000', '搜索', '', 20, 0, 0, 1, NULL, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, 1, 4);
-
-INSERT INTO `perm_functioninfo`
-( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ('F000000', '我', '', 30, 0, 0, 1, NULL, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, 1, 4);
-
-INSERT INTO `perm_functioninfo`
-( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ('G000000', '快捷添加入口', '', 40, 0, 0, 1, NULL, NULL, NULL, 0, 1, NULL, NULL, NULL, NULL, 1, 4);
+delete from perm_functioninfo where channel=4 and functionLevel>0;
 
 select @begindate:=NOW();
 -- 欠款
