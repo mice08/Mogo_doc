@@ -4,6 +4,8 @@ set autocommit = 0;
 /**获取开始时间**/
 select @begindate:=NOW();
 
+delete from mesg_category_templet;
+
 /* 更新模版 */
 update mesg_templet set templetName='租客_退房完成',templetDesc='租客_退房完成',status=1,valid=1,updateTime=now() where templetCode = 'renter_checkout_dealwith_success';
 /* 插入模版 'renter_checkout_dealwith_success' */
