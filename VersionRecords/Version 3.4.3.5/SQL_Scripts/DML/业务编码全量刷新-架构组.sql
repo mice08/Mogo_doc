@@ -99,6 +99,10 @@ delete from `comm_busitype` where busiType in (10101012);
 delete from `comm_busitype` where busiType in (10101013);
 delete from `comm_busitype` where busiType in (10101014);
 delete from `comm_busitype` where busiType in (10101015);
+delete from `comm_busitype` where busiType in (10101016);
+delete from `comm_busitype` where busiType in (10101017);
+delete from `comm_busitype` where busiType in (10101018);
+delete from `comm_busitype` where busiType in (10101019);
 delete from `comm_busitype` where busiType in (10104001);
 delete from `comm_busitype` where busiType in (10104002);
 delete from `comm_busitype` where busiType in (10104003);
@@ -235,6 +239,11 @@ INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId)
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(10101013,'支付押金',1,1,3,1,10103);
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(10101014,'收款处理',1,1,3,1,10103);
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(10101015,'作废收款',1,1,3,1,10103);
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(10101016,'确认收款',1,1,3,1,10103);
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(10101017,'核销收款',1,1,3,1,10103);
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(10101018,'取消核销收款',1,1,3,1,10103);
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(10101019,'坏账补交',1,1,3,1,10103);
+
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(10104001,'房东添加退房优惠',1,1,3,1,10104);
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(10104002,'房东添加退房退款',1,1,3,1,10104);
 INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(10104003,'房东添加退房收款',1,1,3,1,10104);
