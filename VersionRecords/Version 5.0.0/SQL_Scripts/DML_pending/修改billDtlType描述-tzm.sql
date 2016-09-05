@@ -2,4 +2,4 @@
 
 use mogoroomdb;
 
-UPDATE acct.`acct_billdtltype` SET billDtlName='房租(手动添加)',displayName='房租(手动添加)',remark='房租(手动添加)' WHERE BillDtlType='100004';
+UPDATE acct.`acct_billdtltype` SET billDtlName='房租手动添加',displayName='房租手动添加',remark='房租手动添加' WHERE BillDtlType='100004';
