@@ -786,12 +786,12 @@ select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@parentid3;
 select @seq:=(case when @seq is null then 1 else @seq end);
 
 /**更新节点记录，如果记录存在**/
-update perm_functioninfo set fname='退房结账',furl='',functionLevel=@level3+1,functionpId=@parentid3,functionisMenu=0,isAjax=0,functionType=1,updatedTime=now() where fcode='4920007' and channel=4;
+update perm_functioninfo set fname='账务结算',furl='',functionLevel=@level3+1,functionpId=@parentid3,functionisMenu=0,isAjax=0,functionType=1,updatedTime=now() where fcode='4920007' and channel=4;
 
 /**插入新节点记录，如果记录不存在**/
 INSERT INTO `perm_functioninfo`
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-SELECT '4920007', '退房结账', '', @seq, @level3+1, @parentid3, 0, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, now(), 1, 4
+SELECT '4920007', '账务结算', '', @seq, @level3+1, @parentid3, 0, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, now(), 1, 4
 FROM dual WHERE not exists (select id from perm_functioninfo where fcode = '4920007' and channel=4);
 
 /**生成新的顺序号**/
@@ -819,6 +819,19 @@ INSERT INTO `perm_functioninfo`
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
 SELECT '4920009', '账单保存', '', @seq, @level3+1, @parentid3, 0, NULL, NULL, NULL, 1, 1, NULL, now(), NULL, now(), 1, 4
 FROM dual WHERE not exists (select id from perm_functioninfo where fcode = '4920009' and channel=4);
+
+/**生成新的顺序号**/
+select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@parentid3;
+select @seq:=(case when @seq is null then 1 else @seq end);
+
+/**更新节点记录，如果记录存在**/
+update perm_functioninfo set fname='退房操作',furl='',functionLevel=@level3+1,functionpId=@parentid3,functionisMenu=0,isAjax=0,functionType=1,updatedTime=now() where fcode='4920010' and channel=4;
+
+/**插入新节点记录，如果记录不存在**/
+INSERT INTO `perm_functioninfo`
+( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
+SELECT '4920010', '退房操作', '', @seq, @level3+1, @parentid3, 0, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, now(), 1, 4
+FROM dual WHERE not exists (select id from perm_functioninfo where fcode = '4920010' and channel=4);
 
 /**生成新的顺序号**/
 select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@parentid2;
@@ -1376,6 +1389,22 @@ FROM dual WHERE not exists (select id from perm_functioninfo where fcode = 'I000
 
 
 -- 搜索
+
+/**读取父节点id和level**/
+select @rootId:=id,@rootLevel:=functionLevel from perm_functioninfo where fcode = 'E000000' and channel=4;
+
+/**生成新的顺序号**/
+select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@rootId;
+select @seq:=(case when @seq is null then 1 else @seq end);
+
+/**更新节点记录，如果记录存在**/
+update perm_functioninfo set fname='查看详情',furl='',functionLevel=@rootLevel+1,functionpId=@rootId,functionisMenu=1,isAjax=0,functionType=1,updatedTime=now() where fcode='E100000' and channel=4;
+
+/**插入新节点记录，如果记录不存在**/
+INSERT INTO `perm_functioninfo`
+( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
+SELECT 'E100000', '查看详情', '', @seq, @rootLevel+1, @rootId, 1, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, now(), 1, 4
+FROM dual WHERE not exists (select id from perm_functioninfo where fcode = 'E100000' and channel=4);
 
 
 

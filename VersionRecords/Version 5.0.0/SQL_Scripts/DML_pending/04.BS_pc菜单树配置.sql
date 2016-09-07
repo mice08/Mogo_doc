@@ -42,12 +42,12 @@ select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@rootId;
 select @seq:=(case when @seq is null then 1 else @seq end);
 
 /**更新节点记录，如果记录存在**/
-update perm_functioninfo set fname='分散式房态图',furl='mogoroom-partnerpc/rs/findRsInfo',functionLevel=@rootLevel+1,functionpId=@rootId,functionisMenu=1,isAjax=0,functionType=1,updatedTime=now() where fcode='1100000' and channel=5;
+update perm_functioninfo set fname='分散式房态图',furl='/mogoroom-partnerpc/rs/findRsInfo',functionLevel=@rootLevel+1,functionpId=@rootId,functionisMenu=1,isAjax=0,functionType=1,updatedTime=now() where fcode='1100000' and channel=5;
 
 /**插入新节点记录，如果记录不存在**/
 INSERT INTO `perm_functioninfo`
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-SELECT '1100000', '分散式房态图', 'mogoroom-partnerpc/rs/findRsInfo', @seq, @rootLevel+1, @rootId, 1, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, now(), 1, 5
+SELECT '1100000', '分散式房态图', '/mogoroom-partnerpc/rs/findRsInfo', @seq, @rootLevel+1, @rootId, 1, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, now(), 1, 5
 FROM dual WHERE not exists (select id from perm_functioninfo where fcode = '1100000' and channel=5);
 
 /*读取父节点id和level防止重名，根据fcode查*/
@@ -149,12 +149,12 @@ select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@parentid2;
 select @seq:=(case when @seq is null then 1 else @seq end);
 
 /**更新节点记录，如果记录存在**/
-update perm_functioninfo set fname='修改出租状态',furl='/mogoroom-partnerpc/flats/freeRentStatus',functionLevel=@level2+1,functionpId=@parentid2,functionisMenu=0,isAjax=0,functionType=1,updatedTime=now() where fcode='1180000' and channel=5;
+update perm_functioninfo set fname='修改出租状态',furl='/mogoroom-partnerpc/flats/freeRentStatus',functionLevel=@level2+1,functionpId=@parentid2,functionisMenu=0,isAjax=1,functionType=1,updatedTime=now() where fcode='1180000' and channel=5;
 
 /**插入新节点记录，如果记录不存在**/
 INSERT INTO `perm_functioninfo`
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-SELECT '1180000', '修改出租状态', '/mogoroom-partnerpc/flats/freeRentStatus', @seq, @level2+1, @parentid2, 0, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, now(), 1, 5
+SELECT '1180000', '修改出租状态', '/mogoroom-partnerpc/flats/freeRentStatus', @seq, @level2+1, @parentid2, 0, NULL, NULL, NULL, 1, 1, NULL, now(), NULL, now(), 1, 5
 FROM dual WHERE not exists (select id from perm_functioninfo where fcode = '1180000' and channel=5);
 
 /**生成新的顺序号**/
@@ -266,19 +266,6 @@ select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@parentid2;
 select @seq:=(case when @seq is null then 1 else @seq end);
 
 /**更新节点记录，如果记录存在**/
-update perm_functioninfo set fname='订单详情',furl='/mogoroom-partnerpc/order/flats/details',functionLevel=@level2+1,functionpId=@parentid2,functionisMenu=0,isAjax=0,functionType=1,updatedTime=now() where fcode='11H0000' and channel=5;
-
-/**插入新节点记录，如果记录不存在**/
-INSERT INTO `perm_functioninfo`
-( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-SELECT '11H0000', '订单详情', '/mogoroom-partnerpc/order/flats/details', @seq, @level2+1, @parentid2, 0, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, now(), 1, 5
-FROM dual WHERE not exists (select id from perm_functioninfo where fcode = '11H0000' and channel=5);
-
-/**生成新的顺序号**/
-select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@parentid2;
-select @seq:=(case when @seq is null then 1 else @seq end);
-
-/**更新节点记录，如果记录存在**/
 update perm_functioninfo set fname='修改补录租约',furl='/mogoroom-partnerpc/flats/editAdditionalPage',functionLevel=@level2+1,functionpId=@parentid2,functionisMenu=0,isAjax=0,functionType=1,updatedTime=now() where fcode='11I0000' and channel=5;
 
 /**插入新节点记录，如果记录不存在**/
@@ -353,6 +340,19 @@ SELECT '11N0000', '查看全部账单', '/mogoroom-partnerpc/account/billHome', 
 FROM dual WHERE not exists (select id from perm_functioninfo where fcode = '11N0000' and channel=5);
 
 /**生成新的顺序号**/
+select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@parentid2;
+select @seq:=(case when @seq is null then 1 else @seq end);
+
+/**更新节点记录，如果记录存在**/
+update perm_functioninfo set fname='查看未结订单详情',furl='/mogoroom-partnerpc/order/list',functionLevel=@level2+1,functionpId=@parentid2,functionisMenu=0,isAjax=0,functionType=1,updatedTime=now() where fcode='11O0000' and channel=5;
+
+/**插入新节点记录，如果记录不存在**/
+INSERT INTO `perm_functioninfo`
+( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
+SELECT '11O0000', '查看未结订单详情', '/mogoroom-partnerpc/order/list', @seq, @level2+1, @parentid2, 0, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, now(), 1, 5
+FROM dual WHERE not exists (select id from perm_functioninfo where fcode = '11O0000' and channel=5);
+
+/**生成新的顺序号**/
 select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@rootId;
 select @seq:=(case when @seq is null then 1 else @seq end);
 
@@ -425,12 +425,12 @@ select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@parentid2;
 select @seq:=(case when @seq is null then 1 else @seq end);
 
 /**更新节点记录，如果记录存在**/
-update perm_functioninfo set fname='修改出租状态',furl='/mogoroom-partnerpc/flats/freeRentStatus',functionLevel=@level2+1,functionpId=@parentid2,functionisMenu=0,isAjax=0,functionType=1,updatedTime=now() where fcode='1250000' and channel=5;
+update perm_functioninfo set fname='修改出租状态',furl='/mogoroom-partnerpc/flats/freeRentStatus',functionLevel=@level2+1,functionpId=@parentid2,functionisMenu=0,isAjax=1,functionType=1,updatedTime=now() where fcode='1250000' and channel=5;
 
 /**插入新节点记录，如果记录不存在**/
 INSERT INTO `perm_functioninfo`
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-SELECT '1250000', '修改出租状态', '/mogoroom-partnerpc/flats/freeRentStatus', @seq, @level2+1, @parentid2, 0, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, now(), 1, 5
+SELECT '1250000', '修改出租状态', '/mogoroom-partnerpc/flats/freeRentStatus', @seq, @level2+1, @parentid2, 0, NULL, NULL, NULL, 1, 1, NULL, now(), NULL, now(), 1, 5
 FROM dual WHERE not exists (select id from perm_functioninfo where fcode = '1250000' and channel=5);
 
 /**生成新的顺序号**/
@@ -542,19 +542,6 @@ select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@parentid2;
 select @seq:=(case when @seq is null then 1 else @seq end);
 
 /**更新节点记录，如果记录存在**/
-update perm_functioninfo set fname='订单详情',furl='/mogoroom-partnerpc/order/flats/details',functionLevel=@level2+1,functionpId=@parentid2,functionisMenu=0,isAjax=0,functionType=1,updatedTime=now() where fcode='12F0000' and channel=5;
-
-/**插入新节点记录，如果记录不存在**/
-INSERT INTO `perm_functioninfo`
-( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-SELECT '12F0000', '订单详情', '/mogoroom-partnerpc/order/flats/details', @seq, @level2+1, @parentid2, 0, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, now(), 1, 5
-FROM dual WHERE not exists (select id from perm_functioninfo where fcode = '12F0000' and channel=5);
-
-/**生成新的顺序号**/
-select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@parentid2;
-select @seq:=(case when @seq is null then 1 else @seq end);
-
-/**更新节点记录，如果记录存在**/
 update perm_functioninfo set fname='修改补录租约',furl='/mogoroom-partnerpc/flats/editAdditionalPage',functionLevel=@level2+1,functionpId=@parentid2,functionisMenu=0,isAjax=0,functionType=1,updatedTime=now() where fcode='12G0000' and channel=5;
 
 /**插入新节点记录，如果记录不存在**/
@@ -653,6 +640,19 @@ INSERT INTO `perm_functioninfo`
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
 SELECT '12O0000', '查看全部订单', '/mogoroom-partnerpc/account/billHome', @seq, @level2+1, @parentid2, 0, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, now(), 1, 5
 FROM dual WHERE not exists (select id from perm_functioninfo where fcode = '12O0000' and channel=5);
+
+/**生成新的顺序号**/
+select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@parentid2;
+select @seq:=(case when @seq is null then 1 else @seq end);
+
+/**更新节点记录，如果记录存在**/
+update perm_functioninfo set fname='查看未结订单详情',furl='/mogoroom-partnerpc/order/list',functionLevel=@level2+1,functionpId=@parentid2,functionisMenu=0,isAjax=0,functionType=1,updatedTime=now() where fcode='12P0000' and channel=5;
+
+/**插入新节点记录，如果记录不存在**/
+INSERT INTO `perm_functioninfo`
+( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
+SELECT '12P0000', '查看未结订单详情', '/mogoroom-partnerpc/order/list', @seq, @level2+1, @parentid2, 0, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, now(), 1, 5
+FROM dual WHERE not exists (select id from perm_functioninfo where fcode = '12P0000' and channel=5);
 
 /**生成新的顺序号**/
 select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@rootId;
@@ -1096,12 +1096,12 @@ select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@parentid2;
 select @seq:=(case when @seq is null then 1 else @seq end);
 
 /**更新节点记录，如果记录存在**/
-update perm_functioninfo set fname='取消关联',furl='',functionLevel=@level2+1,functionpId=@parentid2,functionisMenu=0,isAjax=0,functionType=1,updatedTime=now() where fcode='3230000' and channel=5;
+update perm_functioninfo set fname='取消关联',furl='/mogoroom-partnerpc/orgExtend/batchChangeOrg',functionLevel=@level2+1,functionpId=@parentid2,functionisMenu=0,isAjax=0,functionType=1,updatedTime=now() where fcode='3230000' and channel=5;
 
 /**插入新节点记录，如果记录不存在**/
 INSERT INTO `perm_functioninfo`
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-SELECT '3230000', '取消关联', '', @seq, @level2+1, @parentid2, 0, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, now(), 1, 5
+SELECT '3230000', '取消关联', '/mogoroom-partnerpc/orgExtend/batchChangeOrg', @seq, @level2+1, @parentid2, 0, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, now(), 1, 5
 FROM dual WHERE not exists (select id from perm_functioninfo where fcode = '3230000' and channel=5);
 
 /**生成新的顺序号**/
@@ -1974,12 +1974,12 @@ select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@parentid3;
 select @seq:=(case when @seq is null then 1 else @seq end);
 
 /**更新节点记录，如果记录存在**/
-update perm_functioninfo set fname='结账退房',furl='',functionLevel=@level3+1,functionpId=@parentid3,functionisMenu=0,isAjax=0,functionType=1,updatedTime=now() where fcode='4310003' and channel=5;
+update perm_functioninfo set fname='账务结算',furl='',functionLevel=@level3+1,functionpId=@parentid3,functionisMenu=0,isAjax=0,functionType=1,updatedTime=now() where fcode='4310003' and channel=5;
 
 /**插入新节点记录，如果记录不存在**/
 INSERT INTO `perm_functioninfo`
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-SELECT '4310003', '结账退房', '', @seq, @level3+1, @parentid3, 0, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, now(), 1, 5
+SELECT '4310003', '账务结算', '', @seq, @level3+1, @parentid3, 0, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, now(), 1, 5
 FROM dual WHERE not exists (select id from perm_functioninfo where fcode = '4310003' and channel=5);
 
 /**生成新的顺序号**/
@@ -2013,12 +2013,12 @@ select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@parentid3;
 select @seq:=(case when @seq is null then 1 else @seq end);
 
 /**更新节点记录，如果记录存在**/
-update perm_functioninfo set fname='账单详情',furl='',functionLevel=@level3+1,functionpId=@parentid3,functionisMenu=0,isAjax=0,functionType=1,updatedTime=now() where fcode='4310006' and channel=5;
+update perm_functioninfo set fname='账单详情',furl='/mogoroom-partnerpc/account/findAcctBillById',functionLevel=@level3+1,functionpId=@parentid3,functionisMenu=0,isAjax=0,functionType=1,updatedTime=now() where fcode='4310006' and channel=5;
 
 /**插入新节点记录，如果记录不存在**/
 INSERT INTO `perm_functioninfo`
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-SELECT '4310006', '账单详情', '', @seq, @level3+1, @parentid3, 0, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, now(), 1, 5
+SELECT '4310006', '账单详情', '/mogoroom-partnerpc/account/findAcctBillById', @seq, @level3+1, @parentid3, 0, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, now(), 1, 5
 FROM dual WHERE not exists (select id from perm_functioninfo where fcode = '4310006' and channel=5);
 
 /**生成新的顺序号**/
@@ -2124,6 +2124,19 @@ INSERT INTO `perm_functioninfo`
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
 SELECT '4310014', '作废收支', '', @seq, @level3+1, @parentid3, 0, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, now(), 1, 5
 FROM dual WHERE not exists (select id from perm_functioninfo where fcode = '4310014' and channel=5);
+
+/**生成新的顺序号**/
+select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@parentid3;
+select @seq:=(case when @seq is null then 1 else @seq end);
+
+/**更新节点记录，如果记录存在**/
+update perm_functioninfo set fname='退房操作',furl='',functionLevel=@level3+1,functionpId=@parentid3,functionisMenu=0,isAjax=0,functionType=1,updatedTime=now() where fcode='4310015' and channel=5;
+
+/**插入新节点记录，如果记录不存在**/
+INSERT INTO `perm_functioninfo`
+( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
+SELECT '4310015', '退房操作', '', @seq, @level3+1, @parentid3, 0, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, now(), 1, 5
+FROM dual WHERE not exists (select id from perm_functioninfo where fcode = '4310015' and channel=5);
 
 /**生成新的顺序号**/
 select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@parentid2;

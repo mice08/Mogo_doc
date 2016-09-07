@@ -1,4 +1,4 @@
-/*  Database name `mogoroomdb` 签约单渠道表数据初始化/
+/*  Database name `mogoroomdb` 签约单渠道表数据初始化 */
 use mogoroomdb;
 
 INSERT INTO oder_signedorder_channel (signedOrderId,channelName)VALUES(156504,'华设');

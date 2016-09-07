@@ -1,0 +1,7 @@
+use mogoroomdb;
+
+/*业务编码与日志历史表映射关系表 新增配置*/
+INSERT INTO `comm_business_record_mapping` (`busiType`, `tableName`, `tableNameHis`, `tableLabel`, `tableColumnLabel`, `tableColumnName`, `checkUniColumn`, `isCommWrite`, `sort`, `tableKey`, `decodeSql`) VALUES('40101006','flat_room','flat_room_his','房间信息','下架截止时间','mogoOfflineEndTime','roomId','0','8','id','');
+INSERT INTO `comm_business_record_mapping` (`busiType`, `tableName`, `tableNameHis`, `tableLabel`, `tableColumnLabel`, `tableColumnName`, `checkUniColumn`, `isCommWrite`, `sort`, `tableKey`, `decodeSql`) VALUES('40101006','flat_room','flat_room_his','房间信息','占用状态截止时间','availableEndTime','roomId','0','9','id','');
+INSERT INTO `comm_business_record_mapping` (`busiType`, `tableName`, `tableNameHis`, `tableLabel`, `tableColumnLabel`, `tableColumnName`, `checkUniColumn`, `isCommWrite`, `sort`, `tableKey`, `decodeSql`) VALUES('40101007','flat_room','flat_room_his','房间信息','下架截止时间','mogoOfflineEndTime','roomId','0','8','id','');
+INSERT INTO `comm_business_record_mapping` (`busiType`, `tableName`, `tableNameHis`, `tableLabel`, `tableColumnLabel`, `tableColumnName`, `checkUniColumn`, `isCommWrite`, `sort`, `tableKey`, `decodeSql`) VALUES('40101007','flat_room','flat_room_his','房间信息','占用状态截止时间','availableEndTime','roomId','0','9','id','');
