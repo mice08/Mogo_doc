@@ -50,7 +50,7 @@ CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `repo_renter_bill` AS SEL
 	`salebill`.`valid` AS `valid`,
 	`flat`.`flatstag` AS `flatstag`,
 	`signedorder`.`sendFlag` AS `signedorder_sendFlag`,
-	`signedorder`.`acctFinished` AS `acctFinished`
+	`signedorder`.`acctFinished` AS `acctFinished`       /*新增字段*/
 FROM
 	(
 		(
