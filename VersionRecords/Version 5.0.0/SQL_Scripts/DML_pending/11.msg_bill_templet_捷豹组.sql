@@ -1,167 +1,167 @@
 USE mogoroomdb;
 
-/*1.ÏûÏ¢ÌáĞÑ£¨ÄÚÈİ±ä¸ü£© MSG_RENTER_BILL_1004_BEFORE3  ÕËµ¥ÌáĞÑ -->×â¿Í_×â½ğÕËµ¥_3Ìì   1)¹Ø±Õ¶ÌĞÅÍ¨µÀ 2)Ôö¼Ópush 3)Ôö¼ÓÎ¢ĞÅ */
+/*1.æ¶ˆæ¯æé†’ï¼ˆå†…å®¹å˜æ›´ï¼‰ MSG_RENTER_BILL_1004_BEFORE3  è´¦å•æé†’ -->ç§Ÿå®¢_ç§Ÿé‡‘è´¦å•_3å¤©   1)å…³é—­çŸ­ä¿¡é€šé“ 2)å¢åŠ push 3)å¢åŠ å¾®ä¿¡ */
 SELECT @templet_before3_id:= (SELECT id FROM mesg_templet WHERE templetCode='sms_CreateSaleBillByBill_before3' AND STATUS =1 AND valid = 1)
-	¡¡¡¡,@templet_before3_msg:='ÄúºÃ£¬Äú×â×¡µÄ${roomInfo}µÄ${startDate}-${endDate}×â½ğÕËµ¥½«ÔÚ3ÈÕºóÓâÆÚ£¬ÇëÔÚ${dueDate}µÄ24µãÇ°Íê³ÉÖ§¸¶¡£Ä¢¹½×â·¿400-800-4949';
+	ã€€ã€€,@templet_before3_msg:='æ‚¨å¥½ï¼Œæ‚¨ç§Ÿä½çš„${roomInfo}çš„${startDate}-${endDate}ç§Ÿé‡‘è´¦å•å°†åœ¨3æ—¥åé€¾æœŸï¼Œè¯·åœ¨${dueDate}çš„24ç‚¹å‰å®Œæˆæ”¯ä»˜ã€‚è˜‘è‡ç§Ÿæˆ¿400-800-4949';
 UPDATE 	mesg_subtemplet SET templetContent = @templet_before3_msg,STATUS = 0 WHERE 	templetId  =  @templet_before3_id  AND 	valid = 1  AND 	STATUS = 1;
-INSERT INTO mesg_subtemplet (templetId,templetType,templetTitle,templetContent,STATUS,valid) VALUES (@templet_before3_id, '3', '×â½ğÕËµ¥ÈıÌìºóÓâÆÚ', @templet_before3_msg,'1', '1');
+INSERT INTO mesg_subtemplet (templetId,templetType,templetTitle,templetContent,STATUS,valid) VALUES (@templet_before3_id, '3', 'ç§Ÿé‡‘è´¦å•ä¸‰å¤©åé€¾æœŸ', @templet_before3_msg,'1', '1');
 
-/*2.ÏûÏ¢ÌáĞÑ£¨ÄÚÈİ±ä¸ü£© MSG_RENTER_BILL_1004_PAYDAY ÕËµ¥ÌáĞÑ -->×â¿Í_×â½ğÕËµ¥_µ±Ìì 1)ĞŞ¸Ä¶ÌĞÅÍ¨µÀ 2)Ôö¼Ópush 3)Ôö¼ÓÎ¢ĞÅ */
+/*2.æ¶ˆæ¯æé†’ï¼ˆå†…å®¹å˜æ›´ï¼‰ MSG_RENTER_BILL_1004_PAYDAY è´¦å•æé†’ -->ç§Ÿå®¢_ç§Ÿé‡‘è´¦å•_å½“å¤© 1)ä¿®æ”¹çŸ­ä¿¡é€šé“ 2)å¢åŠ push 3)å¢åŠ å¾®ä¿¡ */
 SELECT @templet_payday_id:= (SELECT id FROM mesg_templet WHERE templetCode='sms_CreateSaleBillByBill_payday' AND STATUS =1 AND valid = 1)
-	¡¡¡¡,@templet_payday_msg:='ÄúºÃ£¬Äú×â×¡µÄ${roomInfo}µÄ${startDate}-${endDate}×â½ğÕËµ¥½«ÔÚ½ñÈÕ24µãÓâÆÚ£¬Çë¾¡¿ìÍê³ÉÖ§¸¶¡£Ä¢¹½×â·¿400-800-4949';
+	ã€€ã€€,@templet_payday_msg:='æ‚¨å¥½ï¼Œæ‚¨ç§Ÿä½çš„${roomInfo}çš„${startDate}-${endDate}ç§Ÿé‡‘è´¦å•å°†åœ¨ä»Šæ—¥24ç‚¹é€¾æœŸï¼Œè¯·å°½å¿«å®Œæˆæ”¯ä»˜ã€‚è˜‘è‡ç§Ÿæˆ¿400-800-4949';
 UPDATE 	mesg_subtemplet SET templetContent = @templet_payday_msg WHERE 	templetId  =  @templet_payday_id  AND 	valid = 1  AND 	STATUS = 1;
-INSERT INTO mesg_subtemplet (templetId,templetType,templetTitle,templetContent,STATUS,valid) VALUES (@templet_payday_id, '3', '×â½ğÕËµ¥µ½ÆÚÎ´¸¶', @templet_payday_msg,'1', '1');
+INSERT INTO mesg_subtemplet (templetId,templetType,templetTitle,templetContent,STATUS,valid) VALUES (@templet_payday_id, '3', 'ç§Ÿé‡‘è´¦å•åˆ°æœŸæœªä»˜', @templet_payday_msg,'1', '1');
 
-/*3.ÏûÏ¢ÌáĞÑ£¨add£© MSG_RENTER_BILL_1004_OVERDUE ÕËµ¥ÌáĞÑ -->×â¿Í_×â½ğÕËµ¥_ÓâÆÚ(1Ìì¡¢3Ìì¡¢7Ìì)*/
+/*3.æ¶ˆæ¯æé†’ï¼ˆaddï¼‰ MSG_RENTER_BILL_1004_OVERDUE è´¦å•æé†’ -->ç§Ÿå®¢_ç§Ÿé‡‘è´¦å•_é€¾æœŸ(1å¤©ã€3å¤©ã€7å¤©)*/
 SELECT @templet_overdue_code:= 'bill_renter_1004_overdue'
-	¡¡¡¡,@templet_overdue_msg:='${renterName}ÄúºÃ£¬${roomInfo}µÄ${startDate}-${endDate}×â½ğÕËµ¥ÒÑ¾­ÓâÆÚ£¬Çë¾¡¿ìÖ§¸¶¸ø·¿¶«${landlordName}£¬ÈôÓĞÒÉÎÊ¿ÉÓëÆä¹µÍ¨¡£';
-INSERT INTO mesg_templet(templetCode,templetName,templetDesc,STATUS,createBy,createTime,createByType,valid,businessType) VALUES (@templet_overdue_code, '×â½ğÕËµ¥ÓâÆÚ', '×â½ğÕËµ¥ÓâÆÚ1¡¢3¡¢7Ìì', '1', '2', NOW(), '4', '1', '5');
+	ã€€ã€€,@templet_overdue_msg:='${renterName}æ‚¨å¥½ï¼Œ${roomInfo}çš„${startDate}-${endDate}ç§Ÿé‡‘è´¦å•å·²ç»é€¾æœŸï¼Œè¯·å°½å¿«æ”¯ä»˜ç»™æˆ¿ä¸œ${landlordName}ï¼Œè‹¥æœ‰ç–‘é—®å¯ä¸å…¶æ²Ÿé€šã€‚';
+INSERT INTO mesg_templet(templetCode,templetName,templetDesc,STATUS,createBy,createTime,createByType,valid,businessType) VALUES (@templet_overdue_code, 'ç§Ÿé‡‘è´¦å•é€¾æœŸ', 'ç§Ÿé‡‘è´¦å•é€¾æœŸ1ã€3ã€7å¤©', '1', '2', NOW(), '4', '1', '5');
 SELECT @templet_overdue_id:= LAST_INSERT_ID();
-INSERT INTO mesg_subtemplet (templetId,templetType,templetTitle,templetContent,STATUS,valid) VALUES (@templet_overdue_id, '3', '×â½ğÕËµ¥ÓâÆÚ', @templet_overdue_msg,'1', '1');
+INSERT INTO mesg_subtemplet (templetId,templetType,templetTitle,templetContent,STATUS,valid) VALUES (@templet_overdue_id, '3', 'ç§Ÿé‡‘è´¦å•é€¾æœŸ', @templet_overdue_msg,'1', '1');
  
-/*4.ÏûÏ¢ÌáĞÑ£¨add£© MSG_LANDLORD_BILL_1004_PAYDAY ÕËµ¥ÌáĞÑ -->·¿¶«_×â½ğÕËµ¥_µ±Ìì*/
+/*4.æ¶ˆæ¯æé†’ï¼ˆaddï¼‰ MSG_LANDLORD_BILL_1004_PAYDAY è´¦å•æé†’ -->æˆ¿ä¸œ_ç§Ÿé‡‘è´¦å•_å½“å¤©*/
 SELECT @templet_landlordpaydate_code:= 'bill_landlord_1004_payday'
-	¡¡¡¡,@templet_landlordpaydate_msg:='${landlordName}ÄúºÃ£¬½ñÌìÊÇ${roomInfo} µÄ${startDate}-${endDate}×â½ğÕËµ¥×îÍíÖ§¸¶ÈÕ£¬×â¿Í${renterName}£¨ºÅÂë£º${renterPhone}£©£¬Çë¼°Ê±ÊÕ×â¡£';
-INSERT INTO mesg_templet(templetCode,templetName,templetDesc,STATUS,createBy,createTime,createByType,valid,businessType) VALUES (@templet_landlordpaydate_code, '×â½ğÕËµ¥µ±ÌìÌáĞÑ', '×â½ğÕËµ¥µ±ÌìÌáĞÑ', '1', '2', NOW(), '4', '1', '5');
+	ã€€ã€€,@templet_landlordpaydate_msg:='${landlordName}æ‚¨å¥½ï¼Œä»Šå¤©æ˜¯${roomInfo} çš„${startDate}-${endDate}ç§Ÿé‡‘è´¦å•æœ€æ™šæ”¯ä»˜æ—¥ï¼Œç§Ÿå®¢${renterName}ï¼ˆå·ç ï¼š${renterPhone}ï¼‰ï¼Œè¯·åŠæ—¶æ”¶ç§Ÿã€‚';
+INSERT INTO mesg_templet(templetCode,templetName,templetDesc,STATUS,createBy,createTime,createByType,valid,businessType) VALUES (@templet_landlordpaydate_code, 'ç§Ÿé‡‘è´¦å•å½“å¤©æé†’', 'ç§Ÿé‡‘è´¦å•å½“å¤©æé†’', '1', '2', NOW(), '4', '1', '5');
 SELECT @templet_landlordpaydate_id:= LAST_INSERT_ID();
-INSERT INTO mesg_subtemplet (templetId,templetType,templetTitle,templetContent,STATUS,valid) VALUES (@templet_landlordpaydate_id, '3', '×â½ğÕËµ¥µ±ÌìÌáĞÑ', @templet_landlordpaydate_msg,'1', '1');
+INSERT INTO mesg_subtemplet (templetId,templetType,templetTitle,templetContent,STATUS,valid) VALUES (@templet_landlordpaydate_id, '3', 'ç§Ÿé‡‘è´¦å•å½“å¤©æé†’', @templet_landlordpaydate_msg,'1', '1');
 
-/*5.ÏûÏ¢ÌáĞÑ£¨add£© MSG_RENTER_BILL_20001_PAYDAY ÕËµ¥ÌáĞÑ -->×â¿Í_×Ô¶¨ÒåÕËµ¥_µ±Ìì*/
+/*5.æ¶ˆæ¯æé†’ï¼ˆaddï¼‰ MSG_RENTER_BILL_20001_PAYDAY è´¦å•æé†’ -->ç§Ÿå®¢_è‡ªå®šä¹‰è´¦å•_å½“å¤©*/
 SELECT @templet_20001paydate_code:= 'bill_renter_20001_payday'
-	¡¡¡¡,@templet_20001paydate_msg:='ÄúºÃ£¬Äú×â×¡µÄ${roomInfo}µÄ#${billName}#µÈ${billNum}ÏîÕËµ¥½«ÔÚ½ñÈÕ24µãÓâÆÚ£¬Çë¾¡¿ìÍê³ÉÖ§¸¶¡£';
-INSERT INTO mesg_templet(templetCode,templetName,templetDesc,STATUS,createBy,createTime,createByType,valid,businessType) VALUES (@templet_20001paydate_code, '×Ô¶¨ÒåÕËµ¥µ±ÌìÌáĞÑ', '×Ô¶¨ÒåÕËµ¥µ±ÌìÌáĞÑ', '1', '2', NOW(), '4', '1', '5');
+	ã€€ã€€,@templet_20001paydate_msg:='æ‚¨å¥½ï¼Œæ‚¨ç§Ÿä½çš„${roomInfo}çš„#${billName}#ç­‰${billNum}é¡¹è´¦å•å°†åœ¨ä»Šæ—¥24ç‚¹é€¾æœŸï¼Œè¯·å°½å¿«å®Œæˆæ”¯ä»˜ã€‚';
+INSERT INTO mesg_templet(templetCode,templetName,templetDesc,STATUS,createBy,createTime,createByType,valid,businessType) VALUES (@templet_20001paydate_code, 'è‡ªå®šä¹‰è´¦å•å½“å¤©æé†’', 'è‡ªå®šä¹‰è´¦å•å½“å¤©æé†’', '1', '2', NOW(), '4', '1', '5');
 SELECT @templet_20001paydate_id:= LAST_INSERT_ID();
-INSERT INTO mesg_subtemplet (templetId,templetType,templetTitle,templetContent,STATUS,valid) VALUES (@templet_20001paydate_id, '1', '×Ô¶¨ÒåÕËµ¥µ±ÌìÌáĞÑ', @templet_20001paydate_msg,'1', '1');
-INSERT INTO mesg_subtemplet (templetId,templetType,templetTitle,templetContent,STATUS,valid) VALUES (@templet_20001paydate_id, '3', '×Ô¶¨ÒåÕËµ¥µ±ÌìÌáĞÑ', @templet_20001paydate_msg,'1', '1');
+INSERT INTO mesg_subtemplet (templetId,templetType,templetTitle,templetContent,STATUS,valid) VALUES (@templet_20001paydate_id, '1', 'è‡ªå®šä¹‰è´¦å•å½“å¤©æé†’', @templet_20001paydate_msg,'1', '1');
+INSERT INTO mesg_subtemplet (templetId,templetType,templetTitle,templetContent,STATUS,valid) VALUES (@templet_20001paydate_id, '3', 'è‡ªå®šä¹‰è´¦å•å½“å¤©æé†’', @templet_20001paydate_msg,'1', '1');
 
 
-/*6.ÏûÏ¢ÌáĞÑ£¨add£© MSG_RENTER_BILL_20001_OVERDUE ÕËµ¥ÌáĞÑ -->×â¿Í_×Ô¶¨ÒåÕËµ¥_ÓâÆÚ(1Ìì)*/
+/*6.æ¶ˆæ¯æé†’ï¼ˆaddï¼‰ MSG_RENTER_BILL_20001_OVERDUE è´¦å•æé†’ -->ç§Ÿå®¢_è‡ªå®šä¹‰è´¦å•_é€¾æœŸ(1å¤©)*/
 SELECT @templet_20001overdue_code:= 'bill_renter_20001_overdue'
-	¡¡¡¡,@templet_20001overdue_msg:='${renterName}ÄúºÃ£¬${roomInfo}µÄ#${billName}#ÕËµ¥ÒÑ¾­ÓâÆÚ£¬Çë¾¡¿ìÖ§¸¶¸ø·¿¶«${landlordName}£¬ÈôÓĞÒÉÎÊ¿ÉÓëÆä¹µÍ¨¡£';
-INSERT INTO mesg_templet(templetCode,templetName,templetDesc,STATUS,createBy,createTime,createByType,valid,businessType) VALUES (@templet_20001overdue_code, '×Ô¶¨ÒåÕËµ¥µ±ÌìÌáĞÑ', '×Ô¶¨ÒåÕËµ¥µ±ÌìÌáĞÑ', '1', '2', NOW(), '4', '1', '5');
+	ã€€ã€€,@templet_20001overdue_msg:='${renterName}æ‚¨å¥½ï¼Œ${roomInfo}çš„#${billName}#è´¦å•å·²ç»é€¾æœŸï¼Œè¯·å°½å¿«æ”¯ä»˜ç»™æˆ¿ä¸œ${landlordName}ï¼Œè‹¥æœ‰ç–‘é—®å¯ä¸å…¶æ²Ÿé€šã€‚';
+INSERT INTO mesg_templet(templetCode,templetName,templetDesc,STATUS,createBy,createTime,createByType,valid,businessType) VALUES (@templet_20001overdue_code, 'è‡ªå®šä¹‰è´¦å•å½“å¤©æé†’', 'è‡ªå®šä¹‰è´¦å•å½“å¤©æé†’', '1', '2', NOW(), '4', '1', '5');
 SELECT @templet_20001overdue_id:= LAST_INSERT_ID();
-INSERT INTO mesg_subtemplet (templetId,templetType,templetTitle,templetContent,STATUS,valid) VALUES (@templet_20001overdue_id, '3', '×Ô¶¨ÒåÕËµ¥ÓâÆÚÌáĞÑ', @templet_20001overdue_msg,'1', '1');
+INSERT INTO mesg_subtemplet (templetId,templetType,templetTitle,templetContent,STATUS,valid) VALUES (@templet_20001overdue_id, '3', 'è‡ªå®šä¹‰è´¦å•é€¾æœŸæé†’', @templet_20001overdue_msg,'1', '1');
 
 
 
-/* === ÒÑÓĞÏûÏ¢ĞŞ¸ÄÈçÏÂ£º===  */
+/* === å·²æœ‰æ¶ˆæ¯ä¿®æ”¹å¦‚ä¸‹ï¼š===  */
 
-/*ÏûÏ¢ sms_renter_update_customBill  ÕËÎñ ·¿¶«ĞŞ¸ÄÕËµ¥ */
-UPDATE mesg_templet SET templetName='×â¿Í_ÍÆËÍÕËµ¥_ĞŞ¸Ä',templetDesc='×â¿Í_ÍÆËÍÕËµ¥_ĞŞ¸Ä' 
+/*æ¶ˆæ¯ sms_renter_update_customBill  è´¦åŠ¡ æˆ¿ä¸œä¿®æ”¹è´¦å• */
+UPDATE mesg_templet SET templetName='ç§Ÿå®¢_æ¨é€è´¦å•_ä¿®æ”¹',templetDesc='ç§Ÿå®¢_æ¨é€è´¦å•_ä¿®æ”¹' 
  WHERE templetCode='sms_renter_update_customBill';
-UPDATE mesg_subtemplet SET templetTitle='×â¿Í_ÍÆËÍÕËµ¥_ĞŞ¸Ä',templetContent='${renterName}ÄúºÃ£¬·¿¶«ÒÑĞŞ¸ÄÄú${roomInfo}µÄ#${billName}#ÕËµ¥£¬Äú¿É´ò¿ªÕËµ¥²é¿´ÏêÇé²¢¾¡¿ìÖ§¸¶£¬ÈôÓĞÒÉÎÊÇëÓë·¿¶«ÁªÏµ¡£'
+UPDATE mesg_subtemplet SET templetTitle='ç§Ÿå®¢_æ¨é€è´¦å•_ä¿®æ”¹',templetContent='${renterName}æ‚¨å¥½ï¼Œæˆ¿ä¸œå·²ä¿®æ”¹æ‚¨${roomInfo}çš„#${billName}#è´¦å•ï¼Œæ‚¨å¯æ‰“å¼€è´¦å•æŸ¥çœ‹è¯¦æƒ…å¹¶å°½å¿«æ”¯ä»˜ï¼Œè‹¥æœ‰ç–‘é—®è¯·ä¸æˆ¿ä¸œè”ç³»ã€‚'
  WHERE templetId=(SELECT id FROM mesg_templet WHERE templetCode='sms_renter_update_customBill');
  
-/*ÏûÏ¢ sms_renter_revoke_customBill  ÕËÎñ ·¿¶«×÷·ÏÕËµ¥ */
-UPDATE mesg_templet SET templetName='×â¿Í_ÕËµ¥_×÷·Ï',templetDesc='×â¿Í_ÕËµ¥_×÷·Ï' 
+/*æ¶ˆæ¯ sms_renter_revoke_customBill  è´¦åŠ¡ æˆ¿ä¸œä½œåºŸè´¦å• */
+UPDATE mesg_templet SET templetName='ç§Ÿå®¢_è´¦å•_ä½œåºŸ',templetDesc='ç§Ÿå®¢_è´¦å•_ä½œåºŸ' 
  WHERE templetCode='sms_renter_revoke_customBill';
-UPDATE mesg_subtemplet SET templetTitle='×â¿Í_ÕËµ¥_×÷·Ï',templetContent='${renterName}ÄúºÃ£¬·¿¶«ÒÑ½«Äú${roomInfo}µÄ#${billName}#µÄÕËµ¥×÷·Ï£¬Äú¿É´ò¿ªÕËµ¥²é¿´ÏêÇé¡£'
+UPDATE mesg_subtemplet SET templetTitle='ç§Ÿå®¢_è´¦å•_ä½œåºŸ',templetContent='${renterName}æ‚¨å¥½ï¼Œæˆ¿ä¸œå·²å°†æ‚¨${roomInfo}çš„#${billName}#çš„è´¦å•ä½œåºŸï¼Œæ‚¨å¯æ‰“å¼€è´¦å•æŸ¥çœ‹è¯¦æƒ…ã€‚'
  WHERE templetId=(SELECT id FROM mesg_templet WHERE templetCode='sms_renter_revoke_customBill');
 
-/*ÏûÏ¢ sms_refund_approval_wait  ÕËÎñ ·¿¶«ÍË¿îÉóÅú */
-UPDATE mesg_templet SET templetName='·¿¶«_ÍË¿îÉóÅú',templetDesc='·¿¶«_ÍË¿îÉóÅú' 
+/*æ¶ˆæ¯ sms_refund_approval_wait  è´¦åŠ¡ æˆ¿ä¸œé€€æ¬¾å®¡æ‰¹ */
+UPDATE mesg_templet SET templetName='æˆ¿ä¸œ_é€€æ¬¾å®¡æ‰¹',templetDesc='æˆ¿ä¸œ_é€€æ¬¾å®¡æ‰¹' 
  WHERE templetCode='sms_refund_approval_wait';
-UPDATE mesg_subtemplet SET templetTitle='·¿¶«_ÍË¿îÉóÅú',templetContent='ÄúÓĞÒ»±Ê${userInfoName}·¢ÆğµÄÍË¿î${money}Ôª´ıÉóºË£¬ÇëÖÁÍË¿îÉóºËÒ³Ãæ½øĞĞ²Ù×÷¡£'
+UPDATE mesg_subtemplet SET templetTitle='æˆ¿ä¸œ_é€€æ¬¾å®¡æ‰¹',templetContent='æ‚¨æœ‰ä¸€ç¬”${userInfoName}å‘èµ·çš„é€€æ¬¾${money}å…ƒå¾…å®¡æ ¸ï¼Œè¯·è‡³é€€æ¬¾å®¡æ ¸é¡µé¢è¿›è¡Œæ“ä½œã€‚'
  WHERE templetId=(SELECT id FROM mesg_templet WHERE templetCode='sms_refund_approval_wait');
 
 
- /*ÏûÏ¢ sms_outhome_renter  ×â¿Í_ÍË·¿ÉêÇë·´À¡ */
+ /*æ¶ˆæ¯ sms_outhome_renter  ç§Ÿå®¢_é€€æˆ¿ç”³è¯·åé¦ˆ */
 SELECT @templet_outhome_id:= (SELECT id FROM mesg_templet WHERE templetCode='sms_outhome_renter' AND STATUS =1 AND valid = 1)
-	¡¡¡¡,@templet_outhome_msg:='Ò»¿ªÊ¼ÎÒºÜÄÑ½ÓÊÜ£¬µ«ÏàĞÅÄú»á¹ıµÄ¸üºÃ£¬ÎÒÃÇÕıÍ¨Öª·¿¶«ÄúµÄÍË·¿ÇëÇó£¬Çë±£³ÖÊÖ»ú³©Í¨£¬ÄÍĞÄµÈ´ı£¬Ä¢¹½×â·¿£¬ÆÚ´ıÄúÔÙ´Î»ØÀ´~';
-UPDATE mesg_templet SET templetName='×â¿Í_ÍË·¿ÉêÇë·´À¡',templetDesc='×â¿Í_ÍË·¿ÉêÇë·´À¡'  WHERE id = @templet_outhome_id;
-UPDATE 	mesg_subtemplet SET templetContent = @templet_outhome_msg,templetTitle ='×â¿Í_ÍË·¿ÉêÇë·´À¡'  WHERE 	templetId  =  @templet_outhome_id  AND 	valid = 1  AND 	STATUS = 1;
+	ã€€ã€€,@templet_outhome_msg:='ä¸€å¼€å§‹æˆ‘å¾ˆéš¾æ¥å—ï¼Œä½†ç›¸ä¿¡æ‚¨ä¼šè¿‡çš„æ›´å¥½ï¼Œæˆ‘ä»¬æ­£é€šçŸ¥æˆ¿ä¸œæ‚¨çš„é€€æˆ¿è¯·æ±‚ï¼Œè¯·ä¿æŒæ‰‹æœºç•…é€šï¼Œè€å¿ƒç­‰å¾…ï¼Œè˜‘è‡ç§Ÿæˆ¿ï¼ŒæœŸå¾…æ‚¨å†æ¬¡å›æ¥~';
+UPDATE mesg_templet SET templetName='ç§Ÿå®¢_é€€æˆ¿ç”³è¯·åé¦ˆ',templetDesc='ç§Ÿå®¢_é€€æˆ¿ç”³è¯·åé¦ˆ'  WHERE id = @templet_outhome_id;
+UPDATE 	mesg_subtemplet SET templetContent = @templet_outhome_msg,templetTitle ='ç§Ÿå®¢_é€€æˆ¿ç”³è¯·åé¦ˆ'  WHERE 	templetId  =  @templet_outhome_id  AND 	valid = 1  AND 	STATUS = 1;
 
- /*ÏûÏ¢ sms_outhome_landlord  ·¿¶«_×â¿ÍÍË·¿ÉêÇë */
+ /*æ¶ˆæ¯ sms_outhome_landlord  æˆ¿ä¸œ_ç§Ÿå®¢é€€æˆ¿ç”³è¯· */
 SELECT @templet_outhomelandlord_id:= (SELECT id FROM mesg_templet WHERE templetCode='sms_outhome_landlord' AND STATUS =1 AND valid = 1)
-	¡¡¡¡,@templet_outhomelandlord_msg:='${landlordName}ÄúºÃ£¬${roomInfo}ÉêÇëÍË·¿£¬×â¿Í£º${renterName}£¨ºÅÂë£º${renterPhone}£©£¬Çë¼°Ê±´¦Àí¡£';
-UPDATE mesg_templet SET templetName='·¿¶«_×â¿ÍÍË·¿ÉêÇë',templetDesc='·¿¶«_×â¿ÍÍË·¿ÉêÇë'  WHERE id = @templet_outhomelandlord_id;
-UPDATE 	mesg_subtemplet SET templetContent = @templet_outhomelandlord_msg,templetTitle ='·¿¶«_×â¿ÍÍË·¿ÉêÇë'   WHERE 	templetId  =  @templet_outhomelandlord_id  AND 	valid = 1  AND 	STATUS = 1;
-INSERT INTO mesg_subtemplet (templetId,templetType,templetTitle,templetContent,STATUS,valid) VALUES (@templet_outhomelandlord_id, '1', '·¿¶«_×â¿ÍÍË·¿ÉêÇë', @templet_outhomelandlord_msg,'1', '1');
+	ã€€ã€€,@templet_outhomelandlord_msg:='${landlordName}æ‚¨å¥½ï¼Œ${roomInfo}ç”³è¯·é€€æˆ¿ï¼Œç§Ÿå®¢ï¼š${renterName}ï¼ˆå·ç ï¼š${renterPhone}ï¼‰ï¼Œè¯·åŠæ—¶å¤„ç†ã€‚';
+UPDATE mesg_templet SET templetName='æˆ¿ä¸œ_ç§Ÿå®¢é€€æˆ¿ç”³è¯·',templetDesc='æˆ¿ä¸œ_ç§Ÿå®¢é€€æˆ¿ç”³è¯·'  WHERE id = @templet_outhomelandlord_id;
+UPDATE 	mesg_subtemplet SET templetContent = @templet_outhomelandlord_msg,templetTitle ='æˆ¿ä¸œ_ç§Ÿå®¢é€€æˆ¿ç”³è¯·'   WHERE 	templetId  =  @templet_outhomelandlord_id  AND 	valid = 1  AND 	STATUS = 1;
+INSERT INTO mesg_subtemplet (templetId,templetType,templetTitle,templetContent,STATUS,valid) VALUES (@templet_outhomelandlord_id, '1', 'æˆ¿ä¸œ_ç§Ÿå®¢é€€æˆ¿ç”³è¯·', @templet_outhomelandlord_msg,'1', '1');
 
- /*ÏûÏ¢ sms_CreateCustomBillByBill  ×â¿Í_ĞÂÔöÕËµ¥_ÌáĞÑ */
-SELECT @custombill_templet_id:=(SELECT id FROM `mesg_templet` t WHERE t.`templetCode`='sms_CreateCustomBillByBill' AND t.`status`=1 AND t.`valid`=1),@custombill_desc:='×â¿Í_ĞÂÔöÕËµ¥_ÌáĞÑ',
-	@custombill_msg_templet:='${renterName}ÄúºÃ£¬·¿¶«ÎªÄú${roomInfo}·¿¼äĞÂÔö#${billName}#µÈ${billNum}Ïî${billTimes}¹²${amount}Ôª£¬ÇëÓÚ${dueDate}µÄ24µãÇ°Íê³ÉÖ§¸¶£¬¿ÉµÇÂ¼Ä¢¹½×â·¿APP²é¿´²¢Ö§¸¶£¬ÈçÓĞÒÉÎÊÇëÓë·¿¶«ÁªÏµ¡£';
+ /*æ¶ˆæ¯ sms_CreateCustomBillByBill  ç§Ÿå®¢_æ–°å¢è´¦å•_æé†’ */
+SELECT @custombill_templet_id:=(SELECT id FROM `mesg_templet` t WHERE t.`templetCode`='sms_CreateCustomBillByBill' AND t.`status`=1 AND t.`valid`=1),@custombill_desc:='ç§Ÿå®¢_æ–°å¢è´¦å•_æé†’',
+	@custombill_msg_templet:='${renterName}æ‚¨å¥½ï¼Œæˆ¿ä¸œä¸ºæ‚¨${roomInfo}æˆ¿é—´æ–°å¢#${billName}#ç­‰${billNum}é¡¹${billTimes}å…±${amount}å…ƒï¼Œè¯·äº${dueDate}çš„24ç‚¹å‰å®Œæˆæ”¯ä»˜ï¼Œå¯ç™»å½•è˜‘è‡ç§Ÿæˆ¿APPæŸ¥çœ‹å¹¶æ”¯ä»˜ï¼Œå¦‚æœ‰ç–‘é—®è¯·ä¸æˆ¿ä¸œè”ç³»ã€‚';
 UPDATE `mesg_templet` t SET t.`templetName`=@custombill_desc, t.`templetDesc`=@custombill_desc WHERE t.id=@custombill_templet_id;
 UPDATE `mesg_subtemplet` t SET t.`templetTitle`=@custombill_desc, t.`templetContent`=@custombill_msg_templet WHERE t.`templetId`=@custombill_templet_id AND t.`status`=1 AND t.`valid`=1;
 INSERT INTO mesg_subtemplet (templetId, templetType, templetTitle, templetContent, STATUS, valid) VALUES (@custombill_templet_id, 3, @custombill_desc, @custombill_msg_templet, 1, 1);
 
- /*ÏûÏ¢ renter_checkout_dealwith_success  ×â¿Í_ÍË·¿Íê³É */
+ /*æ¶ˆæ¯ renter_checkout_dealwith_success  ç§Ÿå®¢_é€€æˆ¿å®Œæˆ */
 SELECT @templet_renter_checkout_id:= (SELECT id FROM mesg_templet WHERE templetCode='renter_checkout_dealwith_success' AND STATUS =1 AND valid = 1)
-	¡¡¡¡,@templet_renter_checkout_msg:='Äú×â×¡µÄ${roomInfo}ÍË·¿ÒÑÍê³É£¬·¿¶«½«ÍË¿î${amount}Ôª¸øÄú£¬ÇëÓë·¿¶«ÁªÏµ¡£';
-UPDATE mesg_templet SET templetName='×â¿Í_ÍË·¿Íê³É',templetDesc='×â¿Í_ÍË·¿Íê³É'  WHERE id = @templet_renter_checkout_id;
-UPDATE 	mesg_subtemplet SET templetContent = @templet_renter_checkout_msg,templetTitle ='×â¿Í_ÍË·¿Íê³É'   WHERE 	templetId  =  @templet_renter_checkout_id  AND 	valid = 1  AND 	STATUS = 1;
-INSERT INTO mesg_subtemplet (templetId,templetType,templetTitle,templetContent,STATUS,valid) VALUES (@templet_renter_checkout_id, '1', '×â¿Í_ÍË·¿Íê³É', @templet_renter_checkout_msg,'1', '1');
+	ã€€ã€€,@templet_renter_checkout_msg:='æ‚¨ç§Ÿä½çš„${roomInfo}é€€æˆ¿å·²å®Œæˆï¼Œæˆ¿ä¸œå°†é€€æ¬¾${amount}å…ƒç»™æ‚¨ï¼Œè¯·ä¸æˆ¿ä¸œè”ç³»ã€‚';
+UPDATE mesg_templet SET templetName='ç§Ÿå®¢_é€€æˆ¿å®Œæˆ',templetDesc='ç§Ÿå®¢_é€€æˆ¿å®Œæˆ'  WHERE id = @templet_renter_checkout_id;
+UPDATE 	mesg_subtemplet SET templetContent = @templet_renter_checkout_msg,templetTitle ='ç§Ÿå®¢_é€€æˆ¿å®Œæˆ'   WHERE 	templetId  =  @templet_renter_checkout_id  AND 	valid = 1  AND 	STATUS = 1;
+INSERT INTO mesg_subtemplet (templetId,templetType,templetTitle,templetContent,STATUS,valid) VALUES (@templet_renter_checkout_id, '1', 'ç§Ÿå®¢_é€€æˆ¿å®Œæˆ', @templet_renter_checkout_msg,'1', '1');
 
 
- /*ÏûÏ¢ renter_checkout_dealwith_success  ·¿¶«_ÍË¿îÉóÅú_¾Ü¾ø */
+ /*æ¶ˆæ¯ renter_checkout_dealwith_success  æˆ¿ä¸œ_é€€æ¬¾å®¡æ‰¹_æ‹’ç» */
 SELECT @templet_approval_inform_id:= (SELECT id FROM mesg_templet WHERE templetCode='sms_refund_approval_inform' AND STATUS =1 AND valid = 1)
-	¡¡¡¡,@templet_approval_inform_msg:='ÄúµÄ${roomInfo}ÍË¿îÉóºË±»${landlordName}¾Ü¾ø£¬Ô­ÒòÎª${approvalReason}¡£';
-UPDATE mesg_templet SET templetName='·¿¶«_ÍË¿îÉóÅú_¾Ü¾ø',templetDesc='·¿¶«_ÍË¿îÉóÅú_¾Ü¾ø'  WHERE id = @templet_approval_inform_id;
-UPDATE 	mesg_subtemplet SET templetContent = @templet_approval_inform_msg,templetTitle ='·¿¶«_ÍË¿îÉóÅú_¾Ü¾ø'   WHERE 	templetId  =  @templet_approval_inform_id  AND 	valid = 1  AND 	STATUS = 1;
+	ã€€ã€€,@templet_approval_inform_msg:='æ‚¨çš„${roomInfo}é€€æ¬¾å®¡æ ¸è¢«${landlordName}æ‹’ç»ï¼ŒåŸå› ä¸º${approvalReason}ã€‚';
+UPDATE mesg_templet SET templetName='æˆ¿ä¸œ_é€€æ¬¾å®¡æ‰¹_æ‹’ç»',templetDesc='æˆ¿ä¸œ_é€€æ¬¾å®¡æ‰¹_æ‹’ç»'  WHERE id = @templet_approval_inform_id;
+UPDATE 	mesg_subtemplet SET templetContent = @templet_approval_inform_msg,templetTitle ='æˆ¿ä¸œ_é€€æ¬¾å®¡æ‰¹_æ‹’ç»'   WHERE 	templetId  =  @templet_approval_inform_id  AND 	valid = 1  AND 	STATUS = 1;
 
-/*ÏûÏ¢ landlord_checkout_audit_agree  ·¿¶«_ÍË¿îÉóÅú_Í¨¹ı */
+/*æ¶ˆæ¯ landlord_checkout_audit_agree  æˆ¿ä¸œ_é€€æ¬¾å®¡æ‰¹_é€šè¿‡ */
 SELECT @landlord_checkout_audit_agree_code:= 'landlord_checkout_audit_agree'
-	¡¡¡¡,@landlord_checkout_audit_agree_msg:='${userInfoName}ÄúºÃ£¬ÄúµÄ${roomInfo}ÍË¿îÉêÇëÒÑÍ¨¹ıÉóºË¡£';
-INSERT INTO mesg_templet(templetCode,templetName,templetDesc,STATUS,createBy,createTime,createByType,valid,businessType) VALUES (@landlord_checkout_audit_agree_code, '×ÓÕËºÅ_ÍË¿îÉóºË_¾Ü¾ø', '×ÓÕËºÅ_ÍË¿îÉóºË_¾Ü¾ø', '1', '2', NOW(), '4', '1', '5');
+	ã€€ã€€,@landlord_checkout_audit_agree_msg:='${userInfoName}æ‚¨å¥½ï¼Œæ‚¨çš„${roomInfo}é€€æ¬¾ç”³è¯·å·²é€šè¿‡å®¡æ ¸ã€‚';
+INSERT INTO mesg_templet(templetCode,templetName,templetDesc,STATUS,createBy,createTime,createByType,valid,businessType) VALUES (@landlord_checkout_audit_agree_code, 'å­è´¦å·_é€€æ¬¾å®¡æ ¸_æ‹’ç»', 'å­è´¦å·_é€€æ¬¾å®¡æ ¸_æ‹’ç»', '1', '2', NOW(), '4', '1', '5');
 SELECT @landlord_checkout_audit_agree_id:= LAST_INSERT_ID();
-INSERT INTO mesg_subtemplet (templetId,templetType,templetTitle,templetContent,STATUS,valid) VALUES (@landlord_checkout_audit_agree_id, '3', '×ÓÕËºÅ_ÍË¿îÉóºË_¾Ü¾ø', @landlord_checkout_audit_agree_msg,'1', '1');
+INSERT INTO mesg_subtemplet (templetId,templetType,templetTitle,templetContent,STATUS,valid) VALUES (@landlord_checkout_audit_agree_id, '3', 'å­è´¦å·_é€€æ¬¾å®¡æ ¸_æ‹’ç»', @landlord_checkout_audit_agree_msg,'1', '1');
 
-/* ÏûÏ¢½Å±¾ */
+/* æ¶ˆæ¯è„šæœ¬ */
 
-INSERT INTO `mesg_templet` (`templetCode`, `templetName`, `templetDesc`, `status`, `createBy`, `createTime`, `createByType`, `updateBy`, `updateTime`, `updateByType`, `valid`, `businessType`) VALUES ('runter_bill_favorable', '×â¿ÍÕËµ¥ÓÅ»İ', '×â¿ÍÕËµ¥ÓÅ»İ', '1', '2', NOW(), '3', NULL, NULL, NULL, '1', '10');
+INSERT INTO `mesg_templet` (`templetCode`, `templetName`, `templetDesc`, `status`, `createBy`, `createTime`, `createByType`, `updateBy`, `updateTime`, `updateByType`, `valid`, `businessType`) VALUES ('runter_bill_favorable', 'ç§Ÿå®¢è´¦å•ä¼˜æƒ ', 'ç§Ÿå®¢è´¦å•ä¼˜æƒ ', '1', '2', NOW(), '3', NULL, NULL, NULL, '1', '10');
 
-INSERT INTO `mesg_templet` (`templetCode`, `templetName`, `templetDesc`, `status`, `createBy`, `createTime`, `createByType`, `updateBy`, `updateTime`, `updateByType`, `valid`, `businessType`) VALUES ('runter_bill_split', '×â¿ÍÕËµ¥²ğ·Ö', '×â¿ÍÕËµ¥²ğ·Ö', '1', '2', NOW(), '3', NULL, NULL, NULL, '1', '10');
+INSERT INTO `mesg_templet` (`templetCode`, `templetName`, `templetDesc`, `status`, `createBy`, `createTime`, `createByType`, `updateBy`, `updateTime`, `updateByType`, `valid`, `businessType`) VALUES ('runter_bill_split', 'ç§Ÿå®¢è´¦å•æ‹†åˆ†', 'ç§Ÿå®¢è´¦å•æ‹†åˆ†', '1', '2', NOW(), '3', NULL, NULL, NULL, '1', '10');
 
 # Z5
 INSERT INTO `mesg_subtemplet` (`templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`) 
-VALUES ((SELECT t.id FROM mesg_templet t WHERE t.templetCode ='runter_bill_favorable'), 3, '×â¿ÍÕËµ¥ÓÅ»İ', '${renterName}ÄúºÃ£¬·¿¶«${landlordName}ÒÑÎªÄú${roomInfo} µÄ${billName}ÕËµ¥ÓÅ»İ${reduceMoney}Ôª£¬ÏêÇéÇë²é¿´ÕËµ¥£¬ÈçÓĞÒÉÎÊÇëÓë·¿¶«ÁªÏµ¡£', '1', '1', NULL, NULL);
+VALUES ((SELECT t.id FROM mesg_templet t WHERE t.templetCode ='runter_bill_favorable'), 3, 'ç§Ÿå®¢è´¦å•ä¼˜æƒ ', '${renterName}æ‚¨å¥½ï¼Œæˆ¿ä¸œ${landlordName}å·²ä¸ºæ‚¨${roomInfo} çš„${billName}è´¦å•ä¼˜æƒ ${reduceMoney}å…ƒï¼Œè¯¦æƒ…è¯·æŸ¥çœ‹è´¦å•ï¼Œå¦‚æœ‰ç–‘é—®è¯·ä¸æˆ¿ä¸œè”ç³»ã€‚', '1', '1', NULL, NULL);
  
 # Z6
 INSERT INTO `mesg_subtemplet` (`templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`) 
-VALUES ((SELECT t.id FROM mesg_templet t WHERE t.templetCode ='runter_bill_split'), 3, '×â¿ÍÕËµ¥²ğ·Ö', '${renterName}ÄúºÃ£¬·¿¶«${landlordName}ÒÑ½«Äú${roomInfo} µÄ${billName}ÕËµ¥½øĞĞ²ğ·Ö£¬×îµÍÖ§¸¶½ğ¶î${leastMoney}Ôª£¬×îÍíÖ§¸¶ÈÕÎª${dueDate}24µã£¬Çë¾¡¿ìÖ§¸¶£¬ÏêÇéÇë²é¿´ÕËµ¥£¬ÈçÓĞÒÉÎÊÇëÓë·¿¶«ÁªÏµ¡£', '1', '1', NULL, NULL);
+VALUES ((SELECT t.id FROM mesg_templet t WHERE t.templetCode ='runter_bill_split'), 3, 'ç§Ÿå®¢è´¦å•æ‹†åˆ†', '${renterName}æ‚¨å¥½ï¼Œæˆ¿ä¸œ${landlordName}å·²å°†æ‚¨${roomInfo} çš„${billName}è´¦å•è¿›è¡Œæ‹†åˆ†ï¼Œæœ€ä½æ”¯ä»˜é‡‘é¢${leastMoney}å…ƒï¼Œæœ€æ™šæ”¯ä»˜æ—¥ä¸º${dueDate}24ç‚¹ï¼Œè¯·å°½å¿«æ”¯ä»˜ï¼Œè¯¦æƒ…è¯·æŸ¥çœ‹è´¦å•ï¼Œå¦‚æœ‰ç–‘é—®è¯·ä¸æˆ¿ä¸œè”ç³»ã€‚', '1', '1', NULL, NULL);
  
 -- 82 
 UPDATE mesg_subtemplet t SET t.`status` = '0' WHERE t.templetId = (SELECT t.id FROM mesg_templet t WHERE t.templetCode = 'sms_landlordinfo_afterpaid_withdefinedbill');  
 INSERT INTO `mesg_subtemplet` (`templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`) 
-VALUES ((SELECT t.id FROM mesg_templet t WHERE t.templetCode ='sms_landlordinfo_afterpaid_withdefinedbill'), 3,'·¿¶«_ÍÆËÍÕËµ¥_ÒÑ¸¶', '×â¿Í${renterName}ÒÑ³É¹¦Ö§¸¶${roomInfo}µÄ#${billName}#ÕËµ¥£¬¿É´ò¿ªÕËµ¥ÊÕ¿î²é¿´Ã÷Ï¸¡£', '1', '1', NULL, NULL);
+VALUES ((SELECT t.id FROM mesg_templet t WHERE t.templetCode ='sms_landlordinfo_afterpaid_withdefinedbill'), 3,'æˆ¿ä¸œ_æ¨é€è´¦å•_å·²ä»˜', 'ç§Ÿå®¢${renterName}å·²æˆåŠŸæ”¯ä»˜${roomInfo}çš„#${billName}#è´¦å•ï¼Œå¯æ‰“å¼€è´¦å•æ”¶æ¬¾æŸ¥çœ‹æ˜ç»†ã€‚', '1', '1', NULL, NULL);
  
 -- 83 
 UPDATE mesg_subtemplet t SET t.`status` = '0' WHERE t.templetType = '1' AND t.templetId = (SELECT t.id FROM mesg_templet t WHERE t.templetCode = 'sms_landlord_repayPlan'); 
-UPDATE mesg_subtemplet t SET t.templetTitle ='·¿¶«_×â½ğÒÑ¸¶', t.templetContent = '${landlordName}ÄúºÃ£¬×â¿Í${renterName}£¨${roomInfo}£©ÒÑÍ¨¹ıÄ¢¹½³É¹¦Ö§¸¶${startMonth}-${endMonth}ÔÂ×â½ğ¡£' WHERE t.templetType = '3' AND t.templetId = (SELECT t.id FROM mesg_templet t WHERE t.templetCode ='sms_landlord_repayPlan');
+UPDATE mesg_subtemplet t SET t.templetTitle ='æˆ¿ä¸œ_ç§Ÿé‡‘å·²ä»˜', t.templetContent = '${landlordName}æ‚¨å¥½ï¼Œç§Ÿå®¢${renterName}ï¼ˆ${roomInfo}ï¼‰å·²é€šè¿‡è˜‘è‡æˆåŠŸæ”¯ä»˜${startMonth}-${endMonth}æœˆç§Ÿé‡‘ã€‚' WHERE t.templetType = '3' AND t.templetId = (SELECT t.id FROM mesg_templet t WHERE t.templetCode ='sms_landlord_repayPlan');
  
 -- 88
 UPDATE mesg_subtemplet t SET t.`status` = '0' WHERE t.templetId = (SELECT t.id FROM mesg_templet t WHERE t.templetCode = 'sms_renterinfo_afterpaid_withdefinedbill'); 
 INSERT INTO `mesg_subtemplet` (`templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`) 
-VALUES ((SELECT t.id FROM mesg_templet t WHERE t.templetCode ='sms_renterinfo_afterpaid_withdefinedbill'), 3,'×â¿Í_ĞÂÔöÕËµ¥_ÒÑ¸¶','${renterName}ÄúºÃ£¬¸ĞĞ»ÄúÖ§¸¶${roomInfo}#${billName}#ÕËµ¥¡£', '1', '1', NULL, NULL);
+VALUES ((SELECT t.id FROM mesg_templet t WHERE t.templetCode ='sms_renterinfo_afterpaid_withdefinedbill'), 3,'ç§Ÿå®¢_æ–°å¢è´¦å•_å·²ä»˜','${renterName}æ‚¨å¥½ï¼Œæ„Ÿè°¢æ‚¨æ”¯ä»˜${roomInfo}#${billName}#è´¦å•ã€‚', '1', '1', NULL, NULL);
  
 -- 89
 UPDATE mesg_subtemplet t SET t.`status` = '0' WHERE t.templetId = (SELECT t.id FROM mesg_templet t WHERE t.templetCode = 'sms_renterinfo_afterpaid_withroutinebill'); 
 INSERT INTO `mesg_subtemplet` (`templetId`, `templetType`, `templetTitle`, `templetContent`, `status`, `valid`, `outTempletId`, `jumpCode`) 
-VALUES ((SELECT t.id FROM mesg_templet t WHERE t.templetCode ='sms_renterinfo_afterpaid_withroutinebill'), 3,'×â¿Í_ĞÂÔöÕËµ¥_ÒÑ¸¶','${renterName}£¬ÄúÒÑ³É¹¦Ö§¸¶${roomInfo} ${startMonth}-${endMonth}ÔÂ×â½ğÕËµ¥£¬¿É½øÈëÕËµ¥²é¿´ÏêÇé¡£', '1', '1', NULL, NULL);
+VALUES ((SELECT t.id FROM mesg_templet t WHERE t.templetCode ='sms_renterinfo_afterpaid_withroutinebill'), 3,'ç§Ÿå®¢_æ–°å¢è´¦å•_å·²ä»˜','${renterName}ï¼Œæ‚¨å·²æˆåŠŸæ”¯ä»˜${roomInfo} ${startMonth}-${endMonth}æœˆç§Ÿé‡‘è´¦å•ï¼Œå¯è¿›å…¥è´¦å•æŸ¥çœ‹è¯¦æƒ…ã€‚', '1', '1', NULL, NULL);
 
-/*ÏûÏ¢ÓÅ»¯ sms_additional_renter -- ×â¿Í_²¹Â¼×âÔ¼_ÒÑÓĞÕËºÅ*/
-UPDATE mesg_templet SET templetName='×â¿Í_²¹Â¼×âÔ¼_ÒÑÓĞÕËºÅ',templetDesc='×â¿Í_²¹Â¼×âÔ¼_ÒÑÓĞÕËºÅ' WHERE templetCode='sms_additional_renter';
-UPDATE mesg_subtemplet SET templetContent='${renterName}ÄúºÃ£¬ÎªÌáÉı·şÎñÆ·ÖÊ£¬·½±ãÄúÔÚÏß±¨ĞŞ¼°½É×â£¬ÄúµÄ·¿¶«${landlordName}ÒÑÓë°×Áì×â·¿Æ½Ì¨¡°Ä¢¹½×â·¿¡±¿ªÕ¹ºÏ×÷¡£Çë¹Ø×¢²¢°ó¶¨¡°Ä¢¹½×â·¿¡±Ö§¸¶±¦·şÎñ´°/Î¢ĞÅ¹«ÖÚºÅ£¬»òµÇÂ¼Ä¢¹½×â·¿APPÊ¹ÓÃÄúµÄÊÖ»úºÅ${cellPhone}È·ÈÏ×âÔ¼¡£' WHERE templetId = (SELECT id FROM mesg_templet WHERE templetCode='sms_additional_renter');
+/*æ¶ˆæ¯ä¼˜åŒ– sms_additional_renter -- ç§Ÿå®¢_è¡¥å½•ç§Ÿçº¦_å·²æœ‰è´¦å·*/
+UPDATE mesg_templet SET templetName='ç§Ÿå®¢_è¡¥å½•ç§Ÿçº¦_å·²æœ‰è´¦å·',templetDesc='ç§Ÿå®¢_è¡¥å½•ç§Ÿçº¦_å·²æœ‰è´¦å·' WHERE templetCode='sms_additional_renter';
+UPDATE mesg_subtemplet SET templetContent='${renterName}æ‚¨å¥½ï¼Œä¸ºæå‡æœåŠ¡å“è´¨ï¼Œæ–¹ä¾¿æ‚¨åœ¨çº¿æŠ¥ä¿®åŠç¼´ç§Ÿï¼Œæ‚¨çš„æˆ¿ä¸œ${landlordName}å·²ä¸ç™½é¢†ç§Ÿæˆ¿å¹³å°â€œè˜‘è‡ç§Ÿæˆ¿â€å¼€å±•åˆä½œã€‚è¯·å…³æ³¨å¹¶ç»‘å®šâ€œè˜‘è‡ç§Ÿæˆ¿â€æ”¯ä»˜å®æœåŠ¡çª—/å¾®ä¿¡å…¬ä¼—å·ï¼Œæˆ–ç™»å½•è˜‘è‡ç§Ÿæˆ¿APPä½¿ç”¨æ‚¨çš„æ‰‹æœºå·${cellPhone}ç¡®è®¤ç§Ÿçº¦ã€‚' WHERE templetId = (SELECT id FROM mesg_templet WHERE templetCode='sms_additional_renter');
 
-/*ÏûÏ¢ÓÅ»¯ sms_additional_new_renter -- ×â¿Í_²¹Â¼×âÔ¼_ĞÂÕËºÅ*/
-UPDATE mesg_templet SET templetName='×â¿Í_²¹Â¼×âÔ¼_ĞÂÕËºÅ',templetDesc='×â¿Í_²¹Â¼×âÔ¼_ĞÂÕËºÅ' WHERE templetCode='sms_additional_new_renter';
-UPDATE mesg_subtemplet SET templetContent='${renterName}ÄúºÃ£¬ÎªÌáÉı·şÎñÆ·ÖÊ£¬·½±ãÄúÔÚÏß±¨ĞŞ¼°½É·Ñ£¬·¿¶«${landlordName}ÒÑÓë°×Áì×â·¿Æ½Ì¨¡°Ä¢¹½×â·¿¡±¿ªÕ¹ºÏ×÷¡£Çë¹Ø×¢²¢°ó¶¨¡°Ä¢¹½×â·¿¡±Ö§¸¶±¦·şÎñ´°/Î¢ĞÅ¹«ÖÚºÅ£¬»òµÇÂ¼Ä¢¹½×â·¿APP£¨ÕËºÅÎªÊÖ»ú£º${cellPhone}£¬ÁÙÊ±ÃÜÂë${PASSWORD}£©È·ÈÏ×âÔ¼£¬µÇÂ¼ºóÇë¼°Ê±ĞŞ¸ÄÃÜÂë¡£' WHERE templetId = (SELECT id FROM mesg_templet WHERE templetCode='sms_additional_new_renter');
+/*æ¶ˆæ¯ä¼˜åŒ– sms_additional_new_renter -- ç§Ÿå®¢_è¡¥å½•ç§Ÿçº¦_æ–°è´¦å·*/
+UPDATE mesg_templet SET templetName='ç§Ÿå®¢_è¡¥å½•ç§Ÿçº¦_æ–°è´¦å·',templetDesc='ç§Ÿå®¢_è¡¥å½•ç§Ÿçº¦_æ–°è´¦å·' WHERE templetCode='sms_additional_new_renter';
+UPDATE mesg_subtemplet SET templetContent='${renterName}æ‚¨å¥½ï¼Œä¸ºæå‡æœåŠ¡å“è´¨ï¼Œæ–¹ä¾¿æ‚¨åœ¨çº¿æŠ¥ä¿®åŠç¼´è´¹ï¼Œæˆ¿ä¸œ${landlordName}å·²ä¸ç™½é¢†ç§Ÿæˆ¿å¹³å°â€œè˜‘è‡ç§Ÿæˆ¿â€å¼€å±•åˆä½œã€‚è¯·å…³æ³¨å¹¶ç»‘å®šâ€œè˜‘è‡ç§Ÿæˆ¿â€æ”¯ä»˜å®æœåŠ¡çª—/å¾®ä¿¡å…¬ä¼—å·ï¼Œæˆ–ç™»å½•è˜‘è‡ç§Ÿæˆ¿APPï¼ˆè´¦å·ä¸ºæ‰‹æœºï¼š${cellPhone}ï¼Œä¸´æ—¶å¯†ç ${PASSWORD}ï¼‰ç¡®è®¤ç§Ÿçº¦ï¼Œç™»å½•åè¯·åŠæ—¶ä¿®æ”¹å¯†ç ã€‚' WHERE templetId = (SELECT id FROM mesg_templet WHERE templetCode='sms_additional_new_renter');
 
-/*ÏûÏ¢ÓÅ»¯ sms_renter_saleContractConvert_success -- ·¿¶«_×â¿ÍÍ¬Òâ²¹Â¼*/
-UPDATE mesg_templet SET templetName='·¿¶«_×â¿ÍÍ¬Òâ²¹Â¼',templetDesc='·¿¶«_×â¿ÍÍ¬Òâ²¹Â¼' WHERE templetCode='sms_renter_saleContractConvert_success';
-UPDATE mesg_subtemplet SET templetContent='${landlordname}ÄúºÃ£¬×â¿Í${renterName}Í¬ÒâÁËÄú${roominfo}µÄ×ª¿Í×âÔ¼¡£',templetTitle='²¹Â¼×âÔ¼È·ÈÏ' WHERE templetId = (SELECT id FROM mesg_templet WHERE templetCode='sms_renter_saleContractConvert_success');
+/*æ¶ˆæ¯ä¼˜åŒ– sms_renter_saleContractConvert_success -- æˆ¿ä¸œ_ç§Ÿå®¢åŒæ„è¡¥å½•*/
+UPDATE mesg_templet SET templetName='æˆ¿ä¸œ_ç§Ÿå®¢åŒæ„è¡¥å½•',templetDesc='æˆ¿ä¸œ_ç§Ÿå®¢åŒæ„è¡¥å½•' WHERE templetCode='sms_renter_saleContractConvert_success';
+UPDATE mesg_subtemplet SET templetContent='${landlordname}æ‚¨å¥½ï¼Œç§Ÿå®¢${renterName}åŒæ„äº†æ‚¨${roominfo}çš„è½¬å®¢ç§Ÿçº¦ã€‚',templetTitle='è¡¥å½•ç§Ÿçº¦ç¡®è®¤' WHERE templetId = (SELECT id FROM mesg_templet WHERE templetCode='sms_renter_saleContractConvert_success');
 
-/*30 sms_signing_wait_audit push ·¿¶«_ĞÂÔöÇ©Ô¼_ÉóºË*/
+/*30 sms_signing_wait_audit push æˆ¿ä¸œ_æ–°å¢ç­¾çº¦_å®¡æ ¸*/
 SELECT @signing_templet_id:=(SELECT id FROM `mesg_templet` t WHERE t.`templetCode`='sms_signing_wait_audit' AND t.`status`=1 AND t.`valid`=1),
-	@signing_desc:='·¿¶«_ĞÂÔöÇ©Ô¼_ÉóºË',
-	@signing_msg_templet:='${landlordName}ÄúºÃ£¬${roomInfo}ÓĞÒ»±ÊÇ©Ô¼µ¥£¬Çë¼°Ê±ÉóºË£¬×â¿Í£º${renterName}£¨ºÅÂë£º${renterPhoneNum}£©¡£';
+	@signing_desc:='æˆ¿ä¸œ_æ–°å¢ç­¾çº¦_å®¡æ ¸',
+	@signing_msg_templet:='${landlordName}æ‚¨å¥½ï¼Œ${roomInfo}æœ‰ä¸€ç¬”ç­¾çº¦å•ï¼Œè¯·åŠæ—¶å®¡æ ¸ï¼Œç§Ÿå®¢ï¼š${renterName}ï¼ˆå·ç ï¼š${renterPhoneNum}ï¼‰ã€‚';
 UPDATE `mesg_templet` t SET t.`templetName`=@signing_desc, t.`templetDesc`=@signing_desc WHERE t.id=@signing_templet_id;
 UPDATE `mesg_subtemplet` t SET t.`templetType`=3, t.`templetTitle`=@signing_desc, t.`templetContent`=@signing_msg_templet WHERE t.`templetId`=@signing_templet_id AND t.`status`=1 AND t.`valid`=1;
 
-/*49 sms_renter_signUnsuccess_errorInfo sms/push ×â¿Í_Ç©Ô¼×ÊÁÏÓĞÎó*/
+/*49 sms_renter_signUnsuccess_errorInfo sms/push ç§Ÿå®¢_ç­¾çº¦èµ„æ–™æœ‰è¯¯*/
 SELECT @sign_unsuccess_templet_id:=(SELECT id FROM `mesg_templet` t WHERE t.`templetCode`='sms_renter_signUnsuccess_errorInfo' AND t.`status`=1 AND t.`valid`=1),
-	@sign_unsuccess_desc:='×â¿Í_Ç©Ô¼×ÊÁÏÓĞÎó',
-	@sign_unsuccess_msg_templet:='ÄúÌá½»µÄÇ©Ô¼µ¥×ÊÁÏÓĞÎó£¬ÒÑ±»ÍË»Ø£¨${remark}£©£¬ÇëµÇÂ¼Ä¢¹½×â·¿APPĞŞ¸Ä×ÊÁÏ²¢ÖØĞÂÌá½»¡£';
+	@sign_unsuccess_desc:='ç§Ÿå®¢_ç­¾çº¦èµ„æ–™æœ‰è¯¯',
+	@sign_unsuccess_msg_templet:='æ‚¨æäº¤çš„ç­¾çº¦å•èµ„æ–™æœ‰è¯¯ï¼Œå·²è¢«é€€å›ï¼ˆ${remark}ï¼‰ï¼Œè¯·ç™»å½•è˜‘è‡ç§Ÿæˆ¿APPä¿®æ”¹èµ„æ–™å¹¶é‡æ–°æäº¤ã€‚';
 UPDATE `mesg_templet` t SET t.`templetName`=@sign_unsuccess_desc, t.`templetDesc`=@sign_unsuccess_desc WHERE t.id=@sign_unsuccess_templet_id;
 UPDATE `mesg_subtemplet` t SET t.`templetTitle`=@sign_unsuccess_desc, t.`templetContent`=@sign_unsuccess_msg_templet WHERE t.`templetId`=@sign_unsuccess_templet_id AND t.`status`=1 AND t.`valid`=1;
 INSERT INTO mesg_subtemplet (templetId, templetType, templetTitle, templetContent, STATUS, valid) VALUES (@sign_unsuccess_templet_id, 1, @sign_unsuccess_desc, @sign_unsuccess_msg_templet, 1, 1);
@@ -176,42 +176,42 @@ SELECT @agreeRefund_templet_id:=(SELECT id FROM `mesg_templet` t WHERE t.`temple
 UPDATE `mesg_subtemplet` t SET t.`status`=0, t.`valid`=0 WHERE t.`templetId`=@agreeRefund_templet_id;
 UPDATE `mesg_templet` t SET t.`status`=0, t.`valid`=0 WHERE t.`id`=@agreeRefund_templet_id;
 
-/*36 sms_renter_signUnsuccess_refundAll sms/push ×â¿Í_Ç©Ô¼ÉóºËÊ§°Ü*/
+/*36 sms_renter_signUnsuccess_refundAll sms/push ç§Ÿå®¢_ç­¾çº¦å®¡æ ¸å¤±è´¥*/
 SELECT @templet_id:=(SELECT id FROM `mesg_templet` t WHERE t.`templetCode`='sms_renter_signUnsuccess_refundAll' AND t.`status`=1 AND t.`valid`=1),
-	@templet_desc:='×â¿Í_Ç©Ô¼ÉóºËÊ§°Ü',
-	@templet_content:='ÄúºÃ£¬${roomInfo}Ç©Ô¼Î´Í¨¹ıÉóºË£¬ÍË»¹¶¨½ğ${returnMoney}Ôª£¬ÈôÓĞÒÉÎÊÇëÓë·¿¶«ÁªÏµ¡£';
+	@templet_desc:='ç§Ÿå®¢_ç­¾çº¦å®¡æ ¸å¤±è´¥',
+	@templet_content:='æ‚¨å¥½ï¼Œ${roomInfo}ç­¾çº¦æœªé€šè¿‡å®¡æ ¸ï¼Œé€€è¿˜å®šé‡‘${returnMoney}å…ƒï¼Œè‹¥æœ‰ç–‘é—®è¯·ä¸æˆ¿ä¸œè”ç³»ã€‚';
 UPDATE `mesg_templet` t SET t.`templetName`=@templet_desc, t.`templetDesc`=@templet_desc WHERE t.id=@templet_id;
 UPDATE `mesg_subtemplet` t SET t.`templetTitle`=@templet_desc, t.`templetContent`=@templet_content WHERE t.`templetId`=@templet_id AND t.`status`=1 AND t.`valid`=1;
 INSERT INTO mesg_subtemplet (templetId, templetType, templetTitle, templetContent, STATUS, valid) VALUES (@templet_id, 1, @templet_desc, @templet_content, 1, 1);
 
-/*z11 msg_confirm_signed_renter_approval sms/push ×â¿Í_×âÔ¼È·ÈÏ_ÉóºË*/
+/*z11 msg_confirm_signed_renter_approval sms/push ç§Ÿå®¢_ç§Ÿçº¦ç¡®è®¤_å®¡æ ¸*/
 INSERT INTO mesg_templet(templetCode, templetName, templetDesc, STATUS, createBy, createTime, createByType, valid, businessType) 
-	VALUES('msg_confirm_signed_renter_approval', '×â¿Í_×âÔ¼È·ÈÏ_ÉóºË', '×â¿Í_×âÔ¼È·ÈÏ_ÉóºË', 1, 2, NOW(), 4, 1, 3);
+	VALUES('msg_confirm_signed_renter_approval', 'ç§Ÿå®¢_ç§Ÿçº¦ç¡®è®¤_å®¡æ ¸', 'ç§Ÿå®¢_ç§Ÿçº¦ç¡®è®¤_å®¡æ ¸', 1, 2, NOW(), 4, 1, 3);
 SELECT @templet_id:=(SELECT id FROM `mesg_templet` t WHERE t.`templetCode`='msg_confirm_signed_renter_approval' AND t.`status`=1 AND t.`valid`=1),
-	@templet_desc:='×â¿Í_×âÔ¼È·ÈÏ_ÉóºË',
-	@templet_content:='¹§Ï²Äú${renterName}£¬Àë×¡½ø${communityName}Ö»²îÒ»²½ÁË£¬·¿¶«ÒÑÍ¬ÒâÇ©Ô¼£¬ÇëµÇÂ¼Ä¢¹½×â·¿APP½øÈë¶©µ¥È·ÈÏ²¢Íê³ÉÇ©Ô¼¡£';
+	@templet_desc:='ç§Ÿå®¢_ç§Ÿçº¦ç¡®è®¤_å®¡æ ¸',
+	@templet_content:='æ­å–œæ‚¨${renterName}ï¼Œç¦»ä½è¿›${communityName}åªå·®ä¸€æ­¥äº†ï¼Œæˆ¿ä¸œå·²åŒæ„ç­¾çº¦ï¼Œè¯·ç™»å½•è˜‘è‡ç§Ÿæˆ¿APPè¿›å…¥è®¢å•ç¡®è®¤å¹¶å®Œæˆç­¾çº¦ã€‚';
 INSERT INTO mesg_subtemplet (templetId, templetType, templetTitle, templetContent, STATUS, valid) VALUES (@templet_id, 1, @templet_desc, @templet_content, 1, 1);
 INSERT INTO mesg_subtemplet (templetId, templetType, templetTitle, templetContent, STATUS, valid) VALUES (@templet_id, 3, @templet_desc, @templet_content, 1, 1);
 
-/*44 sms_sendPayFirstPhaseMessage push ×â¿Í_Ç©Ô¼³É¹¦*/
+/*44 sms_sendPayFirstPhaseMessage push ç§Ÿå®¢_ç­¾çº¦æˆåŠŸ*/
 SELECT @templet_id:=(SELECT id FROM `mesg_templet` t WHERE t.`templetCode`='sms_sendPayFirstPhaseMessage' AND t.`status`=1 AND t.`valid`=1),
-	@templet_desc:='×â¿Í_Ç©Ô¼³É¹¦',
-	@templet_content:='¹§Ï²£¡ÄúÒÑ³É¹¦Ç©Ô¼${roomInfo}£¬Çë×î³ÙÓÚ${dueDate}Ö§¸¶ÄúµÄµÚÒ»ÆÚ¿îÏî£¨${totalMoney}Ôª£©¡£Ô¸Äú×â×¡°²ĞÄ£¬Éú»îÓä¿ì¡£¹Ø×¢Ä¢¹½×â·¿¡°mogoroom¡±¿ªÆô¿ìÀÖÉú»î~';
+	@templet_desc:='ç§Ÿå®¢_ç­¾çº¦æˆåŠŸ',
+	@templet_content:='æ­å–œï¼æ‚¨å·²æˆåŠŸç­¾çº¦${roomInfo}ï¼Œè¯·æœ€è¿Ÿäº${dueDate}æ”¯ä»˜æ‚¨çš„ç¬¬ä¸€æœŸæ¬¾é¡¹ï¼ˆ${totalMoney}å…ƒï¼‰ã€‚æ„¿æ‚¨ç§Ÿä½å®‰å¿ƒï¼Œç”Ÿæ´»æ„‰å¿«ã€‚å…³æ³¨è˜‘è‡ç§Ÿæˆ¿â€œmogoroomâ€å¼€å¯å¿«ä¹ç”Ÿæ´»~';
 UPDATE `mesg_templet` t SET t.`templetName`=@templet_desc, t.`templetDesc`=@templet_desc WHERE t.id=@templet_id;
 UPDATE `mesg_subtemplet` t SET t.`templetType`=3, t.`templetTitle`=@templet_desc, t.`templetContent`=@templet_content WHERE t.`templetType`=1 AND t.`templetId`=@templet_id AND t.`status`=1 AND t.`valid`=1;
 
-/*z12 msg_success_signed_remind_landlord push ·¿¶«_Ç©Ô¼³É¹¦*/
+/*z12 msg_success_signed_remind_landlord push æˆ¿ä¸œ_ç­¾çº¦æˆåŠŸ*/
 INSERT INTO mesg_templet(templetCode, templetName, templetDesc, STATUS, createBy, createTime, createByType, valid, businessType) 
-	VALUES('msg_success_signed_remind_landlord', '·¿¶«_Ç©Ô¼³É¹¦', '·¿¶«_Ç©Ô¼³É¹¦', 1, 2, NOW(), 4, 1, 3);
+	VALUES('msg_success_signed_remind_landlord', 'æˆ¿ä¸œ_ç­¾çº¦æˆåŠŸ', 'æˆ¿ä¸œ_ç­¾çº¦æˆåŠŸ', 1, 2, NOW(), 4, 1, 3);
 SELECT @templet_id:=(SELECT id FROM `mesg_templet` t WHERE t.`templetCode`='msg_success_signed_remind_landlord' AND t.`status`=1 AND t.`valid`=1),
-	@templet_desc:='·¿¶«_Ç©Ô¼³É¹¦',
-	@templet_content:='${landlordName}ÄúºÃ£¬×â¿Í${renterName}ÒÑÓëÄú³É¹¦Ç©Ô¼·¿Ô´${roomInfo}£¬ÇëÌáĞÑ×â¿Í¾¡¿ìÖ§¸¶Ê×ÆÚ·ÑÓÃ¡£';
+	@templet_desc:='æˆ¿ä¸œ_ç­¾çº¦æˆåŠŸ',
+	@templet_content:='${landlordName}æ‚¨å¥½ï¼Œç§Ÿå®¢${renterName}å·²ä¸æ‚¨æˆåŠŸç­¾çº¦æˆ¿æº${roomInfo}ï¼Œè¯·æé†’ç§Ÿå®¢å°½å¿«æ”¯ä»˜é¦–æœŸè´¹ç”¨ã€‚';
 INSERT INTO mesg_subtemplet (templetId, templetType, templetTitle, templetContent, STATUS, valid) VALUES (@templet_id, 3, @templet_desc, @templet_content, 1, 1);
 
-/*51 sendRenterContractFile push ×â¿Í_×Ô¶¯·¢ËÍºÏÍ¬*/
+/*51 sendRenterContractFile push ç§Ÿå®¢_è‡ªåŠ¨å‘é€åˆåŒ*/
 SELECT @templet_id:=(SELECT id FROM `mesg_templet` t WHERE t.`templetCode`='sendRenterContractFile' AND t.`status`=1 AND t.`valid`=1),
-	@templet_desc:='×â¿Í_×Ô¶¯·¢ËÍºÏÍ¬',
-	@templet_content:='ÄúÒÑÔÚ${sendTime}Í¨¹ıÄ¢¹½×â·¿APPÏòÓÊÏä${email}·¢ËÍÁËÒ»·İµç×Ó×âÁŞºÏÍ¬£¬Çë×¢Òâ²éÊÕ¡£Ä¢¹½×â·¿£¬ÈÃÎÒÃÇ×¡µÄ¸üºÃ£¡';
+	@templet_desc:='ç§Ÿå®¢_è‡ªåŠ¨å‘é€åˆåŒ',
+	@templet_content:='æ‚¨å·²åœ¨${sendTime}é€šè¿‡è˜‘è‡ç§Ÿæˆ¿APPå‘é‚®ç®±${email}å‘é€äº†ä¸€ä»½ç”µå­ç§ŸèµåˆåŒï¼Œè¯·æ³¨æ„æŸ¥æ”¶ã€‚è˜‘è‡ç§Ÿæˆ¿ï¼Œè®©æˆ‘ä»¬ä½çš„æ›´å¥½ï¼';
 UPDATE `mesg_templet` t SET t.`templetName`=@templet_desc, t.`templetDesc`=@templet_desc WHERE t.id=@templet_id;
 UPDATE `mesg_subtemplet` t SET t.`templetType`=3, t.`templetTitle`=@templet_desc, t.`templetContent`=@templet_content WHERE t.`templetType`=1 AND t.`templetId`=@templet_id AND t.`status`=1 AND t.`valid`=1;
 
@@ -225,37 +225,37 @@ SELECT @templet_id:=(SELECT id FROM `mesg_templet` t WHERE t.`templetCode`='sms_
 UPDATE `mesg_subtemplet` t SET t.`status`=0, t.`valid`=0 WHERE t.`templetId`=@templet_id;
 UPDATE `mesg_templet` t SET t.`status`=0, t.`valid`=0 WHERE t.`id`=@templet_id;
 
-/*50 sms_saleContract_cancel push ×â¿Í_·¿¶«³·ÏúÇ©Ô¼*/
+/*50 sms_saleContract_cancel push ç§Ÿå®¢_æˆ¿ä¸œæ’¤é”€ç­¾çº¦*/
 SELECT @templet_id:=(SELECT id FROM `mesg_templet` t WHERE t.`templetCode`='sms_saleContract_cancel' AND t.`status`=1 AND t.`valid`=1),
-	@templet_desc:='×â¿Í_·¿¶«³·ÏúÇ©Ô¼',
-	@templet_content:='${renterName}ÄúºÃ£¬·¿¶«${landlordName}ÒÑ³·Ïú${roomInfo}µÄÇ©Ô¼£¨ÍË¿î${refund}Ôª£©£¬ÈôÓĞÒÉÎÊÇëÓë·¿¶«ÁªÏµ¡£';
+	@templet_desc:='ç§Ÿå®¢_æˆ¿ä¸œæ’¤é”€ç­¾çº¦',
+	@templet_content:='${renterName}æ‚¨å¥½ï¼Œæˆ¿ä¸œ${landlordName}å·²æ’¤é”€${roomInfo}çš„ç­¾çº¦ï¼ˆé€€æ¬¾${refund}å…ƒï¼‰ï¼Œè‹¥æœ‰ç–‘é—®è¯·ä¸æˆ¿ä¸œè”ç³»ã€‚';
 UPDATE `mesg_templet` t SET t.`templetName`=@templet_desc, t.`templetDesc`=@templet_desc WHERE t.id=@templet_id;
 UPDATE `mesg_subtemplet` t SET t.`templetTitle`=@templet_desc, t.`templetContent`=@templet_content WHERE t.`templetId`=@templet_id AND t.`status`=1 AND t.`valid`=1;
 
-/*42 sms_signing_wait_confirm sms/push ×â¿Í_Ç©Ô¼È·ÈÏ_ÒÑÓĞÕËºÅ*/
+/*42 sms_signing_wait_confirm sms/push ç§Ÿå®¢_ç­¾çº¦ç¡®è®¤_å·²æœ‰è´¦å·*/
 SELECT @templet_id:=(SELECT id FROM `mesg_templet` t WHERE t.`templetCode`='sms_signing_wait_confirm' AND t.`status`=1 AND t.`valid`=1),
-	@templet_desc:='×â¿Í_Ç©Ô¼È·ÈÏ_ÒÑÓĞÕËºÅ',
-	@templet_content:='${renterName}ÄúºÃ£¬·¿¶«${landlordName}ÏòÄú·¢ËÍÁËÒ»·İ${roominfo}µÄ×âÔ¼£¬Çë¹Ø×¢²¢°ó¶¨¡°Ä¢¹½×â·¿¡±Ö§¸¶±¦·şÎñ´°/Î¢ĞÅ¹«ÖÚºÅ£¬»òµÇÂ¼Ä¢¹½×â·¿APPÊ¹ÓÃÄúµÄÊÖ»úºÅ${cellPhone}Íê³ÉÇ©Ô¼¡£';
+	@templet_desc:='ç§Ÿå®¢_ç­¾çº¦ç¡®è®¤_å·²æœ‰è´¦å·',
+	@templet_content:='${renterName}æ‚¨å¥½ï¼Œæˆ¿ä¸œ${landlordName}å‘æ‚¨å‘é€äº†ä¸€ä»½${roominfo}çš„ç§Ÿçº¦ï¼Œè¯·å…³æ³¨å¹¶ç»‘å®šâ€œè˜‘è‡ç§Ÿæˆ¿â€æ”¯ä»˜å®æœåŠ¡çª—/å¾®ä¿¡å…¬ä¼—å·ï¼Œæˆ–ç™»å½•è˜‘è‡ç§Ÿæˆ¿APPä½¿ç”¨æ‚¨çš„æ‰‹æœºå·${cellPhone}å®Œæˆç­¾çº¦ã€‚';
 UPDATE `mesg_templet` t SET t.`templetName`=@templet_desc, t.`templetDesc`=@templet_desc WHERE t.id=@templet_id;
 UPDATE `mesg_subtemplet` t SET t.`templetType`=3, t.`templetTitle`=@templet_desc, t.`templetContent`=@templet_content WHERE t.`templetId`=@templet_id AND t.`templetType`=1 AND t.`status`=1 AND t.`valid`=1;
 INSERT INTO mesg_subtemplet (templetId, templetType, templetTitle, templetContent, STATUS, valid) VALUES (@templet_id, 1, @templet_desc, @templet_content, 1, 1);
 
-/*45 sms_signing_wait_confirm_new_renter sms/push ×â¿Í_Ç©Ô¼È·ÈÏ_ĞÂÕËºÅ*/
+/*45 sms_signing_wait_confirm_new_renter sms/push ç§Ÿå®¢_ç­¾çº¦ç¡®è®¤_æ–°è´¦å·*/
 SELECT @templet_id:=(SELECT id FROM `mesg_templet` t WHERE t.`templetCode`='sms_signing_wait_confirm_new_renter' AND t.`status`=1 AND t.`valid`=1),
-	@templet_desc:='×â¿Í_Ç©Ô¼È·ÈÏ_ĞÂÕËºÅ',
-	@templet_content:='${renterName}ÄúºÃ£¬·¿¶«${landlordName}ÏòÄú·¢ËÍ×âÔ¼ĞèÄúÈ·ÈÏ£¬Çë¹Ø×¢²¢°ó¶¨¡°Ä¢¹½×â·¿¡±Ö§¸¶±¦·şÎñ´°/Î¢ĞÅ¹«ÖÚºÅ£¬»òµÇÂ¼Ä¢¹½×â·¿APP£¨ÕËºÅÎªÊÖ»ú£º${cellPhone}£¬ÁÙÊ±ÃÜÂë£º${password}£©ºË¶Ô²¢Íê³ÉÇ©Ô¼£¬µÇÂ¼ºóÇë¼°Ê±ĞŞ¸ÄÃÜÂë';
+	@templet_desc:='ç§Ÿå®¢_ç­¾çº¦ç¡®è®¤_æ–°è´¦å·',
+	@templet_content:='${renterName}æ‚¨å¥½ï¼Œæˆ¿ä¸œ${landlordName}å‘æ‚¨å‘é€ç§Ÿçº¦éœ€æ‚¨ç¡®è®¤ï¼Œè¯·å…³æ³¨å¹¶ç»‘å®šâ€œè˜‘è‡ç§Ÿæˆ¿â€æ”¯ä»˜å®æœåŠ¡çª—/å¾®ä¿¡å…¬ä¼—å·ï¼Œæˆ–ç™»å½•è˜‘è‡ç§Ÿæˆ¿APPï¼ˆè´¦å·ä¸ºæ‰‹æœºï¼š${cellPhone}ï¼Œä¸´æ—¶å¯†ç ï¼š${password}ï¼‰æ ¸å¯¹å¹¶å®Œæˆç­¾çº¦ï¼Œç™»å½•åè¯·åŠæ—¶ä¿®æ”¹å¯†ç ';
 UPDATE `mesg_templet` t SET t.`templetName`=@templet_desc, t.`templetDesc`=@templet_desc WHERE t.id=@templet_id;
 UPDATE `mesg_subtemplet` t SET t.`templetType`=3, t.`templetTitle`=@templet_desc, t.`templetContent`=@templet_content WHERE t.`templetId`=@templet_id AND t.`templetType`=1 AND t.`status`=1 AND t.`valid`=1;
 INSERT INTO mesg_subtemplet (templetId, templetType, templetTitle, templetContent, STATUS, valid) VALUES (@templet_id, 1, @templet_desc, @templet_content, 1, 1);
 
-/*Z1 msg_to_renter_room_checkout_finish  push ×â¿Í_ÍË·¿½áÊø*/
+/*Z1 msg_to_renter_room_checkout_finish  push ç§Ÿå®¢_é€€æˆ¿ç»“æŸ*/
 INSERT INTO mesg_templet(templetCode, templetName, templetDesc, STATUS, createBy, createTime, createByType, valid, businessType) 
-	VALUES('msg_to_renter_room_checkout_finish', '×â¿Í_ÍË·¿½áÊø', '×â¿Í_ÍË·¿½áÊø', 1, 2, NOW(), 4, 1, 3);
+	VALUES('msg_to_renter_room_checkout_finish', 'ç§Ÿå®¢_é€€æˆ¿ç»“æŸ', 'ç§Ÿå®¢_é€€æˆ¿ç»“æŸ', 1, 2, NOW(), 4, 1, 3);
 SELECT @templet_id:=(SELECT id FROM `mesg_templet` t WHERE t.`templetCode`='msg_to_renter_room_checkout_finish' AND t.`status`=1 AND t.`valid`=1),
-	@templet_desc:='×â¿Í_ÍË·¿½áÊø',
-	@templet_content:='${renterName}ÄúºÃ£¬·¿¶«${landlordName}ÒÑÍê³ÉÄú×â×¡µÄ${roomInfo}µÄÍË·¿£¨ÍË¿î${amount}Ôª£©£¬ÏêÇéÇë²é¿´×âÔ¼£¬ÈçÓĞÒÉÎÊÇëÓë·¿¶«ÁªÏµ¡£';
+	@templet_desc:='ç§Ÿå®¢_é€€æˆ¿ç»“æŸ',
+	@templet_content:='${renterName}æ‚¨å¥½ï¼Œæˆ¿ä¸œ${landlordName}å·²å®Œæˆæ‚¨ç§Ÿä½çš„${roomInfo}çš„é€€æˆ¿ï¼ˆé€€æ¬¾${amount}å…ƒï¼‰ï¼Œè¯¦æƒ…è¯·æŸ¥çœ‹ç§Ÿçº¦ï¼Œå¦‚æœ‰ç–‘é—®è¯·ä¸æˆ¿ä¸œè”ç³»ã€‚';
 INSERT INTO mesg_subtemplet (templetId, templetType, templetTitle, templetContent, STATUS, valid) VALUES (@templet_id, 3, @templet_desc, @templet_content, 1, 1);
-/*sms_renter_order_quickSignÄ£°åĞÅÏ¢É¾³ı*/
+/*sms_renter_order_quickSignæ¨¡æ¿ä¿¡æ¯åˆ é™¤*/
 SELECT @templet_id :=( SELECT t.id from mesg_templet t WHERE t.templetCode = 'sms_renter_order_quickSign');
 UPDATE mesg_templet set valid = 0 , `status` = 0 where id = @templet_id;
 UPDATE mesg_subtemplet set valid = 0 , `status` = 0 WHERE templetId = @templet_id;

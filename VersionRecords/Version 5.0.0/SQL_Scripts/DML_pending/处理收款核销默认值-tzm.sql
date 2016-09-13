@@ -1,4 +1,4 @@
-/*  Database name `mogoroomdb` £¬´¦ÀíÊÕ¿îºËÏúÄ¬ÈÏÖµ*/
+/*  Database name `mogoroomdb` ï¼Œå¤„ç†æ”¶æ¬¾æ ¸é”€é»˜è®¤å€¼*/
 use mogoroomdb;
 
 update acct.acct_busirec rec,acct.acct_busifeedtl fee set verified =1 ,verifyPerson=-1,verifydate=createTime where rec.donecode=fee.donecode and fee.fundchannel in (1,2,3,6);

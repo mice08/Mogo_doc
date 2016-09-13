@@ -1,6 +1,6 @@
 use mogoroomdb;
 
-INSERT INTO  `comm_dictionary` (`code`, `groupName`, `sort`, `keyPro`, `value`, `status`, `fcode`, `enValue`) VALUES ('billTitleDeductible', 'billExtendTitles', '1', '1', '2016-08/billTitlePic/3/2/6773/6773_1471498981453.png', '1', NULL, 'µÖ¿Û');
-INSERT INTO  `comm_dictionary` (`code`, `groupName`, `sort`, `keyPro`, `value`, `status`, `fcode`, `enValue`) VALUES ('billTitleSplit', 'billExtendTitles', '1', '1', '2016-08/billTitlePic/4/0/6774/6774_1471499033318.png', '1', NULL, '²ð·Ö');
-INSERT INTO  `comm_dictionary` (`code`, `groupName`, `sort`, `keyPro`, `value`, `status`, `fcode`, `enValue`) VALUES ('billTitleDiscount', 'billExtendTitles', '1', '1', '2016-08/billTitlePic/5/1/6775/6775_1471499083286.png', '1', NULL, 'ÓÅ»Ý');
-INSERT INTO  `comm_dictionary` (`code`, `groupName`, `sort`, `keyPro`, `value`, `status`, `fcode`, `enValue`) VALUES ('billTitleCheckOut', 'billExtendTitles', '1', '1', '2016-08/renterpc/9/0/6999/6999_1472021988041.png', '1', NULL, 'ÍË·¿');
+INSERT INTO  `comm_dictionary` (`code`, `groupName`, `sort`, `keyPro`, `value`, `status`, `fcode`, `enValue`) VALUES ('billTitleDeductible', 'billExtendTitles', '1', '1', '2016-08/billTitlePic/3/2/6773/6773_1471498981453.png', '1', NULL, 'æŠµæ‰£');
+INSERT INTO  `comm_dictionary` (`code`, `groupName`, `sort`, `keyPro`, `value`, `status`, `fcode`, `enValue`) VALUES ('billTitleSplit', 'billExtendTitles', '1', '1', '2016-08/billTitlePic/4/0/6774/6774_1471499033318.png', '1', NULL, 'æ‹†åˆ†');
+INSERT INTO  `comm_dictionary` (`code`, `groupName`, `sort`, `keyPro`, `value`, `status`, `fcode`, `enValue`) VALUES ('billTitleDiscount', 'billExtendTitles', '1', '1', '2016-08/billTitlePic/5/1/6775/6775_1471499083286.png', '1', NULL, 'ä¼˜æƒ ');
+INSERT INTO  `comm_dictionary` (`code`, `groupName`, `sort`, `keyPro`, `value`, `status`, `fcode`, `enValue`) VALUES ('billTitleCheckOut', 'billExtendTitles', '1', '1', '2016-08/renterpc/9/0/6999/6999_1472021988041.png', '1', NULL, 'é€€æˆ¿');

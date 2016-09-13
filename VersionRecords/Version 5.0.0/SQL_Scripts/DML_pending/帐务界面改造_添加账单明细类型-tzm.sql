@@ -1,4 +1,4 @@
-/*  Database name `mogoroomdb` ，为新帐务添加新帐务明细类型*/
+/*  Database name `mogoroomdb` 锛屼负鏂板笎鍔℃坊鍔犳柊甯愬姟鏄庣粏绫诲瀷*/
 use mogoroomdb;
 
-insert into acct.`acct_billdtltype` (`billDtlType`, `billDtlName`, `status`, `sort`, `usageType`, `displayName`, `remark`) values('10082','账单优惠','1','10082','1','账单优惠','账单优惠');
+insert into acct.`acct_billdtltype` (`billDtlType`, `billDtlName`, `status`, `sort`, `usageType`, `displayName`, `remark`) values('10082','璐﹀崟浼樻儬','1','10082','1','璐﹀崟浼樻儬','璐﹀崟浼樻儬');

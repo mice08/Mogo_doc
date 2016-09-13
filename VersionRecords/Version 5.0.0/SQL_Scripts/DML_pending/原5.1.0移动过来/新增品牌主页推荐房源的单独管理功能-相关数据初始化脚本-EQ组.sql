@@ -1,35 +1,35 @@
-/* Database name `mogoroomdb` , Ìá½»Ô­Òò£ºĞÂÔöÁËÆ·ÅÆÖ÷Ò³ÍÆ¼ö·¿Ô´µÄµ¥¶À¹ÜÀí¹¦ÄÜ-ĞèÒªÅäÖÃÒ»Ğ©³õÊ¼»¯Êı¾İ*/
+/* Database name `mogoroomdb` , æäº¤åŸå› ï¼šæ–°å¢äº†å“ç‰Œä¸»é¡µæ¨èæˆ¿æºçš„å•ç‹¬ç®¡ç†åŠŸèƒ½-éœ€è¦é…ç½®ä¸€äº›åˆå§‹åŒ–æ•°æ®*/
 use mogoroomdb;
 
-DELETE FROM coms_menu WHERE CODE = 212004 AND NAME='Æ·ÅÆÖ÷Ò³·¿Ô´ÍÆ¼ö';
+DELETE FROM coms_menu WHERE CODE = 212004 AND NAME='å“ç‰Œä¸»é¡µæˆ¿æºæ¨è';
 INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `status`, `type`, `pid`, channel, isMenu) 
-VALUES(212004,'Æ·ÅÆÖ÷Ò³·¿Ô´ÍÆ¼ö','/cms/recommendQueryForBrandHomepage','3','2','2000082',NOW(),'1','1','3', '2', '1');
+VALUES(212004,'å“ç‰Œä¸»é¡µæˆ¿æºæ¨è','/cms/recommendQueryForBrandHomepage','3','2','2000082',NOW(),'1','1','3', '2', '1');
 
-DELETE FROM coms_hottab WHERE NAME IN ('PCÆ·ÅÆÖ÷Ò³ÍÆ¼ö·¿Ô´±êÇ©','APPÆ·ÅÆÖ÷Ò³ÍÆ¼ö·¿Ô´±êÇ©') AND tabtype=2;
+DELETE FROM coms_hottab WHERE NAME IN ('PCå“ç‰Œä¸»é¡µæ¨èæˆ¿æºæ ‡ç­¾','APPå“ç‰Œä¸»é¡µæ¨èæˆ¿æºæ ‡ç­¾') AND tabtype=2;
 INSERT INTO `coms_hottab` (`name`, `seq`, `cityId`, `onlineTime`, `createBy`, `createTime`, `tabType`, `brief`, `description`, `status`, `valid`, `remark`, `picGroupId`) 
-VALUES('PCÆ·ÅÆÖ÷Ò³ÍÆ¼ö·¿Ô´±êÇ©','0','289',NOW(),'2000082',NOW(),2,'PCÆ·ÅÆÖ÷Ò³ÍÆ¼ö·¿Ô´±êÇ©',NULL,'1','1','PCÆ·ÅÆÖ÷Ò³ÍÆ¼ö·¿Ô´±êÇ©',NULL);
+VALUES('PCå“ç‰Œä¸»é¡µæ¨èæˆ¿æºæ ‡ç­¾','0','289',NOW(),'2000082',NOW(),2,'PCå“ç‰Œä¸»é¡µæ¨èæˆ¿æºæ ‡ç­¾',NULL,'1','1','PCå“ç‰Œä¸»é¡µæ¨èæˆ¿æºæ ‡ç­¾',NULL);
 INSERT INTO `coms_hottab` (`name`, `seq`, `cityId`, `onlineTime`, `createBy`, `createTime`, `tabType`, `brief`, `description`, `status`, `valid`, `remark`, `picGroupId`) 
-VALUES('APPÆ·ÅÆÖ÷Ò³ÍÆ¼ö·¿Ô´±êÇ©','0','289',NOW(),'2000082',NOW(),2,'APPÆ·ÅÆÖ÷Ò³ÍÆ¼ö·¿Ô´±êÇ©',NULL,'1','1','APPÆ·ÅÆÖ÷Ò³ÍÆ¼ö·¿Ô´±êÇ©',NULL);
+VALUES('APPå“ç‰Œä¸»é¡µæ¨èæˆ¿æºæ ‡ç­¾','0','289',NOW(),'2000082',NOW(),2,'APPå“ç‰Œä¸»é¡µæ¨èæˆ¿æºæ ‡ç­¾',NULL,'1','1','APPå“ç‰Œä¸»é¡µæ¨èæˆ¿æºæ ‡ç­¾',NULL);
 
-/**´ËÓï¾ä±ØĞëÔÚÉÏÃæÓï¾äºóÖ´ĞĞ¡£¡£¡£*/
+/**æ­¤è¯­å¥å¿…é¡»åœ¨ä¸Šé¢è¯­å¥åæ‰§è¡Œã€‚ã€‚ã€‚*/
 DELETE FROM coms_hottab_menu_rel WHERE menucode IN (212004,312004);
 INSERT INTO coms_hottab_menu_rel(hottabId,menucode,pageview,STATUS) 
 VALUES
-((SELECT t1.id FROM coms_hottab t1 WHERE t1.name='PCÆ·ÅÆÖ÷Ò³ÍÆ¼ö·¿Ô´±êÇ©' AND tabtype=2),212004,0,1);
+((SELECT t1.id FROM coms_hottab t1 WHERE t1.name='PCå“ç‰Œä¸»é¡µæ¨èæˆ¿æºæ ‡ç­¾' AND tabtype=2),212004,0,1);
 INSERT INTO coms_hottab_menu_rel(hottabId,menucode,pageview,STATUS) 
 VALUES
-((SELECT t1.id FROM coms_hottab t1 WHERE t1.name='APPÆ·ÅÆÖ÷Ò³ÍÆ¼ö·¿Ô´±êÇ©' AND tabtype=2),312004,0,1);
+((SELECT t1.id FROM coms_hottab t1 WHERE t1.name='APPå“ç‰Œä¸»é¡µæ¨èæˆ¿æºæ ‡ç­¾' AND tabtype=2),312004,0,1);
 
-/**´ËÓï¾ä±ØĞëÔÚÉÏÃæÓï¾äºóÖ´ĞĞ¡£¡£¡£*/
+/**æ­¤è¯­å¥å¿…é¡»åœ¨ä¸Šé¢è¯­å¥åæ‰§è¡Œã€‚ã€‚ã€‚*/
 DELETE FROM `coms_hotbrand` WHERE brandtabid IN (
-SELECT t1.id FROM coms_hottab t1 WHERE (t1.name='PCÆ·ÅÆÖ÷Ò³ÍÆ¼ö·¿Ô´±êÇ©' OR t1.name='APPÆ·ÅÆÖ÷Ò³ÍÆ¼ö·¿Ô´±êÇ©') AND t1.tabtype=2
+SELECT t1.id FROM coms_hottab t1 WHERE (t1.name='PCå“ç‰Œä¸»é¡µæ¨èæˆ¿æºæ ‡ç­¾' OR t1.name='APPå“ç‰Œä¸»é¡µæ¨èæˆ¿æºæ ‡ç­¾') AND t1.tabtype=2
 );
 INSERT INTO coms_hotbrand 
 (brandtabid,brandid,STATUS,roomids,createBy,createBytype,createTime,remark,sort)
 (
 SELECT 
-(SELECT t1.id FROM coms_hottab t1 WHERE t1.name='PCÆ·ÅÆÖ÷Ò³ÍÆ¼ö·¿Ô´±êÇ©' AND t1.tabtype=2),
-t3.brandid,t3.status,t3.roomids,'2000082',5,NOW(),"³õÊ¼»¯-Æ·ÅÆÖ÷Ò³ÍÆ¼ö·¿Ô´",0 FROM 
+(SELECT t1.id FROM coms_hottab t1 WHERE t1.name='PCå“ç‰Œä¸»é¡µæ¨èæˆ¿æºæ ‡ç­¾' AND t1.tabtype=2),
+t3.brandid,t3.status,t3.roomids,'2000082',5,NOW(),"åˆå§‹åŒ–-å“ç‰Œä¸»é¡µæ¨èæˆ¿æº",0 FROM 
 coms_hottab_menu_rel t1,
 coms_hottab t2,coms_hotbrand t3 
 WHERE t1.hottabid=t2.id AND t1.menucode=210017  AND t1.status=1 AND t2.status=1 AND t2.valid=1 AND 
@@ -39,8 +39,8 @@ INSERT INTO coms_hotbrand
 (brandtabid,brandid,STATUS,roomids,createBy,createBytype,createTime,remark,sort)
 (
 SELECT 
-(SELECT t1.id FROM coms_hottab t1 WHERE t1.name='APPÆ·ÅÆÖ÷Ò³ÍÆ¼ö·¿Ô´±êÇ©' AND t1.tabtype=2),
-t3.brandid,t3.status,t3.roomids,'2000082',5,NOW(),"³õÊ¼»¯-Æ·ÅÆÖ÷Ò³ÍÆ¼ö·¿Ô´",0 FROM 
+(SELECT t1.id FROM coms_hottab t1 WHERE t1.name='APPå“ç‰Œä¸»é¡µæ¨èæˆ¿æºæ ‡ç­¾' AND t1.tabtype=2),
+t3.brandid,t3.status,t3.roomids,'2000082',5,NOW(),"åˆå§‹åŒ–-å“ç‰Œä¸»é¡µæ¨èæˆ¿æº",0 FROM 
 coms_hottab_menu_rel t1,
 coms_hottab t2,coms_hotbrand t3 
 WHERE t1.hottabid=t2.id AND t1.menucode=210017  AND t1.status=1 AND t2.status=1 AND t2.valid=1 AND 

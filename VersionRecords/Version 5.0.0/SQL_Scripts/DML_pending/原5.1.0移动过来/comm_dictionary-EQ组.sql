@@ -1,11 +1,11 @@
-/* Database name `mogoroomdb`£¬ Ã¶¾ÙScoreDtlEnum */
+/* Database name `mogoroomdb`ï¼Œ æšä¸¾ScoreDtlEnum */
 
 use mogoroomdb;
 
-INSERT INTO comm_dictionary(CODE,groupName,sort,keyPro,VALUE,STATUS,fcode,enValue) VALUES('scoreDtl-·¿Ô´ÒÑ³ö×â','scoreDtl',1,'1','·¿Ô´ÒÑ³ö×â',1,NULL,'·¿Ô´ÒÑ³ö×â')
+INSERT INTO comm_dictionary(CODE,groupName,sort,keyPro,VALUE,STATUS,fcode,enValue) VALUES('scoreDtl-æˆ¿æºå·²å‡ºç§Ÿ','scoreDtl',1,'1','æˆ¿æºå·²å‡ºç§Ÿ',1,NULL,'æˆ¿æºå·²å‡ºç§Ÿ')
 
-INSERT INTO comm_dictionary(CODE,groupName,sort,keyPro,VALUE,STATUS,fcode,enValue) VALUES('scoreDtl-ĞÅÏ¢²»ÕıÈ·','scoreDtl',2,'2','ĞÅÏ¢²»ÕıÈ·',1,NULL,'ĞÅÏ¢²»ÕıÈ·')
+INSERT INTO comm_dictionary(CODE,groupName,sort,keyPro,VALUE,STATUS,fcode,enValue) VALUES('scoreDtl-ä¿¡æ¯ä¸æ­£ç¡®','scoreDtl',2,'2','ä¿¡æ¯ä¸æ­£ç¡®',1,NULL,'ä¿¡æ¯ä¸æ­£ç¡®')
 
-INSERT INTO comm_dictionary(CODE,groupName,sort,keyPro,VALUE,STATUS,fcode,enValue) VALUES('scoreDtl-µç»°Ã»´òÍ¨','scoreDtl',3,'3','µç»°Ã»´òÍ¨',1,NULL,'µç»°Ã»´òÍ¨')
+INSERT INTO comm_dictionary(CODE,groupName,sort,keyPro,VALUE,STATUS,fcode,enValue) VALUES('scoreDtl-ç”µè¯æ²¡æ‰“é€š','scoreDtl',3,'3','ç”µè¯æ²¡æ‰“é€š',1,NULL,'ç”µè¯æ²¡æ‰“é€š')
 
-INSERT INTO comm_dictionary(CODE,groupName,sort,keyPro,VALUE,STATUS,fcode,enValue) VALUES('scoreDtl-Ì¬¶È²»ÓÑºÃ','scoreDtl',4,'4','Ì¬¶È²»ÓÑºÃ',1,NULL,'Ì¬¶È²»ÓÑºÃ')
+INSERT INTO comm_dictionary(CODE,groupName,sort,keyPro,VALUE,STATUS,fcode,enValue) VALUES('scoreDtl-æ€åº¦ä¸å‹å¥½','scoreDtl',4,'4','æ€åº¦ä¸å‹å¥½',1,NULL,'æ€åº¦ä¸å‹å¥½')

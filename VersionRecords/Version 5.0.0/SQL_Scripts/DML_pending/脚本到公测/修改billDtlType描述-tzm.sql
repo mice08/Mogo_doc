@@ -1,5 +1,5 @@
-/*×Ô¶¨ÒåÕËµ¥ÖĞµÄ¡°×â½ğ¡±¸Ä³É¡°·¿×â£¨ÊÖ¶¯Ìí¼Ó£©*/
+/*è‡ªå®šä¹‰è´¦å•ä¸­çš„â€œç§Ÿé‡‘â€æ”¹æˆâ€œæˆ¿ç§Ÿï¼ˆæ‰‹åŠ¨æ·»åŠ ï¼‰*/
 
 use mogoroomdb;
 
-UPDATE acct.`acct_billdtltype` SET billDtlName='·¿×â(ÊÖ¶¯Ìí¼Ó)',displayName='·¿×â(ÊÖ¶¯Ìí¼Ó)',remark='·¿×â(ÊÖ¶¯Ìí¼Ó)' WHERE BillDtlType='100004';
+UPDATE acct.`acct_billdtltype` SET billDtlName='æˆ¿ç§Ÿ(æ‰‹åŠ¨æ·»åŠ )',displayName='æˆ¿ç§Ÿ(æ‰‹åŠ¨æ·»åŠ )',remark='æˆ¿ç§Ÿ(æ‰‹åŠ¨æ·»åŠ )' WHERE BillDtlType='100004';

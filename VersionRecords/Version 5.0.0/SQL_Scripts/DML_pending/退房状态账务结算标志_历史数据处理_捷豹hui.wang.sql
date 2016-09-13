@@ -1,4 +1,4 @@
 use mogoroomdb;
 
-/* 已退房历史数据，账务结算标记 设置为账务已结算 */
+/* 宸查��鎴垮巻鍙叉暟鎹紝璐﹀姟缁撶畻鏍囪 璁剧疆涓鸿处鍔″凡缁撶畻 */
 update oder_signedorder set acctFinished = 1 where status = 5;
