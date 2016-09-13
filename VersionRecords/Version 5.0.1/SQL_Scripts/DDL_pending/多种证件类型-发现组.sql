@@ -1,18 +1,18 @@
-use mogoroomdb;
-/*ĞŞ¸Ä¹ú¼Ò±í ĞÂÔö¹ú¼Ò´úÂë¼òĞ´*/
+ï»¿use mogoroomdb;
+/*ä¿®æ”¹å›½å®¶è¡¨ æ–°å¢å›½å®¶ä»£ç ç®€å†™*/
 
 ALTER TABLE `city_country`
-ADD COLUMN `code`  varchar(50) NULL COMMENT '¹ú¼Ò´úÂë' AFTER `icon`;
+ADD COLUMN `code`  varchar(50) NULL COMMENT 'å›½å®¶ä»£ç ' AFTER `icon`;
 
 
-/*ĞŞ¸Ä·¿¶«±í ĞÂÔöÖ¤¼şÀàĞÍ ¹ú¼®*/
+/*ä¿®æ”¹æˆ¿ä¸œè¡¨ æ–°å¢è¯ä»¶ç±»å‹ å›½ç±*/
 ALTER TABLE `user_landlord`
-ADD COLUMN `card_type`  varchar(20) NULL   COMMENT 'Ö¤¼şÀàĞÍ' AFTER `sex`,
-ADD COLUMN `nationality`  int(11) NULL  COMMENT '¹ú¼®' AFTER `card_type`;
+ADD COLUMN `card_type`  varchar(20) NULL   COMMENT 'è¯ä»¶ç±»å‹' AFTER `sex`,
+ADD COLUMN `nationality`  int(11) NULL  COMMENT 'å›½ç±' AFTER `card_type`;
 
 
 
-/*ĞŞ¸Ä·¿¶«ÀúÊ·±í ĞÂÔöÖ¤¼şÀàĞÍ ¹ú¼®*/
+/*ä¿®æ”¹æˆ¿ä¸œå†å²è¡¨ æ–°å¢è¯ä»¶ç±»å‹ å›½ç±*/
 ALTER TABLE `user_landlord_his`
-ADD COLUMN `card_type`  varchar(20) NULL  COMMENT 'Ö¤¼şÀàĞÍ' AFTER `sex`,
-ADD COLUMN `nationality`  int(11) NULL  COMMENT '¹ú¼®' AFTER `card_type`;
+ADD COLUMN `card_type`  varchar(20) NULL  COMMENT 'è¯ä»¶ç±»å‹' AFTER `sex`,
+ADD COLUMN `nationality`  int(11) NULL  COMMENT 'å›½ç±' AFTER `card_type`;
