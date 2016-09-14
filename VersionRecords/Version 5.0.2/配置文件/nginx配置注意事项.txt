@@ -1,0 +1,4 @@
+请运维同学确认一下预发、生产环境的nginx server配置均有如下参数
+proxy_set_header   Host             $host;
+proxy_set_header   X-Real-IP        $remote_addr;
+proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
