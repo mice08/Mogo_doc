@@ -1,4 +1,4 @@
-use mogoroomdb;
+﻿use mogoroomdb;
 drop table if exists oder_signedorder_new;
 CREATE TABLE `oder_signedorder_new` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
