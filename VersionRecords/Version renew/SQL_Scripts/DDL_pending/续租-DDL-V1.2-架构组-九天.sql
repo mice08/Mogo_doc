@@ -1,6 +1,6 @@
+use mogoroomdb;
 
 drop table if exists oder_signedorder_new;
-
 CREATE TABLE `oder_signedorder_new` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
   `parentId` int(11) DEFAULT NULL COMMENT '父新签约单ID',  
@@ -41,4 +41,6 @@ CREATE TABLE `oder_signedorder_new` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='新签约单'; 
 
 ALTER TABLE `bill_salebill` ADD COLUMN `soNewId` INT(11) DEFAULT NULL COMMENT '新签约单ID';
-ALTER TABLE `acct`.`acct_bill` ADD COLUMN `soNewId` INT(11) DEFAULT NULL COMMENT '新签约单ID';
+
+use acct;
+ALTER TABLE `acct_bill` ADD COLUMN `soNewId` INT(11) DEFAULT NULL COMMENT '新签约单ID';
