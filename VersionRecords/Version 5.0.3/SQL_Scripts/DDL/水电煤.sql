@@ -1,3 +1,5 @@
+/*这个脚本是新增 水电煤记录表以及水电煤单价表的*/
+use mogoroomdb;
 
 DROP TABLE IF EXISTS `bill_weg_detail`;
 
