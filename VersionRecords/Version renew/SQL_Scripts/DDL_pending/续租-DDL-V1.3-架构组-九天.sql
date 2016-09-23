@@ -40,7 +40,11 @@ CREATE TABLE `oder_signedorder_new` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='新签约单'; 
 
 ALTER TABLE `bill_salebill` ADD COLUMN `soNewId` INT(11) DEFAULT NULL COMMENT '新签约单ID';
+ALTER TABLE `bill_salebill` ADD INDEX  `index_soNewId` (`soNewId`);
 
 use acct;
 ALTER TABLE `acct_bill` ADD COLUMN `soNewId` INT(11) DEFAULT NULL COMMENT '新签约单ID';
+ALTER TABLE `acct_bill` ADD INDEX  `index_soNewId` (`soNewId`);
+ALTER TABLE `acct_bill` ALTER COLUMN `periodYear` SET DEFAULT 1;
+update `acct_bill` set `periodYear` = 1 where `periodYear` is null;
 
