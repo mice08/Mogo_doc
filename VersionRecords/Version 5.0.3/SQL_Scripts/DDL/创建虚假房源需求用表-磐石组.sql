@@ -4,7 +4,7 @@
 
 USE mogoroomdb;
 
-CREATE TABLE `risk_communitybase` (
+CREATE TABLE `risk_communityBase` (
   `id` INT(11) NOT NULL COMMENT 'id',
   `createDate` DATE DEFAULT NULL COMMENT '创建时间,精确到天',
   `communityId` INT(11) DEFAULT NULL COMMENT '小区id',
@@ -17,7 +17,7 @@ CREATE TABLE `risk_communitybase` (
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT'房源风险基准信息';
 
 
-CREATE TABLE `risk_roomdetail` (
+CREATE TABLE `risk_roomDetail` (
   `id` INT(11) NOT NULL COMMENT 'id',
   `roomId` INT(11) DEFAULT NULL COMMENT '房间id',
   `riskCode` VARCHAR(25) DEFAULT NULL COMMENT '房源风险编码(参考字典表组名:riskCode)',
