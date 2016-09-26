@@ -15,7 +15,7 @@ CREATE TABLE `risk_communityBase` (
   `createTime` DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间,记录系统生成数据的时间',
   PRIMARY KEY (`id`),
   KEY `communityId` (`communityId`)
-) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='房源风险基准信息'
+) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='房源风险基准信息';
 
 DROP TABLE IF EXISTS `risk_roomDetail`;
 CREATE TABLE `risk_roomDetail` (
