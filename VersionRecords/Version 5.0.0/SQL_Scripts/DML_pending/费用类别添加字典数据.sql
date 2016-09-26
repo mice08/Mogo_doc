@@ -1,5 +1,5 @@
 use mogoroomdb;
 
-INSERT INTO `comm_dictionary` (`code`, `groupName`, `sort`, `keyPro`, `value`, `status`, `fcode`, `enValue`) VALUES ('freeTypeSalesDeposit', 'freeTypeSales', NULL, '2', 'ÆäËûÑº½ð', '1', NULL, '2');
-INSERT INTO `comm_dictionary` (`code`, `groupName`, `sort`, `keyPro`, `value`, `status`, `fcode`, `enValue`) VALUES ('freeTypeSalesFixation', 'freeTypeSales', NULL, '1', 'ÖÜÆÚ·ÑÓÃ', '1', NULL, '1');
-INSERT INTO `comm_dictionary` (`code`, `groupName`, `sort`, `keyPro`, `value`, `status`, `fcode`, `enValue`) VALUES ('freeTypeSalesDisposable', 'freeTypeSales', NULL, '1', 'Ê×ÆÚÒ»´ÎÐÔ·ÑÓÃ', '1', NULL, '3');
+INSERT INTO `comm_dictionary` (`code`, `groupName`, `sort`, `keyPro`, `value`, `status`, `fcode`, `enValue`) VALUES ('freeTypeSalesDeposit', 'freeTypeSales', NULL, '2', 'å…¶ä»–æŠ¼é‡‘', '1', NULL, '2');
+INSERT INTO `comm_dictionary` (`code`, `groupName`, `sort`, `keyPro`, `value`, `status`, `fcode`, `enValue`) VALUES ('freeTypeSalesFixation', 'freeTypeSales', NULL, '1', 'å‘¨æœŸè´¹ç”¨', '1', NULL, '1');
+INSERT INTO `comm_dictionary` (`code`, `groupName`, `sort`, `keyPro`, `value`, `status`, `fcode`, `enValue`) VALUES ('freeTypeSalesDisposable', 'freeTypeSales', NULL, '1', 'é¦–æœŸä¸€æ¬¡æ€§è´¹ç”¨', '1', NULL, '3');

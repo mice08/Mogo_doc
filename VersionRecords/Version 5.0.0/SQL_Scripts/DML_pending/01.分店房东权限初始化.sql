@@ -1,15 +1,15 @@
-/**È¨ÏŞÊı¾İ³õÊ¼»¯**/
+/**æƒé™æ•°æ®åˆå§‹åŒ–**/
 use mogoroomdb;
 
-/**É¾³ı·¿¶«PCÓë·¿¶«APPÅäÖÃµÄ²Ëµ¥**/
+/**åˆ é™¤æˆ¿ä¸œPCä¸æˆ¿ä¸œAPPé…ç½®çš„èœå•**/
 DELETE FROM perm_functioninfo WHERE channel IN (4,5);
-/*Çå¿ÕÊı¾İ*/
+/*æ¸…ç©ºæ•°æ®*/
 DELETE FROM `perm_menu_group`;
 DELETE FROM `perm_menu_group_rel`;
 DELETE FROM `perm_role` where id = 66;
 DELETE FROM `perm_menugroup_role_rel`;
 
-/**·¿¶«ÏÂµÄ×ÓÕËºÅ¶¼·ÖÅäµ½Ö±Êô×éÖ¯**/
+/**æˆ¿ä¸œä¸‹çš„å­è´¦å·éƒ½åˆ†é…åˆ°ç›´å±ç»„ç»‡**/
 INSERT INTO orga_org_position (
   userId,
   orgId,
@@ -28,7 +28,7 @@ SELECT
   FROM
     `orga_position` t 
   WHERE t.`positionCode` = 'subShopEmp'),
-  '·ÖµêÔ±¹¤',
+  'åˆ†åº—å‘˜å·¥',
   1,
   rel.`landlordId`,
   0,

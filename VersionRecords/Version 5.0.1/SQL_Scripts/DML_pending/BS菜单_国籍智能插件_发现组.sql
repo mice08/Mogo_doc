@@ -1,20 +1,20 @@
-
+ï»¿
 use mogoroomdb;
 
-/**»ñÈ¡¿ªÊ¼Ê±¼ä**/
+/**è·å–å¼€å§‹æ—¶é—´**/
 select @begindate:=NOW();
-/**¸ù¾İ½ÚµãÃû³Æ¶ÁÈ¡¸¸½ÚµãidºÍlevel**/
-select @rootId:=id,@rootLevel:=functionLevel from perm_functioninfo where fname = 'Ö°Òµ·¿¶«Â¼Èë';
+/**æ ¹æ®èŠ‚ç‚¹åç§°è¯»å–çˆ¶èŠ‚ç‚¹idå’Œlevel**/
+select @rootId:=id,@rootLevel:=functionLevel from perm_functioninfo where fname = 'èŒä¸šæˆ¿ä¸œå½•å…¥';
 
 
 
-/**Éú³ÉĞÂµÄË³ĞòºÅ,nullÄ¬ÈÏÊÇ1**/
+/**ç”Ÿæˆæ–°çš„é¡ºåºå·,nullé»˜è®¤æ˜¯1**/
 select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@rootId;
 select @seq:=(case when @seq is null then 1 else @seq end);
 
-/**Éú³ÉĞÂµÄfcode**/
+/**ç”Ÿæˆæ–°çš„fcode**/
 select @fcode:= CONCAT(@rootLevel+1,lpad(@rootId,4,0),@seq ) from dual;
-/**²åÈëĞÂ½Úµã¼ÇÂ¼-'¹ú¼®ÖÇÄÜ²å¼ş'**/
+/**æ’å…¥æ–°èŠ‚ç‚¹è®°å½•-'å›½ç±æ™ºèƒ½æ’ä»¶'**/
 INSERT INTO `perm_functioninfo`
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES (@fcode, '¹ú¼®ÖÇÄÜ²å¼ş', 'common/autoConturyInfo', @seq, @rootLevel+1, @rootId, 1, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, NULL, 1, 2);
+VALUES (@fcode, 'å›½ç±æ™ºèƒ½æ’ä»¶', 'common/autoConturyInfo', @seq, @rootLevel+1, @rootId, 1, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, NULL, 1, 2);
