@@ -5,7 +5,7 @@
 
 use mogoroomdb
 
-CREATE or REPLACE ALGORITHM = UNDEFINED DEFINER = `root`@`%` SQL SECURITY DEFINER VIEW `repo_renter_bill` AS 
+CREATE or REPLACE  VIEW `repo_renter_bill` AS
 SELECT
 	`salebill`.`id` AS `saleBillId`,
 	`salebill`.`userId` AS `renterId`,
