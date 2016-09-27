@@ -1,6 +1,8 @@
 /*  Database name `mogoroomdb`  
 
 	账务需求变更，视图需要添加新的字段
+  `unpayAmount`,  --未支付金额
+  `status`,		    --签约单状态
  */
 
 use mogoroomdb
