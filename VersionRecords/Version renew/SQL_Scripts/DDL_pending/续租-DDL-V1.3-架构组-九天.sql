@@ -33,18 +33,19 @@ CREATE TABLE `oder_signedorder_new` (
   PRIMARY KEY (`id`),
   KEY `renterId` (`renterId`),
   KEY `os_saleContractId` (`saleContractId`) USING BTREE,
-  KEY `idx_oder_signedOrder_reservationOrderId` (`reservationOrderId`),
-  KEY `idx_oder_signedorder_roomId` (`roomId`),
-  KEY `index_subsId` (`subsId`),
+  KEY `oder_signedOrder_reservationOrderId` (`reservationOrderId`),
+  KEY `oder_signedorder_roomId` (`roomId`),
+  KEY `subsId` (`subsId`),
   KEY `landlordId` (`landlordId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='新签约单'; 
+ALTER TABLE `oder_signedorder_new` ADD INDEX `signedOrderId` (`signedOrderId`);
 
 ALTER TABLE `bill_salebill` ADD COLUMN `soNewId` INT(11) DEFAULT NULL COMMENT '新签约单ID';
-ALTER TABLE `bill_salebill` ADD INDEX  `index_soNewId` (`soNewId`);
+ALTER TABLE `bill_salebill` ADD INDEX  `soNewId` (`soNewId`);
 
 use acct;
 ALTER TABLE `acct_bill` ADD COLUMN `soNewId` INT(11) DEFAULT NULL COMMENT '新签约单ID';
-ALTER TABLE `acct_bill` ADD INDEX  `index_soNewId` (`soNewId`);
+ALTER TABLE `acct_bill` ADD INDEX  `soNewId` (`soNewId`);
 ALTER TABLE `acct_bill` ALTER COLUMN `periodYear` SET DEFAULT 1;
 update `acct_bill` set `periodYear` = 1 where `periodYear` is null;
 
