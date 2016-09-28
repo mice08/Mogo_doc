@@ -1,6 +1,8 @@
 /*  Database name `mogoroomdb`  
 
 	账务需求变更，视图需要添加新的字段
+  `unpayAmount`,  --未支付金额
+  `status`,		    --签约单状态
  */
 
 use mogoroomdb
@@ -14,7 +16,7 @@ SELECT
 	`salebill`.`billType` AS `billType`,
 	`salebill`.`amount` AS `amount`,
 	`salebill`.`billDate` AS `billDate`,
-    `salebill`.`unpayAmount` AS `unpayAmount`, --未支付金额
+    `salebill`.`unpayAmount` AS `unpayAmount`,
 	`salebill`.`dueDate` AS `dueDate`,
 	`salebill`.`payTime` AS `payTime`,
 	`salebill`.`payStatus` AS `payStatus`,
@@ -55,7 +57,7 @@ SELECT
 	`salebill`.`valid` AS `valid`,
 	`flat`.`flatsTag` AS `flatstag`,
 	`signedorder`.`sendFlag` AS `signedorder_sendFlag`,
-	`signedorder`.`status` AS `status`,		--签约单状态
+	`signedorder`.`status` AS `status`,
 	`signedorder`.`acctFinished` AS `acctFinished`
 FROM
 	(
