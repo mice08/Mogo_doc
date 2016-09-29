@@ -65,7 +65,6 @@ CREATE TABLE `user_config_his` (
   `optGroup` varchar(100) NOT NULL COMMENT '选项组名',
   `optName` varchar(255) DEFAULT NULL COMMENT '选项名称',
   `optVal` varchar(255) DEFAULT NULL COMMENT '选项值',
-  `oldoptVal` varchar(255) DEFAULT NULL COMMENT '旧选项值',
   `valType` tinyint(2) NOT NULL COMMENT '选项值类型',
   `extral1` varchar(255) DEFAULT NULL COMMENT '附加字段1',
   `extral2` varchar(255) DEFAULT NULL COMMENT '附加字段2',
