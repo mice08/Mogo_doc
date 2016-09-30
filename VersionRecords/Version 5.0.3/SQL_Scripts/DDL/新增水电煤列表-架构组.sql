@@ -1,5 +1,3 @@
-/*这个脚本是新增 水电煤记录表以及水电煤单价表的*/
-use mogoroomdb;
 
 DROP TABLE IF EXISTS `bill_weg_detail`;
 
@@ -39,9 +37,9 @@ DROP TABLE IF EXISTS `bill_weg_price`;
 CREATE TABLE `bill_weg_price` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
   `landlordId` int(11) NOT NULL COMMENT '房东ID',
-  `waterPrice` decimal(10,0) NOT NULL DEFAULT '0' COMMENT '水单价',
-  `elePrice` decimal(10,0) NOT NULL DEFAULT '0' COMMENT '电单价',
-  `gasPrice` decimal(10,0) NOT NULL DEFAULT '0' COMMENT '煤单价',
+  `waterPrice` decimal(10,2) NOT NULL DEFAULT '0' COMMENT '水单价',
+  `elePrice` decimal(10,2) NOT NULL DEFAULT '0' COMMENT '电单价',
+  `gasPrice` decimal(10,2) NOT NULL DEFAULT '0' COMMENT '煤单价',
   `createBy` int(11) NOT NULL COMMENT '创建人',
   `createTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `createByType` int(11) NOT NULL COMMENT '创建人类型',
