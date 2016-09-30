@@ -8,9 +8,9 @@ CREATE TABLE risk_landlord_level (
 	createBy INT (11) NOT NULL COMMENT '创建人',
 	createByType TINYINT (1) NOT NULL COMMENT '创建人类型（参考字典表组名:userType）',
 	identifyDate datetime NOT NULL COMMENT '识别日期',
-	LEVEL TINYINT (1) NOT NULL COMMENT '风险等级(1:低 2:中 3:高 4:待定)',
-	PHASE TINYINT (1) NOT NULL COMMENT '识别环节(1:资质审核 2:订单审核 3:租客回访 4:房东贷后回访 5:其它)',
-	remark VARCHAR (100) COMMENT '审核备注',
+	level TINYINT (1) NOT NULL COMMENT '风险等级(1:低 2:中 3:高 4:待定)',
+	phase TINYINT (1) NOT NULL COMMENT '识别环节(1:资质审核 2:订单审核 3:租客回访 4:房东贷后回访 5:其它)',
+	remark VARCHAR (255) COMMENT '审核备注',
 	PRIMARY KEY (id)
 ) ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COMMENT = '房东风险审核表';
 
