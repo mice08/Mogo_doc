@@ -24,6 +24,7 @@ CREATE TABLE `user_config` (
   `updateBy` int(11) NOT NULL COMMENT '修改人',
   `updateByType` int(11) DEFAULT NULL COMMENT '修改人类型',
   `soDoneCode` int(32) NOT NULL COMMENT '操作流水号',
+  `isDefault` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否默认，1-默认，0-非默认',
   PRIMARY KEY (`id`),
   KEY `userId` (`userId`) USING BTREE,
   KEY `optGroup` (`optGroup`),
@@ -55,5 +56,6 @@ CREATE TABLE `user_config_his` (
   `updateByType` int(11) DEFAULT NULL COMMENT '修改人类型',
   `soDoneCode` int(32) NOT NULL COMMENT '操作流水号',
   `operType` char(1)  COMMENT '该历史记录产生时的操作类型(A:新增 U:更新 D:删除)',
+  `isDefault` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否默认，1-默认，0-非默认',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户配置历史表';
