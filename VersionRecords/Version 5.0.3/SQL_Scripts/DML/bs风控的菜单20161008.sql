@@ -1,41 +1,7 @@
-/*  Database name `mogoroomdb`  风控菜单 */
-use mogoroomdb;
+/* 风控模块的菜单,有执行顺序要求，必须先有 SELECT * FROM perm_functioninfo e WHERE e.fname = '风控管理' 这条记录 */
+USE mogoroomdb;
 
 BEGIN;
-
-select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=0;
-select @fcode:= CONCAT('0',lpad(0,4,0),@seq ) ;
-
-INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, '风控管理', '', @seq, '0', 0, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
-
-select @id:=id from perm_functioninfo where fname = '风控管理';
-select @fcode:= CONCAT('1',lpad(@id,4,0),1 ) from perm_functioninfo where fname = '风控管理';
-
-INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, '房源管理', '', 1, '1', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
-
-
-select @id:=id from perm_functioninfo where fname = '房源管理' order by id desc limit 1;
-select @fcode:= CONCAT('2',lpad(@id,4,0),1 ) from perm_functioninfo where fname = '房源管理' order by id desc limit 1;
-
-INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, '工作池列表', 'risk/findWorkingPoolList', 1, '2', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
-
-select @id:=id from perm_functioninfo where fname = '工作池列表';
-select @fcode:= CONCAT('2',lpad(@id,4,0),1 ) from perm_functioninfo where fname = '工作池列表';
-
-INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, '审核', 'risk/updateRiskRoom', 1, '2', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
-
-
-select @id:=id from perm_functioninfo where fname = '房源管理' order by id desc limit 1;
-select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@id;
-select @fcode:= CONCAT('2',lpad(@id,4,0),@seq ) from perm_functioninfo where fname = '房源管理' order by id desc limit 1;
-
-INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, '历史池列表', 'risk/findHistoryPoolList', @seq, '2', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
-
 
 /*风控服务*/
 INSERT INTO perm_functioninfo (fcode, fname, furl, seq, functionLevel, functionpId, functionisMenu, functionVcode, functionParam, functionFaclass, isAjax, functionType, createdBy, createdTime, updatedBy, updatedTime, STATUS, channel) 
@@ -79,3 +45,4 @@ VALUES((SELECT CONCAT(3,(SELECT LPAD((SELECT id FROM perm_functioninfo e WHERE e
 
 
 COMMIT;
+
