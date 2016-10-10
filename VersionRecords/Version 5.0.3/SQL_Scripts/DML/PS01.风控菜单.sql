@@ -23,10 +23,10 @@ INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLeve
 VALUES ( @fcode, '工作池列表', 'risk/findWorkingPoolList', 1, '2', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
 
 select @id:=id from perm_functioninfo where fname = '工作池列表';
-select @fcode:= CONCAT('2',lpad(@id,4,0),1 ) from perm_functioninfo where fname = '工作池列表';
+select @fcode:= CONCAT('3',lpad(@id,4,0),1 ) from perm_functioninfo where fname = '工作池列表';
 
 INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, '审核', 'risk/updateRiskRoom', 1, '2', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+VALUES ( @fcode, '审核', 'risk/updateRiskRoom', 1, '3', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
 
 
 select @id:=id from perm_functioninfo where fname = '房源管理' order by id desc limit 1;
