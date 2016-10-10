@@ -1,4 +1,4 @@
-<<<<<<< HEAD:VersionRecords/Version 5.0.3/SQL_Scripts/DDL/åˆ›å»ºè™šå‡æˆ¿æºéœ€æ±‚ç”¨è¡¨-ç£çŸ³ç»„.sql
+
 /* Database name `mogoroomdb`
 ´´½¨Ðé¼Ù·¿Ô´ÐèÇóÓÃ±í£¬µÚÒ»¸öÎª¿ìÕÕÊ¹ÓÃ£¬µÚ¶þ¸öÎªbsÒ³Ãæ²éÑ¯Ê¹ÓÃ£¬Á½¸ö±íµÄÊý¾ÝÓÉ¶¨Ê±Æ÷Î¬»¤
 µÚ¶þ¸ö±íµÄÊý¾Ý²¿·Ö×Ö¶ÎÓÉbsÒ³ÃæÎ¬»¤ */
@@ -7,75 +7,34 @@ USE mogoroomdb;
 
 DROP TABLE IF EXISTS `risk_communityBase`;
 CREATE TABLE `risk_communityBase` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `createDate` date DEFAULT NULL COMMENT '´´½¨Ê±¼ä,¾«È·µ½Ìì',
-  `communityId` int(11) DEFAULT NULL COMMENT 'Ð¡Çøid',
-  `avgArea` int(4) DEFAULT NULL COMMENT '·¿Ô´Æ½¾ùÃæ»ý',
-  `avgPrice` int(4) DEFAULT NULL COMMENT '·¿Ô´Æ½¾ùÊÛ¼Û',
-  `unitPrice` int(6) DEFAULT NULL COMMENT '·¿Ô´Ã¿Æ½Ã×Æ½¾ùµ¥¼Û',
-  `createTime` datetime DEFAULT NULL COMMENT '´´½¨Ê±¼ä,¼ÇÂ¼ÏµÍ³Éú³ÉÊý¾ÝµÄÊ±¼ä',
+  `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `createDate` DATE DEFAULT NULL COMMENT '´´½¨Ê±¼ä,¾«È·µ½Ìì',
+  `communityId` INT(11) DEFAULT NULL COMMENT 'Ð¡Çøid',
+  `avgArea` INT(4) DEFAULT NULL COMMENT '·¿Ô´Æ½¾ùÃæ»ý',
+  `avgPrice` INT(4) DEFAULT NULL COMMENT '·¿Ô´Æ½¾ùÊÛ¼Û',
+  `unitPrice` INT(6) DEFAULT NULL COMMENT '·¿Ô´Ã¿Æ½Ã×Æ½¾ùµ¥¼Û',
+  `createTime` DATETIME DEFAULT NULL COMMENT '´´½¨Ê±¼ä,¼ÇÂ¼ÏµÍ³Éú³ÉÊý¾ÝµÄÊ±¼ä',
   PRIMARY KEY (`id`),
   KEY `communityId` (`communityId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='·¿Ô´·çÏÕ»ù×¼ÐÅÏ¢';
+) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='·¿Ô´·çÏÕ»ù×¼ÐÅÏ¢';
 
 DROP TABLE IF EXISTS `risk_roomDetail`;
 CREATE TABLE `risk_roomDetail` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `commBaseId` INT(11) DEFAULT NULL COMMENT 'Ð¡Çø»ù×¼ÐÅÏ¢id',
-  `roomId` int(11) DEFAULT NULL COMMENT '·¿¼äid',
-  `riskCode` varchar(25) DEFAULT NULL COMMENT '·¿Ô´·çÏÕ±àÂë(²Î¿¼×Öµä±í×éÃû:riskCode)',
-  `status` tinyint(1) DEFAULT '0' COMMENT '´¦Àí×´Ì¬(0:Î´´¦Àí 1:ÒÑ´¦Àí)',
-  `valid` tinyint(1) DEFAULT '1' COMMENT 'ÊÇ·ñÓÐÐ§(1:ÓÐÐ§ 0:ÎÞÐ§)',
-  `createTime` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '´´½¨Ê±¼ä',
-  `handleTime` datetime DEFAULT NULL COMMENT '´¦ÀíÊ±¼ä',
-  `employeeId` int(11) DEFAULT NULL COMMENT '´¦ÀíÈËid,Ô±¹¤id',
-  `soDoneCode` int(32) DEFAULT NULL COMMENT '²Ù×÷Á÷Ë®ºÅ',
-  `punishType` varchar(25) DEFAULT NULL COMMENT '³Í·£ÀàÐÍ(²Î¿¼×Öµä±í×éÃû:punishType)',
-  `punishDegree` varchar(25) DEFAULT NULL COMMENT '³Í·£³Ì¶È(²Î¿¼×Öµä±í×éÃû:punishDegree)',
-  `userMemo` varchar(255) DEFAULT NULL COMMENT '´¦ÀíÈË±¸×¢',
-  `remark` varchar(255) DEFAULT NULL COMMENT 'ÏµÍ³±¸×¢',
+  `roomId` INT(11) DEFAULT NULL COMMENT '·¿¼äid',
+  `riskCode` VARCHAR(25) DEFAULT NULL COMMENT '·¿Ô´·çÏÕ±àÂë(²Î¿¼×Öµä±í×éÃû:riskCode)',
+  `status` TINYINT(1) DEFAULT '0' COMMENT '´¦Àí×´Ì¬(0:Î´´¦Àí 1:ÒÑ´¦Àí)',
+  `valid` TINYINT(1) DEFAULT '1' COMMENT 'ÊÇ·ñÓÐÐ§(1:ÓÐÐ§ 0:ÎÞÐ§)',
+  `createTime` DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '´´½¨Ê±¼ä',
+  `handleTime` DATETIME DEFAULT NULL COMMENT '´¦ÀíÊ±¼ä',
+  `employeeId` INT(11) DEFAULT NULL COMMENT '´¦ÀíÈËid,Ô±¹¤id',
+  `soDoneCode` INT(32) DEFAULT NULL COMMENT '²Ù×÷Á÷Ë®ºÅ',
+  `punishType` VARCHAR(25) DEFAULT NULL COMMENT '³Í·£ÀàÐÍ(²Î¿¼×Öµä±í×éÃû:punishType)',
+  `punishDegree` VARCHAR(25) DEFAULT NULL COMMENT '³Í·£³Ì¶È(²Î¿¼×Öµä±í×éÃû:punishDegree)',
+  `userMemo` VARCHAR(255) DEFAULT NULL COMMENT '´¦ÀíÈË±¸×¢',
+  `remark` VARCHAR(255) DEFAULT NULL COMMENT 'ÏµÍ³±¸×¢',
   PRIMARY KEY (`id`),
   KEY `roomId` (`roomId`),
   KEY `soDoneCode` (`soDoneCode`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='·çÏÕ·¿Ô´ÐÅÏ¢';
-=======
-/* Database name `mogoroomdb`
-´´½¨Ðé¼Ù·¿Ô´ÐèÇóÓÃ±í£¬µÚÒ»¸öÎª¿ìÕÕÊ¹ÓÃ£¬µÚ¶þ¸öÎªbsÒ³Ãæ²éÑ¯Ê¹ÓÃ£¬Á½¸ö±íµÄÊý¾ÝÓÉ¶¨Ê±Æ÷Î¬»¤
-µÚ¶þ¸ö±íµÄÊý¾Ý²¿·Ö×Ö¶ÎÓÉbsÒ³ÃæÎ¬»¤ */
-
-USE mogoroomdb;
-
-DROP TABLE IF EXISTS `risk_communityBase`;
-CREATE TABLE `risk_communityBase` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `createDate` date DEFAULT NULL COMMENT '´´½¨Ê±¼ä,¾«È·µ½Ìì',
-  `communityId` int(11) DEFAULT NULL COMMENT 'Ð¡Çøid',
-  `avgArea` int(4) DEFAULT NULL COMMENT '·¿Ô´Æ½¾ùÃæ»ý',
-  `avgPrice` int(4) DEFAULT NULL COMMENT '·¿Ô´Æ½¾ùÊÛ¼Û',
-  `unitPrice` int(6) DEFAULT NULL COMMENT '·¿Ô´Ã¿Æ½Ã×Æ½¾ùµ¥¼Û',
-  `createTime` datetime DEFAULT NULL COMMENT '´´½¨Ê±¼ä,¼ÇÂ¼ÏµÍ³Éú³ÉÊý¾ÝµÄÊ±¼ä',
-  PRIMARY KEY (`id`),
-  KEY `communityId` (`communityId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='·¿Ô´·çÏÕ»ù×¼ÐÅÏ¢';
-
-DROP TABLE IF EXISTS `risk_roomDetail`;
-CREATE TABLE `risk_roomDetail` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `roomId` int(11) DEFAULT NULL COMMENT '·¿¼äid',
-  `riskCode` varchar(25) DEFAULT NULL COMMENT '·¿Ô´·çÏÕ±àÂë(²Î¿¼×Öµä±í×éÃû:riskCode)',
-  `status` tinyint(1) DEFAULT '0' COMMENT '´¦Àí×´Ì¬(0:Î´´¦Àí 1:ÒÑ´¦Àí)',
-  `valid` tinyint(1) DEFAULT '1' COMMENT 'ÊÇ·ñÓÐÐ§(1:ÓÐÐ§ 0:ÎÞÐ§)',
-  `createTime` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '´´½¨Ê±¼ä',
-  `handleTime` datetime DEFAULT NULL COMMENT '´¦ÀíÊ±¼ä',
-  `employeeId` int(11) DEFAULT NULL COMMENT '´¦ÀíÈËid,Ô±¹¤id',
-  `soDoneCode` int(32) DEFAULT NULL COMMENT '²Ù×÷Á÷Ë®ºÅ',
-  `punishType` varchar(25) DEFAULT NULL COMMENT '³Í·£ÀàÐÍ(²Î¿¼×Öµä±í×éÃû:punishType)',
-  `punishDegree` varchar(25) DEFAULT NULL COMMENT '³Í·£³Ì¶È(²Î¿¼×Öµä±í×éÃû:punishDegree)',
-  `userMemo` varchar(255) DEFAULT NULL COMMENT '´¦ÀíÈË±¸×¢',
-  `remark` varchar(255) DEFAULT NULL COMMENT 'ÏµÍ³±¸×¢',
-  PRIMARY KEY (`id`),
-  KEY `roomId` (`roomId`),
-  KEY `soDoneCode` (`soDoneCode`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='·çÏÕ·¿Ô´ÐÅÏ¢';
->>>>>>> 7ce3726c15368185d1abc3e066a0555c82f01ae8:VersionRecords/Version 5.0.3/SQL_Scripts/DDL/PS01.åˆ›å»ºè™šå‡æˆ¿æºéœ€æ±‚ç”¨è¡¨.sql
- 
+) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='·çÏÕ·¿Ô´ÐÅÏ¢';
