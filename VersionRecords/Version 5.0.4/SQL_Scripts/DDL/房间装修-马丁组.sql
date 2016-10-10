@@ -4,6 +4,10 @@ use mogoroomdb;
 INSERT INTO `flat_tag` (category,NAME,userId,userType,createTime) 
 VALUE (1,'装修中',92158,0,NOW());
 
+/*添加业务编码*/
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(40101016,'设置装修时间',1,1,3,1,40103);
+INSERT INTO `comm_busitype`(busiType,busiName,status,sort,level,isLeaf,parentId) VALUES(40101017,'解除装修',1,1,3,1,40103);
+
 /*房间标签表*/
 CREATE TABLE `flat_room_tag` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主健',
