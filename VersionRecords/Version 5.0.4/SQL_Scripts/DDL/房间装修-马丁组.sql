@@ -21,8 +21,8 @@ CREATE TABLE `flat_room_tag` (
   `updateBy` int(11) NOT NULL COMMENT '修改人',
   `updateByType` int(11) NOT NULL COMMENT '修改人类型(参考字典表组名:userType)',
   `soDoneCode` int(11) NOT NULL COMMENT '操作流水号',
-  `status` tinyint(3) NOT NULL DEFAULT '1' COMMENT '标签状态：1：进行中 0：结束',
-  `valid` tinyint(3) NOT NULL DEFAULT '1' COMMENT '数据状态：1：有效 0：删除',
+  `status` tinyint(3) NOT NULL DEFAULT '1' COMMENT '标签状态(1:进行中 0:结束)',
+  `valid` tinyint(3) NOT NULL DEFAULT '1' COMMENT '数据状态(1:有效 0:删除)',
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='房间标签表';

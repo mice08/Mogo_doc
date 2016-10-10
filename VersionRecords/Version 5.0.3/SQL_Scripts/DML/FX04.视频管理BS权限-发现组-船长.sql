@@ -1,112 +1,112 @@
-
-/* ÊÓÆµ²Ëµ¥¹ÜÀíBSÈ¨ÏŞ½Å±¾ */
+ï»¿
+/* è§†é¢‘èœå•ç®¡ç†BSæƒé™è„šæœ¬ */
 use mogoroomdb;
 BEGIN;
-/* »ñÈ¡¿ªÊ¼Ê±¼ä  */
+/* è·å–å¼€å§‹æ—¶é—´  */
 select @begindate:=NOW();
-/* ¸ù¾İ½ÚµãÃû³Æ¶ÁÈ¡¸¸½ÚµãidºÍlevel  */
-select @rootId:=id,@rootLevel:=functionLevel from perm_functioninfo where fname = 'Ö°Òµ·¿¶«';
+/* æ ¹æ®èŠ‚ç‚¹åç§°è¯»å–çˆ¶èŠ‚ç‚¹idå’Œlevel  */
+select @rootId:=id,@rootLevel:=functionLevel from perm_functioninfo where fname = 'èŒä¸šæˆ¿ä¸œ';
 
 
-/* Éú³ÉĞÂµÄË³ĞòºÅ,nullÄ¬ÈÏÊÇ1  */
+/* ç”Ÿæˆæ–°çš„é¡ºåºå·,nullé»˜è®¤æ˜¯1  */
 select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@rootId;
 select @seq:=(case when @seq is null then 1 else @seq end);
 
-/* Éú³ÉĞÂµÄfcode  */
+/* ç”Ÿæˆæ–°çš„fcode  */
 select @fcode:= CONCAT(@rootLevel+1,lpad(@rootId,4,0),@seq ) from dual;
-/* ²åÈëĞÂ½Úµã¼ÇÂ¼-'½ÌÑ§ÊÓÆµ¹ÜÀí'  */
+/* æ’å…¥æ–°èŠ‚ç‚¹è®°å½•-'æ•™å­¦è§†é¢‘ç®¡ç†'  */
 INSERT INTO `perm_functioninfo`
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES (@fcode, '½ÌÑ§ÊÓÆµ¹ÜÀí', 'landlord/getLandlordVideo', @seq, @rootLevel+1, @rootId, 1, NULL, NULL, NULL, 1, 1, NULL, now(), NULL, NULL, 1, 2);
+VALUES (@fcode, 'æ•™å­¦è§†é¢‘ç®¡ç†', 'landlord/getLandlordVideo', @seq, @rootLevel+1, @rootId, 1, NULL, NULL, NULL, 1, 1, NULL, now(), NULL, NULL, 1, 2);
 
-/* ¶ÁÈ¡¸¸½ÚµãidºÍlevel£¬·ÀÖ¹ÖØÃû£¬¸ù¾İÊ±¼ä²é  */
-select @parentid2:=id,@level2:=functionLevel from perm_functioninfo where fname = '½ÌÑ§ÊÓÆµ¹ÜÀí' and createdTime>=@begindate;
+/* è¯»å–çˆ¶èŠ‚ç‚¹idå’Œlevelï¼Œé˜²æ­¢é‡åï¼Œæ ¹æ®æ—¶é—´æŸ¥  */
+select @parentid2:=id,@level2:=functionLevel from perm_functioninfo where fname = 'æ•™å­¦è§†é¢‘ç®¡ç†' and createdTime>=@begindate;
 
-/* Éú³ÉĞÂµÄË³ĞòºÅ,nullÄ¬ÈÏÊÇ1  */
+/* ç”Ÿæˆæ–°çš„é¡ºåºå·,nullé»˜è®¤æ˜¯1  */
 select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@parentid2;
 select @seq:=(case when @seq is null then 1 else @seq end);
 
-/* Éú³ÉĞÂµÄfcode  */
+/* ç”Ÿæˆæ–°çš„fcode  */
 select @fcode:= CONCAT(@level2+1,lpad(@parentid2,4,0),@seq ) from dual;
-/* ²åÈëĞÂ½Úµã¼ÇÂ¼-'²éÑ¯ÊÓÆµ¹ÜÀí'  */
+/* æ’å…¥æ–°èŠ‚ç‚¹è®°å½•-'æŸ¥è¯¢è§†é¢‘ç®¡ç†'  */
 INSERT INTO `perm_functioninfo`
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES (@fcode, '²éÑ¯ÊÓÆµ¹ÜÀí', 'landlord/getLandlordVideoManage', @seq, @level2+1, @parentid2, 0, NULL, NULL, NULL, 1, 1, NULL, now(), NULL, NULL, 1, 2);
+VALUES (@fcode, 'æŸ¥è¯¢è§†é¢‘ç®¡ç†', 'landlord/getLandlordVideoManage', @seq, @level2+1, @parentid2, 0, NULL, NULL, NULL, 1, 1, NULL, now(), NULL, NULL, 1, 2);
 
-/* Éú³ÉĞÂµÄË³ĞòºÅ,nullÄ¬ÈÏÊÇ1  */
+/* ç”Ÿæˆæ–°çš„é¡ºåºå·,nullé»˜è®¤æ˜¯1  */
 select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@parentid2;
 select @seq:=(case when @seq is null then 1 else @seq end);
 
-/* Éú³ÉĞÂµÄfcode  */
+/* ç”Ÿæˆæ–°çš„fcode  */
 select @fcode:= CONCAT(@level2+1,lpad(@parentid2,4,0),@seq ) from dual;
-/* ²åÈëĞÂ½Úµã¼ÇÂ¼-'²éÑ¯²Ëµ¥¹ÜÀí'  */
+/* æ’å…¥æ–°èŠ‚ç‚¹è®°å½•-'æŸ¥è¯¢èœå•ç®¡ç†'  */
 INSERT INTO `perm_functioninfo`
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES (@fcode, '²éÑ¯²Ëµ¥¹ÜÀí', 'landlord/getLandlordVideoMenu', @seq, @level2+1, @parentid2, 0, NULL, NULL, NULL, 1, 1, NULL, now(), NULL, NULL, 1, 2);
+VALUES (@fcode, 'æŸ¥è¯¢èœå•ç®¡ç†', 'landlord/getLandlordVideoMenu', @seq, @level2+1, @parentid2, 0, NULL, NULL, NULL, 1, 1, NULL, now(), NULL, NULL, 1, 2);
 
-/* Éú³ÉĞÂµÄË³ĞòºÅ,nullÄ¬ÈÏÊÇ1  */
+/* ç”Ÿæˆæ–°çš„é¡ºåºå·,nullé»˜è®¤æ˜¯1  */
 select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@parentid2;
 select @seq:=(case when @seq is null then 1 else @seq end);
 
-/* Éú³ÉĞÂµÄfcode  */
+/* ç”Ÿæˆæ–°çš„fcode  */
 select @fcode:= CONCAT(@level2+1,lpad(@parentid2,4,0),@seq ) from dual;
-/* ²åÈëĞÂ½Úµã¼ÇÂ¼-'±£´æ²Ëµ¥'  */
+/* æ’å…¥æ–°èŠ‚ç‚¹è®°å½•-'ä¿å­˜èœå•'  */
 INSERT INTO `perm_functioninfo`
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES (@fcode, '±£´æ²Ëµ¥', 'landlord/saveVideoMenu', @seq, @level2+1, @parentid2, 0, NULL, NULL, NULL, 1, 1, NULL, now(), NULL, NULL, 1, 2);
+VALUES (@fcode, 'ä¿å­˜èœå•', 'landlord/saveVideoMenu', @seq, @level2+1, @parentid2, 0, NULL, NULL, NULL, 1, 1, NULL, now(), NULL, NULL, 1, 2);
 
-/* Éú³ÉĞÂµÄË³ĞòºÅ,nullÄ¬ÈÏÊÇ1  */
+/* ç”Ÿæˆæ–°çš„é¡ºåºå·,nullé»˜è®¤æ˜¯1  */
 select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@parentid2;
 select @seq:=(case when @seq is null then 1 else @seq end);
 
-/* Éú³ÉĞÂµÄfcode  */
+/* ç”Ÿæˆæ–°çš„fcode  */
 select @fcode:= CONCAT(@level2+1,lpad(@parentid2,4,0),@seq ) from dual;
-/* ²åÈëĞÂ½Úµã¼ÇÂ¼-'É¾³ı²Ëµ¥'  */
+/* æ’å…¥æ–°èŠ‚ç‚¹è®°å½•-'åˆ é™¤èœå•'  */
 INSERT INTO `perm_functioninfo`
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES (@fcode, 'É¾³ı²Ëµ¥', 'landlord/removeVideoMenu', @seq, @level2+1, @parentid2, 0, NULL, NULL, NULL, 1, 1, NULL, now(), NULL, NULL, 1, 2);
+VALUES (@fcode, 'åˆ é™¤èœå•', 'landlord/removeVideoMenu', @seq, @level2+1, @parentid2, 0, NULL, NULL, NULL, 1, 1, NULL, now(), NULL, NULL, 1, 2);
 
-/* Éú³ÉĞÂµÄË³ĞòºÅ,nullÄ¬ÈÏÊÇ1  */
+/* ç”Ÿæˆæ–°çš„é¡ºåºå·,nullé»˜è®¤æ˜¯1  */
 select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@parentid2;
 select @seq:=(case when @seq is null then 1 else @seq end);
 
-/* Éú³ÉĞÂµÄfcode  */
+/* ç”Ÿæˆæ–°çš„fcode  */
 select @fcode:= CONCAT(@level2+1,lpad(@parentid2,4,0),@seq ) from dual;
-/* ²åÈëĞÂ½Úµã¼ÇÂ¼-'±à¼­²Ëµ¥'  */
+/* æ’å…¥æ–°èŠ‚ç‚¹è®°å½•-'ç¼–è¾‘èœå•'  */
 INSERT INTO `perm_functioninfo`
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES (@fcode, '±à¼­²Ëµ¥', 'landlord/editVideoMenu', @seq, @level2+1, @parentid2, 0, NULL, NULL, NULL, 1, 1, NULL, now(), NULL, NULL, 1, 2);
+VALUES (@fcode, 'ç¼–è¾‘èœå•', 'landlord/editVideoMenu', @seq, @level2+1, @parentid2, 0, NULL, NULL, NULL, 1, 1, NULL, now(), NULL, NULL, 1, 2);
 
-/* Éú³ÉĞÂµÄË³ĞòºÅ,nullÄ¬ÈÏÊÇ1  */
+/* ç”Ÿæˆæ–°çš„é¡ºåºå·,nullé»˜è®¤æ˜¯1  */
 select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@parentid2;
 select @seq:=(case when @seq is null then 1 else @seq end);
 
-/* Éú³ÉĞÂµÄfcode  */
+/* ç”Ÿæˆæ–°çš„fcode  */
 select @fcode:= CONCAT(@level2+1,lpad(@parentid2,4,0),@seq ) from dual;
-/* ²åÈëĞÂ½Úµã¼ÇÂ¼-'É¾³ıÊÓÆµ'  */
+/* æ’å…¥æ–°èŠ‚ç‚¹è®°å½•-'åˆ é™¤è§†é¢‘'  */
 INSERT INTO `perm_functioninfo`
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES (@fcode, 'É¾³ıÊÓÆµ', 'landlord/removeLandlordVideo', @seq, @level2+1, @parentid2, 0, NULL, NULL, NULL, 1, 1, NULL, now(), NULL, NULL, 1, 2);
+VALUES (@fcode, 'åˆ é™¤è§†é¢‘', 'landlord/removeLandlordVideo', @seq, @level2+1, @parentid2, 0, NULL, NULL, NULL, 1, 1, NULL, now(), NULL, NULL, 1, 2);
 
-/* Éú³ÉĞÂµÄË³ĞòºÅ,nullÄ¬ÈÏÊÇ1  */
+/* ç”Ÿæˆæ–°çš„é¡ºåºå·,nullé»˜è®¤æ˜¯1  */
 select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@parentid2;
 select @seq:=(case when @seq is null then 1 else @seq end);
 
-/* Éú³ÉĞÂµÄfcode  */
+/* ç”Ÿæˆæ–°çš„fcode  */
 select @fcode:= CONCAT(@level2+1,lpad(@parentid2,4,0),@seq ) from dual;
-/* ²åÈëĞÂ½Úµã¼ÇÂ¼-'ÉÏ´«ÊÓÆµ'  */
+/* æ’å…¥æ–°èŠ‚ç‚¹è®°å½•-'ä¸Šä¼ è§†é¢‘'  */
 INSERT INTO `perm_functioninfo`
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES (@fcode, 'ÉÏ´«ÊÓÆµ', 'landlord/upLoadLandlordVideo', @seq, @level2+1, @parentid2, 0, NULL, NULL, NULL, 1, 1, NULL, now(), NULL, NULL, 1, 2);
+VALUES (@fcode, 'ä¸Šä¼ è§†é¢‘', 'landlord/upLoadLandlordVideo', @seq, @level2+1, @parentid2, 0, NULL, NULL, NULL, 1, 1, NULL, now(), NULL, NULL, 1, 2);
 
-/* Éú³ÉĞÂµÄË³ĞòºÅ,nullÄ¬ÈÏÊÇ1  */
+/* ç”Ÿæˆæ–°çš„é¡ºåºå·,nullé»˜è®¤æ˜¯1  */
 select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@parentid2;
 select @seq:=(case when @seq is null then 1 else @seq end);
 
-/* Éú³ÉĞÂµÄfcode  */
+/* ç”Ÿæˆæ–°çš„fcode  */
 select @fcode:= CONCAT(@level2+1,lpad(@parentid2,4,0),@seq ) from dual;
-/* ²åÈëĞÂ½Úµã¼ÇÂ¼-'²éÑ¯ÊÓÆµÄÚÈİ'  */
+/* æ’å…¥æ–°èŠ‚ç‚¹è®°å½•-'æŸ¥è¯¢è§†é¢‘å†…å®¹'  */
 INSERT INTO `perm_functioninfo`
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES (@fcode, '²éÑ¯ÊÓÆµÄÚÈİ', 'landlord/queryVideoContentById', @seq, @level2+1, @parentid2, 0, NULL, NULL, NULL, 1, 1, NULL, now(), NULL, NULL, 1, 2);
+VALUES (@fcode, 'æŸ¥è¯¢è§†é¢‘å†…å®¹', 'landlord/queryVideoContentById', @seq, @level2+1, @parentid2, 0, NULL, NULL, NULL, 1, 1, NULL, now(), NULL, NULL, 1, 2);
 COMMIT;
