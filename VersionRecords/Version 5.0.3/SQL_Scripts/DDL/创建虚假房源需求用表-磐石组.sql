@@ -20,6 +20,7 @@ CREATE TABLE `risk_communityBase` (
 DROP TABLE IF EXISTS `risk_roomDetail`;
 CREATE TABLE `risk_roomDetail` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `commBaseId` INT(11) DEFAULT NULL COMMENT '小区基准信息id',
   `roomId` int(11) DEFAULT NULL COMMENT '房间id',
   `riskCode` varchar(25) DEFAULT NULL COMMENT '房源风险编码(参考字典表组名:riskCode)',
   `status` tinyint(1) DEFAULT '0' COMMENT '处理状态(0:未处理 1:已处理)',
