@@ -1,71 +1,71 @@
-
-/*ÊÓÆµ¹ÜÀí³õÊ¼»¯½Å±¾  */
+ï»¿
+/*è§†é¢‘ç®¡ç†åˆå§‹åŒ–è„šæœ¬  */
 use mogoroomdb;
 BEGIN;
 
-/* ³õÊ¼»¯ÊÓÆµ²Ëµ¥¸ùÄ¿Â¼ */
-INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES ('500000001', '¸ù', NULL, NULL, '0', NULL, NOW(), NULL, NOW(), '1', '1', '0', '5', '1');
+/* åˆå§‹åŒ–è§†é¢‘èœå•æ ¹ç›®å½• */
+INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES ('500000001', 'æ ¹', NULL, NULL, '0', NULL, NOW(), NULL, NOW(), '1', '1', '0', '5', '1');
 
-/* ¸ù¾İ½ÚµãÃû³Æ¶ÁÈ¡¸¸½ÚµãidºÍlevel  */
-select @rootId:=id,@level1:=`level` from coms_menu where name='¸ù' and channel = '5';
+/* æ ¹æ®èŠ‚ç‚¹åç§°è¯»å–çˆ¶èŠ‚ç‚¹idå’Œlevel  */
+select @rootId:=id,@level1:=`level` from coms_menu where name='æ ¹' and channel = '5';
 
-/* ´´½¨Ò»¼¶½Úµã */
-INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (501000000, '·¿Ô´', NULL, NULL, '1', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
-INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (501000001, '·¿Ô´¹ÜÀí', NULL, NULL, '1', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
-INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (501000002, 'ÏúÊÛ', NULL, NULL, '1', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
-INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (501000003, 'ÊÛºó', NULL, NULL, '1', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
-INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (501000004, '½ğÈÚ', NULL, NULL, '1', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
-INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (501000005, '±¨±í', NULL, NULL, '1', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
-INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (501000006, '¹ÜÀí', NULL, NULL, '1', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
+/* åˆ›å»ºä¸€çº§èŠ‚ç‚¹ */
+INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (501000000, 'æˆ¿æº', NULL, NULL, '1', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
+INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (501000001, 'æˆ¿æºç®¡ç†', NULL, NULL, '1', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
+INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (501000002, 'é”€å”®', NULL, NULL, '1', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
+INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (501000003, 'å”®å', NULL, NULL, '1', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
+INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (501000004, 'é‡‘è', NULL, NULL, '1', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
+INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (501000005, 'æŠ¥è¡¨', NULL, NULL, '1', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
+INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (501000006, 'ç®¡ç†', NULL, NULL, '1', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
 
-/* ´´½¨¶ş¼¶½Úµã*/
-select @rootId:=id,@level1:=`level` from coms_menu where name='·¿Ô´' and channel = '5';
-INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000000, '·¿Ô´_·ÖÉ¢Ê½¹«Ô¢', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
-select @rootId:=id,@level1:=`level` from coms_menu where name='·¿Ô´_·ÖÉ¢Ê½¹«Ô¢' and channel = '5';
-INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES ('503000001', '·¿Ô´_·ÖÉ¢Ê½¹«Ô¢_Ìí¼Ó¹«Ô¢', NULL, NULL, '3', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
-
-
-INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000001, '·¿Ô´_ÒµÖ÷¹ÜÀí', NULL, NULL,   '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
-INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000002, '·¿Ô´_ÒµÖ÷ÕËµ¥', NULL, NULL,   '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
-
-select @rootId:=id,@level1:=`level` from coms_menu where name='·¿Ô´¹ÜÀí' and channel = '5';
-INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000003, '·¿Ô´¹ÜÀí_¼¯ÖĞÊ½¹«Ô¢', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
-select @rootId:=id,@level1:=`level` from coms_menu where name='·¿Ô´¹ÜÀí_¼¯ÖĞÊ½¹«Ô¢' and channel = '5';
-INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES ('503000002', '·¿Ô´¹ÜÀí_¼¯ÖĞÊ½¹«Ô¢_Ìí¼Ó¹«Ô¢', NULL, NULL, '3', '2000031',  NOW(), NULL,  NOW(), '1', NULL, @rootId, '5', '1');
+/* åˆ›å»ºäºŒçº§èŠ‚ç‚¹*/
+select @rootId:=id,@level1:=`level` from coms_menu where name='æˆ¿æº' and channel = '5';
+INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000000, 'æˆ¿æº_åˆ†æ•£å¼å…¬å¯“', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
+select @rootId:=id,@level1:=`level` from coms_menu where name='æˆ¿æº_åˆ†æ•£å¼å…¬å¯“' and channel = '5';
+INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES ('503000001', 'æˆ¿æº_åˆ†æ•£å¼å…¬å¯“_æ·»åŠ å…¬å¯“', NULL, NULL, '3', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
 
 
-select @rootId:=id,@level1:=`level` from coms_menu where name='ÏúÊÛ' and channel = '5';
-INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000004, 'ÏúÊÛ_Ô¤Ô¼µ¥', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
-INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000005, 'ÏúÊÛ_Ô¤¶¨µ¥', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
-INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000006, 'ÏúÊÛ_Ç©Ô¼µ¥', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
-INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000007, 'ÏúÊÛ_ÒÑ²¹´ıÈ·ÈÏ', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
-INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000008, 'ÏúÊÛ_ĞèÍË·¿µ¥', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
-INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000009, 'ÏúÊÛ_Ìí¼ÓÕËµ¥', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
-INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000010, 'ÏúÊÛ_ÍË¿îÉóÅú', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
+INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000001, 'æˆ¿æº_ä¸šä¸»ç®¡ç†', NULL, NULL,   '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
+INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000002, 'æˆ¿æº_ä¸šä¸»è´¦å•', NULL, NULL,   '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
+
+select @rootId:=id,@level1:=`level` from coms_menu where name='æˆ¿æºç®¡ç†' and channel = '5';
+INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000003, 'æˆ¿æºç®¡ç†_é›†ä¸­å¼å…¬å¯“', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
+select @rootId:=id,@level1:=`level` from coms_menu where name='æˆ¿æºç®¡ç†_é›†ä¸­å¼å…¬å¯“' and channel = '5';
+INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES ('503000002', 'æˆ¿æºç®¡ç†_é›†ä¸­å¼å…¬å¯“_æ·»åŠ å…¬å¯“', NULL, NULL, '3', '2000031',  NOW(), NULL,  NOW(), '1', NULL, @rootId, '5', '1');
 
 
-select @rootId:=id,@level1:=`level` from coms_menu where name='ÊÛºó' and channel = '5';
-INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000011, 'ÊÛºó_±¨ĞŞ', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
-INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000012, 'ÊÛºó_Í¶Ëß', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
-
-select @rootId:=id,@level1:=`level` from coms_menu where name='½ğÈÚ' and channel = '5';
-INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000013, '½ğÈÚ_×â½ğ±¦', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
-
-
-select @rootId:=id,@level1:=`level` from coms_menu where name='±¨±í' and channel = '5';
-INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000014, '±¨±í_Ó¦ÊÕ±¨±í', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
-INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000015, '±¨±í_ÊµÊÕ±¨±í', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
-INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000016, '±¨±í_ÕËÎñ»ã×Ü', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
-INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000017, '±¨±í_»µÕËÁĞ±í', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
-INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000018, '±¨±í_×â¿ÍÁĞ±í', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
+select @rootId:=id,@level1:=`level` from coms_menu where name='é”€å”®' and channel = '5';
+INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000004, 'é”€å”®_é¢„çº¦å•', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
+INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000005, 'é”€å”®_é¢„å®šå•', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
+INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000006, 'é”€å”®_ç­¾çº¦å•', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
+INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000007, 'é”€å”®_å·²è¡¥å¾…ç¡®è®¤', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
+INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000008, 'é”€å”®_éœ€é€€æˆ¿å•', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
+INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000009, 'é”€å”®_æ·»åŠ è´¦å•', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
+INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000010, 'é”€å”®_é€€æ¬¾å®¡æ‰¹', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
 
 
-select @rootId:=id,@level1:=`level` from coms_menu where name='¹ÜÀí' and channel = '5';
-INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000019, '¹ÜÀí_·ÖµêÉèÖÃ', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
-INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000020, '¹ÜÀí_·¿Ô´·ÖÅä', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
-INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000021, '¹ÜÀí_ÏûÏ¢¹ÜÀí', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
-INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000022, '¹ÜÀí_ÕËºÅÉèÖÃ', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
-INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000023, '¹ÜÀí_½ÇÉ«·ÖÅä', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
+select @rootId:=id,@level1:=`level` from coms_menu where name='å”®å' and channel = '5';
+INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000011, 'å”®å_æŠ¥ä¿®', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
+INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000012, 'å”®å_æŠ•è¯‰', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
+
+select @rootId:=id,@level1:=`level` from coms_menu where name='é‡‘è' and channel = '5';
+INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000013, 'é‡‘è_ç§Ÿé‡‘å®', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
+
+
+select @rootId:=id,@level1:=`level` from coms_menu where name='æŠ¥è¡¨' and channel = '5';
+INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000014, 'æŠ¥è¡¨_åº”æ”¶æŠ¥è¡¨', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
+INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000015, 'æŠ¥è¡¨_å®æ”¶æŠ¥è¡¨', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
+INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000016, 'æŠ¥è¡¨_è´¦åŠ¡æ±‡æ€»', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
+INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000017, 'æŠ¥è¡¨_åè´¦åˆ—è¡¨', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
+INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000018, 'æŠ¥è¡¨_ç§Ÿå®¢åˆ—è¡¨', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
+
+
+select @rootId:=id,@level1:=`level` from coms_menu where name='ç®¡ç†' and channel = '5';
+INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000019, 'ç®¡ç†_åˆ†åº—è®¾ç½®', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
+INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000020, 'ç®¡ç†_æˆ¿æºåˆ†é…', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
+INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000021, 'ç®¡ç†_æ¶ˆæ¯ç®¡ç†', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
+INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000022, 'ç®¡ç†_è´¦å·è®¾ç½®', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
+INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, `channel`, `isMenu`) VALUES (502000023, 'ç®¡ç†_è§’è‰²åˆ†é…', NULL, NULL, '2', '2000031', NOW(), NULL, NOW(), '1', NULL, @rootId, '5', '1');
 
 
 COMMIT;
