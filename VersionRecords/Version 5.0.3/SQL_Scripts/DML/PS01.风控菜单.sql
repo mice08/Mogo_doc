@@ -7,7 +7,7 @@ select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=0;
 select @fcode:= CONCAT('0',lpad(0,4,0),@seq ) ;
 
 INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, '风控管理', '', @seq, '0', 0, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+VALUES ( @fcode, '风控管理', '', @seq, '0', 0, '1', NULL, NULL, "fa fa-shield", '0', '1', NULL, NULL, NULL, NULL, '1', '2');
 
 select @id:=id from perm_functioninfo where fname = '风控管理';
 select @fcode:= CONCAT('1',lpad(@id,4,0),1 ) from perm_functioninfo where fname = '风控管理';
