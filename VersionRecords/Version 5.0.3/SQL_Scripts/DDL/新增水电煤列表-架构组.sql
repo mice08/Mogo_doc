@@ -31,7 +31,7 @@ CREATE TABLE `bill_weg_detail` (
   `soDoneCode` int(32) NOT NULL DEFAULT '-1' COMMENT '操作流水号',
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COMMENT='水电煤详情记录表';
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COMMENT='水电煤详情记录表';
 
  
 
@@ -54,7 +54,7 @@ CREATE TABLE `bill_weg_price` (
   `status` int(4) NOT NULL DEFAULT '-1' COMMENT '状态 用于标示业务状态',
   PRIMARY KEY (`id`),
   UNIQUE KEY `INX_LANDWEGID_UNI` (`landlordId`,`wegTypeId`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COMMENT='房东水电煤单价记录表';
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COMMENT='房东水电煤单价记录表';
 
  
 DROP TABLE IF EXISTS `bill_weg_type`;
@@ -74,7 +74,7 @@ CREATE TABLE `bill_weg_type` (
   `valid` tinyint(4) NOT NULL DEFAULT '1' COMMENT '状态，用于标示该记录是否逻辑删除',
   UNIQUE KEY `INX_TYPENAME` (`typeName`),
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COMMENT='水电煤类型表';
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COMMENT='水电煤类型表';
 
  
 
