@@ -1,6 +1,7 @@
 /* Database name `mogoroomdb` ，品牌通知名单表*/
 use mogoroomdb;
 
+DROP TABLE IF EXISTS `brand_notification` ;
 
 CREATE TABLE `brand_notification`(
 	`id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '自增Id',
