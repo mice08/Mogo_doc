@@ -1,6 +1,8 @@
 /* Database name `mogoroomdb` ，新增品牌下线说明表*/
 use mogoroomdb;
 
+DROP TABLE IF EXISTS `brand_offline` ;
+
 CREATE TABLE `brand_offline`(
 	`id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '自增Id',
 	`brandId` INT(11)  NOT NULL COMMENT '品牌Id',
