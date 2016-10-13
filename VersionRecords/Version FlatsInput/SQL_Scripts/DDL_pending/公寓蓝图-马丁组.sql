@@ -25,7 +25,7 @@ create table flat_upload_pictrue_draft
     landlordId           int(11) not null comment '房东id',
     communityId          int(11) not null comment '小区id',
     houseNumber          varchar(50) not null comment '门牌号',
-    picGroupId           int(11) not null 图片分组ID,
+    picGroupId           int(11) not null comment '图片分组ID',
     createTime           datetime DEFAULT NULL comment '创建时间',
     createBy			 int(11) DEFAULT NULL comment '创建人',
     createByType         int(1) DEFAULT NULL comment '创建人类型(参考字典表groupName=userType)',
