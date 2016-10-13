@@ -1,5 +1,6 @@
+/*房源录入相关*/
 use mogoroomdb;
-
+/*公寓蓝图*/
 create table flat_mansion_draft
 (
     id                   int(11) not null auto_increment comment '主键',
@@ -18,7 +19,7 @@ create table flat_mansion_draft
     remark               varchar(255) DEFAULT NULL COMMENT '描述',
     primary key (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment '公寓蓝图';
-
+/*房源录入临时上传照片记录*/
 create table flat_upload_pictrue_draft
 (
     id                   int(11) not null auto_increment comment '主键',
