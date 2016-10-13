@@ -18,3 +18,18 @@ create table flat_mansion_draft
     remark               varchar(255) DEFAULT NULL COMMENT '描述',
     primary key (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment '公寓蓝图';
+
+create table flat_upload_pictrue_draft
+(
+    id                   int(11) not null auto_increment comment '主键',
+    landlordId           int(11) not null comment '房东id',
+    communityId          int(11) not null comment '小区id',
+    houseNumber          varchar(50) not null comment '门牌号',
+    picGroupId           int(11) not null 图片分组ID,
+    createTime           datetime DEFAULT NULL comment '创建时间',
+    createBy			 int(11) DEFAULT NULL comment '创建人',
+    createByType         int(1) DEFAULT NULL comment '创建人类型(参考字典表groupName=userType)',
+    soDoneCode           int(11) DEFAULT NULL COMMENT '对应common_business_record.id',
+    remark               varchar(255) DEFAULT NULL COMMENT '描述',
+    primary key (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment '房源录入临时上传照片记录';
