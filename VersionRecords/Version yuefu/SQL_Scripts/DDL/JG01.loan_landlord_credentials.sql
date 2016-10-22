@@ -60,7 +60,7 @@ drop table if exists loan_deposition_monthlypay;
 /*==============================================================*/
 create table loan_deposition_monthlypay
 (
-   id                   int(11) not null comment '月付数据聚合表id',
+   id                   int(11) not null auto_increment comment '月付数据聚合表id',
    mainId               int(11) not null comment '主记录Id',
    mainType             int(11) not null comment '主记录类型(1:蘑菇月付申请列表 2:蘑菇月付放款列表 3:蘑菇月付清偿列表 4:蘑菇月付还款列表)',
    loanContractId       int(11) comment '贷款申请Id',
