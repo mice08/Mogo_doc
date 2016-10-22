@@ -89,5 +89,3 @@ ALTER TABLE loan_landlord_credit_his  ADD COLUMN credentialsId int(11) not null 
 alter table loan_landlord_buyback   add column settlementType int(1) comment '清偿类型(1:手续费清偿 2:本息清偿)',
 								  add column unpayAmount decimal(12,2) default 0 comment '分期未还租金',
 								  add column unpayPoundage decimal(12,2) default 0 comment '分期未还手续费';
-
-
