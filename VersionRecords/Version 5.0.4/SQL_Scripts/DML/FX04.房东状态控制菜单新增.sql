@@ -1,19 +1,19 @@
-/* Database name `mogoroomdb` ,·¿¶«×´Ì¬¿ØÖÆ²Ëµ¥ĞÂÔö*/
+ï»¿/* Database name `mogoroomdb` ,æˆ¿ä¸œçŠ¶æ€æ§åˆ¶èœå•æ–°å¢*/
 USE mogoroomdb;
-/**»ñÈ¡¿ªÊ¼Ê±¼ä**/
+/**è·å–å¼€å§‹æ—¶é—´**/
 select @begindate:=NOW();
-/**¸ù¾İ½ÚµãÃû³Æ¶ÁÈ¡¸¸½ÚµãidºÍlevel**/
-select @rootId:=id,@rootLevel:=functionLevel from perm_functioninfo where fname = 'Ö°Òµ·¿¶«ÁĞ±í';
+/**æ ¹æ®èŠ‚ç‚¹åç§°è¯»å–çˆ¶èŠ‚ç‚¹idå’Œlevel**/
+select @rootId:=id,@rootLevel:=functionLevel from perm_functioninfo where fname = 'èŒä¸šæˆ¿ä¸œåˆ—è¡¨';
 
 
 
-/**Éú³ÉĞÂµÄË³ĞòºÅ,nullÄ¬ÈÏÊÇ1**/
+/**ç”Ÿæˆæ–°çš„é¡ºåºå·,nullé»˜è®¤æ˜¯1**/
 select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@rootId;
 select @seq:=(case when @seq is null then 1 else @seq end);
 
-/**Éú³ÉĞÂµÄfcode**/
+/**ç”Ÿæˆæ–°çš„fcode**/
 select @fcode:= CONCAT(@rootLevel+1,lpad(@rootId,4,0),@seq ) from dual;
-/**²åÈëĞÂ½Úµã¼ÇÂ¼-'·¿¶«×´Ì¬ÇĞ»»'**/
+/**æ’å…¥æ–°èŠ‚ç‚¹è®°å½•-'æˆ¿ä¸œçŠ¶æ€åˆ‡æ¢'**/
 INSERT INTO `perm_functioninfo`
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES (@fcode, '·¿¶«×´Ì¬ÇĞ»»', 'landlord/switchlandlord', @seq, @rootLevel+1, @rootId, 1, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, NULL, 1, 2);
+VALUES (@fcode, 'æˆ¿ä¸œçŠ¶æ€åˆ‡æ¢', 'landlord/switchlandlord', @seq, @rootLevel+1, @rootId, 1, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, NULL, 1, 2);
