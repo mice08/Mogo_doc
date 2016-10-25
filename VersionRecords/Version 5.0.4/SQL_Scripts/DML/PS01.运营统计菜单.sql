@@ -3,9 +3,9 @@ use mogoroomdb;
 
 BEGIN;
 
-select @id:=id from perm_functioninfo where fname = '市场管理';
+select @id:=id from perm_functioninfo where fname = '运营管理';
 select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@id;
-select @fcode:= CONCAT('1',lpad(@id,4,0),@seq ) from perm_functioninfo where fname = '市场管理';
+select @fcode:= CONCAT('1',lpad(@id,4,0),@seq ) from perm_functioninfo where fname = '运营管理';
 
 INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
 VALUES ( @fcode, '运营报表', '', @seq, '1', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
