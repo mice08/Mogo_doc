@@ -1,10 +1,10 @@
 ﻿/*角色分类数据初始化*/
 use mogoroomdb;
 
-update perm_role set roleGroup='NA';
+update perm_role set roleGroup='默认';
 
 UPDATE perm_role
-SET roleGroup = '员工及分店管理'
+SET roleGroup like '%员工及分店管理%'
 WHERE
 	roleName IN (
 		'员工管理',
@@ -15,12 +15,12 @@ WHERE
 	);
 
 UPDATE perm_role
-SET roleGroup = '租金宝'
+SET roleGroup like '%租金宝%'
 WHERE
 	roleName IN ('租金宝管理');
 
 UPDATE perm_role
-SET roleGroup = '维修投诉售后'
+SET roleGroup like '%维修投诉售后%'
 WHERE
 	roleName IN (
 		'维修投诉管理',
@@ -28,7 +28,7 @@ WHERE
 	);
 
 UPDATE perm_role
-SET roleGroup = '业主及业主账单'
+SET roleGroup like '%业主及业主账单%'
 WHERE
 	roleName IN (
 		'业主信息管理',
@@ -37,7 +37,7 @@ WHERE
 	);
 
 UPDATE perm_role
-SET roleGroup = '房源信息'
+SET roleGroup like '%房源信息%'
 WHERE
 	roleName IN (
 		'房源信息管理',
@@ -46,7 +46,7 @@ WHERE
 	);
 
 UPDATE perm_role
-SET roleGroup = '销售管理'
+SET roleGroup like '%销售管理%'
 WHERE
 	roleName IN (
 		'销售管理',
@@ -64,7 +64,7 @@ WHERE
 	);
 
 UPDATE perm_role
-SET roleGroup = '财务管理'
+SET roleGroup like '%财务管理%'
 WHERE
 	roleName IN (
 		'充值及提现管理',
