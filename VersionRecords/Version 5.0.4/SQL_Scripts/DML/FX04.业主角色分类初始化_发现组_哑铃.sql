@@ -1,7 +1,7 @@
 ﻿/*角色分类数据初始化*/
 use mogoroomdb;
 
-update perm_role set roleGroup='NA' 
+update perm_role set roleGroup='NA';
 
 UPDATE perm_role
 SET roleGroup = '员工及分店管理'
