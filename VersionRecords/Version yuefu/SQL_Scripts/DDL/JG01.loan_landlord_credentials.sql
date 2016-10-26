@@ -35,6 +35,7 @@ drop table if exists loan_landlord_credentials_his;
 create table loan_landlord_credentials_his
 (
    id                   int(11) not null auto_increment comment '房东资质历史id',
+   contractId            int(11) not null comment '房东贷款合同id',
    credentialsId   int(11) not null comment '房东资质id',
    landlordId           int(11) not null comment '资质对应的房东id',
    applyCityId          int(11) not null comment '房东申请的城市',
