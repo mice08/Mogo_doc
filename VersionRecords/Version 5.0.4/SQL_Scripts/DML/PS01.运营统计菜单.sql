@@ -3,9 +3,9 @@ use mogoroomdb;
 
 BEGIN;
 
-select @id:=id from perm_functioninfo where fname = '市场管理';
+select @id:=id from perm_functioninfo where fname = '运营管理';
 select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@id;
-select @fcode:= CONCAT('1',lpad(@id,4,0),@seq ) from perm_functioninfo where fname = '市场管理';
+select @fcode:= CONCAT('1',lpad(@id,4,0),@seq ) from perm_functioninfo where fname = '运营管理';
 
 INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
 VALUES ( @fcode, '运营报表', '', @seq, '1', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
@@ -100,22 +100,22 @@ VALUES ( @fcode, '通过区域查询部门', 'marketReport/findDepartByDistrictI
 
 select @id:=id from perm_functioninfo where fname = '风控管理';
 select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@id;
-select @fcode:= CONCAT('2',lpad(@id,4,0),@seq ) from perm_functioninfo where fname = '风控管理';
+select @fcode:= CONCAT('1',lpad(@id,4,0),@seq ) from perm_functioninfo where fname = '风控管理';
 
 INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, '数据统计', '', @seq, '2', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+VALUES ( @fcode, '数据统计', '', @seq, '1', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
 
-select @id:=id from perm_functioninfo where fname = '数据统计';
-select @fcode:= CONCAT('3',lpad(@id,4,0),1 ) from perm_functioninfo where fname = '数据统计';
-
-INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, '蘑菇宝', 'riskManage/dataStatisticsMgb', 1, '3', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
-
-select @id:=id from perm_functioninfo where fname = '数据统计';
-select @fcode:= CONCAT('3',lpad(@id,4,0),2 ) from perm_functioninfo where fname = '数据统计';
+select @id:=id from perm_functioninfo where fname = '数据统计' order by id desc limit 1;
+select @fcode:= CONCAT('2',lpad(@id,4,0),1 ) from perm_functioninfo where fname = '数据统计' order by id desc limit 1;
 
 INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, '租金宝', 'riskManage/dataStatisticsZjb', 2, '3', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+VALUES ( @fcode, '蘑菇宝', 'riskManage/dataStatisticsMgb', 1, '2', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+
+select @id:=id from perm_functioninfo where fname = '数据统计' order by id desc limit 1;
+select @fcode:= CONCAT('2',lpad(@id,4,0),2 ) from perm_functioninfo where fname = '数据统计' order by id desc limit 1;
+
+INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
+VALUES ( @fcode, '租金宝', 'riskManage/dataStatisticsZjb', 2, '2', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
 
 
 select @id:=id from perm_functioninfo where fname = '房东管理'  order by id desc limit 1;
