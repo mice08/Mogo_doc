@@ -79,14 +79,32 @@ create table loan_deposition_monthlypay
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT = '月付数据聚合表';
 
 
+drop table if exists loan_apply_extend;
+
+/*==============================================================*/
+/* Table: 房东租金宝申请扩展表                                                                                                                                                               */
+/*==============================================================*/
+create table loan_apply_extend
+(
+   id                           int(11) not null auto_increment comment '房东租金宝申请扩展表id',
+   contractId            int(11) not null auto_increment comment '房东租金宝申请扩展表id',
+   prodTypeId          int(11) not null comment '商品类型id(参考商品类型表主键id)';
+   loanKey                VARCHAR(20) NOT NULL COMMENT '租金宝申请的编码',
+   loanValue            VARCHAR(20) NOT NULL COMMENT '租金宝申请的值',
+   createTime          datetime NOT NULL COMMENT '创建时间',
+   createBy               INT(11) NOT NULL COMMENT '创建人',
+   createByType       INT(1) NOT NULL COMMENT '创建人类型(参照字典表组名:userType)',
+   PRIMARY KEY (id)
+) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='房东租金宝申请扩展表';
+
 
 ALTER TABLE loan_landlord_credit     ADD COLUMN credentialsId int(11) not null comment '房东资质id',
 								 ADD COLUMN valid int(1) default 0 comment '贷款服务状态(0:关闭 1:开启)',
-								 ADD COLUMN loanType int(2) comment '贷款服务类型(1:蘑菇宝 2:蘑菇月付)';
+								 ADD COLUMN prodTypeId  int(11)  comment '商品类型id(参考商品类型表主键id)';
 
 ALTER TABLE loan_landlord_credit_his  ADD COLUMN credentialsId int(11) not null comment '房东资质id',
 								      ADD COLUMN valid int(1) default 0 comment '贷款服务状态(0:关闭 1:开启)',
-                                                                      ADD COLUMN loanType int(2) comment '贷款服务类型(1:蘑菇宝 2:蘑菇月付)';
+                                                                      ADD COLUMN prodTypeId  int(11)  comment '商品类型id(参考商品类型表主键id)';
 
 alter table loan_landlord_buyback   add column settlementType int(1) comment '清偿类型(1:手续费清偿 2:本息清偿)',
 								  add column unpayAmount decimal(12,2) default 0 comment '分期未还租金',
