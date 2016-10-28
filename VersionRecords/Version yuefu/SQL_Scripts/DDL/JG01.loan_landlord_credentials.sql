@@ -87,8 +87,8 @@ drop table if exists loan_apply_extend;
 create table loan_apply_extend
 (
    id                           int(11) not null auto_increment comment '房东租金宝申请扩展表id',
-   contractId            int(11) not null auto_increment comment '房东租金宝申请扩展表id',
-   prodTypeId          int(11) not null comment '商品类型id(参考商品类型表主键id)';
+   contractId            int(11) not null comment '房东租金宝申请扩展表id',
+   prodTypeId          int(11) not null comment '商品类型id(参考商品类型表主键id)',
    loanKey                VARCHAR(20) NOT NULL COMMENT '租金宝申请的编码',
    loanValue            VARCHAR(20) NOT NULL COMMENT '租金宝申请的值',
    createTime          datetime NOT NULL COMMENT '创建时间',
@@ -109,3 +109,5 @@ ALTER TABLE loan_landlord_credit_his  ADD COLUMN credentialsId int(11) not null 
 alter table loan_landlord_buyback   add column settlementType int(1) comment '清偿类型(1:手续费清偿 2:本息清偿)',
 								  add column unpayAmount decimal(12,2) default 0 comment '分期未还租金',
 								  add column unpayPoundage decimal(12,2) default 0 comment '分期未还手续费';
+
+ALTER TABLE prod_prodtype ADD COLUMN prodTypeCode varchar(20) not null comment '产品类型编码' after id;
