@@ -111,3 +111,6 @@ alter table loan_landlord_buyback   add column settlementType int(1) comment '清
 								  add column unpayPoundage decimal(12,2) default 0 comment '分期未还手续费';
 
 ALTER TABLE prod_prodtype ADD COLUMN prodTypeCode varchar(20) not null comment '产品类型编码' after id;
+
+
+ALTER TABLE prod_prodtype ADD UNIQUE (prodTypeCode);
