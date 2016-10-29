@@ -1,12 +1,12 @@
-/* Database name `mogoroomdb`£¬ CMSÔö¼ÓÄÚÈİÍÆ¼öÎ» */
+ï»¿/* Database name `mogoroomdb`ï¼Œ CMSå¢åŠ å†…å®¹æ¨èä½ */
 
 use mogoroomdb;
 
 INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, channel, isMenu) 
-VALUES(213001,'¹ÙÍø_µÇÂ¼Ò³_¶¥²¿ÂÖ²¥','','0','2','2000082',NOW(),'2000082',NOW(),'1','1','0', '3', '0');
+VALUES(213001,'å®˜ç½‘_ç™»å½•é¡µ_é¡¶éƒ¨è½®æ’­','','0','2','2000082',NOW(),'2000082',NOW(),'1','1','0', '3', '0');
 
 INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, channel, isMenu) 
-VALUES(201019,'¹ÙÍø_Ê×Ò³_ÍÆ¼öÆ·ÅÆÖ÷Ìâ','','0','3','2000082',NOW(),'2000082',NOW(),'1','1','0', '3', '0');
+VALUES(201019,'å®˜ç½‘_é¦–é¡µ_æ¨èå“ç‰Œä¸»é¢˜','','0','3','2000082',NOW(),'2000082',NOW(),'1','1','0', '3', '0');
 
 INSERT INTO `coms_menu` (`code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, channel, isMenu) 
-VALUES(301019,'APP_Ê×Ò³_ÍÆ¼öÆ·ÅÆÖ÷Ìâ','','0','3','2000082',NOW(),'2000082',NOW(),'1','1','0', '1', '0');
+VALUES(301019,'APP_é¦–é¡µ_æ¨èå“ç‰Œä¸»é¢˜','','0','3','2000082',NOW(),'2000082',NOW(),'1','1','0', '1', '0');
