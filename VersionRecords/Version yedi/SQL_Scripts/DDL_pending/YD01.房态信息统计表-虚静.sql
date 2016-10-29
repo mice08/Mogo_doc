@@ -1,13 +1,5 @@
 use mogoroomdb;
 
-drop index md5 on rsci_rschartinfo_base;
-
-drop index orgId on rsci_rschartinfo_base;
-
-drop index landlordId on rsci_rschartinfo_base;
-
-drop index roomId on rsci_rschartinfo_base;
-
 drop table if exists rsci_rschartinfo_base;
 
 drop table if exists rsci_rschartinfo_sale;
@@ -62,7 +54,7 @@ create table rsci_rschartinfo_base
    roomUpdateTime       datetime default NULL comment '房间更新时间。用于时间排序',
    primary key (rsid)
 )
-ENGINE=InnoDB DEFAULT CHARSET=utf8  COMMENT='房态信息统计表主表。包含房源基本信息';
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4  COMMENT='房态信息统计表主表。包含房源基本信息';
 
 /*==============================================================*/
 /* Index: roomId                                                */
@@ -141,7 +133,7 @@ create table rsci_rschartinfo_sale
    rowUpdateTime        datetime comment '记录更新时间',
    primary key (rsid)
 )
-ENGINE=InnoDB DEFAULT CHARSET=utf8 comment='房态信息统计表状态分表。用于记录房态信息的状态部分以及订单,签约单信息。';
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment='房态信息统计表状态分表。用于记录房态信息的状态部分以及订单,签约单信息。';
 
 /*==============================================================*/
 /* Table: rsci_rschartinfo_stat                                 */
@@ -186,5 +178,5 @@ create table rsci_rschartinfo_stat
    rowUpdateTime        datetime comment '记录更新时间',
    primary key (rsid)
 )
-ENGINE=InnoDB DEFAULT CHARSET=utf8 comment='房态信息统计表统计分表。用于保存统计信息。';
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment='房态信息统计表统计分表。用于保存统计信息。';
 
