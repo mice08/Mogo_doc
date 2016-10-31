@@ -1,5 +1,5 @@
 
-#kafka配置
+#BS系统新增kafka配置
 sysconfig.kafka.autoCommit=false
 sysconfig.kafka.sessionTimeout=30000
 sysconfig.kafka.keyDeserializer=org.apache.kafka.common.serialization.StringDeserializer
@@ -8,7 +8,7 @@ sysconfig.kafka.maxPollRecords=8
 sysconfig.kafka.requestTimeout=80000
 
 
-#修改配置项
+#BS、房东PC、房东APP、官网、租客APP修改配置项
 #kafka节点信息(如无变化则无需配置，其IP地址与端口号以实际地址为准)
 sysconfig.kafka.broker-list=192.168.30.107:10001,192.168.30.107:10002,192.168.30.107:10003
 

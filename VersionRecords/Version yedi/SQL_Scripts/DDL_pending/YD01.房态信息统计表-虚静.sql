@@ -1,13 +1,5 @@
 use mogoroomdb;
 
-drop index md5 on rsci_rschartinfo_base;
-
-drop index orgId on rsci_rschartinfo_base;
-
-drop index landlordId on rsci_rschartinfo_base;
-
-drop index roomId on rsci_rschartinfo_base;
-
 drop table if exists rsci_rschartinfo_base;
 
 drop table if exists rsci_rschartinfo_sale;
@@ -62,9 +54,7 @@ create table rsci_rschartinfo_base
    roomUpdateTime       datetime default NULL comment '房间更新时间。用于时间排序',
    primary key (rsid)
 )
-ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-alter table rsci_rschartinfo_base comment '房态信息统计表主表。包含房源基本信息';
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4  COMMENT='房态信息统计表主表。包含房源基本信息';
 
 /*==============================================================*/
 /* Index: roomId                                                */
@@ -143,9 +133,7 @@ create table rsci_rschartinfo_sale
    rowUpdateTime        datetime comment '记录更新时间',
    primary key (rsid)
 )
-ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-alter table rsci_rschartinfo_sale comment '房态信息统计表状态分表。用于记录房态信息的状态部分以及订单,签约单信息。';
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment='房态信息统计表状态分表。用于记录房态信息的状态部分以及订单,签约单信息。';
 
 /*==============================================================*/
 /* Table: rsci_rschartinfo_stat                                 */
@@ -169,28 +157,31 @@ create table rsci_rschartinfo_stat
    owedRentAndDepositBillOwedAmount decimal(10,2) default NULL comment '当前租金和押金欠款的总金额',
    nextRentBillId       int(11) default NULL comment '下期租金账单id',
    nextRentBillDeadline date default NULL comment '下期租金账单应付款日',
-   roomVacantFlag       bit default NULL comment '未出租状态',
-   roomOccupiedFlag     bit default NULL comment '已出租状态',
-   roomBookedFlag       bit default NULL comment '已预订状态',
-   waitTurnFlag         bit default NULL comment '租约待补录状态',
-   waitConfirmTurnFlag  bit default NULL comment '已补待确认状态',
-   renterOweRentFlag    bit default NULL comment '租客欠租状态',
-   alertRenterPayBillFlag bit default NULL comment '收租提醒状态',
-   roomSigningFlag      bit default NULL comment '房源签约中状态',
-   contractNearExpireFlag bit default NULL comment '合同快到期状态',
-   contractExpiredFlag  bit default NULL comment '合同已到期状态',
-   needSurrenderFlag    bit default NULL comment '房源需退房状态',
-   roomNoPictureFlag    bit default NULL comment '房源无照片状态',
-   roomHiddenFlag       bit default NULL comment '房源隐藏状态',
-   otherOorderDebtFlag  bit default NULL comment '其他费用是否欠款状态',
-   hasRoomRemarkFlag    bit default NULL comment '房源有备注状态',
-   waitCheckoutTuifangFlag bit default NULL comment '已退房未结账状态',
-   roomUnrentFlag       bit default NULL comment '房源未出租(可出租)状态',
+   roomVacantFlag       tinyint(1) default NULL comment '未出租状态',
+   roomOccupiedFlag     tinyint(1) default NULL comment '已出租状态',
+   roomBookedFlag       tinyint(1) default NULL comment '已预订状态',
+   waitTurnFlag         tinyint(1) default NULL comment '租约待补录状态',
+   waitConfirmTurnFlag  tinyint(1) default NULL comment '已补待确认状态',
+   renterOweRentFlag    tinyint(1) default NULL comment '租客欠租状态',
+   alertRenterPayBillFlag tinyint(1) default NULL comment '收租提醒状态',
+   roomSigningFlag      tinyint(1) default NULL comment '房源签约中状态',
+   contractNearExpireFlag tinyint(1) default NULL comment '合同快到期状态',
+   contractExpiredFlag  tinyint(1) default NULL comment '合同已到期状态',
+   needSurrenderFlag    tinyint(1) default NULL comment '房源需退房状态',
+   roomNoPictureFlag    tinyint(1) default NULL comment '房源无照片状态',
+   roomHiddenFlag       tinyint(1) default NULL comment '房源隐藏状态',
+   otherOorderDebtFlag  tinyint(1) default NULL comment '其他费用是否欠款状态',
+   hasRoomRemarkFlag    tinyint(1) default NULL comment '房源有备注状态',
+   waitCheckoutTuifangFlag tinyint(1) default NULL comment '已退房未结账状态',
+   roomUnrentFlag       tinyint(1) default NULL comment '房源未出租(可出租)状态',
    rowCreateTime        datetime comment '记录插入时间',
    rowUpdateTime        datetime comment '记录更新时间',
+   
+   decoTagId            int(11) comment '装修标签ID',
+   decoTagBeginTime     datetime comment '装修标签开始时间',
+   decoTagEndTime       datetime comment '装修标签结束时间',
+   roomVacantDays       int(11) comment '房源空置天数',
    primary key (rsid)
 )
-ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-alter table rsci_rschartinfo_stat comment '房态信息统计表统计分表。用于保存统计信息。';
+ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment='房态信息统计表统计分表。用于保存统计信息。';
 
