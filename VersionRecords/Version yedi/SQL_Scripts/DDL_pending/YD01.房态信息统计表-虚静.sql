@@ -59,34 +59,22 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8mb4  COMMENT='房态信息统计表主表。�
 /*==============================================================*/
 /* Index: roomId                                                */
 /*==============================================================*/
-create unique index roomId on rsci_rschartinfo_base
-(
-   roomId
-);
+ALTER TABLE rsci_rschartinfo_base ADD UNIQUE INDEX roomId (roomId) ;
 
 /*==============================================================*/
 /* Index: landlordId                                            */
 /*==============================================================*/
-create index landlordId on rsci_rschartinfo_base
-(
-   landlordId
-);
+ALTER TABLE rsci_rschartinfo_base ADD INDEX landlordId (landlordId) ;
 
 /*==============================================================*/
 /* Index: orgId                                                 */
 /*==============================================================*/
-create index orgId on rsci_rschartinfo_base
-(
-   orgId
-);
+ALTER TABLE rsci_rschartinfo_base ADD INDEX orgId (orgId) ;
 
 /*==============================================================*/
 /* Index: md5                                                   */
 /*==============================================================*/
-create index md5 on rsci_rschartinfo_base
-(
-   md5
-);
+ALTER TABLE rsci_rschartinfo_base ADD INDEX md5(md5) ;
 
 /*==============================================================*/
 /* Table: rsci_rschartinfo_sale                                 */
