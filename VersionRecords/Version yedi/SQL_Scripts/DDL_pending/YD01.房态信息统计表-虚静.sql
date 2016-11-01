@@ -59,34 +59,22 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8mb4  COMMENT='房态信息统计表主表。�
 /*==============================================================*/
 /* Index: roomId                                                */
 /*==============================================================*/
-create unique index roomId on rsci_rschartinfo_base
-(
-   roomId
-);
+ALTER TABLE rsci_rschartinfo_base ADD UNIQUE INDEX roomId (roomId) ;
 
 /*==============================================================*/
 /* Index: landlordId                                            */
 /*==============================================================*/
-create index landlordId on rsci_rschartinfo_base
-(
-   landlordId
-);
+ALTER TABLE rsci_rschartinfo_base ADD INDEX landlordId (landlordId) ;
 
 /*==============================================================*/
 /* Index: orgId                                                 */
 /*==============================================================*/
-create index orgId on rsci_rschartinfo_base
-(
-   orgId
-);
+ALTER TABLE rsci_rschartinfo_base ADD INDEX orgId (orgId) ;
 
 /*==============================================================*/
 /* Index: md5                                                   */
 /*==============================================================*/
-create index md5 on rsci_rschartinfo_base
-(
-   md5
-);
+ALTER TABLE rsci_rschartinfo_base ADD INDEX md5(md5) ;
 
 /*==============================================================*/
 /* Table: rsci_rschartinfo_sale                                 */
@@ -176,6 +164,11 @@ create table rsci_rschartinfo_stat
    roomUnrentFlag       tinyint(1) default NULL comment '房源未出租(可出租)状态',
    rowCreateTime        datetime comment '记录插入时间',
    rowUpdateTime        datetime comment '记录更新时间',
+   
+   decoTagId            int(11) comment '装修标签ID',
+   decoTagBeginTime     datetime comment '装修标签开始时间',
+   decoTagEndTime       datetime comment '装修标签结束时间',
+   roomVacantDays       int(11) comment '房源空置天数',
    primary key (rsid)
 )
 ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 comment='房态信息统计表统计分表。用于保存统计信息。';
