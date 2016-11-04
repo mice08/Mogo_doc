@@ -1,124 +1,124 @@
-/*  Database name `mogoroomdb`  BS²Ëµ¥ */
+ï»¿/*  Database name `mogoroomdb`  BSèœå• */
 use mogoroomdb;
 
 BEGIN;
 
-/* 1¼¶²Ëµ¥ ÔËÓª¹ÜÀí-»ù´¡Êı¾İ */
-select @id:=id from perm_functioninfo where fname = 'ÔËÓª¹ÜÀí' order by id desc limit 1;
+/* 1çº§èœå• è¿è¥ç®¡ç†-åŸºç¡€æ•°æ® */
+select @id:=id from perm_functioninfo where fname = 'è¿è¥ç®¡ç†' order by id desc limit 1;
 select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@id;
-select @fcode:= CONCAT('1',lpad(@id,4,0),@seq ) from perm_functioninfo where fname = 'ÔËÓª¹ÜÀí' order by id desc limit 1;
+select @fcode:= CONCAT('1',lpad(@id,4,0),@seq ) from perm_functioninfo where fname = 'è¿è¥ç®¡ç†' order by id desc limit 1;
 
 INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, '»ù´¡Êı¾İ', '', @seq, '1', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+VALUES ( @fcode, 'åŸºç¡€æ•°æ®', '', @seq, '1', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
 
 
-/* 2¼¶²Ëµ¥  ÔËÓª¹ÜÀí-»ù´¡Êı¾İ-É¨Âë×¢²á°ó¶¨ */
-select @id:=id from perm_functioninfo where fname = '»ù´¡Êı¾İ' order by id desc limit 1;
-select @fcode:= CONCAT('2',lpad(@id,4,0),1) from perm_functioninfo where fname = '»ù´¡Êı¾İ' order by id desc limit 1;
+/* 2çº§èœå•  è¿è¥ç®¡ç†-åŸºç¡€æ•°æ®-æ‰«ç æ³¨å†Œç»‘å®š */
+select @id:=id from perm_functioninfo where fname = 'åŸºç¡€æ•°æ®' order by id desc limit 1;
+select @fcode:= CONCAT('2',lpad(@id,4,0),1) from perm_functioninfo where fname = 'åŸºç¡€æ•°æ®' order by id desc limit 1;
 
 INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, 'É¨Âë×¢²á°ó¶¨', 'scanRegisterBind/scanRegisterBindList', 1, '2', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+VALUES ( @fcode, 'æ‰«ç æ³¨å†Œç»‘å®š', 'scanRegisterBind/scanRegisterBindList', 1, '2', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
 
 
-/* 2¼¶²Ëµ¥  ÔËÓª¹ÜÀí-»ù´¡Êı¾İ-·ÖµêºÍ×ÓÕËºÅ */
-select @id:=id from perm_functioninfo where fname = '»ù´¡Êı¾İ' order by id desc limit 1;
+/* 2çº§èœå•  è¿è¥ç®¡ç†-åŸºç¡€æ•°æ®-åˆ†åº—å’Œå­è´¦å· */
+select @id:=id from perm_functioninfo where fname = 'åŸºç¡€æ•°æ®' order by id desc limit 1;
 select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@id;
-select @fcode:= CONCAT('2',lpad(@id,4,0),@seq) from perm_functioninfo where fname = '»ù´¡Êı¾İ' order by id desc limit 1;
+select @fcode:= CONCAT('2',lpad(@id,4,0),@seq) from perm_functioninfo where fname = 'åŸºç¡€æ•°æ®' order by id desc limit 1;
 
 INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, '·ÖµêºÍ×ÓÕËºÅ', 'branchAndSubAccount/branchAndSubAccountList', @seq, '2', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+VALUES ( @fcode, 'åˆ†åº—å’Œå­è´¦å·', 'branchAndSubAccount/branchAndSubAccountList', @seq, '2', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
 
 
-/* 2¼¶²Ëµ¥  ÔËÓª¹ÜÀí-ÔËÓª±¨±í-»ï°éÒµÎñÇé¿ö */
-select @id:=id from perm_functioninfo where fname = 'ÔËÓª±¨±í' order by id desc limit 1;
+/* 2çº§èœå•  è¿è¥ç®¡ç†-è¿è¥æŠ¥è¡¨-ä¼™ä¼´ä¸šåŠ¡æƒ…å†µ */
+select @id:=id from perm_functioninfo where fname = 'è¿è¥æŠ¥è¡¨' order by id desc limit 1;
 select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@id;
-select @fcode:= CONCAT('2',lpad(@id,4,0),@seq) from perm_functioninfo where fname = 'ÔËÓª±¨±í' order by id desc limit 1;
+select @fcode:= CONCAT('2',lpad(@id,4,0),@seq) from perm_functioninfo where fname = 'è¿è¥æŠ¥è¡¨' order by id desc limit 1;
 
 INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, '·¿¶«Ä¢¹½·Ö', 'landlordBillRepo/landlordMogoScoreList', @seq, '2', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+VALUES ( @fcode, 'æˆ¿ä¸œè˜‘è‡åˆ†', 'landlordBillRepo/landlordMogoScoreList', @seq, '2', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
 
 
-/* 3¼¶²Ëµ¥  ÔËÓª¹ÜÀí-»ù´¡Êı¾İ-É¨Âë×¢²á°ó¶¨ (²éÑ¯Í·²¿ºÏ¼ÆÍ³¼Æ) */
-select @id:=id from perm_functioninfo where fname = 'É¨Âë×¢²á°ó¶¨' order by id desc limit 1;
-select @fcode:= CONCAT('3',lpad(@id,4,0),1 ) from perm_functioninfo where fname = 'É¨Âë×¢²á°ó¶¨' order by id desc limit 1;
-
-INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, '²éÑ¯Í·²¿ºÏ¼ÆÍ³¼Æ', 'scanRegisterBind/getAllScanRegBindData', 1, '3', @id, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, '1', '2');
-
-
-/* 3¼¶²Ëµ¥  ÔËÓª¹ÜÀí-»ù´¡Êı¾İ-·ÖµêºÍ×ÓÕËºÅ (²éÑ¯Í·²¿ºÏ¼ÆÍ³¼Æ) */
-select @id:=id from perm_functioninfo where fname = '·ÖµêºÍ×ÓÕËºÅ' order by id desc limit 1;
-select @fcode:= CONCAT('3',lpad(@id,4,0),1 ) from perm_functioninfo where fname = '·ÖµêºÍ×ÓÕËºÅ' order by id desc limit 1;
+/* 3çº§èœå•  è¿è¥ç®¡ç†-åŸºç¡€æ•°æ®-æ‰«ç æ³¨å†Œç»‘å®š (æŸ¥è¯¢å¤´éƒ¨åˆè®¡ç»Ÿè®¡) */
+select @id:=id from perm_functioninfo where fname = 'æ‰«ç æ³¨å†Œç»‘å®š' order by id desc limit 1;
+select @fcode:= CONCAT('3',lpad(@id,4,0),1 ) from perm_functioninfo where fname = 'æ‰«ç æ³¨å†Œç»‘å®š' order by id desc limit 1;
 
 INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, '²éÑ¯Í·²¿ºÏ¼ÆÍ³¼Æ', 'branchAndSubAccount/getHeadCountData', 1, '3', @id, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, '1', '2');
+VALUES ( @fcode, 'æŸ¥è¯¢å¤´éƒ¨åˆè®¡ç»Ÿè®¡', 'scanRegisterBind/getAllScanRegBindData', 1, '3', @id, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, '1', '2');
 
-/* 3¼¶²Ëµ¥  ÍØÕ¹ajax */
-select @id:=id from perm_functioninfo where fname = '³ÇÊĞÊ×Ò³' ;
+
+/* 3çº§èœå•  è¿è¥ç®¡ç†-åŸºç¡€æ•°æ®-åˆ†åº—å’Œå­è´¦å· (æŸ¥è¯¢å¤´éƒ¨åˆè®¡ç»Ÿè®¡) */
+select @id:=id from perm_functioninfo where fname = 'åˆ†åº—å’Œå­è´¦å·' order by id desc limit 1;
+select @fcode:= CONCAT('3',lpad(@id,4,0),1 ) from perm_functioninfo where fname = 'åˆ†åº—å’Œå­è´¦å·' order by id desc limit 1;
+
+INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
+VALUES ( @fcode, 'æŸ¥è¯¢å¤´éƒ¨åˆè®¡ç»Ÿè®¡', 'branchAndSubAccount/getHeadCountData', 1, '3', @id, '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, '1', '2');
+
+/* 3çº§èœå•  æ‹“å±•ajax */
+select @id:=id from perm_functioninfo where fname = 'åŸå¸‚é¦–é¡µ' ;
 select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@id;
-select @fcode:= CONCAT('3',lpad(@id,4,0),@seq ) from perm_functioninfo where fname = '³ÇÊĞÊ×Ò³' ;
+select @fcode:= CONCAT('3',lpad(@id,4,0),@seq ) from perm_functioninfo where fname = 'åŸå¸‚é¦–é¡µ' ;
 
 INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, 'ajax²éÑ¯ÇøÓòÊı¾İ', 'bd/findbdDirectorByAjax',@seq, '3', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+VALUES ( @fcode, 'ajaxæŸ¥è¯¢åŒºåŸŸæ•°æ®', 'bd/findbdDirectorByAjax',@seq, '3', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
 
-select @id:=id from perm_functioninfo where fname = 'ÔËÓª±¨±í' order by id desc limit 1;
+select @id:=id from perm_functioninfo where fname = 'è¿è¥æŠ¥è¡¨' order by id desc limit 1;
 select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@id;
-select @fcode:= CONCAT('2',lpad(@id,4,0),@seq) from perm_functioninfo where fname = 'ÔËÓª±¨±í' order by id desc limit 1;
+select @fcode:= CONCAT('2',lpad(@id,4,0),@seq) from perm_functioninfo where fname = 'è¿è¥æŠ¥è¡¨' order by id desc limit 1;
 
 INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, '·¿Ô´ÌåÑéÍ³¼Æ', 'landlordBillRepo/findLandlordRoomRepo', @seq, '2', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+VALUES ( @fcode, 'æˆ¿æºä½“éªŒç»Ÿè®¡', 'landlordBillRepo/findLandlordRoomRepo', @seq, '2', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
 
 
-select @id:=id from perm_functioninfo where fname = '·¿¶«¹ÜÀí' order by id desc limit 1;
+select @id:=id from perm_functioninfo where fname = 'æˆ¿ä¸œç®¡ç†' order by id desc limit 1;
 select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@id;
-select @fcode:= CONCAT('3',lpad(@id,4,0),@seq ) from perm_functioninfo where fname = '·¿¶«¹ÜÀí' order by id desc limit 1;
+select @fcode:= CONCAT('3',lpad(@id,4,0),@seq ) from perm_functioninfo where fname = 'æˆ¿ä¸œç®¡ç†' order by id desc limit 1;
 
 INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, '²éÑ¯·¿¶«½»Ò×ĞÅÏ¢', 'riskManage/searchLandlordTransactionInfo',@seq, '3', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+VALUES ( @fcode, 'æŸ¥è¯¢æˆ¿ä¸œäº¤æ˜“ä¿¡æ¯', 'riskManage/searchLandlordTransactionInfo',@seq, '3', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
 
-select @id:=id from perm_functioninfo where fname = '·¿¶«¹ÜÀí' order by id desc limit 1;
+select @id:=id from perm_functioninfo where fname = 'æˆ¿ä¸œç®¡ç†' order by id desc limit 1;
 select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@id;
-select @fcode:= CONCAT('3',lpad(@id,4,0),@seq ) from perm_functioninfo where fname = '·¿¶«¹ÜÀí' order by id desc limit 1;
+select @fcode:= CONCAT('3',lpad(@id,4,0),@seq ) from perm_functioninfo where fname = 'æˆ¿ä¸œç®¡ç†' order by id desc limit 1;
 
 INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, '½»Ò×ĞÅÏ¢ÕÛÏßÍ¼', 'riskManage/searchLineGraphInfo', @seq, '3', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+VALUES ( @fcode, 'äº¤æ˜“ä¿¡æ¯æŠ˜çº¿å›¾', 'riskManage/searchLineGraphInfo', @seq, '3', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
 
 
 
-select @id:=id from perm_functioninfo where fname = '·¿¶«¹ÜÀí' order by id desc limit 1;
+select @id:=id from perm_functioninfo where fname = 'æˆ¿ä¸œç®¡ç†' order by id desc limit 1;
 select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@id;
-select @fcode:= CONCAT('3',lpad(@id,4,0),@seq ) from perm_functioninfo where fname = '·¿¶«¹ÜÀí' order by id desc limit 1;
+select @fcode:= CONCAT('3',lpad(@id,4,0),@seq ) from perm_functioninfo where fname = 'æˆ¿ä¸œç®¡ç†' order by id desc limit 1;
 
 INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, '²éÑ¯·¿¶«¹µÍ¨¼ÇÂ¼', 'riskManage/findCommunicationRecord',@seq, '3', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+VALUES ( @fcode, 'æŸ¥è¯¢æˆ¿ä¸œæ²Ÿé€šè®°å½•', 'riskManage/findCommunicationRecord',@seq, '3', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
 
-select @id:=id from perm_functioninfo where fname = '·¿¶«¹ÜÀí' order by id desc limit 1;
+select @id:=id from perm_functioninfo where fname = 'æˆ¿ä¸œç®¡ç†' order by id desc limit 1;
 select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@id;
-select @fcode:= CONCAT('3',lpad(@id,4,0),@seq ) from perm_functioninfo where fname = '·¿¶«¹ÜÀí' order by id desc limit 1;
+select @fcode:= CONCAT('3',lpad(@id,4,0),@seq ) from perm_functioninfo where fname = 'æˆ¿ä¸œç®¡ç†' order by id desc limit 1;
 
 INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, '²éÑ¯·¿¶«ÏÂµÄ¹«Ô¢±àºÅ', 'riskManage/findFlatsNumByLandlord',@seq, '3', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+VALUES ( @fcode, 'æŸ¥è¯¢æˆ¿ä¸œä¸‹çš„å…¬å¯“ç¼–å·', 'riskManage/findFlatsNumByLandlord',@seq, '3', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
 
-select @id:=id from perm_functioninfo where fname = '·¿¶«¹ÜÀí' order by id desc limit 1;
+select @id:=id from perm_functioninfo where fname = 'æˆ¿ä¸œç®¡ç†' order by id desc limit 1;
 select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@id;
-select @fcode:= CONCAT('3',lpad(@id,4,0),@seq ) from perm_functioninfo where fname = '·¿¶«¹ÜÀí' order by id desc limit 1;
+select @fcode:= CONCAT('3',lpad(@id,4,0),@seq ) from perm_functioninfo where fname = 'æˆ¿ä¸œç®¡ç†' order by id desc limit 1;
 
 INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, '²éÑ¯·¿¶«ÏÂµÄ¹«Ô¢ËùÊôµÄ·¿¼ä±àºÅ', 'riskManage/findRoomNumByFlatsId',@seq, '3', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+VALUES ( @fcode, 'æŸ¥è¯¢æˆ¿ä¸œä¸‹çš„å…¬å¯“æ‰€å±çš„æˆ¿é—´ç¼–å·', 'riskManage/findRoomNumByFlatsId',@seq, '3', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
 
-select @id:=id from perm_functioninfo where fname = '·¿¶«¹ÜÀí' order by id desc limit 1;
+select @id:=id from perm_functioninfo where fname = 'æˆ¿ä¸œç®¡ç†' order by id desc limit 1;
 select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@id;
-select @fcode:= CONCAT('3',lpad(@id,4,0),@seq ) from perm_functioninfo where fname = '·¿¶«¹ÜÀí' order by id desc limit 1;
+select @fcode:= CONCAT('3',lpad(@id,4,0),@seq ) from perm_functioninfo where fname = 'æˆ¿ä¸œç®¡ç†' order by id desc limit 1;
 
 INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, 'ĞÂÔö·¿¶«¹µÍ¨¼ÇÂ¼', 'riskManage/addCommunicationRecord',@seq, '3', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+VALUES ( @fcode, 'æ–°å¢æˆ¿ä¸œæ²Ÿé€šè®°å½•', 'riskManage/addCommunicationRecord',@seq, '3', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
 
 
-select @id:=id from perm_functioninfo where fname = '×ÔÓª' ;
+select @id:=id from perm_functioninfo where fname = 'è‡ªè¥' ;
 select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@id;
-select @fcode:= CONCAT('2',lpad(@id,4,0),@seq) from perm_functioninfo where fname = '×ÔÓª';
+select @fcode:= CONCAT('2',lpad(@id,4,0),@seq) from perm_functioninfo where fname = 'è‡ªè¥';
 
 INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, 'ÍØÕ¹Ô±²¿ÃÅ', 'report/findRentPayStatus', @seq, '2', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+VALUES ( @fcode, 'æ‹“å±•å‘˜éƒ¨é—¨', 'report/findRentPayStatus', @seq, '2', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
 
 COMMIT;
