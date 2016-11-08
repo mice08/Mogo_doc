@@ -12,7 +12,7 @@ create table tele_extNum
    `suspTime`        DATETIME comment '禁用时间',
    `returnTime`        DATETIME comment '收回时间',
    `valid`        tinyint(1) not null default 1 comment '状态，0为无效，1为有效',
-   `status`        int(4) comment '业务状态(0:待售, 1:已售, 2:已停用)',
+   `status`        int(4) comment '业务状态(0:待售, 1:已售)',
    `createTime`        DATETIME not null default CURRENT_TIMESTAMP comment '创建时间',
    `createBy`        int(11) not null comment '创建人',
    `createByType`        int(11) not null comment '创建人类型(参考字典表组名:userType)',
@@ -78,12 +78,12 @@ create table tele_ext_usr_rel
    `userId`        int(11) not null default 0 comment '用户Id',
    `userType`        int(11) not null default 0 comment '用户类型(参考字典表组名:userType)',
    `ctctId`        int(11) default 0 comment '联系人Id',
-   `ctctIdSource`        tinyint(1) default 3 comment '联系人来源,1:房东,2:员工,3:联系人',
+   `ctctIdSource`        tinyint(1) default 3 comment '联系人来源(参考字典表组名:userType 0:房东,1:联系人,5:员工)',
    `empId`        int(11) comment '推广员工Id',
    `empGrupCode`        varchar(40) comment '推广组Code(参考字典表组名:saleGroup)',
    `seatId`        int(11) default 0 comment '坐席Id',
    `valid`        tinyint(1) not null default 1 comment '状态，0为无效，1为有效',
-   `status`        int(4) comment '业务状态',
+   `status`        tinyint(1) default 0 comment '业务状态(0:已启用, 1:已停用)',
    `createTime`        DATETIME not null default CURRENT_TIMESTAMP comment '创建时间',
    `createBy`        int(11) not null comment '创建人',
    `createByType`        int(11) not null comment '创建人类型(参考字典表组名:userType)',
@@ -94,6 +94,31 @@ create table tele_ext_usr_rel
    `remark`        VARCHAR(255) comment '备注',
    primary key (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='分机用户关系表';
+
+create table tele_ext_usr_rel_his
+(
+   `id`        int(11) not null auto_increment comment '主键ID',
+   `relId`        int(11) not null comment '关系表主键ID',
+   `extNumId`        int(11) not null default 0 comment '分机号Id',
+   `userId`        int(11) not null default 0 comment '用户Id',
+   `userType`        int(11) not null default 0 comment '用户类型(参考字典表组名:userType)',
+   `ctctId`        int(11) default 0 comment '联系人Id',
+   `ctctIdSource`        tinyint(1) default 1 comment '联系人来源(参考字典表组名:userType 0:房东,1:联系人,5:员工)',
+   `empId`        int(11) comment '推广员工Id',
+   `empGrupCode`        varchar(40) comment '推广组Code(参考字典表组名:saleGroup)',
+   `seatId`        int(11) default 0 comment '坐席Id',
+   `valid`        tinyint(1) not null default 1 comment '状态，0为无效，1为有效',
+   `status`        tinyint(1) default 0 comment '业务状态(0:已启用, 1:已停用)',
+   `createTime`        DATETIME not null default CURRENT_TIMESTAMP comment '创建时间',
+   `createBy`        int(11) not null comment '创建人',
+   `createByType`        int(11) not null comment '创建人类型(参考字典表组名:userType)',
+   `updateTime`        DATETIME default CURRENT_TIMESTAMP comment '修改时间',
+   `updateBy`        int(11) comment '修改人',
+   `updateByType`        int(11) comment '修改人类型(参考字典表组名:userType)',
+   `soDoneCode`        INT(32) comment '操作流水号',
+   `remark`        VARCHAR(255) comment '备注',
+   primary key (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='分机用户关系历史记录表';
 
 create table tele_price
 (
