@@ -30,15 +30,12 @@ CREATE TABLE `oder_signedorder_new` (
   `signedNum` varchar(30) DEFAULT NULL COMMENT '签约单号',
   `acctFinished` tinyint(1) DEFAULT '0' COMMENT '是否已结账(0:未结账 1:已结账)',
   
-  PRIMARY KEY (`id`),
-  KEY `renterId` (`renterId`),
-  KEY `os_saleContractId` (`saleContractId`) USING BTREE,
-  KEY `oder_signedOrder_reservationOrderId` (`reservationOrderId`),
-  KEY `oder_signedorder_roomId` (`roomId`),
+  PRIMARY KEY (`id`), 
+  KEY `signedOrderId` (`signedOrderId`),
   KEY `subsId` (`subsId`),
-  KEY `landlordId` (`landlordId`)
+  KEY `saleContractId` (`saleContractId`) USING BTREE   
+  
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='新签约单'; 
-ALTER TABLE `oder_signedorder_new` ADD INDEX `signedOrderId` (`signedOrderId`);
 
 ALTER TABLE `bill_salebill` ADD COLUMN `soNewId` INT(11) DEFAULT NULL COMMENT '新签约单ID';
 ALTER TABLE `bill_salebill` ADD INDEX  `soNewId` (`soNewId`);
