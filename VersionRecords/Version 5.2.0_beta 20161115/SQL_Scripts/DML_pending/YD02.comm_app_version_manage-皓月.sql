@@ -1,20 +1,24 @@
-/* Database name `mogoroomdb`£¬ Ìí¼Óapp °æ±¾¹ÜÀí±í */
+ï»¿/*Appç‰ˆæœ¬æ•°æ®åˆå§‹åŒ– */
+
 USE mogoroomdb;
 
-DROP TABLE IF EXISTS comm_app_version_manage;
+/*IOSä¼ä¸šç‰ˆ -æ­£å¼ç”¨æˆ·*/
+INSERT INTO `comm_app_version_manage` (apptype,channel,stafftype,lowestVersion,latestVersion,updateDesc,downloadUrl,createBy,createByType,createTime) VALUES(1,18,1,'1.0.0','1.0.0','','',11,5,NOW());  
+ 
+/*IOSä¼ä¸šç‰ˆ -æµ‹è¯•ç”¨æˆ· */
+INSERT INTO `comm_app_version_manage` (apptype,channel,stafftype,lowestVersion,latestVersion,updateDesc,downloadUrl,createBy,createByType,createTime) VALUES(1,18,2,'1.0.0','1.0.0','','',11,5,NOW());  
+ 
+ 
+/*IOSå¸‚åœºç‰ˆ -æ­£å¼ç”¨æˆ·*/
+INSERT INTO `comm_app_version_manage` (apptype,channel,stafftype,lowestVersion,latestVersion,updateDesc,downloadUrl,createBy,createByType,createTime) VALUES(2,18,1,'1.0.0','1.0.0','','',11,5,NOW());  
+ 
+/*IOSå¸‚åœºç‰ˆ -æµ‹è¯•ç”¨æˆ·*/
+INSERT INTO `comm_app_version_manage` (apptype,channel,stafftype,lowestVersion,latestVersion,updateDesc,downloadUrl,createBy,createByType,createTime) VALUES(2,18,2,'1.0.0','1.0.0','','',11,5,NOW());  
+ 
+ 
+/*å®‰å“å¸‚åœºç‰ˆ -æ­£å¼ç”¨æˆ·*/
+INSERT INTO `comm_app_version_manage` (apptype,channel,stafftype,lowestVersion,latestVersion,updateDesc,downloadUrl,createBy,createByType,createTime) VALUES(3,18,1,'1.0.0','1.0.0','','',11,5,NOW());  
+ 
+/*å®‰å“å¸‚åœºç‰ˆ -æµ‹è¯•ç”¨æˆ·*/ 
+INSERT INTO `comm_app_version_manage` (apptype,channel,stafftype,lowestVersion,latestVersion,updateDesc,downloadUrl,createBy,createByType,createTime) VALUES(3,18,2,'1.0.0','1.0.0','','',11,5,NOW());  
 
-CREATE TABLE `comm_app_version_manage` (
-  `id` INT (11) NOT NULL AUTO_INCREMENT COMMENT 'Ö÷¼üId',
-  `apptype` TINYINT (2) NOT NULL COMMENT 'appÀàĞÍ£¨1:IOSÆóÒµ°æ, 2:IOSÊĞ³¡°æ,  3:°²×¿ÊĞ³¡°æ£©',
-  `channel` INT (2) NOT NULL COMMENT 'ÏµÍ³ÇşµÀ',
-  `stafftype` INT (1) NOT NULL DEFAULT '1' COMMENT 'ÓÃ»§ÀàĞÍ (1:ÕıÊ½ÓÃ»§£¬2:¹¤×÷ÈËÔ±£©',
-  `lowestVersion` VARCHAR (36) NOT NULL COMMENT '×îµÍ°æ±¾ÒªÇó-ÕıÊ½ÓÃ»§',
-  `latestVersion` VARCHAR (36) NOT NULL COMMENT '×îĞÂ°æ±¾-ÕıÊ½ÓÃ»§',
-  `updateDesc` VARCHAR (256) NOT NULL COMMENT '¸üĞÂÃèÊö',
-  `downloadUrl` VARCHAR (256) NOT NULL COMMENT 'ÏÂÔØÁ¬½Ó',
-  `createBy` INT (11) NOT NULL COMMENT '´´½¨ÈËId',
-  `createByType` TINYINT (2) NOT NULL COMMENT '´´½¨ÈËÀàĞÍ(²Î¿¼×Öµä±ígroupName=userType)',
-  `createTime` DATETIME NOT NULL COMMENT '´´½¨Ê±¼ä',
-  `valid` INT (1) NOT NULL DEFAULT '1' COMMENT 'Âß¼­É¾³ı±êÖ¾ (1:Î´É¾³ı, 0:É¾³ı)',
-  PRIMARY KEY (`id`)
-) ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COMMENT = 'app°æ±¾¹ÜÀí±í' ;
