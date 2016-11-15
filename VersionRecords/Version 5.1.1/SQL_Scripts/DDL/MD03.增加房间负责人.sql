@@ -1,5 +1,5 @@
-
+ï»¿
 use mogoroomdb;
 
--- ·¿¼ä¹ÜÀíÈË
-ALTER TABLE `flat_room` ADD COLUMN `orgClerk`  int(11) NULL COMMENT '·¿¼ä¹ÜÀíÈË' AFTER `alias`;
+-- æˆ¿é—´ç®¡ç†äºº
+ALTER TABLE `flat_room` ADD COLUMN `orgClerk`  int(11) NULL COMMENT 'æˆ¿é—´ç®¡ç†äºº' AFTER `alias`;
