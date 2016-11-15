@@ -16,5 +16,6 @@ create table repo_roomExtInfo
    soDoneTime          datetime comment '日志记录时间',
    createTime          datetime default CURRENT_TIMESTAMP comment '创建时间,数据扫描时间',
    KEY `IDX_roomExtInfoOffdate` (`roomOffDate`),
+   KEY `IDX_roomExtInfoRoomID` (`roomID`),
    primary key (ID)
 )ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='房源扩展信息表';
