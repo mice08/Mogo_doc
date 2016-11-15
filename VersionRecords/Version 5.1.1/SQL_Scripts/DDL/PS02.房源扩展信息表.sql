@@ -15,5 +15,6 @@ create table repo_roomExtInfo
    soDoneCode          int(11) comment '业务操作记录ID,主要用于记录定时器数据扫描标识',
    soDoneTime          datetime comment '日志记录时间',
    createTime          datetime default CURRENT_TIMESTAMP comment '创建时间,数据扫描时间',
+   KEY `IDX_roomExtInfoOffdate` (`roomOffDate`),
    primary key (ID)
-)ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='房源扩展信息表'
+)ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='房源扩展信息表';
