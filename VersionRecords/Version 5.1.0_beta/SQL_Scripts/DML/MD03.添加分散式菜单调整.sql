@@ -7,3 +7,7 @@ UPDATE perm_functioninfo set furl = '/mogoroom-partnerpc/flatsInput/editDisperse
 
 /*分散式是否有电梯数据初始化*/
 update `flat_flats` set elevatorCount = 0 where elevatorCount is null and flatsTag=1;
+
+/*户型数据调整*/
+update `flat_flats` set parlorCount = 10 where status =1 and parlorCount > 10;
+update `flat_flats` set toiletCount = 10 where status =1 and toiletCount > 10;
