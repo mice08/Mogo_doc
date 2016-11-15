@@ -2,10 +2,10 @@
 USE mogoroomdb;
 
 /*   房源扩展信息表  记录和房源相关的统计数据 */
-create table flat_roomExtInfo
+create table repo_roomExtInfo
 (
    ID                  int(11) not null auto_increment comment '流水号',
-   rommID              int(11) not null comment '房间ID',
+   roomID              int(11) not null comment '房间ID',
    roomOffDate         datetime comment '房源下架开始日期',
    roomOffDays         int(11) comment '房源下架天数',
    roomOffReason       varchar(500) comment '房源下架原因',
