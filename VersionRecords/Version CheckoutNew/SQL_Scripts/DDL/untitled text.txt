@@ -1,7 +1,0 @@
-BillAccountMappingMapper   int deleteBillAccountMappingById(Integer id)
-SignedOrderLandlordFeeMapper   void deleteSignOrderLandlordFeeByMap(Map<String,Object> param) throws Exception;
-SignedOrderMapper  Integer deleteSignedOrderBySaleContract(Integer saleContractId) throws Exception;
-SaleContractFlatFurnitureMapper  int deleteByContract(Integer cntrId);
-SaleContractRoomFurnitureMapper   int deleteByContract(Integer cntrId);
-SaleContractUserRelMapper   Integer delete(Integer id);
-SaleContractMapper  Integer deleteSaleContract(Integer id) throws Exception;
