@@ -1,3 +1,5 @@
+user mogoroomdb;
+
 
 
 INSERT INTO mesg_templet (templetCode, templetName, templetDesc, STATUS, createBy, createTime, createByType, updateBy, updateTime, updateByType, valid, businessType) VALUES('luruzuyuechenggongfankuisWmi','录入租约成功反馈','租客确认租约成功时触发','1','2000031','2016-11-12 10:18:47','5','2000031','2016-11-12 10:18:47','5','1','9');
