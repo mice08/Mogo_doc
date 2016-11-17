@@ -10,7 +10,7 @@ create table repo_roomExtInfo
    roomOffDays         int(11) comment '房源下架天数',
    roomOffReason       varchar(500) comment '房源下架原因',
    roomOffOper         int(11) comment '房源下架操作人',
-   roomOffType        tinyint comment '房源下架操作人类型',
+   roomOffOperType        tinyint comment '房源下架操作人类型',
    valid               tinyint default 1 comment '数据有效性 1:有效',
    soDoneCode          int(11) comment '业务操作记录ID,主要用于记录定时器数据扫描标识',
    soDoneTime          datetime comment '日志记录时间',
