@@ -4,10 +4,10 @@ use mogoroomdb;
 
 select @id:=id from perm_functioninfo where fname = '风控服务';
 select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@id;
-select @fcode:= CONCAT('3',lpad(@id,4,0),@seq ) from perm_functioninfo where fname = '风控服务';
+select @fcode:= CONCAT('2',lpad(@id,4,0),@seq ) from perm_functioninfo where fname = '风控服务';
 
 INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, '风险记录', 'riskManage/riskRecords',@seq, '3', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+VALUES ( @fcode, '风险记录', 'riskManage/riskRecords',@seq, '2', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
 
 select @id:=id from perm_functioninfo where fname = '风险记录';
 select @fcode:= CONCAT('3',lpad(@id,4,0),1 ) from perm_functioninfo where fname = '风险记录';
@@ -20,4 +20,3 @@ select @fcode:= CONCAT('3',lpad(@id,4,0),2 ) from perm_functioninfo where fname 
 
 INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
 VALUES ( @fcode, '风险等级智能查询插件', 'landlordPayPlan/autoFindRiskLevel', 2, '3', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
-
