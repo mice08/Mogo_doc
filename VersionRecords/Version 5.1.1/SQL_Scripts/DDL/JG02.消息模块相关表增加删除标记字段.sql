@@ -15,3 +15,10 @@ alter table mesg_sms_tosend add column valid int(1) not null  default 1 COMMENT 
 alter table mesg_push_tosend add column valid int(1) not null  default 1 COMMENT '推送发送记录状态(0:无效 1:有效)';
 
 alter table mesg_email_tosend add column valid int(1) not null  default 1 COMMENT '推送发送记录状态(0:无效 1:有效)';
+
+alter table mesg_email_tocheck add column valid int(1) not null default 1 COMMENT '邮件审核记录状态(0:无效 1:有效)';
+
+alter table mesg_push_tocheck add column valid int(1) not null default 1 COMMENT '推送审核记录状态(0:无效 1:有效)';
+
+alter table mesg_sms_tocheck add column valid int(1) not null default 1 COMMENT '短信审核记录状态(0:无效 1:有效)';
+
