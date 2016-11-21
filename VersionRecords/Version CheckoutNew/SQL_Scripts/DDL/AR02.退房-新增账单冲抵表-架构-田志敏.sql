@@ -21,6 +21,7 @@ CREATE TABLE `acct_bill_rel` (
   `updateTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `updateBy` int(11) DEFAULT NULL COMMENT '更新人员',
   `updateByType` tinyint(3) DEFAULT NULL COMMENT '更新人类型',
+  `checkoutBillId` int(11) NOT NULL COMMENT '退房账单id',
   PRIMARY KEY (`id`),
   KEY `idx_billId` (`billId`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
