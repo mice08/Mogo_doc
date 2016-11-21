@@ -6,6 +6,7 @@ CREATE TABLE `acct_bill_rel` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `billId` int(11) NOT NULL COMMENT '账单标识',
   `billType` int(11) DEFAULT NULL COMMENT '账单类型',
+  `billOrder` int(11) DEFAULT NULL COMMENT '冲抵顺序',
   `subsId` int(11) DEFAULT NULL COMMENT '统一订购id',
   `totalAmount` decimal(10,2) DEFAULT NULL COMMENT '账单金额',
   `beforeAmount` decimal(10,2) DEFAULT NULL COMMENT '未付金额(账单未付金额-账单无需支付部分金额)',
@@ -20,6 +21,7 @@ CREATE TABLE `acct_bill_rel` (
   `updateTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   `updateBy` int(11) DEFAULT NULL COMMENT '更新人员',
   `updateByType` tinyint(3) DEFAULT NULL COMMENT '更新人类型',
+  `checkoutBillId` int(11) NOT NULL COMMENT '退房账单id',
   PRIMARY KEY (`id`),
   KEY `idx_billId` (`billId`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  ;

@@ -2,4 +2,4 @@
 use mogoroomdb;
 
 ALTER TABLE repo_alldetail ADD COLUMN mogoScoreRank INT(6)  NULL COMMENT  '房东蘑菇分排行',
-ADD COLUMN mogoScoreRate DECIMAL(3,2)  NULL COMMENT '房东蘑菇分全国击败占比';
+ADD COLUMN mogoScoreRate DECIMAL(5,2)  NULL COMMENT '房东蘑菇分全国击败占比';
