@@ -11,3 +11,4 @@ update `flat_flats` set elevatorCount = 0 where elevatorCount is null and flatsT
 /*户型数据调整*/
 update `flat_flats` set parlorCount = 10 where status =1 and parlorCount > 10;
 update `flat_flats` set toiletCount = 10 where status =1 and toiletCount > 10;
+update `flat_flats` set bedroomCount = 5 where status =1 and flatsTag=2 and bedroomCount > 5;
