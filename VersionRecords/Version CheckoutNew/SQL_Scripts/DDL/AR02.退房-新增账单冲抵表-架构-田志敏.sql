@@ -3,7 +3,7 @@ use mogoroomdb;
 
 
 CREATE TABLE `acct_bill_rel` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增id',
   `billId` int(11) NOT NULL COMMENT '账单标识',
   `billType` int(11) DEFAULT NULL COMMENT '账单类型',
   `billOrder` int(11) DEFAULT NULL COMMENT '冲抵顺序',
