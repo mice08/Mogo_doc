@@ -24,4 +24,4 @@ CREATE TABLE `acct_bill_rel` (
   `checkoutBillId` int(11) NOT NULL COMMENT '退房账单id',
   PRIMARY KEY (`id`),
   KEY `idx_billId` (`billId`)
-) ENGINE=InnoDB  ;
+) ENGINE=InnoDB  DEFAULT CHARSET = utf8mb4 COMMENT = '账单冲抵表';

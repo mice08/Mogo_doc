@@ -13,7 +13,7 @@ CREATE TABLE `acct.acct_busibillfeedtl` (
   `tradeLogId` int(11) NOT NULL COMMENT '支付行为id,acct.acct_tradelog.id',
   `recId` int(11) NOT NULL COMMENT '收款主表doneCode,acct.acct_busirec.doneCode',
   `busiBillId` int(11) NOT NULL COMMENT '账单流水id',
-  `feeId` int(11) DEFAULT NULL COMMENT '收款流水表id,feeid/fundid/billId',
+  `busiDtlId` int(11) DEFAULT NULL COMMENT '收款流水表id,feeid/fundid/billId',
   `feeAmount` decimal(10,2) DEFAULT NULL COMMENT '收款表拆分出的对应金额',
   `fundChannel` int(2) DEFAULT NULL COMMENT '收款渠道',
   `payTime` datetime NOT NULL COMMENT '收款时间',
@@ -37,4 +37,4 @@ CREATE TABLE `acct.acct_busibillfeedtl` (
   KEY `idx_billId` (`billId`),
   KEY `idx_subsId` (`subsId`),
   KEY `idx_recId` (`recId`)
-) ENGINE=InnoDB ;
+) ENGINE=InnoDB DEFAULT CHARSET = utf8mb4 COMMENT = '帐务流水拆分表';
