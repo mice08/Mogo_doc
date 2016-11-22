@@ -1,7 +1,7 @@
 /* Database name `mogoroomdb` ，新增流水拆分表*/
 use mogoroomdb;
 
-CREATE TABLE `acct.acct_busibillfeedtl` (
+CREATE TABLE acct.acct_busibillfeedtl (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增id',
   `billId` int(11) NOT NULL COMMENT '账单id',
   `billType` int(11) NOT NULL COMMENT '账单类型',
