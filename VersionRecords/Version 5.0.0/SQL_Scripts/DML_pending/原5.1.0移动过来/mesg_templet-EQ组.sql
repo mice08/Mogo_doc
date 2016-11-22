@@ -1,22 +1,22 @@
-/* Database name `mogoroomdb` £¬ĞÂÔöÏûÏ¢Ä£°æ*/
+/* Database name `mogoroomdb` ï¼Œæ–°å¢æ¶ˆæ¯æ¨¡ç‰ˆ*/
 use mogoroomdb;
 
 
 BEGIN;
 INSERT INTO `mesg_templet`(templetCode, templetName, templetDesc, STATUS, createBy, createTime,createByType, valid, businessType)
-VALUES('sms_renter_resetPwdNotify', 'ÃÜÂëÖØÖÃÍ¨Öª', 'ÃÜÂëÖØÖÃÍ¨Öª', 1, 2, NOW(), 4, 1, 10);
+VALUES('sms_renter_resetPwdNotify', 'å¯†ç é‡ç½®é€šçŸ¥', 'å¯†ç é‡ç½®é€šçŸ¥', 1, 2, NOW(), 4, 1, 10);
 
 SET @i = (SELECT id FROM  mesg_templet WHERE templetCode='sms_renter_resetPwdNotify');
 INSERT INTO `mesg_subtemplet`(templetId, templetType, templetTitle, templetContent, STATUS, valid, outTempletId, jumpCode)
-VALUES(@i, 1, 'ÃÜÂëÖØÖÃÍ¨Öª', '×ğ¾´µÄÓÃ»§£¬ÄúºÃ£¡ÄúÓÚ${currentTime}Í¨¹ıÍ¨¹ıÄ¢¹½×â·¿${channel}±ä¸üÁËÕËºÅ${passwordType}£¬ÇëÍ×ÉÆ±£´æ£¬²¢È·ÈÏÊÇ±¾ÈË²Ù×÷¡£', 1, 1, NULL, NULL);
+VALUES(@i, 1, 'å¯†ç é‡ç½®é€šçŸ¥', 'å°Šæ•¬çš„ç”¨æˆ·ï¼Œæ‚¨å¥½ï¼æ‚¨äº${currentTime}é€šè¿‡é€šè¿‡è˜‘è‡ç§Ÿæˆ¿${channel}å˜æ›´äº†è´¦å·${passwordType}ï¼Œè¯·å¦¥å–„ä¿å­˜ï¼Œå¹¶ç¡®è®¤æ˜¯æœ¬äººæ“ä½œã€‚', 1, 1, NULL, NULL);
 COMMIT;
 
 
 BEGIN;
 INSERT INTO `mesg_templet`(templetCode, templetName, templetDesc, STATUS, createBy, createTime,createByType, valid, businessType)
-VALUES('sms_renter_modifyPhone', 'ĞŞ¸ÄÊÖ»úºÅÂë', 'ĞŞ¸ÄÊÖ»úºÅÂë', 1, 2, NOW(), 4, 1, 10);
+VALUES('sms_renter_modifyPhone', 'ä¿®æ”¹æ‰‹æœºå·ç ', 'ä¿®æ”¹æ‰‹æœºå·ç ', 1, 2, NOW(), 4, 1, 10);
 
 SET @i = (SELECT id FROM  mesg_templet WHERE templetCode='sms_renter_modifyPhone');
 INSERT INTO `mesg_subtemplet`(templetId, templetType, templetTitle, templetContent, STATUS, valid, outTempletId, jumpCode)
-VALUES(@i, 1, 'ĞŞ¸ÄÊÖ»úºÅÂë', '×ğ¾´µÄÓÃ»§£¬ÄúºÃ£¡ÄúÓÚ${currentTime}Í¨¹ıÄ¢¹½×â·¿${channel}±ä¸üÁËÕËºÅÎª${newCellPhone}£¬ÇëÍ×ÉÆ±£´æ£¬²¢È·ÈÏÊÇ±¾ÈË²Ù×÷¡£', 1, 1, NULL, NULL);
+VALUES(@i, 1, 'ä¿®æ”¹æ‰‹æœºå·ç ', 'å°Šæ•¬çš„ç”¨æˆ·ï¼Œæ‚¨å¥½ï¼æ‚¨äº${currentTime}é€šè¿‡è˜‘è‡ç§Ÿæˆ¿${channel}å˜æ›´äº†è´¦å·ä¸º${newCellPhone}ï¼Œè¯·å¦¥å–„ä¿å­˜ï¼Œå¹¶ç¡®è®¤æ˜¯æœ¬äººæ“ä½œã€‚', 1, 1, NULL, NULL);
 COMMIT;
