@@ -45,7 +45,7 @@ CREATE TABLE `loan_workbench_task` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `employId` int(11) NOT NULL COMMENT '用户id',
   `eventId` int(11) NOT NULL COMMENT '事件id',
-  `taskType` varchar(20) NOT NULL COMMENT '参与类型(1认领 2参与)',
+  `taskType` int(2) NOT NULL COMMENT '参与类型(1认领 2参与)',
   `taskLevel` int(2) DEFAULT NULL COMMENT '参与级别(较轻 中等 重度 极度 痛苦 )',
 	`transferType`  varchar(20) NOT NULL COMMENT '任务转移类型（休假 房东编辑 无）',
   `status` int(2) NOT NULL COMMENT '状态',
