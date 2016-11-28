@@ -21,7 +21,7 @@ ADD COLUMN `finServicManId`  int(11) NULL COMMENT '金融服务人id (user_emplo
 
 CREATE TABLE `loan_workbench_event` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
-   eventId int(11) NOT NULL  COMMENT '事件Id',
+   eventOrderId int(11) NOT NULL  COMMENT '事件工单Id',
   `eventNumber` varchar(14) NOT NULL COMMENT '事件编号',
   `eventType` varchar(20) NOT NULL COMMENT '事件类别',
   `flowNumber` varchar(20) NOT NULL COMMENT '流程编号',
