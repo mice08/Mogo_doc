@@ -1,16 +1,17 @@
 ﻿/*添加金融工作台相关表*/
 use mogoroomdb;
 
+
 ALTER TABLE `user_employee_info`
-ADD COLUMN `vacationDate`  date NULL COMMENT '休假开始时间' AFTER `isSynch`,
-ADD COLUMN `vacationEndTime`  date NULL COMMENT '休假结束时间' AFTER `restStartTime`,
-ADD COLUMN `agenter`  int(11) NULL COMMENT '代理人' AFTER `restEndTime`;
+ADD COLUMN `vacationBeginDate`  date NULL COMMENT '休假开始时间' AFTER `isSynch`,
+ADD COLUMN `vacationEndDate`  date NULL COMMENT '休假结束时间' AFTER `vacationBeginDate`,
+ADD COLUMN `agenter`  int(11) NULL COMMENT '代理人' AFTER `vacationEndDate`;
 
 
 ALTER TABLE `user_employee_info_his`
-ADD COLUMN `vacationDate`  date NULL COMMENT '休假开始时间' AFTER `isSynch`,
-ADD COLUMN `vacationEndTime`  date NULL COMMENT '休假结束时间' AFTER `restStartTime`,
-ADD COLUMN `agenter`  int(11) NULL COMMENT '代理人' AFTER `restEndTime`;
+ADD COLUMN `vacationBeginDate`  date NULL COMMENT '休假开始时间' AFTER `operType`,
+ADD COLUMN `vacationEndDate`  date NULL COMMENT '休假结束时间' AFTER `vacationBeginDate`,
+ADD COLUMN `agenter`  int(11) NULL COMMENT '代理人' AFTER `vacationEndDate`;
 
 ALTER TABLE `user_landlord`
 ADD COLUMN `finServicManId`  int(11) NULL COMMENT '金融服务人id (user_employee表Id)' AFTER `landlordSource`;
@@ -21,7 +22,7 @@ ADD COLUMN `finServicManId`  int(11) NULL COMMENT '金融服务人id (user_emplo
 
 CREATE TABLE `loan_workbench_event` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
-   eventOrderId int(11) NOT NULL  COMMENT '事件工单Id',
+	`eventOrderId` int(11) NOT NULL  COMMENT '事件工单Id',
   `eventNumber` varchar(14) NOT NULL COMMENT '事件编号',
   `eventType` varchar(20) NOT NULL COMMENT '事件类别',
   `flowNumber` varchar(20) NOT NULL COMMENT '流程编号',
@@ -44,8 +45,8 @@ CREATE TABLE `loan_workbench_task` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `employId` int(11) NOT NULL COMMENT '用户id',
   `eventId` int(11) NOT NULL COMMENT '事件id',
-  `taskType` varchar(20) NOT NULL COMMENT '任务类型(1认领 2参与)',
-  `taskLevel` int(2) DEFAULT NULL COMMENT '任务级别(较轻 中等 重度 极度 痛苦 )',
+  `taskType` varchar(20) NOT NULL COMMENT '参与类型(1认领 2参与)',
+  `taskLevel` int(2) DEFAULT NULL COMMENT '参与级别(较轻 中等 重度 极度 痛苦 )',
 	`transferType`  varchar(20) NOT NULL COMMENT '任务转移类型（休假 房东编辑 无）',
   `status` int(2) NOT NULL COMMENT '状态',
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
