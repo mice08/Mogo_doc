@@ -1,7 +1,7 @@
 ﻿use mogoroomdb;
 /* Database name `mogoroomdb` ，新增蘑菇金融申请开关配置*/
 
-INSERT INTO `mogo_dev`.`comm_sysconfig` (
+INSERT INTO `comm_sysconfig` (
 	`keyName`,
 	`val`,
 	`groupName`,
@@ -23,7 +23,7 @@ VALUES
 		'0'
 	);
 
-INSERT INTO `mogo_dev`.`comm_sysconfig` (
+INSERT INTO comm_sysconfig` (
 	`keyName`,
 	`val`,
 	`groupName`,
