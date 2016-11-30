@@ -1,4 +1,25 @@
-USE mogoroomdb;
+use mogoroomdb;
+
+DROP TABLE flat_joint_register;
+
+CREATE TABLE `flat_joint_register` (
+	`id` INT (11) NOT NULL AUTO_INCREMENT COMMENT '主键',
+	`userId` INT (11) NOT NULL COMMENT '用户ID(userinfo表ID)',
+	`userType` INT (1) NOT NULL COMMENT '申请人类型(参考字典表groupName=userType)',
+	`registerTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+	`jointBeginTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '开始推广时间',
+	`jointEndTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '结束推广时间',
+	`jointChannel` INT (2) NOT NULL DEFAULT 1 COMMENT '推广渠道 1：58网',
+	`valid` INT (2) NOT NULL DEFAULT 1 COMMENT '状态 1-有效 0-无效',
+	`createTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+	`createBy` INT (11) NOT NULL COMMENT '创建人',
+	`createByType` VARCHAR (50) NOT NULL COMMENT '创建人类型(参考字典表groupName=userType)',
+	`updateTime` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间',
+	`updateBy` INT (11) DEFAULT NULL COMMENT '修改人',
+	`updateByType` INT (11) DEFAULT NULL COMMENT '修改人类型(参考字典表groupName=userType)',
+	PRIMARY KEY (`id`)
+) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '房东推广申请表';
+
 DROP TABLE flat_joint_room;
 
 CREATE TABLE `flat_joint_room` (
@@ -19,7 +40,7 @@ CREATE TABLE `flat_joint_room` (
 	`parlorCount` VARCHAR (20) DEFAULT NULL COMMENT '单元',
 	`toiletCount` VARCHAR (20) DEFAULT NULL COMMENT '单元',
 	`landlordId` INT (11) DEFAULT NULL COMMENT '职业房东Id',
-	`jointAccount` VARCHAR (20) DEFAULT NULL COMMENT '推广账号',
+	`jointAccount` VARCHAR (32) DEFAULT NULL COMMENT '推广账号',
 	`jointBeginTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '开始推广时间',
 	`jointEndTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '结束推广时间',
 	`jointChannel` INT NOT NULL COMMENT '推广渠道 1：58网',
@@ -35,17 +56,15 @@ CREATE TABLE `flat_joint_room` (
 	`updateBy` INT (11) DEFAULT NULL COMMENT '修改人',
 	`updateByType` INT (11) DEFAULT NULL COMMENT '修改人类型(参考字典表groupName=userType)',
 	PRIMARY KEY (`id`)
-) ENGINE = INNODB AUTO_INCREMENT = 62 DEFAULT CHARSET = utf8 COMMENT = '推广房间信息';
+) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '推广房间信息';
 
-DROP TABLE flat_joint_register;
-CREATE TABLE `flat_joint_register` (
-	`id` INT (11) NOT NULL AUTO_INCREMENT COMMENT '主键',
-	`userId` INT (11) NOT NULL COMMENT '用户ID(userinfo表ID)',
-	`userType` INT (1) NOT NULL COMMENT '申请人类型(参考字典表groupName=userType)',
-	`registerTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-	`jointBeginTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '开始推广时间',
-	`jointEndTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '结束推广时间',
-  `jointChannel` INT(2) NOT NULL DEFAULT 1 COMMENT '推广渠道 1：58网',
+DROP TABLE flat_joint_template;
+
+CREATE TABLE `flat_joint_template` (
+	`id` INT (11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+	`flatsType` INT (2) DEFAULT NULL COMMENT '0：整租 1:合租 2：集中式',
+	`roomDescTemplate` VARCHAR (1000) DEFAULT NULL COMMENT '房源描述模板',
+	`jointChannel` INT NOT NULL COMMENT '推广渠道 1：58网',
 	`valid` INT (2) NOT NULL DEFAULT 1 COMMENT '状态 1-有效 0-无效',
 	`createTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
 	`createBy` INT (11) NOT NULL COMMENT '创建人',
@@ -54,5 +73,5 @@ CREATE TABLE `flat_joint_register` (
 	`updateBy` INT (11) DEFAULT NULL COMMENT '修改人',
 	`updateByType` INT (11) DEFAULT NULL COMMENT '修改人类型(参考字典表groupName=userType)',
 	PRIMARY KEY (`id`)
-) ENGINE = INNODB AUTO_INCREMENT = 62 DEFAULT CHARSET = utf8 COMMENT = '房东推广申请表';
+) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '房东推广模板表';
 
