@@ -23,7 +23,7 @@ VALUES
 		'0'
 	);
 
-INSERT INTO comm_sysconfig` (
+INSERT INTO `comm_sysconfig` (
 	`keyName`,
 	`val`,
 	`groupName`,
