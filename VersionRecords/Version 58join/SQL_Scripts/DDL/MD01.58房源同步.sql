@@ -15,7 +15,7 @@ CREATE TABLE `flat_joint_register` (
 	`updateBy` INT (11) DEFAULT NULL COMMENT '修改人',
 	`updateByType` INT (11) DEFAULT NULL COMMENT '修改人类型(参考字典表groupName=userType)',
 	PRIMARY KEY (`id`)
-) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '房东推广申请表';
+) ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COMMENT = '房东推广申请表';
 
 CREATE TABLE `flat_joint_room` (
 	`id` INT (11) NOT NULL AUTO_INCREMENT COMMENT '主键',
@@ -51,7 +51,7 @@ CREATE TABLE `flat_joint_room` (
 	`updateBy` INT (11) DEFAULT NULL COMMENT '修改人',
 	`updateByType` INT (11) DEFAULT NULL COMMENT '修改人类型(参考字典表groupName=userType)',
 	PRIMARY KEY (`id`)
-) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '推广房间信息';
+) ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COMMENT = '推广房间信息';
 
 
 CREATE TABLE `flat_joint_template` (
@@ -67,5 +67,5 @@ CREATE TABLE `flat_joint_template` (
 	`updateBy` INT (11) DEFAULT NULL COMMENT '修改人',
 	`updateByType` INT (11) DEFAULT NULL COMMENT '修改人类型(参考字典表groupName=userType)',
 	PRIMARY KEY (`id`)
-) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '房东推广模板表';
+) ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COMMENT = '房东推广模板表';
 
