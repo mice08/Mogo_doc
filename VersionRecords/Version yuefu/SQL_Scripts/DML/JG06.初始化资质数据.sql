@@ -1,3 +1,5 @@
+/*  初始化资质列表*/
+USE mogoroomdb;
 
 /* 聚有财的可能是多对1的（多个个contract对应1个credit）。credit表中要初始化contractId和prodTypeCode*/
 UPDATE loan_landlord_credit credit
@@ -7,13 +9,13 @@ LEFT JOIN (SELECT MAX(id) AS applyContractId,landlordId
 		GROUP BY landlordId
 	  ) correct_contract
 ON credit.landlordId = correct_contract.landlordId AND credit.loanChannel = 3 
-SET credit.prodTypeCode='10000001' ,credit.contractId = correct_contract.applyContractId
+SET credit.prodTypeCode='1000001' ,credit.contractId = correct_contract.applyContractId
 WHERE  credit.loanChannel = 3;
 
 
 /* 拉卡拉都是1对1的（1个contract对应1个credit）。现在应该不能申请拉卡拉资质了，这直接做数据初始化也行，做了也没什么用，credit表中要初始化contractId和prodTypeCode */
 UPDATE loan_landlord_credit credit,loan_landlord_contract contract      
-SET credit.prodTypeCode='10000001' ,contractId = contract.id
+SET credit.prodTypeCode='1000001' ,contractId = contract.id
 WHERE  credit.landlordId = contract.landlordId 
 AND  credit.loanChannel = 1 AND contract.loanChannel = 1;
 
