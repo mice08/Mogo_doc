@@ -23,8 +23,8 @@ AND  credit.loanChannel = 1 AND contract.loanChannel = 1;
 /*初始化聚有财历史表(渠道为3)的prodTypeCode(1000001)  contractId*/
 UPDATE loan_landlord_credit_his set prodTypeCode='1000001' where loanChannel=3;
 
-/*聚有财3 拉卡拉1 为了保证所有数据都能初始化，再检查一次*/
-UPDATE loan_landlord_credit set prodTypeCode='1000001' where loanChannel in (3,1) and prodTypeCode is null;
+/*聚有财3 拉卡拉1 为了保证所有数据都能初始化，再检查一次
+UPDATE loan_landlord_credit set prodTypeCode='1000001' where loanChannel in (3,1) and prodTypeCode is null;*/
 
 
 
