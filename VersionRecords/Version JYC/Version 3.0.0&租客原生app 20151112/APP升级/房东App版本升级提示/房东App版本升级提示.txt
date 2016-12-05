@@ -1,0 +1,8 @@
+由于房东app和服务应用升级，要求旧的版本的请求到达提示升级页面
+
+要求配置nginx配置把旧版app的请求（http://localhost:8080/mogoroom-partner/initAppInfo）指向升级页面（ http://localhost:8080/mogoroom-partner/pages/appUpdate.html ）
+
+拦截带有Android1.3.0、iOS1.3.0、1.3.0的请求，并把请求指向升级页面（ http://localhost:8080/mogoroom-partner/pages/appUpdate.html ）
+
+上述配置中的localhost:8080修改为对应的应用服务器。
+

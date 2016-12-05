@@ -1,0 +1,4 @@
+/* Database name `mogoroomdb` ，预订表添加是否编辑字段 */
+use mogoroomdb;
+
+ALTER TABLE oder_bookorder ADD COLUMN confirmed tinyint(1) DEFAULT 0 COMMENT '房东是否确认过(默认0:未确认 1:已确认)';

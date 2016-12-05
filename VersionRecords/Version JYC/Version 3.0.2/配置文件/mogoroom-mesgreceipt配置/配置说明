@@ -1,0 +1,5 @@
+1、新建mogoroom-mesgreceipt配置分离目录
+
+ /data/tomcatconf/mesgreceipt
+ 
+ 2、复制下列文件到该目录

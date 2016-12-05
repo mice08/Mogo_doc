@@ -1,0 +1,10 @@
+#招行提现接口
+#CMB
+sysconfig.cmb_payUrl = http://192.168.30.103:9090
+sysconfig.cmb_loginNum = \u94F6\u4F01\u76F4\u8FDE\u4E13\u7528\u96C6\u56E21
+sysconfig.cmb_payAccount = 591902896710201
+sysconfig.cmb_dbtbbk = 59
+sysconfig.cmb_ccynbr =10
+sysconfig.cmb_companyBankNum = N0725148
+sysconfig.cmb_busMod = 00001
+sysconfig.cmb_agentPaybusMod = 00002

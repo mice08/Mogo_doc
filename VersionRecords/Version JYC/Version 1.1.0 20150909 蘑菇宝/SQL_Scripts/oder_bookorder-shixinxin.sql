@@ -1,0 +1,1 @@
+ALTER TABLE `oder_bookorder` CHANGE `orderLapsedTime` `orderLapsedTime` DATETIME NULL COMMENT '系统自动确认通过截止时间'; 

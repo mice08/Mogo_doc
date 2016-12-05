@@ -1,0 +1,3 @@
+insert into `mesg_template` (`type`, `content`, `paramCount`, `status`) values('sms_landlord_guanWangYuyueSuccessNotify','${1}你好，${2}房源有新预约带看需求，带看时间：${3}，租客姓名：${4},，手机号码：${5}。请尽快与租客电话沟通联系','5','1');
+insert into `mesg_template` (`type`, `content`, `paramCount`, `status`) values('sms_renter_guanWangYuyueSuccessNotify','${1}你好，恭喜你成功预约在${2}查看${3}房源，你可使用已注册的手机账号：${4}，及相关密码登录蘑菇租房APP查看预约进度及完成后续签约入住','4','1');
+insert into `mesg_template` (`type`, `content`, `paramCount`, `status`) values('sms_renter_guanWangYuyueSuccess','${1}你好，恭喜你成功预约在${2}查看${3}房源，你的预约账号信息为：${4}，密码：${5}。你可以使用该账号密码登录蘑菇租房APP查看预约进度及完成后续签约入住','5','1');
