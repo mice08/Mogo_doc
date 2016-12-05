@@ -1,0 +1,45 @@
+1、执行sql 脚本  参数配置所有的sql语句。
+
+2、执行全账单迁移sql.sql
+
+3、资金导入 执行SQL脚本 fund数据转移_fengyinpeng.sql
+
+
+4、导入流水数据。
+   a、将原表`user_wateraccount` 里面错误的时间全部修改为现在时间。
+      SQL语句
+      ##数据转移 原库错误数据修改
+      UPDATE `user_wateraccount` SET  `fluctuantTime` = NOW() WHERE `fluctuantTime` = '0000-00-00 00:00:00'
+   b、将原表 `user_wateraccount` 里面错误的fundsourceType 逐个修改。
+        SQL语句 查询。
+
+		SELECT * FROM (
+		SELECT `serialNum` AS bb,GROUP_CONCAT(businessType SEPARATOR ';') AS cc FROM `user_wateraccount`  GROUP BY `serialNum`  ) AS b
+		GROUP BY b.cc
+	
+	         手动修改查询出来的数据，以下是部分需修改数据，不保证现在业务不会产生新的错误数据。 因此需要逐个分析且查看修改。
+		UPDATE  user_wateraccount serialNum SET businessType = '311002' WHERE id = '7654';
+		
+		UPDATE  user_wateraccount serialNum SET businessType = '311002' WHERE id = '7661';
+		
+		UPDATE  user_wateraccount serialNum SET serialNum = '2015101511352874560002' WHERE id = '10165';
+		UPDATE  user_wateraccount serialNum SET serialNum = '2015101511352874560002' WHERE id = '10166';
+		UPDATE  user_wateraccount serialNum SET serialNum = '2015101511352874560003' WHERE id = '10167';
+		UPDATE  user_wateraccount serialNum SET serialNum = '2015101511352874560003' WHERE id = '10168';
+		
+		UPDATE  user_wateraccount serialNum SET serialNum = '2015122508403123150002' WHERE id = '25692';
+		UPDATE  user_wateraccount serialNum SET serialNum = '2015122508403123150002' WHERE id = '25693';
+		UPDATE  user_wateraccount serialNum SET serialNum = '2015122508403123150003' WHERE id = '25694';
+		UPDATE  user_wateraccount serialNum SET serialNum = '2015122508403123150003' WHERE id = '25695';
+		 
+		UPDATE user_wateraccount SET fundSourceType = '1001' WHERE  serialNum = '2015081818122822400150306112'
+	 
+   c、
+      SELECT * FROM acct_account GROUP BY wjIdentity  HAVING COUNT(wjIdentity) > 1;
+		SELECT * FROM acct.`acct_account` WHERE wjIdentity = '01b1858@126.com';
+		SELECT * FROM acct.`acct_account` WHERE wjIdentity = '01Hz金领国际';
+		SELECT * FROM acct.`acct_account` WHERE wjIdentity = '01Jason99';
+		SELECT * FROM acct.`acct_account` WHERE wjIdentity = '0213052274629';
+   
+   
+              执行 sh 脚本 ./acct_init.sh 执行结果看日志

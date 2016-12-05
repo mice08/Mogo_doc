@@ -1,0 +1,1 @@
+ALTER TABLE `user_waterAccount` CHANGE `fluctuantTime` `fluctuantTime` DATETIME DEFAULT CURRENT_TIMESTAMP NULL COMMENT '变动时间'; 

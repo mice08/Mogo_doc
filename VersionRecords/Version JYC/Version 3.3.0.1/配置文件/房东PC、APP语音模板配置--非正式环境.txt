@@ -1,0 +1,17 @@
+﻿#语音模板配置
+
+#2016年7月13日 19:47:20
+#郑良杰
+
+
+#在房东PC的配置文件中添加以下配置
+
+
+#以下配置仅适用于测试、预发布环境，非正式环境配置
+修改:
+sms-company 
+sysconfig.sms_voice_company = dhst_voice_sms-0-0&cl_voice_sms-0-100
+
+
+修改：
+sysconfig.sms_cl_voice_password = E1F8928DCCF4840440C069F8760C4A2A

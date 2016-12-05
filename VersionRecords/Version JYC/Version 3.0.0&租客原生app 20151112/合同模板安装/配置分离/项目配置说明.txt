@@ -1,0 +1,8 @@
+#在nfs上新建下列目录
+	/var/lib/docker/contract/contract
+	/var/lib/docker/contract/download  
+ 	/var/lib/docker/contract/template
+ 	
+	/var/lib/docker/contract/mail
+#所有合同相关项目 nginx增加对目录 /var/lib/docker/contract/download 的访问
+增加 download 路径请求，映射到 /var/lib/docker/contract/download 目录
