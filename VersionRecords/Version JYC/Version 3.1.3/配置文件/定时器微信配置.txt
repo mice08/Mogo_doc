@@ -1,0 +1,17 @@
+#配置
+
+#在定时器配置文件中添加以下配置
+
+#在测试环境 新增如下：
+#weixin
+sysconfig.weixin.weixinhuoBanAppID=wx33a9c566e3a2b08d
+sysconfig.weixin.weixinhuoBanAppSecret=d274ac99276d1e3338602356f7abeed8
+sysconfig.weixin.weixinhuobanReportTempId=lPMRRKvvz2MEYaxzZHgL8HwIpJYv6qZVsXHceyPMmKM
+
+
+#在正式环境 新增如下：
+
+#weixin
+sysconfig.weixin.weixinhuoBanAppID=wx49d2b14dbc7ab226
+sysconfig.weixin.weixinhuoBanAppSecret=1f2b2590eb2d74e93eb7fe34495b0777
+sysconfig.weixin.weixinhuobanReportTempId=ysziVbOsLHsZZPXVoMb78Vyovxjcl2g51dN-_6TtnpA

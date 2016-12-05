@@ -1,0 +1,13 @@
+/*  Database name `mogoroomdb` ，合同表添加字段*/
+use mogoroomdb;
+
+ALTER TABLE cntr_salecontract
+ADD COLUMN oddmentAmount DECIMAL(10,2) DEFAULT 0 COMMENT '租期余数金额',
+ADD COLUMN oddmentPlace INT(2) DEFAULT 1 COMMENT '0租期余数置头,1租期余数置尾',
+ADD COLUMN oddmentMerge INT(2) DEFAULT '0' COMMENT '0表示租期余数不与临近整期合并，1表示租期余数与临近整期合并',
+ADD COLUMN deadlineDate INT(2) DEFAULT NULL COMMENT 'deadlineDate<=0，提前deadlineDate天付款；32>deadlineDate>0，每月deadlineDate号付款',
+ADD COLUMN `sendFlag` INT(2) DEFAULT 2  NOT NULL  COMMENT '是否发送 1:未发送 2:已发送',
+add COLUMN picGroupId INT(11) null comment '合同图片组Id',
+add COLUMN residentId INT(11) not null comment '入住人Id',
+modify COLUMN contractType INT(11) null comment '合同类型(1.蘑菇宝电子合同;2.非蘑菇宝电子合同;3非蘑菇宝纸质合同)',
+add COLUMN billConfig varchar(255) null comment '合同账单配置，json字符串';

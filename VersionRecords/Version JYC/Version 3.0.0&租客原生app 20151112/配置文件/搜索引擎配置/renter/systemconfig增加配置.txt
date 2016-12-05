@@ -1,0 +1,17 @@
+#elastic search server
+#elastic-server
+sysconfig.ELASTIC_URL=http://192.168.30.150:9200
+sysconfig.ELASTIC_KEYWORD_INDEX=keywords
+sysconfig.ELASTIC_KEYWORD_TYPE=wordHint
+sysconfig.ELASTIC_SEARCHROOM_INDEX=rooms
+sysconfig.ELASTIC_SEARCHROOM_CITY_TYPE=city
+sysconfig.ELASTIC_DEFAULT_CITY_ID=289
+sysconfig.ELASTIC_SEARCHROOM_DISTRICT_TYPE=district
+sysconfig.ELASTIC_SEARCHROOM_BUSINESS_TYPE=business
+sysconfig.ELASTIC_SEARCHROOM_STATION_TYPE=station
+sysconfig.ELASTIC_SEARCHROOM_COMMUNITY_TYPE=community
+sysconfig.ELASTIC_SEARCHROOM_ROOM_TYPE=room
+sysconfig.ELASTIC_HELP_INDEX=help
+sysconfig.ELASTIC_HELP_TYPE=helpHint
+sysconfig.ELASTIC_CONNECTION_HOST=192.168.30.150
+sysconfig.ELASTIC_CONNECTION_PORT=9300

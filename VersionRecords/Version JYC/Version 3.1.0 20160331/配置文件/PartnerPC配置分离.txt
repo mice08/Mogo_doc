@@ -1,0 +1,7 @@
+#在测试服务器 /data/tomcatconf/partnerpc/*.properties 文件下配置以下内容（对应dev 的 systemconfig.properties）：
+sysconfig.qimo.qimo_token=c8ea01e0ebe711e5
+sysconfig.qimo.qimo_request_url=http://wechat.7moor.com/Icallback
+
+#正式环境配置
+sysconfig.qimo.qimo_token=f2a091b0f72811e5
+sysconfig.qimo.qimo_request_url=http://wechat.7moor.com/Icallback

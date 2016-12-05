@@ -1,0 +1,127 @@
+SELECT 
+  user_renter.id '租客id',
+  user_renter.`realName` '租客姓名',
+  user_renter.career '职业',
+  user_renter.`cellphone` '手机号',
+  comm_mobile_city.`mobileArea` '手机号归属地',
+  user_renter.`idCard` '身份证号',
+  DATE_FORMAT(
+    user_renter.`birthday`,
+    '%Y-%m-%d'
+  ) '生日',
+  user_renter.`createTime` '注册时间',
+  regChannel.`value` '注册来源（PC/APP/房东录入）',
+  CASE
+    user_renter.`status` 
+    WHEN 1 
+    THEN '是' 
+    WHEN 0 
+    THEN '无效' 
+  END '是否有效',
+  educationalBackground.value '学历',
+  (SELECT 
+    CASE
+      WHEN cntr_salecontract.`turnStrtus` = 0 
+      THEN cntr_salecontract.`signingDate` 
+      WHEN cntr_salecontract.`turnStrtus` > 0 
+      THEN cntr_salecontract.`beginDate` 
+    END 
+  FROM
+    oder_signedorder 
+    JOIN cntr_salecontract 
+      ON cntr_salecontract.id = oder_signedorder.`saleContractId` 
+  WHERE oder_signedorder.`status` NOT IN (0, 98, 99, 22) 
+    AND oder_signedorder.`renterId` = user_renter.`id` 
+  GROUP BY oder_signedorder.`renterId`) '平台首次签约日期',
+  (SELECT 
+    COUNT(oder_signedorder.`id`) 
+  FROM
+    oder_signedorder 
+  WHERE oder_signedorder.`status` NOT IN (0, 98, 99, 22) 
+    AND oder_signedorder.renterid = user_renter.`id`) '拥有签约单数量',
+  (SELECT 
+    MIN(bill_salebill.`payTime`) 
+  FROM
+    bill_salebill 
+    JOIN oder_signedorder 
+      ON oder_signedorder.id = bill_salebill.`signedOrderId` 
+  WHERE ISNULL(bill_salebill.`exempt`) 
+    AND bill_salebill.`payStatus` = 1 
+    AND bill_salebill.`bill_type` IN (1003, 1004) 
+    AND oder_signedorder.`renterId` = user_renter.`id`) '首次在线支付租金时间',
+  (SELECT 
+    MAX(bill_salebill.`payTime`) 
+  FROM
+    bill_salebill 
+    JOIN oder_signedorder 
+      ON oder_signedorder.id = bill_salebill.`signedOrderId` 
+      JOIN cntr_salecontract ON cntr_salecontract.`id` = oder_signedorder.`saleContractId`
+  WHERE ISNULL(bill_salebill.`exempt`) 
+    AND bill_salebill.`payStatus` = 1 
+    AND (bill_salebill.`bill_type`=1003
+    OR (bill_salebill.`bill_type`=1004 AND cntr_salecontract.`contractType`!=1))
+    AND oder_signedorder.`renterId` = user_renter.`id`) '最近一次在线支付租金时间',
+  (SELECT 
+    COUNT(bill_salebill.`id`) 
+  FROM
+    bill_salebill 
+    JOIN oder_signedorder 
+      ON oder_signedorder.id = bill_salebill.`signedOrderId` 
+    JOIN cntr_salecontract ON cntr_salecontract.`id` = oder_signedorder.`saleContractId`
+  WHERE ISNULL(bill_salebill.`exempt`) 
+    AND bill_salebill.`payStatus` = 1 
+    AND (bill_salebill.`bill_type`=1003
+    OR (bill_salebill.`bill_type`=1004 AND cntr_salecontract.`contractType`!=1))
+    AND oder_signedorder.`renterId` = user_renter.`id`) '在线支付租金费用次数',
+  (SELECT 
+    COUNT(bill_salebill.`id`) 
+  FROM
+    bill_salebill 
+    JOIN oder_signedorder 
+      ON oder_signedorder.id = bill_salebill.`signedOrderId` 
+  WHERE ISNULL(bill_salebill.`exempt`) 
+    AND bill_salebill.`payStatus` = 1 
+    AND bill_salebill.`bill_type` NOT IN (10005, 10003,1003,1004) 
+    AND oder_signedorder.`renterId` = user_renter.`id`) '在线支付其他费用次数',
+  (SELECT 
+    COUNT(bill_salebill.`id`) 
+  FROM
+    bill_salebill 
+    JOIN oder_signedorder 
+      ON oder_signedorder.id = bill_salebill.`signedOrderId` 
+  WHERE bill_salebill.`exempt` IS NOT NULL 
+    AND bill_salebill.`payStatus` = 1 
+    AND bill_salebill.`bill_type` IN (1003, 1004) 
+    AND oder_signedorder.`renterId` = user_renter.`id`) '线下支付租金费用次数',
+  (SELECT 
+    COUNT(bill_salebill.`id`) 
+  FROM
+    bill_salebill 
+    JOIN oder_signedorder 
+      ON oder_signedorder.id = bill_salebill.`signedOrderId` 
+  WHERE bill_salebill.`exempt` IS NOT NULL 
+    AND bill_salebill.`payStatus` = 1 
+    AND bill_salebill.`bill_type` NOT IN (1003, 1004) 
+    AND oder_signedorder.`renterId` = user_renter.`id`) '线下支付其他费用次数',
+  CASE
+    WHEN user_special.id IS NOT NULL 
+    THEN '是' 
+  END '是否是测试数据' 
+FROM
+  user_renter 
+  LEFT JOIN 
+    (SELECT 
+      * 
+    FROM
+      comm_mobile_city 
+    GROUP BY comm_mobile_city.`areaCode`) comm_mobile_city 
+    ON comm_mobile_city.areacode = user_renter.regMobileCity 
+  LEFT JOIN comm_dictionary regChannel 
+    ON regChannel.keypro = user_renter.regChannel 
+    AND regChannel.`groupName` = 'channel' 
+  LEFT JOIN comm_dictionary educationalBackground 
+    ON user_renter.educationalBackground = educationalBackground.code 
+  LEFT JOIN user_special 
+    ON user_special.`userId` = user_renter.`id` 
+    AND user_special.`userType` = 4 
+GROUP BY user_renter.`id` 
