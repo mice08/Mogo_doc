@@ -1,0 +1,12 @@
+DROP VIEW `repo_renter_bill`;
+CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `repo_renter_bill` AS select `salebill`.`id` AS `saleBillId`,`salebill`.`userId` AS `renterId`,`salebill`.`landlordId` AS `landlordId`,`flat`.`id` AS 
+`flatId`,`salebill`.`billType` AS `billType`,`salebill`.`amount` AS `amount`,`salebill`.`billDate` AS `billDate`,`salebill`.`dueDate` AS `dueDate`,`salebill`.`payTime` AS `payTime`,`salebill`.`payStatus` AS 
+`payStatus`,`salebill`.`serialNum` AS `serialNum`,`salebill`.`createTime` AS `createTime`,`salebill`.`startDate` AS `startDate`,`salebill`.`endDate` AS `endDate`,`salebill`.`signedOrderId` AS 
+`signedOrderId`,`salebill`.`periodStage` AS `periodStage`,`salebill`.`periodYear` AS `periodYear`,`flat`.`districtId` AS `districtId`,`flat`.`flatsNum` AS `flatsNum`,`flat`.`roomNum` AS `roomNum`,`flat`.`building` AS 
+`building`,`community`.`name` AS `communityName`,`community`.`id` AS `communityId`,`room`.`roomNum` AS `roomSubNum`,`room`.`roomName` AS `roomName`,`room`.`id` AS `roomId`,`renter`.`realName` AS 
+`renterName`,`renter`.`cellphone` AS `renterPhone`,`salecontract`.`rentPayType` AS `rentPayType`,`salecontract`.`id` AS `saleContractId`,`citydistrict`.`id` AS `cityDistrictId`,`citydistrict`.`name` AS 
+`cityDistrictName`,`salecontract`.`beginDate` AS `saleContractStartDate`,`salecontract`.`endDate` AS `saleContractEndDate`,`salecontract`.`status` AS `saleContractStatus`,`salecontract`.`leaseTerm` AS 
+`leaseTerm`,`salebill`.`exempt` AS `exempt`,`salebill`.`exemptType` AS `exemptType`, `flat`.`unit` AS `unit`,`salebill`.`valid` AS `valid`  from (((((((`bill_salebill` `salebill` join `user_renter` `renter`) join `flat_flats` `flat`) join `flat_room` `room`) join `flat_community` 
+`community`) join `oder_signedorder` `signedorder`) join `cntr_salecontract` `salecontract`) join `city_district` `citydistrict`) where ((`salebill`.`userType` = 1) and (`salebill`.`userId` = `renter`.`id`) and 
+(`salebill`.`signedOrderId` = `signedorder`.`id`) and (`signedorder`.`roomId` = `room`.`id`) and (`signedorder`.`saleContractId` = `salecontract`.`id`) and (`signedorder`.`flatsId` = `flat`.`id`) and (`community`.`id` = 
+`flat`.`communityId`) and (`room`.`districtId` = `citydistrict`.`id`));

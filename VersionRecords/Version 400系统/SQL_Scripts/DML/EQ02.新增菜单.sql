@@ -208,6 +208,24 @@ INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLeve
 VALUES ( @fcode, '启用/禁用号码', 'tele/landlord/changeUsageStatus', @seq, '3', @id, '0', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, '1', '2');
 
 
+/* 3级菜单  运营管理-400号码管理-400房东号码管理 (新增400坐席) */
+select @id:=id from perm_functioninfo where fname = '400房东号码管理' order by id desc limit 1;
+select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@id;
+select @fcode:= CONCAT('3',lpad(@id,4,0),@seq) from perm_functioninfo where fname = '400房东号码管理' order by id desc limit 1;
+
+INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
+VALUES ( @fcode, '新增400坐席', 'tele/landlord/createNewExtNum', @seq, '3', @id, '0', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, '1', '2');
+
+
+/* 3级菜单  运营管理-400号码管理-400房东号码管理 (编辑400坐席) */
+select @id:=id from perm_functioninfo where fname = '400房东号码管理' order by id desc limit 1;
+select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@id;
+select @fcode:= CONCAT('3',lpad(@id,4,0),@seq) from perm_functioninfo where fname = '400房东号码管理' order by id desc limit 1;
+
+INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
+VALUES ( @fcode, '编辑400坐席', 'tele/landlord/editExtNum', @seq, '3', @id, '0', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, '1', '2');
+
+
 /* 3级菜单  运营管理-400号码管理-400推广号码管理 (新增400号码) */
 select @id:=id from perm_functioninfo where fname = '400推广号码管理' order by id desc limit 1;
 select @fcode:= CONCAT('3',lpad(@id,4,0),1) from perm_functioninfo where fname = '400推广号码管理' order by id desc limit 1;

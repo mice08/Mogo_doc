@@ -1,0 +1,1 @@
+INSERT INTO `mesg_template` (`type`, `content`, `paramCount`) VALUES('sms_renter_guanWangYuyueSuccess','${1}你好，恭喜你成功预约在${2}查看${3}房源，你的预约账号信息为：${4}，密码：${5}。你可以使用该账号密码登录蘑菇租房APP查看预约进度及完成后续签约入住','5');

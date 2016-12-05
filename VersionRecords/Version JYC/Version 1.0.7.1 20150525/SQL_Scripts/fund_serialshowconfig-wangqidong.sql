@@ -1,0 +1,2 @@
+INSERT INTO `fund_serialshowconfig` (`showName`, `showType`, `businessType`, `fundType`, `fundSourceType`, `plusMinus`, `remark`, `showPlus`) 
+VALUES ('租客交易记录', '1', '211001', '1001', '0', '0', '租客转账给房东', '0'); 

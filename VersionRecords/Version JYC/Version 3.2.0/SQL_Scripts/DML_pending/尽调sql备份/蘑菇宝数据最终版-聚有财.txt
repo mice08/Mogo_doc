@@ -1,0 +1,162 @@
+SELECT 
+  city.`name` '城市',
+  oder_signedorder.`id` '签约单id',
+  oder_signedorder.renterid '租客id',
+  oder_signedorder.`landlordId` '房东id',
+  #'蘑菇宝申请次数'    as    '蘑菇宝申请次数',
+  CASE
+    oder_signedorder.STATUS 
+    WHEN 0 
+    THEN '签约不通过' 
+    WHEN 1 
+    THEN '签约待审核' 
+    WHEN 2 
+    THEN '签约待支付' 
+    WHEN 3 
+    THEN '签约资料有误' 
+    WHEN 4 
+    THEN '签约成功' 
+    WHEN 5 
+    THEN '已退房' 
+    WHEN 6 
+    THEN '合同到期未退房' 
+    WHEN 7 
+    THEN '转客待确认' 
+    WHEN 8 
+    THEN '转客待修改' 
+    WHEN 21 
+    THEN '支付待确认' 
+    WHEN 22 
+    THEN '签约已撤销' 
+    WHEN 23 
+    THEN '首期款已付待处理' 
+    WHEN 24 
+    THEN '租约待确认' 
+    WHEN 98 
+    THEN '签约已过期' 
+    WHEN 99 
+    THEN '已删除' 
+  END '签约单状态',
+  CASE
+    loan_contract.`workFlowStatus` 
+    WHEN 0 
+    THEN '程序无法处理异常' 
+    WHEN 2 
+    THEN '资料编辑中' 
+    WHEN 4 
+    THEN '审核中' 
+    WHEN 8 
+    THEN '验证失败' 
+    WHEN 12 
+    THEN '审核通过' 
+    WHEN 16 
+    THEN '审核失败' 
+    WHEN 20 
+    THEN '放款成功' 
+    WHEN 24 
+    THEN '中止合同' 
+    WHEN 28 
+    THEN '终止合同' 
+    WHEN 32 
+    THEN '合同取消' 
+  END '总状态',
+  CASE
+    loan_contract.`lenderStatus` 
+    WHEN 0 
+    THEN '第三方待审核' 
+    WHEN 2 
+    THEN '第三方贷款申请失败' 
+    WHEN 4 
+    THEN '资料内部验证失败' 
+    WHEN 8 
+    THEN '资料第三方验证失败' 
+    WHEN 12 
+    THEN '第三方审核中' 
+    WHEN 16 
+    THEN '第三方审核失败' 
+    WHEN 20 
+    THEN '第三方审核通过' 
+    WHEN 24 
+    THEN '第三方放款成功' 
+    WHEN 28 
+    THEN '第三方放款失败' 
+    WHEN 32 
+    THEN '第三方合同终止' 
+  END '资方状态',
+  CASE
+    loan_contract.`mogoStatus` 
+    WHEN 4 
+    THEN '蘑菇审核中' 
+    WHEN 8 
+    THEN '蘑菇审核通过' 
+    WHEN 12 
+    THEN '蘑菇审核失败' 
+    WHEN 16 
+    THEN '蘑菇验证错误' 
+  END '内部蘑菇状态',
+  cntr_salecontract.`realRentPrice` '实际月租金',
+  loan_contract.fundReceivedTime '资方放款时间',
+  loan_contract.fundConfirmTime '财务款项到位确认时间',
+  '' AS '资方放款金额',
+  '蘑菇终审时间' AS '蘑菇终审时间',
+  (SELECT 
+    loan_landlord_payplan.payDate 
+  FROM
+    loan_landlord_payplan 
+  WHERE loan_landlord_payplan.loanId = landlord_lc.id 
+    AND loan_landlord_payplan.payStatus = 4 
+    AND loan_landlord_payplan.`loanChannel` = 3 
+    AND (
+      loan_landlord_payplan.period = 1 
+      AND loan_landlord_payplan.phaseMonths > 1
+    ) 
+  LIMIT 1) AS '蘑菇放款时间',
+  landlord_lc.actualAmount AS '蘑菇放款金额',
+  (SELECT 
+    COUNT(1) 
+  FROM
+    bill_salebill bsb 
+  WHERE bsb.signedOrderId = oder_signedorder.`id` 
+    AND (
+      DATE(bsb.payTime) > DATE(bsb.dueDate) 
+      OR (
+        NOW() > bsb.dueDate 
+        AND bsb.payTime IS NULL
+      )
+    )) AS '租客逾期次数',
+  loan_landlord_buyback.buyBackDate AS '房东买回时间',
+  CASE
+    WHEN user_special.id IS NOT NULL 
+    OR usrenter.id IS NOT NULL 
+    THEN '是' 
+  END '是否是测试数据' 
+FROM
+  oder_signedorder 
+  LEFT JOIN cntr_salecontract 
+    ON cntr_salecontract.id = oder_signedorder.`saleContractId` 
+  JOIN loan_contract 
+    ON loan_contract.`signedOrderId` = oder_signedorder.`id` 
+    AND loan_contract.`relContractId` IS NULL 
+  LEFT JOIN loan_contract landlord_lc 
+    ON landlord_lc.relContractId = loan_contract.id 
+  LEFT JOIN flat_flats 
+    ON flat_flats.id = oder_signedorder.`flatsId` 
+  LEFT JOIN city_district 
+    ON city_district.id = flat_flats.`districtId` 
+  LEFT JOIN city 
+    ON city.id = city_district.`cityId` 
+  LEFT JOIN user_special 
+    ON user_special.`userId` = oder_signedorder.`landlordid` 
+    AND user_special.`userType` = 0 
+  LEFT JOIN user_special usrenter 
+    ON usrenter.userid = oder_signedorder.`renterId` 
+    AND usrenter.usertype = 4 
+  LEFT JOIN loan_landlord_buyback 
+    ON loan_landlord_buyback.loanid = loan_contract.id 
+    AND loan_landlord_buyback.`loanChannel` = 3 
+    AND (
+      loan_landlord_buyback.remainPeriod > 1 
+      AND loan_landlord_buyback.backFee > 0
+    ) 
+WHERE cntr_salecontract.`contractType` = 1 
+  AND loan_contract.`loanChannel` = 3 

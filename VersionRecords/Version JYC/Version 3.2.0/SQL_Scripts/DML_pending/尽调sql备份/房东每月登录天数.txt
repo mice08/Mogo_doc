@@ -1,0 +1,226 @@
+SELECT 
+  user_landlord.`id` '房东id',
+  SUM(logincount.total) '登录次数',
+  apptotal 'APP登录次数',
+  pctotal 'PC登录次数',
+  SUM(logincount.daycount) '登录天数',
+  user_landlord.`createTime` '创建时间',
+  MIN(mintime) '首次登录时间',
+  MAX(maxtime) '最后一次登录时间',
+  SUM(days1)'15-07',
+  SUM(days2)'15-08',
+  SUM(days3)'15-09',
+  SUM(days4)'15-10',
+  SUM(days5)'15-11',
+  SUM(days6)'15-12',
+  SUM(days7)'16-01',
+  SUM(days8)'16-02',
+  SUM(days9)'16-03',
+  SUM(days10)'16-04',
+  SUM(days11)'16-05',
+  SUM(days12)'16-06',
+  SUM(days13)'16-07' 
+FROM
+  user_landlord 
+  LEFT JOIN 
+    (SELECT 
+      userid,
+      loginaccount,
+      COUNT(1) total,
+      COUNT(
+        DISTINCT DATE_FORMAT(
+          user_loginlog.`accessTime`,
+          '%Y-%m-%d'
+        )
+      ) daycount,
+      MIN(user_loginlog.`accessTime`) mintime,
+      MAX(user_loginlog.`accessTime`) maxtime,
+      COUNT(
+        CASE
+          WHEN user_loginlog.`url` LIKE '%partner/%' 
+          THEN 1 
+        END
+      ) apptotal,
+      COUNT(
+        CASE
+          WHEN user_loginlog.`url` LIKE '%partnerpc/%' 
+          THEN 1 
+        END
+      ) pctotal,
+      COUNT(
+        DISTINCT 
+        CASE
+          WHEN DATE_FORMAT(
+            user_loginlog.`accessTime`,
+            '%Y-%m'
+          ) = '2015-07' 
+          THEN DATE_FORMAT(
+            user_loginlog.`accessTime`,
+            '%Y-%m-%d'
+          ) 
+        END
+      ) days1,
+      COUNT(
+        DISTINCT 
+        CASE
+          WHEN DATE_FORMAT(
+            user_loginlog.`accessTime`,
+            '%Y-%m'
+          ) = '2015-8' 
+          THEN DATE_FORMAT(
+            user_loginlog.`accessTime`,
+            '%Y-%m-%d'
+          ) 
+        END
+      ) days2,
+      COUNT(
+        DISTINCT 
+        CASE
+          WHEN DATE_FORMAT(
+            user_loginlog.`accessTime`,
+            '%Y-%m'
+          ) = '2015-09' 
+          THEN DATE_FORMAT(
+            user_loginlog.`accessTime`,
+            '%Y-%m-%d'
+          ) 
+        END
+      ) days3,
+      COUNT(
+        DISTINCT 
+        CASE
+          WHEN DATE_FORMAT(
+            user_loginlog.`accessTime`,
+            '%Y-%m'
+          ) = '2015-10' 
+          THEN DATE_FORMAT(
+            user_loginlog.`accessTime`,
+            '%Y-%m-%d'
+          ) 
+        END
+      ) days4,
+      COUNT(
+        DISTINCT 
+        CASE
+          WHEN DATE_FORMAT(
+            user_loginlog.`accessTime`,
+            '%Y-%m'
+          ) = '2015-11' 
+          THEN DATE_FORMAT(
+            user_loginlog.`accessTime`,
+            '%Y-%m-%d'
+          ) 
+        END
+      ) days5,
+      COUNT(
+        DISTINCT 
+        CASE
+          WHEN DATE_FORMAT(
+            user_loginlog.`accessTime`,
+            '%Y-%m'
+          ) = '2015-12' 
+          THEN DATE_FORMAT(
+            user_loginlog.`accessTime`,
+            '%Y-%m-%d'
+          ) 
+        END
+      ) days6,
+      COUNT(
+        DISTINCT 
+        CASE
+          WHEN DATE_FORMAT(
+            user_loginlog.`accessTime`,
+            '%Y-%m'
+          ) = '2016-01' 
+          THEN DATE_FORMAT(
+            user_loginlog.`accessTime`,
+            '%Y-%m-%d'
+          ) 
+        END
+      ) days7,
+      COUNT(
+        DISTINCT 
+        CASE
+          WHEN DATE_FORMAT(
+            user_loginlog.`accessTime`,
+            '%Y-%m'
+          ) = '2016-02' 
+          THEN DATE_FORMAT(
+            user_loginlog.`accessTime`,
+            '%Y-%m-%d'
+          ) 
+        END
+      ) days8,
+      COUNT(
+        DISTINCT 
+        CASE
+          WHEN DATE_FORMAT(
+            user_loginlog.`accessTime`,
+            '%Y-%m'
+          ) = '2016-03' 
+          THEN DATE_FORMAT(
+            user_loginlog.`accessTime`,
+            '%Y-%m-%d'
+          ) 
+        END
+      ) days9,
+      COUNT(
+        DISTINCT 
+        CASE
+          WHEN DATE_FORMAT(
+            user_loginlog.`accessTime`,
+            '%Y-%m'
+          ) = '2016-04' 
+          THEN DATE_FORMAT(
+            user_loginlog.`accessTime`,
+            '%Y-%m-%d'
+          ) 
+        END
+      ) days10,
+      COUNT(
+        DISTINCT 
+        CASE
+          WHEN DATE_FORMAT(
+            user_loginlog.`accessTime`,
+            '%Y-%m'
+          ) = '2016-05' 
+          THEN DATE_FORMAT(
+            user_loginlog.`accessTime`,
+            '%Y-%m-%d'
+          ) 
+        END
+      ) days11,
+      COUNT(
+        DISTINCT 
+        CASE
+          WHEN DATE_FORMAT(
+            user_loginlog.`accessTime`,
+            '%Y-%m'
+          ) = '2016-06' 
+          THEN DATE_FORMAT(
+            user_loginlog.`accessTime`,
+            '%Y-%m-%d'
+          ) 
+        END
+      ) days12,
+      COUNT(
+        DISTINCT 
+        CASE
+          WHEN DATE_FORMAT(
+            user_loginlog.`accessTime`,
+            '%Y-%m'
+          ) = '2016-07' 
+          THEN DATE_FORMAT(
+            user_loginlog.`accessTime`,
+            '%Y-%m-%d'
+          ) 
+        END
+      ) days13 
+    FROM
+      user_loginlog 
+    WHERE user_loginlog.`accessResult` = 'SUCCESS' 
+    GROUP BY loginaccount,
+      userid) logincount 
+    ON logincount.userid = user_landlord.`id` 
+    OR logincount.loginaccount = user_landlord.phone 
+GROUP BY user_landlord.`id` 

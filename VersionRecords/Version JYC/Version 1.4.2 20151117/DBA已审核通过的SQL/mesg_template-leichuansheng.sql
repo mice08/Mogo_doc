@@ -1,0 +1,2 @@
+﻿INSERT INTO mesg_template(type,content,paramCount,STATUS)VALUES('sms_roomRented_1_notify','【蘑菇租房】亲爱的，您在蘑菇租房预约的${1}房源已被他人预定/签约。岁月就是这样，总是把最好的留在后面，而您可以不用等，登录蘑菇，重新寻找属于您的房源',1,1);
+INSERT INTO mesg_template(type,content,paramCount,STATUS)VALUES('sms_roomRented_2_notify','【蘑菇租房】亲爱的，您在蘑菇租房预约的${1}房源已被他人提前直接预定/签约。很抱歉我们未能为您挽留住Ta，生活就是这样，要走的终归留不住，但您不必强留，登录蘑菇，还有更好的房源在等您',1,1);

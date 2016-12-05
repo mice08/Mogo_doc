@@ -1,0 +1,5 @@
+#API-zhifubaoPay  项下  新增配置
+sysconfig.zhifubao_refund_notify_url = http://pay.api.mogoroom.com/mogoroom-payapi/pay/alipay_refund
+
+#API-zhifubaoPay-noCredit 下 新增配置
+sysconfig.zhifubaoNoCredit_refund_notify_url = http://pay.api.mogoroom.com/mogoroom-payapi/pay/alipay_refund
