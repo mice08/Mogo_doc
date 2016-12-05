@@ -1,0 +1,17 @@
+#在systemconfig.properties删除原品牌缓存时间配置   renter和renterpc项目
+filter.sysconfig.memcache.brand.time=1800
+
+#在systemconfig.properties新增品牌缓存时间配置    renter和renterpc项目
+sysconfig.memcache.brand.shortexpire=300
+sysconfig.memcache.brand.longexpire=3600
+
+#在systemconfig.properties新增数据分析有效时间配置    mogoda-tasktracker项目，BS项目
+# data analysis valid time (days)
+sysconfig.da_validtime_collect=21
+sysconfig.da_validtime_analysis=21
+
+# BS, renter和renterpc项目，在jdbc.properties新增mogoda的数据源配置，具体的url/username/password需要换成各自环境的路径用户名和密码
+jdbc.driverClassName_mogoda=com.mysql.jdbc.Driver
+jdbc.url_mogoda=jdbc\:mysql\://mysql_server\:3306/mogo_da?useUnicode\=true&amp;characterEncoding\=utf8&allowMultiQueries=true
+jdbc.username_mogoda=75AF2F0FD37664BB969A7BF981354F01
+jdbc.password_mogoda=9B942DBF75CD8E27BA96E55598773681
