@@ -1,3 +1,0 @@
-在tomcat bin 目录下  在catalina.sh的第一行增加： 
-
-JAVA_OPTS=-Xms2048m -Xmx2048m -XX:PermSize=128M -XX:MaxNewSize=500m -XX:MaxPermSize=256m

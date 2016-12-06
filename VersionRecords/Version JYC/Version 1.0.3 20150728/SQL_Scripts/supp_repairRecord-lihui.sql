@@ -1,1 +1,0 @@
-ALTER TABLE `supp_repairRecord` MODIFY COLUMN remark VARCHAR(1024)

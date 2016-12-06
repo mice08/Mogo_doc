@@ -1,3 +1,0 @@
-UPDATE mesg_template SET content = '${1}你好，恭喜你成功预约在${2}看${3}房源，你的预约账号信息为：${4}，密码：${5}。你可以使用该账号密码登录蘑菇租房APP查看预约进度及完成后续签约入住流程' WHERE TYPE = 'sms_renter_guanWangYuyueSuccess';
-UPDATE mesg_template SET content = '${1}你好，恭喜你成功预约在${2}查看${3}房源，你可使用已注册的手机账号：${4}，及相关密码登录蘑菇租房APP查看预约进度及完成后续签约入住流程' WHERE TYPE = 'sms_renter_guanWangYuyueSuccessNotify';
-UPDATE mesg_template SET content = '${1}你好，${2}房源有新预约带看需求，带看时间：${3}，租客姓名：${4}，联系方式：${5}。请尽快与租客电话沟通' WHERE TYPE = 'sms_landlord_guanWangYuyueSuccessNotify';

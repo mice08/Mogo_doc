@@ -1,2 +1,0 @@
-#mybank
-sysconfig.mybank_Switch=true

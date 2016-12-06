@@ -1,1 +1,0 @@
-insert into `fund_serialshowconfig` (`showName`, `showType`, `businessType`, `fundType`, `fundSourceType`, `plusMinus`, `ifShow`, `remark`, `showPlus`, `description`) values('租客交易记录','1','3008','1001','0','0','1','职业房东退定金 - 支付宝及微信','0',NULL);

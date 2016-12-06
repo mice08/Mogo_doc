@@ -1,9 +1,0 @@
--- 第一个存在已知父节点，确保子节点成功添加，所以指定id=350， 开放城市注意对应code必须有值，app用到
-INSERT INTO `perm_functionInfo` ( `id`,`fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`) 
-VALUES ('350', '1000905', '城市管理', NULL, '5', '1', '9', '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, '1');
-INSERT INTO `perm_functionInfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`) 
-VALUES ( '2035001', '城市列表', 'city/findSupportCityList', '1', '2', '350', '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, '1');
-INSERT INTO `perm_functionInfo` (`fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`)
- VALUES ('3035101', '开放城市', 'city/supportCity', '1', '3', '351', '1', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, '1');
-INSERT INTO `perm_functionInfo` (`fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`) 
-VALUES ('3035102', '查询城市，智能插件 ', 'city/findCityPluginList', '2', '3', '351', '0', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, '1');
