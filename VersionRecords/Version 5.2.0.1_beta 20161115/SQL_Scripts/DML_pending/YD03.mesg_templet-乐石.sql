@@ -1,0 +1,28 @@
+user mogoroomdb;
+
+
+
+INSERT INTO mesg_templet (templetCode, templetName, templetDesc, STATUS, createBy, createTime, createByType, updateBy, updateTime, updateByType, valid, businessType) VALUES('luruzuyuechenggongfankuisWmi','录入租约成功反馈','租客确认租约成功时触发','1','2000031','2016-11-12 10:18:47','5','2000031','2016-11-12 10:18:47','5','1','9');
+INSERT INTO mesg_templet (templetCode, templetName, templetDesc, STATUS, createBy, createTime, createByType, updateBy, updateTime, updateByType, valid, businessType) VALUES('fangdongtixianshibaitixing6Jgc','房东提现失败提醒','提现失败时触发','1','2000031','2016-11-12 10:20:45','5','2000031','2016-11-12 10:20:45','5','1','5');
+INSERT INTO mesg_templet (templetCode, templetName, templetDesc, STATUS, createBy, createTime, createByType, updateBy, updateTime, updateByType, valid, businessType) VALUES('fangdongxiugaidenglumimaJOUe','房东修改登录密码','房东修改密码成功时触发','1','2000031','2016-11-12 14:21:34','5','2000031','2016-11-12 14:21:34','5','1','6');
+INSERT INTO mesg_templet (templetCode, templetName, templetDesc, STATUS, createBy, createTime, createByType, updateBy, updateTime, updateByType, valid, businessType) VALUES('fangdongshoucishezhizhifumimatongzhiq2GT','房东首次设置支付密码通知& #40;移动版& #41;','房东修改支付密码成功时触发','1','2000031','2016-11-12 14:31:29','5','2000031','2016-11-12 15:37:56','5','1','6');
+INSERT INTO mesg_templet (templetCode, templetName, templetDesc, STATUS, createBy, createTime, createByType, updateBy, updateTime, updateByType, valid, businessType) VALUES('xiugaizhifumimatongzhi（yidongban）2dvD','房东支付密码','房东修改支付密码成功时触发','1','2000031','2016-11-12 14:34:06','5','2000031','2016-11-12 14:34:06','5','1','6');
+
+
+
+
+INSERT INTO mesg_subtemplet (templetId, templetType, templetTitle, templetContent, STATUS, valid, outTempletId, jumpCode) VALUES((SELECT id FROM mesg_templet WHERE templetcode ='luruzuyuechenggongfankuisWmi'),'1','','${landlordname}您好，您发给租客${renterName}（${roomInfo}）的租约，租客已经确认，合同已生效！','1','1',NULL,NULL);
+INSERT INTO mesg_subtemplet (templetId, templetType, templetTitle, templetContent, STATUS, valid, outTempletId, jumpCode) VALUES((SELECT id FROM mesg_templet WHERE templetcode ='luruzuyuechenggongfankuisWmi'),'2','','','0','1',NULL,NULL);
+INSERT INTO mesg_subtemplet (templetId, templetType, templetTitle, templetContent, STATUS, valid, outTempletId, jumpCode) VALUES((SELECT id FROM mesg_templet WHERE templetcode ='luruzuyuechenggongfankuisWmi'),'3','录入租约成功反馈','${landlordname}您好，您发给租客${renterName}（${roomInfo}）的租约，租客已经确认，合同已生效！','1','1',NULL,NULL);
+INSERT INTO mesg_subtemplet (templetId, templetType, templetTitle, templetContent, STATUS, valid, outTempletId, jumpCode) VALUES((SELECT id FROM mesg_templet WHERE templetcode ='fangdongtixianshibaitixing6Jgc'),'1','','[提现通知]您好，您在${datetime}发起的提现申请处理失败${remark}请登录蘑菇伙伴核对卡号、姓名等相关信息是否准确。','1','1',NULL,NULL);
+INSERT INTO mesg_subtemplet (templetId, templetType, templetTitle, templetContent, STATUS, valid, outTempletId, jumpCode) VALUES((SELECT id FROM mesg_templet WHERE templetcode ='fangdongtixianshibaitixing6Jgc'),'2','','','0','1',NULL,NULL);
+INSERT INTO mesg_subtemplet (templetId, templetType, templetTitle, templetContent, STATUS, valid, outTempletId, jumpCode) VALUES((SELECT id FROM mesg_templet WHERE templetcode ='fangdongtixianshibaitixing6Jgc'),'3','','','0','1',NULL,NULL);
+INSERT INTO mesg_subtemplet (templetId, templetType, templetTitle, templetContent, STATUS, valid, outTempletId, jumpCode) VALUES((SELECT id FROM mesg_templet WHERE templetcode ='fangdongxiugaidenglumimaJOUe'),'1','','您的蘑菇伙伴登录密码已经修改成功，请妥善保管，切勿泄露！','1','1',NULL,NULL);
+INSERT INTO mesg_subtemplet (templetId, templetType, templetTitle, templetContent, STATUS, valid, outTempletId, jumpCode) VALUES((SELECT id FROM mesg_templet WHERE templetcode ='fangdongxiugaidenglumimaJOUe'),'2','','','0','1',NULL,NULL);
+INSERT INTO mesg_subtemplet (templetId, templetType, templetTitle, templetContent, STATUS, valid, outTempletId, jumpCode) VALUES((SELECT id FROM mesg_templet WHERE templetcode ='fangdongxiugaidenglumimaJOUe'),'3','','','0','1',NULL,NULL);
+INSERT INTO mesg_subtemplet (templetId, templetType, templetTitle, templetContent, STATUS, valid, outTempletId, jumpCode) VALUES((SELECT id FROM mesg_templet WHERE templetcode ='xiugaizhifumimatongzhi（yidongban）2dvD'),'1','','支付密码已修改，你的蘑菇租房账户支付密码已修改成功，请妥善保管，切勿泄露！','1','1',NULL,NULL);
+INSERT INTO mesg_subtemplet (templetId, templetType, templetTitle, templetContent, STATUS, valid, outTempletId, jumpCode) VALUES((SELECT id FROM mesg_templet WHERE templetcode ='xiugaizhifumimatongzhi（yidongban）2dvD'),'2','','','0','1',NULL,NULL);
+INSERT INTO mesg_subtemplet (templetId, templetType, templetTitle, templetContent, STATUS, valid, outTempletId, jumpCode) VALUES((SELECT id FROM mesg_templet WHERE templetcode ='xiugaizhifumimatongzhi（yidongban）2dvD'),'3','','','0','1',NULL,NULL);
+INSERT INTO mesg_subtemplet (templetId, templetType, templetTitle, templetContent, STATUS, valid, outTempletId, jumpCode) VALUES((SELECT id FROM mesg_templet WHERE templetcode ='fangdongshoucishezhizhifumimatongzhiq2GT'),'1','','[设置支付密码成功]恭喜！您已成功设置蘑菇租房支付密码，支付密码是您使用蘑菇租房账户余额支付、提现等资金变动时的凭证，请妥善保管。【蘑菇租房-让我们住得更好】','1','1',NULL,NULL);
+INSERT INTO mesg_subtemplet (templetId, templetType, templetTitle, templetContent, STATUS, valid, outTempletId, jumpCode) VALUES((SELECT id FROM mesg_templet WHERE templetcode ='fangdongshoucishezhizhifumimatongzhiq2GT'),'2','','','0','1',NULL,NULL);
+INSERT INTO mesg_subtemplet (templetId, templetType, templetTitle, templetContent, STATUS, valid, outTempletId, jumpCode) VALUES((SELECT id FROM mesg_templet WHERE templetcode ='fangdongshoucishezhizhifumimatongzhiq2GT'),'3','','','0','1',NULL,NULL);
