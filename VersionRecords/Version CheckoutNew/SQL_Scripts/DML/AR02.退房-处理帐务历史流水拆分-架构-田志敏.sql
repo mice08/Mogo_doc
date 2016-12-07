@@ -133,7 +133,7 @@ INSERT INTO acct.acct_busibillfeedtl (billId, billType, subsId, tradeLogId, recI
     updateTime, updateBy, updateByType,payee,payeeType,userMemo,proofPicGroupId,proofNumber,busiBillId,billamount,deadline,startDate,endDate)
 
     SELECT ab.`billId`,ab.`billType`,ab.`subsId`,abr.tradelogid,abbd.`doneCode`,abbd2.`billId`,
-    IF(ab.`billType`=10004,abbd2.`amount`,abbd.amount),
+    IF(ab.`billType`=10004,abs(abbd2.`amount`),abs(abbd.amount)),
     109 AS `fundChannel`,IFNULL(abr.origDate,abr.createTime) AS payTime,
     abr.status,abr.verified,abr.verifyDate,abr.verifyPerson,0,abr.createTime,abr.createBy,abr.createByType,
     abr.createTime AS updateTime,abr.createBy AS updateBy,abr.createByType AS updateByType,abr.createBy AS payee,abr.createByType AS payeeType,abr.userMemo ,
