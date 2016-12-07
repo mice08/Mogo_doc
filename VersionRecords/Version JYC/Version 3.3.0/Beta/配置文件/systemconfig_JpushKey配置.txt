@@ -1,5 +1,0 @@
-#API-jpush
-sysconfig.renter_masterSecret=f0df7913daddaae26ee9a489
-sysconfig.renter_appkey=6b331b104d0f47b7d6be8522
-sysconfig.partner_masterSecret=dc66b95f399cc455d93559fe
-sysconfig.partner_appkey=78434d02fd2f879a359f8331

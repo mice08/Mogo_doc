@@ -24,5 +24,14 @@ WHERE  credit.loanChannel = 3;
 UPDATE loan_landlord_credit_his SET prodTypeCode='1000001' WHERE loanChannel=3;
 
 
-
+/* 初始化资质记录，初始化那些只有申请没有资质的数据*/
+INSERT INTO loan_landlord_credit(landlordId,theoryAmount,loanChannel,credits,credits2,
+shortestTerm,applyCityId,feeRate,canLoan,oneTime,createTime,createUser,remark,
+sysConfHisId,rangeAmountRate,onlineTradingAmountRate,creditsAdjust,prodTypeCode,contractId)
+SELECT  contract.landlordId,0,3,0,0,
+3,contract.applyCityId,0,4,1,SYSDATE(),'2000001','初始化资质数据20161205',
+0,0,0,0,'1000001',contract.id
+FROM loan_landlord_contract contract 
+LEFT JOIN loan_landlord_credit credit ON contract.landlordId = credit.landlordId
+WHERE contract.loanChannel=3  AND STATUS=1 AND  credit.id IS NULL ;
 

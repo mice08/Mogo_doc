@@ -1,2 +1,0 @@
-ALTER TABLE `oder_reservationOrder` CHANGE `lookTime` `lookTime` DATETIME NOT NULL COMMENT '看房时间';
-ALTER TABLE `oder_reservationorder` CHANGE `createTime` `createTime` DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL COMMENT '创建时间'; 

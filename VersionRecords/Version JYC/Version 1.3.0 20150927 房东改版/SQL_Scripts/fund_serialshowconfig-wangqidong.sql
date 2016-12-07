@@ -1,1 +1,0 @@
-insert into `fund_serialshowconfig` (`showName`, `showType`, `businessType`, `fundType`, `fundSourceType`, `plusMinus`, `ifShow`, `remark`, `showPlus`, `description`) values('租客交易记录','1','216001','1003','0','0','1','支付定金 - 现金',0,NULL);

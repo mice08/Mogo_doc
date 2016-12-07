@@ -1,4 +1,0 @@
-类名：com.mogoroom.tasktracker.task.HandDepositNotPaidBookOrderTask
-时间：每5分钟执行一次
-替代方案：若该定时任务有异常，可执行服务器脚本：/data/script/HandDepositNotPaidBookOrderQuartz.sh
-定时器脚本存放位置：/data/script/HandDepositNotPaidBookOrderQuartz.sh

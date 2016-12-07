@@ -1,1 +1,0 @@
-ALTER TABLE `oder_signedOrder` CHANGE `createTime` `createTime` DATETIME DEFAULT CURRENT_TIMESTAMP NULL COMMENT '创建时间'; 

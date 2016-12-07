@@ -1,2 +1,0 @@
-ALTER TABLE `user_renter` ADD COLUMN `oldLiveStatus` INT NULL COMMENT '老系统到新系统租客居住标识(1:老系统在住未转入新系统 2:老系统在住已转入新系统)' AFTER `educationalBackground`; 
-ALTER TABLE `user_renter` CHANGE `createTime` `createTime` DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL COMMENT '创建时间';

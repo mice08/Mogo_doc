@@ -1,1 +1,0 @@
-新增合同模板  MogoBaoProtocolTemplet_JYC.vm ，放到现有合同模板目录下

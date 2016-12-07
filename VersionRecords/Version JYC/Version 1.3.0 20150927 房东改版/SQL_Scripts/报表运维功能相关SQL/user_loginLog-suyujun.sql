@@ -1,1 +1,0 @@
-alter table user_loginLog add userId INT(11) comment '房东ID或租客ID';

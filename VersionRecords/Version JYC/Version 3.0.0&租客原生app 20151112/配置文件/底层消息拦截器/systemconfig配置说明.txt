@@ -1,7 +1,0 @@
-#Message-guard	消息拦击器相关配置 , 所有使用新消息体系的项目必须使用以下配置
-#已注册用户每天的短信发送量最大值为（peak*1.2=480） 
-sysconfig.message_innerUser_max=480
-#未注册用户每天的短信发送量最大值为10
-sysconfig.message_outerUser_max=10
-#所有用户每天的短信发送量最大值为2160
-sysconfig.message_total_max=2160

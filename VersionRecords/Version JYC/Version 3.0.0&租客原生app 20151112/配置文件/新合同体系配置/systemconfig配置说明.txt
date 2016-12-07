@@ -1,7 +1,0 @@
-#bs, 房东PC，房东APP，租客PC，租客APP 的systemconfig添加如下配置
-
-sysconfig.contract_download_domain=https://app.api.mogoroom.com/download
-
-#bs, 房东PC，房东APP，租客PC，租客APP，定时器 的systemconfig添加如下配置
-
-sysconfig.contract.mail=/var/lib/docker/contract/mail

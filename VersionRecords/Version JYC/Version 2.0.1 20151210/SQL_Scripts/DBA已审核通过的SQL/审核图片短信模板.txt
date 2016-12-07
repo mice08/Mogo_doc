@@ -1,1 +1,0 @@
-insert into mesg_template VALUES ((select max(t.id)+1 from mesg_template t ),"sms_flatsType_verify_landlord","您好，您提交的房型{1}审核{2}，下属房间共{3}，若有租客请求，请及时处理",3,1);

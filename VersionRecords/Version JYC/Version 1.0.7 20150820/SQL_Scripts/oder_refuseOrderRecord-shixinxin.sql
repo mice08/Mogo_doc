@@ -1,1 +1,0 @@
-ALTER TABLE `oder_refuseOrderRecord` CHANGE `cerateTime` `cerateTime` DATETIME DEFAULT CURRENT_TIMESTAMP NULL COMMENT '创建时间'; 
