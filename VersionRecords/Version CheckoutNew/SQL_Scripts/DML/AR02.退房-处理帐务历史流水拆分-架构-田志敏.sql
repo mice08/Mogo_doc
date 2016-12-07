@@ -144,5 +144,5 @@ JOIN acct.acct_bill  ab ON abbd.`billId`=ab.`billId`
 JOIN acct.acct_bill  ab2 ON abbd2.`billId`=ab2.`billId`  
 JOIN acct.acct_busirec abr ON abbd.`doneCode` = abr.`doneCode`
 WHERE 
-abbd.donecode > 0 AND abbd2.donecode>0    AND abbd.`doneCode` = 888225 AND 
+abbd.donecode > 0 AND abbd2.donecode>0     AND 
 abr.busiType=3011  AND (ab2.`billType`=10004 OR ab.`billType`=10004 ) ORDER BY abbd.id DESC ;
