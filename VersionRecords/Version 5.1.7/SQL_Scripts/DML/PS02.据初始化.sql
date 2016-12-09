@@ -1,4 +1,4 @@
-/*����sql������150���Ի���ִ�У�����*/
+﻿/*����sql������150���Ի���ִ�У�����*/
 
 /*���ռ�¼���򿪹�*/
 
@@ -19,7 +19,7 @@ INSERT INTO comm_sysconfig (keyName,val,groupname,NAME,remark,updatetime,updateb
 UPDATE perm_functioninfo SET STATUS=0 WHERE id IN (2820,2822);
 
 
-/*����ֵ�ֵ*/
+/*����ֵ��?/
 INSERT INTO comm_dictionary(CODE,groupname,sort,keypro,VALUE,STATUS,envalue)
     VALUE('userType-8','userType',8,8,'ҵ��',1,'userType-8');
 INSERT INTO comm_dictionary(CODE,groupname,sort,keypro,VALUE,STATUS,envalue)
