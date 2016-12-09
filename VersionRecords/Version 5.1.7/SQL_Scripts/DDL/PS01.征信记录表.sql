@@ -196,7 +196,7 @@ CREATE TABLE risk_qh_credit_rskdoo
    id                   INT(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
    creditUserId         INT(11) COMMENT '征信用户表ID',
    bankCardNo           VARCHAR(128) COMMENT '银行卡卡号',
-   sourceId             INT(2) COMMENT '来源代码(A - 信贷逾期风险B - 行政负面风险C - 欺诈风险99 - 权限不足)',
+   sourceId             VARCHAR(2) COMMENT '来源代码(A - 信贷逾期风险B - 行政负面风险C - 欺诈风险99 - 权限不足)',
    rskScore             INT(3) COMMENT '风险得分', 
    rskMark              VARCHAR(8) COMMENT '风险标记',
    dataBuildTime        DATE COMMENT '业务发生时间',
