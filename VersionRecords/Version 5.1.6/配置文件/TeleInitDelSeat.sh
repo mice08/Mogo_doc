@@ -15,4 +15,4 @@ done
 echo $CLASSPATH
 export CLASSPATH
 DATE=`date +%Y-%m-%d-%H-%M-%S`
-/usr/lib/jvm/jdk1.7.0_79/bin/java -server -Xrs -verbose:gc -Xms2048M -Xmx2048M -XX:MaxPermSize=2048M com.mogoroom.bs.job.CronExecutor teleInitRoomQuartz  init  初始化无配置房源  &> /data/script/logs/teleInitStep4.$DATE.out
+/usr/lib/jvm/jdk1.7.0_79/bin/java -server -Xrs -verbose:gc -Xms2048M -Xmx2048M -XX:MaxPermSize=2048M com.mogoroom.bs.job.CronExecutor teleInitDelSeatQuartz  init  删除坐席  &> /data/script/logs/teleInitDelSeat.$DATE.out
