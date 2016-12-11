@@ -3,13 +3,13 @@
 use mogoroomdb;
 
 /*房东贷款资质申请表*/
-DROP Table IF EXISTS loan_landlord_creditApply;
+DROP Table IF EXISTS loan_landlord_mPayApply;
 CREATE TABLE loan_landlord_creditApply (
   id int(11) NOT NULL AUTO_INCREMENT COMMENT '房东贷款资质申请id',
   landlordId int(11) NOT NULL COMMENT '房东id',
-  contractId int(11) NOT NULL COMMENT '房东贷款合同id',
+  contractId int(11) NOT NULL COMMENT '房东贷款合同id',  
   acctType int(2) NOT NULL COMMENT '房东类型(0:个人 1:公司)',
-  loanChannel int(2) NOT NULL COMMENT '贷款渠道(1:拉卡拉蘑菇宝 3:聚有财蘑菇宝 4:聚有财月付)',
+  loanChannel int(2) NOT NULL COMMENT '贷款渠道(1:拉卡拉蘑菇宝 3:聚有财蘑菇宝 4:聚有财月付)',  --删除 or 冗余
   applicant varchar(32) NOT NULL COMMENT '申请人姓名',
   idCard varchar(18) NOT NULL COMMENT '身份证号码',
   gender int(1) NOT NULL COMMENT '性别: (0:女 1:男)',
@@ -41,7 +41,7 @@ CREATE TABLE loan_landlord_creditApply (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='房东贷款资质申请资料表';
 
 /*房东贷款资质申请企业信息表*/
-DROP Table IF EXISTS loan_creditApply_company;
+DROP Table IF EXISTS loan_mPayApply_company;
 CREATE TABLE loan_creditApply_company (
   id int(11) NOT NULL AUTO_INCREMENT COMMENT '房东贷款资质申请企业信息表id',
   applyId int(11) NOT NULL COMMENT '房东月付服务申请表id',
@@ -65,7 +65,7 @@ CREATE TABLE loan_creditApply_company (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='房东贷款资质申请企业信息表';
 
 /*房东贷款资质申请绑卡信息表*/
-DROP Table IF EXISTS loan_creditApply_bank;
+DROP Table IF EXISTS loan_mPayApply_bank;
 CREATE TABLE loan_creditApply_bank (
   id int(11) NOT NULL AUTO_INCREMENT COMMENT '房东贷款资质申请绑卡信息表id',
   applyId int(11) NOT NULL COMMENT '房东月付服务申请表id',
@@ -83,7 +83,7 @@ CREATE TABLE loan_creditApply_bank (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='房东贷款资质申请绑卡信息表';
 
 /*房东贷款资质申请关系人信息表*/
-DROP Table IF EXISTS loan_creditApply_relation;
+DROP Table IF EXISTS loan_mPayApply_relation;
 CREATE TABLE loan_creditApply_relation (
   id int(11) NOT NULL AUTO_INCREMENT COMMENT '房东贷款资质申请关系人信息表id',
   applyId int(11) NOT NULL COMMENT '房东月付服务申请表id',
@@ -105,7 +105,7 @@ CREATE TABLE loan_creditApply_relation (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='房东贷款资质申请关系人信息表';
 
 /*房东信息采集表*/
-DROP Table IF EXISTS loan_landlord_collection;
+DROP Table IF EXISTS loan_mPayApply_collection;
 CREATE TABLE loan_landlord_collection (
   id int(11) NOT NULL AUTO_INCREMENT COMMENT '房东信息采集表id',
   landlordId int(11) NOT NULL COMMENT '房东id',
@@ -139,7 +139,7 @@ CREATE TABLE loan_landlord_collection (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='房东信息采集表';
 
 /*房东贷款资质审核表*/
-DROP Table IF EXISTS loan_landlordCredit_approve;
+DROP Table IF EXISTS loan_mPayApply_approve;
 CREATE TABLE loan_landlordCredit_approve (
   id int(11) NOT NULL AUTO_INCREMENT COMMENT '房东贷款资质审核表id',
   landlordId int(11) NOT NULL COMMENT '房东id',
@@ -173,7 +173,7 @@ CREATE TABLE loan_landlordCredit_approve (
 
 
 /*房东贷款资质审核历史表*/
-DROP Table IF EXISTS loan_landlordCredit_approve_his;
+DROP Table IF EXISTS loan_mPayApply_approve_his;  --log
 CREATE TABLE loan_landlordCredit_approve_his (
   id int(11) NOT NULL AUTO_INCREMENT COMMENT '房东贷款资质审核历史表id',
   approveId int(11) NOT NULL COMMENT '房东贷款资质审核表id',
@@ -202,7 +202,7 @@ CREATE TABLE loan_landlordCredit_approve_his (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='房东贷款资质审核历史表';
 
 /*房东贷款资质审核原因表*/
-DROP Table IF EXISTS loan_creditReject_Reason;
+DROP Table IF EXISTS loan_mPayApply_rejectReason;
 CREATE TABLE loan_creditReject_Reason (
   id int(11) NOT NULL AUTO_INCREMENT COMMENT '房东贷款资质审核原因表id',
   reasonCode varchar(4) NOT NULL COMMENT '原因代码',
