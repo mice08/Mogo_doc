@@ -1,10 +1,10 @@
-/*房东蘑菇月付资质线上申请*/
+﻿/*房东蘑菇月付资质线上申请*/
 
 use mogoroomdb;
 
 /*房东贷款资质申请表*/
 DROP Table IF EXISTS loan_landlord_mPayApply;
-CREATE TABLE loan_landlord_creditApply (
+CREATE TABLE loan_landlord_mPayApply (
   id int(11) NOT NULL AUTO_INCREMENT COMMENT '房东贷款资质申请id',
   landlordId int(11) NOT NULL COMMENT '房东id',
   contractId int(11) NOT NULL COMMENT '房东贷款合同id',  
@@ -42,7 +42,7 @@ CREATE TABLE loan_landlord_creditApply (
 
 /*房东贷款资质申请企业信息表*/
 DROP Table IF EXISTS loan_mPayApply_company;
-CREATE TABLE loan_creditApply_company (
+CREATE TABLE loan_mPayApply_company (
   id int(11) NOT NULL AUTO_INCREMENT COMMENT '房东贷款资质申请企业信息表id',
   applyId int(11) NOT NULL COMMENT '房东月付服务申请表id',
   companyName varchar(64) NOT NULL COMMENT '企业名称',
@@ -66,7 +66,7 @@ CREATE TABLE loan_creditApply_company (
 
 /*房东贷款资质申请绑卡信息表*/
 DROP Table IF EXISTS loan_mPayApply_bank;
-CREATE TABLE loan_creditApply_bank (
+CREATE TABLE loan_mPayApply_bank (
   id int(11) NOT NULL AUTO_INCREMENT COMMENT '房东贷款资质申请绑卡信息表id',
   applyId int(11) NOT NULL COMMENT '房东月付服务申请表id',
   debitbank varchar(8) NOT NULL COMMENT '绑卡开户行',
@@ -84,7 +84,7 @@ CREATE TABLE loan_creditApply_bank (
 
 /*房东贷款资质申请关系人信息表*/
 DROP Table IF EXISTS loan_mPayApply_relation;
-CREATE TABLE loan_creditApply_relation (
+CREATE TABLE loan_mPayApply_relation (
   id int(11) NOT NULL AUTO_INCREMENT COMMENT '房东贷款资质申请关系人信息表id',
   applyId int(11) NOT NULL COMMENT '房东月付服务申请表id',
   married int(1) DEFAULT NULL COMMENT '婚姻状况(参考字典表组名:married)',
@@ -106,7 +106,7 @@ CREATE TABLE loan_creditApply_relation (
 
 /*房东信息采集表*/
 DROP Table IF EXISTS loan_mPayApply_collection;
-CREATE TABLE loan_landlord_collection (
+CREATE TABLE loan_mPayApply_collection (
   id int(11) NOT NULL AUTO_INCREMENT COMMENT '房东信息采集表id',
   landlordId int(11) NOT NULL COMMENT '房东id',
   contractId int(11) NOT NULL COMMENT '房东贷款申请合同id',
@@ -140,7 +140,7 @@ CREATE TABLE loan_landlord_collection (
 
 /*房东贷款资质审核表*/
 DROP Table IF EXISTS loan_mPayApply_approve;
-CREATE TABLE loan_landlordCredit_approve (
+CREATE TABLE loan_mPayApply_approve (
   id int(11) NOT NULL AUTO_INCREMENT COMMENT '房东贷款资质审核表id',
   landlordId int(11) NOT NULL COMMENT '房东id',
   contractId int(11) NOT NULL COMMENT '房东贷款申请合同id',
@@ -174,7 +174,7 @@ CREATE TABLE loan_landlordCredit_approve (
 
 /*房东贷款资质审核历史表*/
 DROP Table IF EXISTS loan_mPayApply_approve_his;  --log
-CREATE TABLE loan_landlordCredit_approve_his (
+CREATE TABLE loan_mPayApply_approve_his (
   id int(11) NOT NULL AUTO_INCREMENT COMMENT '房东贷款资质审核历史表id',
   approveId int(11) NOT NULL COMMENT '房东贷款资质审核表id',
   contractId int(11) NOT NULL COMMENT '房东贷款申请合同id',
@@ -203,7 +203,7 @@ CREATE TABLE loan_landlordCredit_approve_his (
 
 /*房东贷款资质审核原因表*/
 DROP Table IF EXISTS loan_mPayApply_rejectReason;
-CREATE TABLE loan_creditReject_Reason (
+CREATE TABLE loan_mPayApply_rejectReason (
   id int(11) NOT NULL AUTO_INCREMENT COMMENT '房东贷款资质审核原因表id',
   reasonCode varchar(4) NOT NULL COMMENT '原因代码',
   reasonName varchar(32) NOT NULL COMMENT '原因名称',
