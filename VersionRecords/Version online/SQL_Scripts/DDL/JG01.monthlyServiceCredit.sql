@@ -9,7 +9,7 @@ CREATE TABLE loan_landlord_mPayApply (
   landlordId int(11) NOT NULL COMMENT '房东id',
   contractId int(11) NOT NULL COMMENT '房东贷款合同id',  
   acctType int(2) NOT NULL COMMENT '房东类型(0:个人 1:公司)',
-  loanChannel int(2) NOT NULL COMMENT '贷款渠道(1:拉卡拉蘑菇宝 3:聚有财蘑菇宝 4:聚有财月付)',  --删除 or 冗余
+  loanChannel int(2) NOT NULL COMMENT '贷款渠道(1:拉卡拉蘑菇宝 3:聚有财蘑菇宝 4:聚有财月付)', 
   applicant varchar(32) NOT NULL COMMENT '申请人姓名',
   idCard varchar(18) NOT NULL COMMENT '身份证号码',
   gender int(1) NOT NULL COMMENT '性别: (0:女 1:男)',
@@ -173,8 +173,8 @@ CREATE TABLE loan_mPayApply_approve (
 
 
 /*房东贷款资质审核历史表*/
-DROP Table IF EXISTS loan_mPayApply_approve_his;  --log
-CREATE TABLE loan_mPayApply_approve_his (
+DROP Table IF EXISTS loan_mPayApply_approve_log; 
+CREATE TABLE loan_mPayApply_approve_log (
   id int(11) NOT NULL AUTO_INCREMENT COMMENT '房东贷款资质审核历史表id',
   approveId int(11) NOT NULL COMMENT '房东贷款资质审核表id',
   contractId int(11) NOT NULL COMMENT '房东贷款申请合同id',
