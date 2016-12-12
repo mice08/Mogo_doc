@@ -2,7 +2,9 @@
 
 use mogoroomdb;
 
-INSERT INTO acct.`acct_billtype` (billType,billName,STATUS,sort,displayName ) VALUES(10011,'蘑菇月付账单',1,10011,'蘑菇月付账单');
+DELETE FROM acct.`acct_billtype` WHERE billType=10011;
+
+INSERT INTO acct.`acct_billtype` (billType,billName,STATUS,sort,displayName,penaltyRate ) VALUES(10011,'蘑菇月付账单',1,10011,'蘑菇月付账单',50);
 
 INSERT INTO acct.`acct_billtypetofundtype` (billType,fromFundType,toFundType) VALUES(10011,101,201);
 
