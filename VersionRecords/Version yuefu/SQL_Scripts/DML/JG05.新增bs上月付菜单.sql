@@ -88,6 +88,9 @@ VALUES((SELECT CONCAT(2,(SELECT LPAD((SELECT id FROM perm_functioninfo e WHERE e
 INSERT INTO `perm_functioninfo` (`fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`) 
 VALUES((SELECT CONCAT(2,(SELECT LPAD((SELECT id FROM perm_functioninfo e WHERE e.fname = '蘑菇月付申请列表'),4,0)),'06')),'重新发起申请','monthPay/sendApply','6','3',(SELECT id FROM perm_functioninfo e WHERE e.fname = '蘑菇月付申请列表'),'0',NULL,NULL,NULL,'1','1',NULL,NULL,NULL,NULL,'1','2');
 
+INSERT INTO `perm_functioninfo` (`fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`) 
+VALUES((SELECT CONCAT(2,(SELECT LPAD((SELECT id FROM perm_functioninfo e WHERE e.fname = '蘑菇月付申请列表'),4,0)),'07')),'月付分期强清','monthPay/affirmForceCheckOut','7','3',(SELECT id FROM perm_functioninfo e WHERE e.fname = '蘑菇月付申请列表'),'0',NULL,NULL,NULL,'1','1',NULL,NULL,NULL,NULL,'1','2');
+
 
 
 INSERT INTO `perm_functioninfo` (`fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`) 
