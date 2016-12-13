@@ -103,7 +103,7 @@ VALUES((SELECT CONCAT(2,(SELECT LPAD((SELECT id FROM perm_functioninfo e WHERE e
 INSERT INTO `perm_functioninfo` (`fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`) 
 VALUES((SELECT CONCAT(2,(SELECT LPAD((SELECT id FROM perm_functioninfo e WHERE e.fname = '蘑菇月付买回列表'),4,0)),'01')),'查询蘑菇月付买回列表','monthPay/loanMonthlyBuyBackList','1','3',(SELECT id FROM perm_functioninfo e WHERE e.fname = '蘑菇月付买回列表'),'0',NULL,NULL,NULL,'0','1',NULL,NULL,NULL,NULL,'1','2');
 INSERT INTO `perm_functioninfo` (`fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`) 
-VALUES((SELECT CONCAT(2,(SELECT LPAD((SELECT id FROM perm_functioninfo e WHERE e.fname = '蘑菇月付买回列表'),4,0)),'02')),'导出蘑菇买回列表','monthPay/loanMonthlyBuyBackReport','3','3',(SELECT id FROM perm_functioninfo e WHERE e.fname = '蘑菇月付买回列表'),'0',NULL,NULL,NULL,'0','1',NULL,NULL,NULL,NULL,'1','2');
+VALUES((SELECT CONCAT(2,(SELECT LPAD((SELECT id FROM perm_functioninfo e WHERE e.fname = '蘑菇月付买回列表'),4,0)),'02')),'导出蘑菇月付买回列表','monthPay/loanMonthlyBuyBackReport','3','3',(SELECT id FROM perm_functioninfo e WHERE e.fname = '蘑菇月付买回列表'),'0',NULL,NULL,NULL,'0','1',NULL,NULL,NULL,NULL,'1','2');
 
 
 COMMIT;
