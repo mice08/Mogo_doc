@@ -56,6 +56,8 @@ SELECT
 		END
 	) AS `toiletCount`,
 	`ff`.`floorNum` AS `floorNum`,
+	 fr.isPutaway AS isPutaway,
+	 fr.putawayTime AS putawayTime,
 	`os`.`id` AS `signedOrderId`,
 	`os`.`status` AS `signedOrderStatus`,
 	`ba`.`id` AS `saleBillId`,
@@ -165,6 +167,7 @@ OR REPLACE VIEW `flats_room_detail` AS SELECT
 	`fr`.`status` AS `roomStatus`,
 	`ff`.`status` AS `flatsStatus`,
 	`ff`.`nickName` AS `flatsAlias`,
+	 fr.isPutaway AS isPutaway,
 	`fr`.`signedOrderId` AS `signedOrderId`,
 	`fr`.`renterId` AS `renterId`,
 	`ff`.`unit` AS `unit`,
