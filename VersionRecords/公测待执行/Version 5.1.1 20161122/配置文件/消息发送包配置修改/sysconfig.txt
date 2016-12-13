@@ -1,0 +1,4 @@
+将
+sysconfig.mail_api_key=jXx7go4VP5mxxsuk
+修改为
+sysconfig.mail_api_key=342843941D7314D9501BD2F9E78B9A064788530961C1743A441BD5B44098A04F
