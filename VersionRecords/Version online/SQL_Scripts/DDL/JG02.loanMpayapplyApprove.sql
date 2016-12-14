@@ -3,5 +3,5 @@
 USE mogoroomdb;
 
 ALTER TABLE loan_mpayapply_approve   
-  CHANGE `remark` `remark1` VARCHAR(256)  NULL  COMMENT '信审一审备注',
-  ADD COLUMN `remark2` VARCHAR(256) NULL  COMMENT '信审二审备注' AFTER `remark1`;
+  CHANGE `remark` `remark1` VARCHAR(256)  NULL  COMMENT '拓展专员审核备注',
+  ADD COLUMN `remark2` VARCHAR(256) NULL  COMMENT '信审员审核备注' AFTER `remark1`;
