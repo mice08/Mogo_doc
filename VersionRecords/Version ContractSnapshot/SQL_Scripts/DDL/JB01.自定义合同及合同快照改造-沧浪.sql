@@ -9,8 +9,9 @@ ALTER TABLE `cntr_salecontract` ADD COLUMN `templetCode`  int NULL COMMENT '模板
 /*模板添加4个字段，变更2个字段的语义*/
 ALTER TABLE `cntr_contract_templet`
 MODIFY COLUMN `templetCode`  varchar(20) NOT NULL COMMENT '合同模板编码（编号）' AFTER `templetName`,
-MODIFY COLUMN `status`  tinyint(1) NOT NULL COMMENT '状态,-1停用（禁） 0 停用 1启用' AFTER `templetPath`,
-ADD COLUMN `templetType`  tinyint(1) NULL COMMENT '1:通用（系统） 2:房东（私有）3:历史  4：纸制 5：金融' AFTER `templetPath`,
-ADD COLUMN `templetStatus`  tinyint(1) NULL COMMENT '1:发起（运营）2:生效（房东确认）' AFTER `templetType`,
+MODIFY COLUMN `status`  tinyint(1) NOT NULL COMMENT '模板状态（参考字典表组名:cntrTempletStatus）' AFTER `templetPath`,
+ADD COLUMN `templetType`  tinyint(1) NULL COMMENT '模板类型（参考字典表组名:cntrTempletType）' AFTER `templetPath`,
+ADD COLUMN `templetStatus`  tinyint(1) NULL COMMENT '模板流程状态（参考字典表组名:cntrTempletFlow）' AFTER `templetType`,
+ADD COLUMN `belongContractType` tinyint(1) NULL COMMENT '模板流程状态（参考字典表组名:cntrTempletBelong）' ,
 ADD COLUMN `remark`  varchar(128) NULL COMMENT '备注',
 ADD COLUMN `valid`  tinyint(1) NULL COMMENT '0：无效 1：有效';
