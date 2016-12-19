@@ -1,6 +1,7 @@
 ﻿/*添加金融工作台BS菜单*/
 USE mogoroomdb;
 
+BEGIN;
 
 /**获取开始时间**/
 select @begindate:=NOW();
