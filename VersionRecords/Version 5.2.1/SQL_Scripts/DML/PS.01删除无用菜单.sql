@@ -1,4 +1,4 @@
-/*и╬ЁЩнчсц╡к╣╔*/
+О╩©/*Е┬═И≥╓Ф≈═Г■╗Х▐°Е█∙*/
 
 USE mogoroomdb;
 
@@ -6,4 +6,4 @@ UPDATE
   perm_functioninfo 
 SET
   STATUS = 0 
-WHERE fname = 'т╓т╪╣╔н╒пепео╒мЁ╪ф' ;
+WHERE fname = 'И╒└Г╨╕Е█∙Е╬╝Д©║Д©║Ф│╞Г╩÷Х╝║' ;
