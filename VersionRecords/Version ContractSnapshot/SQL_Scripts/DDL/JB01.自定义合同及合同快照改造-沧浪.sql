@@ -10,7 +10,6 @@ ALTER TABLE `cntr_salecontract` ADD COLUMN `templetCode`  int NULL COMMENT '模板
 ALTER TABLE `cntr_contract_templet`
 MODIFY COLUMN `templetCode`  varchar(20) NOT NULL COMMENT '合同模板编码（编号）' AFTER `templetName`,
 MODIFY COLUMN `status`  tinyint(1) NOT NULL COMMENT '模板状态(0:初始 1:确认生效 2:暂停 3.永久停用)' AFTER `templetPath`,
-MODIFY COLUMN `templetName`  varchar(20) NULL COMMENT '合同模板名称' AFTER `rentType`,
 ADD COLUMN `templetType`  tinyint(1) NULL COMMENT '模板类型(1:通用 2:私有)' AFTER `templetPath`,
 ADD COLUMN `belongContractType` tinyint(1) NULL COMMENT '所属合同类型(1:租房 2:金融)' ,
 ADD COLUMN `remark`  varchar(128) NULL COMMENT '备注',
