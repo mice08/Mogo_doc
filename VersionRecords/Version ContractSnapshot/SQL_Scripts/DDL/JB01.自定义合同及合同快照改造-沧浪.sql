@@ -6,7 +6,7 @@ ALTER TABLE `cntr_salecontract_snapshot` MODIFY COLUMN `params`  varchar(4096) C
 /*合同表-(发起)绑定合同模板，templetType路由快照*/
 ALTER TABLE `cntr_salecontract` ADD COLUMN `templetCode`  int NULL COMMENT '模板code(绑定)' AFTER `confirmDate`;
 
-/*模板添加4个字段，变更2个字段的语义*/
+/*模板添加4个字段，变更2个字段的语义  templetName 允许 null*/
 ALTER TABLE `cntr_contract_templet`
 MODIFY COLUMN `templetCode`  varchar(20) NOT NULL COMMENT '合同模板编码（编号）' AFTER `templetName`,
 MODIFY COLUMN `status`  tinyint(1) NOT NULL COMMENT '模板状态(0:初始 1:确认生效 2:暂停 3.永久停用)' AFTER `templetPath`,
