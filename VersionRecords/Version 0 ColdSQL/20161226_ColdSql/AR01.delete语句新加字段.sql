@@ -1,0 +1,2 @@
+ALTER TABLE acct.`acct_billdtl` ADD COLUMN `valid` TINYINT NULL DEFAULT 1 COMMENT '是否逻辑删除(0:无效,1:有效)';
+ALTER TABLE mogoroomdb.`comm_picture` ADD COLUMN `valid` TINYINT NULL DEFAULT 1 COMMENT '是否逻辑删除(0:无效,1:有效)';
