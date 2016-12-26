@@ -1,3 +1,4 @@
+USE mogoroomdb;
 
 /* 1级菜单 风控管理-征信管理 */
 select @id:=id from perm_functioninfo where fname = '风控管理';
