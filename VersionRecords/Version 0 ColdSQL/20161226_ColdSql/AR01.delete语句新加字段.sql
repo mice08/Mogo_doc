@@ -1,2 +1,5 @@
-ALTER TABLE acct.`acct_billdtl` ADD COLUMN `valid` TINYINT NULL DEFAULT 1 COMMENT 'ÊÇ·ñÂß¼­É¾³ý(0:ÎÞÐ§,1:ÓÐÐ§)';
-ALTER TABLE mogoroomdb.`comm_picture` ADD COLUMN `valid` TINYINT NULL DEFAULT 1 COMMENT 'ÊÇ·ñÂß¼­É¾³ý(0:ÎÞÐ§,1:ÓÐÐ§)';
+use acct;
+ALTER TABLE acct.`acct_billdtl` ADD COLUMN `valid` TINYINT NULL DEFAULT 1 COMMENT 'ï¿½Ç·ï¿½ï¿½ß¼ï¿½É¾ï¿½ï¿½(0:ï¿½ï¿½Ð§,1:ï¿½ï¿½Ð§)';
+
+use mogoroomdb;
+ALTER TABLE mogoroomdb.`comm_picture` ADD COLUMN `valid` TINYINT NULL DEFAULT 1 COMMENT 'ï¿½Ç·ï¿½ï¿½ß¼ï¿½É¾ï¿½ï¿½(0:ï¿½ï¿½Ð§,1:ï¿½ï¿½Ð§)';
