@@ -8,7 +8,7 @@ drop table if exists loan_lender_buyback;
 /*==============================================================*/
 create table loan_lender_buyback
 (
-   id                   int(11) not null comment '资方买回单id',
+   id                   int(11) not null auto_increment comment '资方买回单id',,
    landlordBuyBackId    int(11) not null comment '房东买回单id',
    status               int(2) comment '资方买回状态(1:资方待确认 2:信审待确认 3:财务待退款 4:买回成功)',
    loanAmount           decimal(8,2) default 0.00 comment '资方放款额',
