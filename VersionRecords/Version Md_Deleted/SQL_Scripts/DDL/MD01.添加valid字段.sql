@@ -50,3 +50,7 @@ ALTER TABLE user_weixin_info ADD COLUMN valid tinyint(1) NOT NULL DEFAULT 1 COMM
 ALTER TABLE user_verify_info ADD COLUMN valid tinyint(1) NOT NULL DEFAULT 1 COMMENT '是否有效(0:无效 1:有效)';
 
 ALTER TABLE user_wateraccount ADD COLUMN valid tinyint(1) NOT NULL DEFAULT 1 COMMENT '是否有效(0:无效 1:有效)';
+
+ALTER TABLE perm_landlord_menu ADD COLUMN valid tinyint(1) NOT NULL DEFAULT 1 COMMENT '是否有效(0:无效 1:有效)';
+ALTER TABLE perm_landlord_menu_his ADD COLUMN valid tinyint(1) NOT NULL DEFAULT 1 COMMENT '是否有效(0:无效 1:有效)';
+
