@@ -5,7 +5,7 @@
 						   
 
 ================返回Json结果结束=================
-{"head":{"userid":null,"token":null,"code":"10000","msg":"success"},"body":{"result":{"resultCode":"1","resultMsg":"success"},"content":{"effectOrderNum":4,"confirmOrderNum":0,"signedOrderId":"null","effectOrder":true,"confirmOrder":false},"page":null}}
+{"head":{"userid":null,"token":null,"code":"10000","msg":"success"},"body":{"result":{"resultCode":"1","resultMsg":"success"},"content":[{"content":"月付小区11188栋11888单元11888 RoomA","subtitle":"签约成功-王玉磊-0.5元/月","signedOrderId":"8356","haveBill":true},{"content":"月付小区11188栋11888单元11888 RoomA","subtitle":"签约成功-王玉磊-0.5元/月","signedOrderId":"8338","haveBill":true},{"content":"月付小区11188栋11888单元11888 RoomA","subtitle":"签约成功-王玉磊-0.5元/月","signedOrderId":"8330","haveBill":true},{"content":"月付小区11188栋11888单元11888 RoomA","subtitle":"签约成功-王玉磊-0.5元/月","signedOrderId":"8326","haveBill":true}],"page":null}}
 
 
 
