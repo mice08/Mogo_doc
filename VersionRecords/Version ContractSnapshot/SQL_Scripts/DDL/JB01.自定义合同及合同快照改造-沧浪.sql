@@ -4,7 +4,7 @@ use mogoroomdb;
 ALTER TABLE `cntr_salecontract_snapshot` MODIFY COLUMN `params`  varchar(4096) COMMENT '签订合同时的合同参数json' AFTER `templetId`;
 
 /*合同表-(发起)绑定合同模板，templetType路由快照*/
-ALTER TABLE `cntr_salecontract` ADD COLUMN `templetCode`  int NULL COMMENT '模板code(绑定)' AFTER `confirmDate`;
+ALTER TABLE `cntr_salecontract` ADD COLUMN `templetCode`  varchar(20) NULL COMMENT '模板code(绑定)' AFTER `confirmDate`;
 
 /*模板添加4个字段，变更2个字段的语义  templetName 允许 null*/
 ALTER TABLE `cntr_contract_templet`
