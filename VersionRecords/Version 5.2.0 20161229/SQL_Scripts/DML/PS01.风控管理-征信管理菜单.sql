@@ -16,13 +16,13 @@ select @fcode:= CONCAT('2',lpad(@id,4,0),1) from perm_functioninfo where fname =
 INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
 VALUES ( @fcode, '征信查询', 'riskQhCredit/personalCreditsInfo', 1, '2', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
 
-/* 2级菜单  风控管理-征信管理-好信鹰眼 */
-select @id:=id from perm_functioninfo where fname = '征信管理';
-select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@id;
-select @fcode:= CONCAT('2',lpad(@id,4,0),@seq) from perm_functioninfo where fname = '征信管理';
-
-INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, '好信鹰眼', 'riskQhCredit/haoXinHawkeye', @seq, '2', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+-- /* 2级菜单  风控管理-征信管理-好信鹰眼 */
+-- select @id:=id from perm_functioninfo where fname = '征信管理';
+-- select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@id;
+-- select @fcode:= CONCAT('2',lpad(@id,4,0),@seq) from perm_functioninfo where fname = '征信管理';
+--
+-- INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
+-- VALUES ( @fcode, '好信鹰眼', 'riskQhCredit/haoXinHawkeye', @seq, '2', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
 
 
 /* 3级菜单  风控管理-征信管理-好信鹰眼-企业法院通 */
