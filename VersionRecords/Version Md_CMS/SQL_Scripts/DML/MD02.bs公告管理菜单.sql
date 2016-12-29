@@ -3,7 +3,7 @@ use mogoroomdb;
 /*bs公告管理菜单*/
 
 /**默认不提交事务**/
-set autocommit = 0;
+BEGIN;
 /**获取开始时间**/
 select @begindate:=NOW();
 /**根据节点名称读取父节点id和level**/
