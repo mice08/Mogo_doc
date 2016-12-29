@@ -1,3 +1,4 @@
+/** 支付完成后新增字段，用于统计是否使用行用卡支付字段。并在字典表中新增映射枚举 **/
 USE mogoroomdb;
 ALTER TABLE `bill_paylog_weixin`  ADD COLUMN `isCredit` TINYINT(4) COMMENT '是否使用信用卡' ;
 ALTER TABLE `bill_paylog_zhifubao` ADD COLUMN `isCredit` TINYINT(4) COMMENT '是否使用信用卡' ;
