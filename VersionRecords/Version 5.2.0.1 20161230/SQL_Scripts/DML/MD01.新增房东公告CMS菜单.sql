@@ -8,10 +8,10 @@ INSERT INTO `coms_title` (`titleNum`, `titleName`, `describes`) VALUES(143,'有�
 INSERT INTO `coms_title` (`titleNum`, `titleName`, `describes`) VALUES(144,'有效时间结束','');
 INSERT INTO `coms_title` (`titleNum`, `titleName`, `describes`) VALUES(145,'发送频率','单选');
 
-SET @i = (SELECT AUTO_INCREMENT FROM information_schema.`TABLES` WHERE TABLE_SCHEMA= 'mogo_dev' AND TABLE_NAME='coms_menu');
+SET @i = (SELECT AUTO_INCREMENT FROM information_schema.`TABLES` WHERE TABLE_SCHEMA= 'mogoroomdb' AND TABLE_NAME='coms_menu');
 INSERT INTO `coms_menu` (`id`, `code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, channel, isMenu) 
 VALUES(@i, 400001, '房东公告CMS管理_公告管理','','1','2','-1',NOW(),'-1',NOW(),'1','1','0', '2', '0');
-SET @j = (SELECT AUTO_INCREMENT FROM information_schema.`TABLES` WHERE TABLE_SCHEMA= 'mogo_dev' AND TABLE_NAME='coms_menu');
+SET @j = (SELECT AUTO_INCREMENT FROM information_schema.`TABLES` WHERE TABLE_SCHEMA= 'mogoroomdb' AND TABLE_NAME='coms_menu');
 INSERT INTO `coms_menu` (`id`, `code`, `name`, `url`, `seq`, `level`, `createBy`, `createTime`, `updateBy`, `updateTime`, `status`, `type`, `pid`, channel, isMenu) 
 VALUES(@j, 400002, '房东公告CMS管理_弹窗管理','','2','2','-1',NOW(),'-1',NOW(),'1','1','0', '2', '0');
 
