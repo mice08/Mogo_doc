@@ -4,7 +4,7 @@ use mogoroomdb;
 CREATE TABLE `user_landlord_power`(  
   `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '房东资质表id',
   `landlordId` INT(11) NOT NULL COMMENT '房东id',
-  `powerType` TINYINT(1) NOT NULL COMMENT '资质类型（1: TP资质 2: 免押金资质)',
+  `powerType` TINYINT(1) NOT NULL COMMENT '资质类型（1: TP租房专区资质 2: TP免押金专区资质)',
   `status` TINYINT(1) DEFAULT '1' COMMENT '资质状态（1: 参与中 2: 已暂停(自动暂停) 3:平台暂停(BS平台手动暂停)）',
   `reason` VARCHAR(512) DEFAULT NULL COMMENT '资质关闭原因',
   `remark` VARCHAR(512) DEFAULT NULL COMMENT '备注',
