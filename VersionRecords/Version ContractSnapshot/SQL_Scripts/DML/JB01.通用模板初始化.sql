@@ -1,0 +1,21 @@
+/* 上海通用模板 */
+INSERT INTO `mogo_dev`.`cntr_contract_templet` (`cityId`, `templetName`, `templetCode`, `templetType`, `status`, `createTime`,`belongContractType`,`updateTime`, `remark`, `valid`) VALUES ('289', '居住房屋租赁合同', 'TY001SH', '1', '1', now(), '1', now(),'居住房屋租赁合同(上海)', '1');
+INSERT INTO `mogo_dev`.`cntr_contract_templet` (`cityId`, `templetName`, `templetCode`, `templetType`, `status`, `createTime`,`belongContractType`,`updateTime`, `remark`, `valid`) VALUES ('289', 'House Lease Contract', 'TY002SH', '1', '1', now(), '1', now(),'House Lease Contract(Shanghai)', '1');
+INSERT INTO `mogo_dev`.`cntr_contract_templet` (`cityId`, `templetName`, `templetCode`, `templetType`, `status`, `createTime`,`belongContractType`,`updateTime`, `remark`, `valid`) VALUES ('289', '居住房屋租赁合同-免押金', 'TY003SH', '1', '1', now(), '1', now(),'居住房屋租赁合同-免押金(上海)', '1');
+                                                                                                                                                   
+/* 北京通用模板 */                                                                                                                                 
+INSERT INTO `mogo_dev`.`cntr_contract_templet` (`cityId`, `templetName`, `templetCode`, `templetType`, `status`, `createTime`,`belongContractType`,`updateTime`, `remark`, `valid`) VALUES ('131', '居住房屋租赁合同', 'TY001BJ', '1', '1', now(), '1', now(),'居住房屋租赁合同(北京)', '1');
+INSERT INTO `mogo_dev`.`cntr_contract_templet` (`cityId`, `templetName`, `templetCode`, `templetType`, `status`, `createTime`,`belongContractType`,`updateTime`, `remark`, `valid`) VALUES ('131', 'House Lease Contract', 'TY002BJ', '1', '1', now(), '1', now(),'House Lease Contract(Beijing)', '1');
+INSERT INTO `mogo_dev`.`cntr_contract_templet` (`cityId`, `templetName`, `templetCode`, `templetType`, `status`, `createTime`,`belongContractType`,`updateTime`, `remark`, `valid`) VALUES ('131', '居住房屋租赁合同-免押金', 'TY003BJ', '1', '1', now(), '1', now(),'居住房屋租赁合同-免押金(北京)', '1');
+                                                                                                                                                   
+/* 深圳通用模板 */                                                                                                                                 
+INSERT INTO `mogo_dev`.`cntr_contract_templet` (`cityId`, `templetName`, `templetCode`, `templetType`, `status`, `createTime`,`belongContractType`,`updateTime`, `remark`, `valid`) VALUES ('340', '居住房屋租赁合同', 'TY001SZ', '1', '1', now(), '1', now(),'居住房屋租赁合同(深圳)', '1');
+INSERT INTO `mogo_dev`.`cntr_contract_templet` (`cityId`, `templetName`, `templetCode`, `templetType`, `status`, `createTime`,`belongContractType`,`updateTime`, `remark`, `valid`) VALUES ('340', 'House Lease Contract', 'TY002SZ', '1', '1', now(), '1', now(),'House Lease Contract(Shenzhen)', '1');
+INSERT INTO `mogo_dev`.`cntr_contract_templet` (`cityId`, `templetName`, `templetCode`, `templetType`, `status`, `createTime`,`belongContractType`,`updateTime`, `remark`, `valid`) VALUES ('340', '居住房屋租赁合同-免押金', 'TY003SZ', '1', '1', now(), '1', now(),'居住房屋租赁合同-免押金(深圳)', '1');
+                                                                                                                                                   
+                                                                                                                                                   
+/* 纸制合同- 北上深 模板 */                                                                                                                        
+INSERT INTO `mogo_dev`.`cntr_contract_templet` (`cityId`, `templetName`, `templetCode`, `templetType`, `status`, `createTime`,`belongContractType`,`updateTime`, `remark`, `valid`) VALUES ('289', '纸质合同模板', 'TY000SH', '1', '1', now(), '1', now(),'纸质合同模板(上海)', '1');
+INSERT INTO `mogo_dev`.`cntr_contract_templet` (`cityId`, `templetName`, `templetCode`, `templetType`, `status`, `createTime`,`belongContractType`,`updateTime`, `remark`, `valid`) VALUES ('131', '纸质合同模板', 'TY000BJ', '1', '1', now(), '1', now(),'纸质合同模板（北京）', '1');
+INSERT INTO `mogo_dev`.`cntr_contract_templet` (`cityId`, `templetName`, `templetCode`, `templetType`, `status`, `createTime`,`belongContractType`,`updateTime`, `remark`, `valid`) VALUES ('340', '纸质合同模板', 'TY000SZ', '1', '1', now(), '1', now(),'纸质合同模板(深圳)', '1');
+
