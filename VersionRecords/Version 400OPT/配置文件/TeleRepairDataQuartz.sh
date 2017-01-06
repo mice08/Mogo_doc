@@ -15,4 +15,4 @@ done
 echo $CLASSPATH
 export CLASSPATH
 DATE=`date +%Y-%m-%d-%H-%M-%S`
-/usr/lib/jvm/jdk1.7.0_79/bin/java -server -Xrs -verbose:gc -Xms2048M -Xmx2048M -XX:MaxPermSize=2048M com.mogoroom.bs.job.CronExecutor teleRepaireDataQuartz  init  修复400入住人数据  &> /data/script/logs/teleRepaireDataQuartz.$DATE.out
+/usr/lib/jvm/jdk1.7.0_79/bin/java -server -Xrs -verbose:gc -Xms2048M -Xmx2048M -XX:MaxPermSize=2048M com.mogoroom.bs.job.CronExecutor teleRepairDataQuartz  init  修复400入住人数据  &> /data/script/logs/teleRepairDataQuartz.$DATE.out
