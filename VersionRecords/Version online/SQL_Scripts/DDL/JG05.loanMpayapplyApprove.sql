@@ -1,4 +1,4 @@
-/*修改字段*/
+/*新增信审上传图片组id字段*/
 USE mogoroomdb;
 
 ALTER TABLE loan_mpayapply_approve
