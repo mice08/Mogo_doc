@@ -141,4 +141,14 @@ VALUES ( @fcode, '分店和子账号报表导出', 'branchAndSubAccount/branchAn
 
 COMMIT;
 
+/* 3级菜单  聚有财-蘑菇月付-蘑菇月付还款列表 (蘑菇月付还款报表导出) */
+select @id:=id from perm_functioninfo where fname = '蘑菇月付还款列表' ORDER BY id DESC LIMIT 1;
+select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@id;
+select @fcode:= CONCAT('3',lpad(@id,4,0),1 ) from perm_functioninfo where fname = '蘑菇月付还款列表' ORDER BY id DESC LIMIT 1;
+
+INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
+VALUES ( @fcode, '蘑菇月付还款报表导出', 'monthPay/renterReapyExportExcel', @seq, '3', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+
+COMMIT;
+
 
