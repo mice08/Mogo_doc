@@ -36,4 +36,4 @@ INSERT INTO `cntr_contract_templet` (`cityId`,`templetName`,templetPath,createBy
 INSERT INTO `cntr_contract_templet` (`cityId`,`templetName`,templetPath,createBy,createByType,lang, `templetCode`, `templetType`, `status`, `createTime`,`belongContractType`,`updateTime`, `remark`, `valid`) VALUES (0,'历史-自营模板4','common/HIS_ZY004.vm',-1,-1,1, 'HIS_ZY004', '1', '3', now(), '1', now(),'自营模板(2016/11/09 00:26至2016/11/18 15:03)', '1');
 
 /* 1号房东(自营) 模板 */   
-INSERT INTO `cntr_contract_templet` (landlordId,cityId,`templetName`,templetPath,createBy,createByType,lang, `templetCode`, `templetType`, `status`, `createTime`,`belongContractType`,`updateTime`, `remark`, `valid`) VALUES (1,289,'蘑菇公寓合同模板','private/1/ZL0000001001.vm',-1,-1,1,  'ZL0000001001', '2', '1', now(), '1', now(),'生效时间2016/11/18 15:03', '1');
+INSERT INTO `cntr_contract_templet` (landlordId,cityId,`templetName`,templetPath,createBy,createByType,lang, `templetCode`, `templetType`, `status`, `createTime`,`belongContractType`,`updateTime`, `remark`, `valid`) VALUES (1,289,'蘑菇公寓合同模板','private/1/ZL0000001001.vm',-1,-1,1,  'ZL000000000001', '2', '1', now(), '1', now(),'生效时间2016/11/18 15:03', '1');
