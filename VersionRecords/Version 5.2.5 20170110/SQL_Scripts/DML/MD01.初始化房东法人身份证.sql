@@ -2,5 +2,5 @@
 use mogoroomdb;
 
 BEGIN;
-update user_landlord set legalIdentityId = identityId;
+update user_landlord set legalIdentityId = identityId where card_type='credential-1';;
 COMMIT;
