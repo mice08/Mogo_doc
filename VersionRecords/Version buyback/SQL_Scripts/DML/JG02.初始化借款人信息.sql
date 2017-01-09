@@ -1,7 +1,10 @@
-﻿/*跟换BS保证金管理菜单表*/
+﻿/*初始化借款人信息*/
 
 use mogoroomdb;
 
-update perm_functioninfo set  furl='loanManage/queryDepositManage' where  furl='loanManage/depositManageList' ;
-
-update perm_functioninfo set  furl='loanManageExport/queryDepositManageExport' where  furl='loanManageExport/depositManageListExport' ;
+UPDATE loan_borrower_info u,
+ user_info_his h
+SET u.userId = h.userId,
+ u.userMoblie = h.mobile
+WHERE
+	h.tid = u.tid
