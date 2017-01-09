@@ -141,4 +141,125 @@ VALUES ( @fcode, '分店和子账号报表导出', 'branchAndSubAccount/branchAn
 
 COMMIT;
 
+/* 3级菜单  聚有财-蘑菇月付-蘑菇月付还款列表 (蘑菇月付还款报表导出) */
+select @id:=id from perm_functioninfo where fname = '蘑菇月付还款列表' ORDER BY id DESC LIMIT 1;
+select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@id;
+select @fcode:= CONCAT('3',lpad(@id,4,0),1 ) from perm_functioninfo where fname = '蘑菇月付还款列表' ORDER BY id DESC LIMIT 1;
+
+INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
+VALUES ( @fcode, '蘑菇月付还款报表导出', 'monthPay/renterReapyExportExcel', @seq, '3', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+
+COMMIT;
+
+/* 增加菜单-修改权限 */
+SELECT @id:=id FROM perm_functioninfo WHERE fname = '角色列表' LIMIT 1;
+SELECT @seq:=(MAX(seq)+1) FROM perm_functioninfo WHERE functionpId=@id;
+SELECT @fcode:= CONCAT('3',LPAD(@id,4,0),@seq) FROM perm_functioninfo WHERE fname = '角色列表' LIMIT 1;
+
+INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
+VALUES ( @fcode, '修改权限', 'permission/addRolePermission', @seq, '3', @id, '0', NULL, NULL, NULL, '0', '0', NULL, NULL, NULL, NULL, '1', '2');
+COMMIT;
+/*给超级管理员配上系统权限的修改权限*/
+INSERT INTO perm_role_function VALUES ((SELECT id FROM perm_role WHERE rolename='超级管理员'),(SELECT id FROM perm_functioninfo WHERE furl ='permission/addRolePermission'))
+COMMIT;
+
+/* 增加菜单-房东房源明细导出 */
+SELECT @id:=id FROM perm_functioninfo WHERE furl ='report/detailed' LIMIT 1;
+SELECT @seq:=(IFNULL(MAX(seq),0)+1) FROM perm_functioninfo WHERE functionpId=@id;
+SELECT @fcode:= CONCAT('3',LPAD(@id,4,0),@seq) FROM perm_functioninfo WHERE furl ='report/detailed' LIMIT 1;
+
+INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
+VALUES ( @fcode, '房东房源明细导出', 'report/detailedDown', @seq, '3', @id, '0', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+COMMIT;
+/* 增加菜单-自营退房退款 */
+SELECT @id:=id FROM perm_functioninfo WHERE furl ='report/tuikuan' LIMIT 1;
+SELECT @seq:=(IFNULL(MAX(seq),0)+1) FROM perm_functioninfo WHERE functionpId=@id;
+SELECT @fcode:= CONCAT('3',LPAD(@id,4,0),@seq) FROM perm_functioninfo WHERE furl ='report/tuikuan' LIMIT 1;
+
+INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
+VALUES ( @fcode, '自营退房退款导出', 'report/tuikuanDown', @seq, '3', @id, '0', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+COMMIT;
+/* 增加菜单-自营房屋管家 */
+SELECT @id:=id FROM perm_functioninfo WHERE furl ='report/findSelfFlatsSteward' LIMIT 1;
+SELECT @seq:=(IFNULL(MAX(seq),0)+1) FROM perm_functioninfo WHERE functionpId=@id;
+SELECT @fcode:= CONCAT('3',LPAD(@id,4,0),@seq) FROM perm_functioninfo WHERE furl ='report/findSelfFlatsSteward' LIMIT 1;
+
+INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
+VALUES ( @fcode, '自营房屋管家导出', 'report/findSelfFlatsStewardDown', @seq, '3', @id, '0', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+COMMIT;
+/* 增加菜单-租金宝明细 */
+SELECT @id:=id FROM perm_functioninfo WHERE furl ='report/findRentbaoDetail' LIMIT 1;
+SELECT @seq:=(IFNULL(MAX(seq),0)+1) FROM perm_functioninfo WHERE functionpId=@id;
+SELECT @fcode:= CONCAT('3',LPAD(@id,4,0),@seq) FROM perm_functioninfo WHERE furl ='report/findRentbaoDetail' LIMIT 1;
+
+INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
+VALUES ( @fcode, '租金宝明细导出', 'report/findRentbaoDetailDown', @seq, '3', @id, '0', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+COMMIT;
+/* 增加菜单-租客APP登录统计 */
+SELECT @id:=id FROM perm_functioninfo WHERE furl ='report/renterRegistedCount' LIMIT 1;
+SELECT @seq:=(IFNULL(MAX(seq),0)+1) FROM perm_functioninfo WHERE functionpId=@id;
+SELECT @fcode:= CONCAT('3',LPAD(@id,4,0),@seq) FROM perm_functioninfo WHERE furl ='report/renterRegistedCount' LIMIT 1;
+
+INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
+VALUES ( @fcode, '租客APP登录统计导出', 'report/renterRegistedCountDown', @seq, '3', @id, '0', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+COMMIT;
+/* 增加菜单-注册用户明细 */
+SELECT @id:=id FROM perm_functioninfo WHERE furl ='renter/findRegRenterReportDetail' LIMIT 1;
+SELECT @seq:=(IFNULL(MAX(seq),0)+1) FROM perm_functioninfo WHERE functionpId=@id;
+SELECT @fcode:= CONCAT('3',LPAD(@id,4,0),@seq) FROM perm_functioninfo WHERE furl ='renter/findRegRenterReportDetail' LIMIT 1;
+
+INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
+VALUES ( @fcode, '注册用户明细导出', 'renter/findRegRenterReportDetailDown', @seq, '3', @id, '0', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+COMMIT;
+/* 增加菜单-签约单账单报表 */
+SELECT @id:=id FROM perm_functioninfo WHERE furl ='report/findSignedOrderBillReport' LIMIT 1;
+SELECT @seq:=(IFNULL(MAX(seq),0)+1) FROM perm_functioninfo WHERE functionpId=@id;
+SELECT @fcode:= CONCAT('3',LPAD(@id,4,0),@seq) FROM perm_functioninfo WHERE furl ='report/findSignedOrderBillReport' LIMIT 1;
+
+INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
+VALUES ( @fcode, '签约单账单报表导出', 'report/findSignedOrderBillReportDown', @seq, '3', @id, '0', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+COMMIT;
+/* 增加菜单-房租应付报表 */
+SELECT @id:=id FROM perm_functioninfo WHERE furl ='report/qiankuan' LIMIT 1;
+SELECT @seq:=(IFNULL(MAX(seq),0)+1) FROM perm_functioninfo WHERE functionpId=@id;
+SELECT @fcode:= CONCAT('3',LPAD(@id,4,0),@seq) FROM perm_functioninfo WHERE furl ='report/qiankuan' LIMIT 1;
+
+INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
+VALUES ( @fcode, '房租应付报表导出', 'report/qiankuanDown', @seq, '3', @id, '0', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+COMMIT;
+/* 增加菜单-快钱入账对账报表 */
+SELECT @id:=id FROM perm_functioninfo WHERE furl ='report/findKuaiqianBalanceReport' LIMIT 1;
+SELECT @seq:=(IFNULL(MAX(seq),0)+1) FROM perm_functioninfo WHERE functionpId=@id;
+SELECT @fcode:= CONCAT('3',LPAD(@id,4,0),@seq) FROM perm_functioninfo WHERE furl ='report/findKuaiqianBalanceReport' LIMIT 1;
+
+INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
+VALUES ( @fcode, '快钱入账对账报表导出', 'report/findKuaiqianBalanceReportDown', @seq, '3', @id, '0', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+COMMIT;
+/* 增加菜单-支付定金 */
+SELECT @id:=id FROM perm_functioninfo WHERE furl ='report/financePayInDepositReport' LIMIT 1;
+SELECT @seq:=(IFNULL(MAX(seq),0)+1) FROM perm_functioninfo WHERE functionpId=@id;
+SELECT @fcode:= CONCAT('3',LPAD(@id,4,0),@seq) FROM perm_functioninfo WHERE furl ='report/financePayInDepositReport' LIMIT 1;
+
+INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
+VALUES ( @fcode, '支付定金报表导出', 'report/financePayInDepositReportDown', @seq, '3', @id, '0', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+COMMIT;
+/* 增加菜单-入账明细报表 */
+SELECT @id:=id FROM perm_functioninfo WHERE furl ='report/findBalanceDetailReport' LIMIT 1;
+SELECT @seq:=(IFNULL(MAX(seq),0)+1) FROM perm_functioninfo WHERE functionpId=@id;
+SELECT @fcode:= CONCAT('3',LPAD(@id,4,0),@seq) FROM perm_functioninfo WHERE furl ='report/findBalanceDetailReport' LIMIT 1;
+
+INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
+VALUES ( @fcode, '入账明细报表导出', 'report/findBalanceDetailReportDown', @seq, '3', @id, '0', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+COMMIT;
+/* 增加菜单-出款明细报表 */
+SELECT @id:=id FROM perm_functioninfo WHERE furl ='report/financeOutgoDetailReport' LIMIT 1;
+SELECT @seq:=(IFNULL(MAX(seq),0)+1) FROM perm_functioninfo WHERE functionpId=@id;
+SELECT @fcode:= CONCAT('3',LPAD(@id,4,0),@seq) FROM perm_functioninfo WHERE furl ='report/financeOutgoDetailReport' LIMIT 1;
+
+INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
+VALUES ( @fcode, '出款明细报表导出', 'report/financeOutgoDetailReportDown', @seq, '3', @id, '0', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+
+
+COMMIT;
+
 
