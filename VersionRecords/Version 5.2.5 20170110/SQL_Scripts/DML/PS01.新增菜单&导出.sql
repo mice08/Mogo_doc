@@ -160,7 +160,7 @@ INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLeve
 VALUES ( @fcode, '修改权限', 'permission/addRolePermission', @seq, '3', @id, '0', NULL, NULL, NULL, '0', '0', NULL, NULL, NULL, NULL, '1', '2');
 COMMIT;
 /*给超级管理员配上系统权限的修改权限*/
-INSERT INTO perm_role_function VALUES ((SELECT id FROM perm_role WHERE rolename='超级管理员'),(SELECT id FROM perm_functioninfo WHERE furl ='permission/addRolePermission'))
+INSERT INTO perm_role_function VALUES ((SELECT id FROM perm_role WHERE rolename='超级管理员'),(SELECT id FROM perm_functioninfo WHERE furl ='permission/addRolePermission'));
 COMMIT;
 
 /* 增加菜单-房东房源明细导出 */
