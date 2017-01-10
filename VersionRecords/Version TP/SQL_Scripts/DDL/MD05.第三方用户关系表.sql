@@ -14,7 +14,7 @@ CREATE TABLE `user_third_account` (
   `hobby` varchar(255) DEFAULT NULL COMMENT '兴趣爱好',
   `career` varchar(255) DEFAULT NULL COMMENT '职业',
   `channel` int(10) DEFAULT NULL COMMENT '信息来源渠道',
-  `zimaScore` int(10) DEFAULT NULL COMMENT '芝麻分',
+  `zhimaScore` int(10) DEFAULT NULL COMMENT '芝麻分',
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
   `status` tinyint(1) DEFAULT '1' COMMENT '状态(0：无效，1：有效)',
   `valid` tinyint(1) DEFAULT '1' COMMENT '是否删除(0:删除 1:正常)',

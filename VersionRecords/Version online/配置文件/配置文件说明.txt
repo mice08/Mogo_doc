@@ -1,0 +1,5 @@
+开发环境、测试环境按《配置文件.xls》里配置的具体的路径放入credoo_stg.cer和credoo_stg.jks
+sysconfig.risk_qh_stg_cer=/var/lib/docker/key/credoo_stg.cer
+sysconfig.risk_qh_stg_jks=/var/lib/docker/key/credoo_stg.jks
+
+正式环境由运维人员在上线时维护
