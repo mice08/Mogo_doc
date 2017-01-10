@@ -1,6 +1,6 @@
-﻿/*  Database name `mogoroomdb`  增加菜单&导出 */
+﻿/*  Database name `mogoroomdb`  更新法人身份证 */
 use mogoroomdb;
 
 BEGIN;
-update user_landlord set legalIdentityId = identityId where card_type='credential-1';;
+update user_landlord set legalIdentityId = identityId where card_type='credential-1';
 COMMIT;
