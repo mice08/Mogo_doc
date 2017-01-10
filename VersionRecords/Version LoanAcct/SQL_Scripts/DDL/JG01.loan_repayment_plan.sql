@@ -1,6 +1,6 @@
 /*创建金融还款计划表*/
 
-use mogoroomdb
+use mogoroomdb;
 CREATE TABLE `loan_repayment_plan`(  
   `id` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `loanId` BIGINT(20) NOT NULL COMMENT '合同ID',
