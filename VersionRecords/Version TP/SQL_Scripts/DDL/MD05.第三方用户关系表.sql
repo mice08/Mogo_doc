@@ -14,7 +14,7 @@ CREATE TABLE `user_third_account` (
   `constellation` varchar(32) DEFAULT NULL COMMENT '星座(参考字典表组名:constellation)',
   `hobby` varchar(255) DEFAULT NULL COMMENT '兴趣爱好',
   `career` varchar(255) DEFAULT NULL COMMENT '职业',
-  `channel` int(10) DEFAULT NULL COMMENT '信息来源渠道(参考字典表组名:channel)',
+  `channel` int(10) DEFAULT NULL COMMENT '渠道类型(参考字典表组名:channel)',
   `zhimaScore` int(10) DEFAULT NULL COMMENT '芝麻分',
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
   `status` tinyint(1) DEFAULT '1' COMMENT '状态(0：无效，1：有效)',
