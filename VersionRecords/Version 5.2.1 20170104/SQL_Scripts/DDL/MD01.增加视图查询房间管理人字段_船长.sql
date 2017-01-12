@@ -1,4 +1,4 @@
-/* 修改房间视图, 添加显示flat_room的orgClerk字段 ,移除房间smartLock字段查询:智能门锁  isPutaway字段查询:是否上架  putawayTime字段查询:上架时间 */
+/* 修改房间视图, 添加显示flat_room的orgClerk字段  */
 use mogoroomdb;
 
 CREATE OR REPLACE VIEW `repo_room_status` AS 
@@ -102,7 +102,7 @@ SELECT
 	`fr`.`mogoOfflineEndTime` AS `mogoOfflineEndTime`,
 	`fr`.`mogoOfflineMemo` AS `mogoOfflineMemo`,
 	`fr`.`alias` AS `alias`,
-	fr.orgClerk as orgClerk
+	fr.orgClerk as orgClerk -- 新增房间管理人
 FROM
 	`flat_flats` `ff`
 LEFT JOIN `flat_room` `fr` ON `ff`.`id` = `fr`.`flatsId`
@@ -176,7 +176,7 @@ OR REPLACE VIEW `flats_room_detail` AS SELECT
 	`fr`.`agencyFee` AS `agencyFee`,
 	`fr`.`manageFee` AS `manageFee`,
 	`fr`.`orgId` AS `orgId`,
-	fr.orgClerk AS orgClerk
+	fr.orgClerk AS orgClerk -- 新增房间管理人
 FROM
 	`flat_flats` `ff`
 LEFT JOIN `flat_room` `fr` ON `fr`.`flatsId` = `ff`.`id`
