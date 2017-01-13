@@ -2,13 +2,12 @@ USE mogoroomdb;
 
 /**复制push模板->message模板**/
 INSERT INTO  mesg_subtemplet (templetId,`templetType`,templetTitle,`templetContent`,STATUS,valid,`outTempletId`,`jumpCode`)
-SELECT templetId,4,templetTitle,`templetContent`,STATUS,valid,`outTempletId`,`jumpCode` FROM `mesg_subtemplet` WHERE templetType = 3;
+SELECT templetId,4,templetTitle,`templetContent`,STATUS,valid,`outTempletId`,null FROM `mesg_subtemplet` WHERE templetType = 3;
 
 
-/**新增是否跳转标示，跳转参数**/
-ALTER TABLE  `mesg_subtemplet`  ADD COLUMN `pcJumpCode` VARCHAR(256)   COMMENT 'PC跳转参数';
+/**新增追加外链URL字段**/
 ALTER TABLE  `mesg_subtemplet`  ADD COLUMN `appendUrl` VARCHAR(256)   COMMENT '追加外链';
-ALTER TABLE  `mesg_subtemplet`  ADD COLUMN `urlType` TINYINT(1)   COMMENT '链接类型（0:追加,1:隐藏）';
+
 
 
 DROP TABLE IF EXISTS `mesg_news_record`;
@@ -35,7 +34,7 @@ CREATE TABLE `mesg_news_record` (
 
 /**Message数据转移SQL**/
 INSERT INTO mesg_news_record  (recordId,newsTitle,newsContent,willSendTime,sendStatus,isRead,updateTime,createTime,appJumpCode,appJumpValue,valid) 
-SELECT recordId,pushTitle,pushContent,willSendTime,sendStatus,isRead,lastSendTime,createTime,jumpCode,jumpValue,valid FROM mesg_push_record; 
+SELECT recordId,pushTitle,pushContent,willSendTime,sendStatus,isRead,lastSendTime,createTime,null,jumpValue,valid FROM mesg_push_record; 
 
 
 /**数据字典表KEY值长度修改为50**/
@@ -60,9 +59,5 @@ INSERT INTO `comm_dictionary` (CODE,groupName,sort,keyPro,VALUE,STATUS,fcode,enV
 ('MODULE_RoomTopic','APPJUMP',11,'MODULE_RoomTopic','{}',1,NULL,'租客APP推荐房源主题详情页面');
 
 /**模板表数据JUMPCode 转为 映射码**/
-UPDATE mesg_subtemplet m1,comm_dictionary cd SET m1.jumpCode = cd.`id` WHERE m1.`jumpCode` = cd.`code`
-
-
-
-
-
+insert into mesg_jump (subTempId,pageType,pageCode) 
+SELECT ms.id,1,cd.`id` FROM mesg_subtemplet ms LEFT JOIN `comm_dictionary` cd ON ms.`jumpCode` = cd.`code` WHERE jumpCode IS NOT NULL AND cd.id IS NOT NULL
