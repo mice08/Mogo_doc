@@ -58,6 +58,22 @@ INSERT INTO `comm_dictionary` (CODE,groupName,sort,keyPro,VALUE,STATUS,fcode,enV
 ('MODULE_BrandTopic','APPJUMP',11,'MODULE_BrandTopic','{}',1,NULL,'租客APP品牌主题详情页面'),
 ('MODULE_RoomTopic','APPJUMP',11,'MODULE_RoomTopic','{}',1,NULL,'租客APP推荐房源主题详情页面');
 
+/**新增模板消息跳转表**/
+DROP TABLE IF EXISTS `mesg_jump`;
+CREATE TABLE `mesg_jump` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subTempId` int(20) NOT NULL COMMENT '子模版ID',
+  `pageType` int(11) NOT NULL COMMENT '跳转类型（1:APP 2:PC 3:URL）',
+  `pageCode` varchar(255) NOT NULL COMMENT '跳转Code，请看字典表',
+  `createTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `createBy` int(11) NOT NULL DEFAULT '-1' COMMENT '创建人',
+  `updateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  `updateBy` int(11) NOT NULL DEFAULT '-1' COMMENT '更新人',
+  `valid` int(4) NOT NULL DEFAULT '1' COMMENT '是否逻辑删除（0:删除 1:不删除）',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='消息模板跳转表';
+
+
 /**模板表数据JUMPCode 转为 映射码**/
 insert into mesg_jump (subTempId,pageType,pageCode) 
 SELECT ms.id,1,cd.`id` FROM mesg_subtemplet ms LEFT JOIN `comm_dictionary` cd ON ms.`jumpCode` = cd.`code` WHERE jumpCode IS NOT NULL AND cd.id IS NOT NULL
