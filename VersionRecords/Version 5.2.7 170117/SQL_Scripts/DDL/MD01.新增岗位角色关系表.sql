@@ -2,7 +2,7 @@
 
 /*岗位角色关系表*/
 CREATE TABLE `perm_position_role` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键id',
   `positionId` int(11) NOT NULL COMMENT '岗位Id',
   `roleId` int(11) NOT NULL COMMENT '角色Id',
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
