@@ -17,7 +17,7 @@ INSERT INTO `cntr_contract_templet` (`cityId`, `templetName`,templetPath,createB
                                                                                                                                                    
                                                                                                                                                    
 /* 纸制合同- 全国 模板 */                                                                                                                        
-INSERT INTO `cntr_contract_templet` (`cityId`,`templetName`,templetPath,createBy,createByType,lang,`templetCode`, `templetType`, `status`, `createTime`,`belongContractType`,`updateTime`, `remark`, `valid`) VALUES (0,'纸质合同模板','common/TY00000.vm',-1,-1,1, 'TY00000', '3', '1', now(), '1', now(),'纸质合同模板(全国)', '1');
+INSERT INTO `cntr_contract_templet` (`cityId`,`templetName`,templetPath,createBy,createByType,lang,`templetCode`, `templetType`, `status`, `createTime`,`belongContractType`,`updateTime`, `remark`, `valid`) VALUES (0,'纸质合同模板','common/TY00000.vm',-1,-1,1, 'TY00000', '1', '3', now(), '1', now(),'纸质合同模板(全国)', '1');
 
 /* 历史模板- 合租 模板 */                                                                                                                        
 INSERT INTO `cntr_contract_templet` (`cityId`,`templetName`,templetPath,createBy,createByType,lang, `templetCode`, `templetType`, `status`, `createTime`,`belongContractType`,`updateTime`, `remark`, `valid`) VALUES (0,'历史-合租模板1','common/HIS_HZ001.vm',-1,-1,1, 'HIS_HZ001', '1', '3', now(), '1', now(),'合租模板(2010/01/01 00:00至2016/09/07 03:05)', '1');
