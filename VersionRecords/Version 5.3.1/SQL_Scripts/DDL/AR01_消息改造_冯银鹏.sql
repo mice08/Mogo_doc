@@ -27,8 +27,8 @@ CREATE TABLE `mesg_news_record` (
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='站内信发送记录表';
 
 /**Message数据转移SQL**/
-INSERT INTO mesg_news_record  (recordId,newsTitle,newsContent,willSendTime,sendStatus,isRead,updateTime,createTime,appJumpCode,appJumpValue,valid) 
-SELECT recordId,pushTitle,pushContent,willSendTime,sendStatus,isRead,lastSendTime,createTime,NULL,jumpValue,valid FROM mesg_push_record; 
+INSERT INTO mesg_news_record  (recordId,newsTitle,newsContent,willSendTime,sendStatus,isRead,updateTime,createTime,jumpCode,jumpValue,valid) 
+SELECT recordId,pushTitle,pushContent,willSendTime,sendStatus,isRead,lastSendTime,createTime,NULL,NULL,valid FROM mesg_push_record; 
 
 
 /**数据字典表KEY值长度修改为50**/
