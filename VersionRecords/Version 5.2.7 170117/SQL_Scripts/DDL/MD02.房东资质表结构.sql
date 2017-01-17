@@ -18,6 +18,5 @@ CREATE TABLE `user_landlord_power`(
   PRIMARY KEY (`id`),
   INDEX `landlordId` (`landlordId`),
   INDEX `powerType` (`powerType`),
-  INDEX `status` (`status`),
   INDEX `createTime` (`createTime`)
 )ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COMMENT = '房东资质表' ;

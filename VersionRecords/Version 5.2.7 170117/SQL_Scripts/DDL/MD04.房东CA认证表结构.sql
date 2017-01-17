@@ -24,6 +24,5 @@ CREATE TABLE `user_landlord_caIdentification`(
 	`updateByType` TINYINT(1) COMMENT '更新人类型',
 	`valid` TINYINT(1) DEFAULT 1 COMMENT '该数据是否有效(1:有效,0:无效)',
   PRIMARY KEY (`id`),
-  INDEX `landlordId` (`landlordId`),
-  INDEX `status` (`status`)
+  INDEX `landlordId` (`landlordId`)
 )ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COMMENT = '房东CA认证表' ;
