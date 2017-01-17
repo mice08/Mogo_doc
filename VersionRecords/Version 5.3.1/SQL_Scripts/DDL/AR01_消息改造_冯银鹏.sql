@@ -25,10 +25,11 @@ CREATE TABLE `mesg_news_record` (
    `valid` TINYINT(4) NOT NULL DEFAULT 1 COMMENT '删除标志（0:删除,1:未删除）',
    PRIMARY KEY (`id`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='站内信发送记录表';
+ALTER TABLE mesg_news_record  ADD   INDEX `INDEX_RECORDID` (`recordId`);
 
 /**Message数据转移SQL**/
-INSERT INTO mesg_news_record  (recordId,newsTitle,newsContent,willSendTime,sendStatus,isRead,updateTime,createTime,appJumpCode,appJumpValue,valid) 
-SELECT recordId,pushTitle,pushContent,willSendTime,sendStatus,isRead,lastSendTime,createTime,NULL,jumpValue,valid FROM mesg_push_record; 
+INSERT INTO mesg_news_record  (recordId,newsTitle,newsContent,willSendTime,sendStatus,isRead,updateTime,createTime,jumpCode,jumpValue,valid) 
+SELECT recordId,pushTitle,pushContent,willSendTime,sendStatus,isRead,lastSendTime,createTime,NULL,NULL,valid FROM mesg_push_record; 
 
 
 /**数据字典表KEY值长度修改为50**/
