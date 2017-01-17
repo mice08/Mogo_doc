@@ -1,21 +1,20 @@
 use mogoroomdb;
 
-/*·¿¶«Éí·ÝÈÏÖ¤±í*/
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½*/
 CREATE TABLE `user_landlord_identity`(  
-  `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '·¿¶«Éí·ÝÈÏÖ¤±íid',
-  `landlordId` INT(11) NOT NULL COMMENT '·¿¶«id',
-	`identityId` varchar(20) DEFAULT NULL COMMENT 'Éí·ÝÖ¤ºÅ',
-	`name` varchar(20) DEFAULT NULL COMMENT '·¿¶«ÐÕÃû',
-  `status` TINYINT(1) DEFAULT '1' COMMENT '×ÊÖÊ×´Ì¬£¨1:ÈÏÖ¤³É¹¦ 2: ÈÏÖ¤Ê§°Ü£©',
-  `remark` VARCHAR(512) DEFAULT NULL COMMENT '±¸×¢',
-  `createTime` DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '´´½¨Ê±¼ä',
-  `createBy` INT(11) COMMENT '´´½¨ÈË',
-  `createByType` TINYINT(1) COMMENT '´´½¨ÈËÀàÐÍ',
-  `updateTime` DATETIME COMMENT '¸üÐÂÊ±¼ä',
-  `updateBy` INT(11) COMMENT '¸üÐÂÈËid',
-  `updateByType` TINYINT(1) COMMENT '¸üÐÂÈËÀàÐÍ',
-  `valid` TINYINT(1) DEFAULT 1 COMMENT '¸ÃÊý¾ÝÊÇ·ñÓÐÐ§(1:ÓÐÐ§,0:ÎÞÐ§)',
+  `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½id',
+  `landlordId` INT(11) NOT NULL COMMENT 'ï¿½ï¿½ï¿½ï¿½id',
+	`identityId` varchar(20) DEFAULT NULL COMMENT 'ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½',
+	`name` varchar(20) DEFAULT NULL COMMENT 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+  `status` TINYINT(1) DEFAULT '1' COMMENT 'ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½1:ï¿½ï¿½Ö¤ï¿½É¹ï¿½ 2: ï¿½ï¿½Ö¤Ê§ï¿½Ü£ï¿½',
+  `remark` VARCHAR(512) DEFAULT NULL COMMENT 'ï¿½ï¿½×¢',
+  `createTime` DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½',
+  `createBy` INT(11) COMMENT 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+  `createByType` TINYINT(1) COMMENT 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+  `updateTime` DATETIME COMMENT 'ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½',
+  `updateBy` INT(11) COMMENT 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½id',
+  `updateByType` TINYINT(1) COMMENT 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+  `valid` TINYINT(1) DEFAULT 1 COMMENT 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ð§(1:ï¿½ï¿½Ð§,0:ï¿½ï¿½Ð§)',
   PRIMARY KEY (`id`),
-  INDEX `landlordId` (`landlordId`),
-  INDEX `status` (`status`)
-)ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COMMENT = '·¿¶«Éí·ÝÈÏÖ¤±í' ;
+  INDEX `landlordId` (`landlordId`)
+)ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COMMENT = 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½' ;
