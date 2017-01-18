@@ -29,7 +29,7 @@ ALTER TABLE mesg_news_record  ADD   INDEX `INDEX_RECORDID` (`recordId`);
 
 /**Message数据转移SQL**/
 INSERT INTO mesg_news_record  (recordId,newsTitle,newsContent,willSendTime,sendStatus,isRead,updateTime,createTime,jumpCode,jumpValue,valid) 
-SELECT recordId,pushTitle,pushContent,willSendTime,sendStatus,isRead,lastSendTime,createTime,NULL,NULL,valid FROM mesg_push_record; 
+SELECT recordId,pushTitle,pushContent,willSendTime,sendStatus,isRead,lastSendTime,createTime,jumpCode,jumpValue,valid FROM mesg_push_record; 
 
 
 /**数据字典表KEY值长度修改为50**/
