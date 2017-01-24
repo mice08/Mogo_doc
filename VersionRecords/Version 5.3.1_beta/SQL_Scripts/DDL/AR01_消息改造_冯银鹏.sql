@@ -7,6 +7,9 @@ SELECT templetId,4,templetTitle,`templetContent`,STATUS,valid,`outTempletId`,NUL
 
 /**新增追加外链URL字段**/
 ALTER TABLE  `mesg_subtemplet`  ADD COLUMN `appendUrl` VARCHAR(256)   COMMENT '追加外链';
+Alter table  `mesg_subtemplet`  add  index `INDEX_TEMPID` (`templetId`);
+Alter table  `mesg_category_templet`  add  index `INDEX_TEMPID` (`templetId`);
+
 
 /**新增messageRecord表**/
 DROP TABLE IF EXISTS `mesg_news_record`;
@@ -67,6 +70,7 @@ CREATE TABLE `mesg_jump` (
    `valid` INT(4) NOT NULL DEFAULT '1' COMMENT '是否逻辑删除（0:删除 1:不删除）',
    PRIMARY KEY (`id`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='消息模板跳转表';
+Alter table  `mesg_jump`  add  index `INDEX_JUMPCODE` (`jumpCode`);
 
 /**模板表数据JUMPCode 转为 映射码**/
 INSERT INTO mesg_jump (jumpCode,pageType,pageCode) 
