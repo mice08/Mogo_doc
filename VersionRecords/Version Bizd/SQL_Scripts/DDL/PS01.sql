@@ -31,8 +31,8 @@ create table bizd_landlord_bussiness
    bdLandlordId         int(11) comment 'BD房东ID',
    operatingPeriod      int(2) comment '经营年限(参考字典表组名:)',
    officeAddress        varchar(125) comment '办公地址',
-   centralizedRoomCount int(5) comment '集中式房间数',-- ???
-   decentralizedRoomCount int(5) comment '分散式房间数',-- ???
+   groupRoomCount int(5) comment '集中式房间数',-- ???
+   scatterRoomCount int(5) comment '分散式房间数',-- ???
    allCount             int(5) comment '总量(间)',
    vacantCount          int(5) comment '空置房间数',
    minRent              decimal(12,2) comment '最低租金',
@@ -63,8 +63,8 @@ create table bizd_question
    sort                 int(2) comment '排序',
    description          varchar(255) comment '描述',
    leve                 int(1) comment '等级',
-   type                 int(2) comment '类型',-- ???
-   code                 varchar(50) comment 'code',-- ???
+   qtype                 int(2) comment '类型',
+   qcode                 varchar(50) comment 'code',
    parentId             int(11) comment 'parentId',
    createBy             int(11) comment '创建人ID',
    createByType         int(2) comment '创建人类型(参考字典表组名:userType)',
@@ -154,9 +154,10 @@ create table bizd_landlord_record
    oldOrgId             int(11) comment '老的服务人机构ID',
    newOrgId             int(11) comment '新的服务人机构ID',
    valid                tinyint(1) comment '是否有效（0：无效，1：有效）',
-   role                 varchar(10) comment '角色名称', -- ???
+   position	varchar(10) comment '岗位名称',
    operate              int(2) comment '操作',
    reason               varchar(255) comment '原因',
+   allotCount          int(11) comment '分配次数'，
    createBy             int(11) comment '创建人ID',
    createByType         int(2) comment '创建人类型(参考字典表组名:userType)',
    createTime           datetime comment '创建时间',
@@ -205,10 +206,12 @@ create table bizd_user_landlord
    avocation            tinyint(1) comment '副业(0:无  1:有)',
    dataChannel          tinyint(2) comment '数据来源',
    bdchannel            tinyint(2) comment '拓展渠道(1:地推,2:网络,3:老客户介绍,9:其它)',
-   bdchannelremark      varchar(20) comment '拓展渠道其它的内容', 
+   bdchannelremark      varchar(20) comment '拓展渠道其它的内容',
    status               tinyint(2) comment '状态',
    servicePerson        int(11) comment '服务人',
+   serviceOrgId		 int(11) comment '服务组织',
    canBeAssigned        tinyint(1) comment '是否可分配（0：不可，1：可）',
+   allotCount          int(11)分配次数
    createBy             int(11) comment '创建人ID',
    createByType         int(2) comment '创建人类型(参考字典表组名:userType)',
    createTime           dateTime comment '创建时间',
