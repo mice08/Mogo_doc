@@ -1,426 +1,390 @@
 {
-    "properties": {
+      "properties": {
         "comName": {
-            "type": "string",
-            "analyzer": "ik"
+          "type": "string",
+          "analyzer": "ik"
         },
         "lng": {
-            "type": "double"
+          "type": "double"
         },
         "lat": {
-            "type": "double"
+          "type": "double"
         },
         "districtName": {
-            "type": "string",
-            "analyzer": "ik"
+          "type": "string",
+          "analyzer": "ik"
         },
         "areaName": {
-            "type": "string",
-            "analyzer": "ik"
+          "type": "string",
+          "analyzer": "ik"
         },
         "roomId": {
-            "type": "long"
+          "type": "long"
         },
         "roomName": {
-            "type": "string"
+          "type": "string"
         },
         "roomNum": {
-            "type": "string",
-            "index": "not_analyzed"
+          "type": "string",
+         "index": "not_analyzed"
         },
         "building": {
-            "type": "string"
+          "type": "string"
         },
         "title": {
-            "type": "string",
-            "analyzer": "ik"
+          "type": "string",
+          "analyzer": "ik"
         },
         "subtitle": {
-            "type": "string"
+          "type": "string"
         },
         "subtitleNew": {
-            "type": "string"
+          "type": "string"
         },
         "showPrice": {
-            "type": "long"
+          "type": "long"
         },
         "rentType": {
-            "properties": {
-                "value": {
-                    "type": "string"
-                },
-                "key": {
-                    "type": "long"
-                }
+          "properties": {
+            "value": {
+              "type": "string"
+            },
+            "key": {
+              "type": "long"
             }
+          }
         },
         "rentTypeValue": {
-            "type": "long"
+          "type": "long"
         },
         "specials": {
-            "type": "string"
+          "type": "string"
         },
         "flatType": {
-            "properties": {
-                "value": {
-                    "type": "string"
-                },
-                "key": {
-                    "type": "string"
-                }
+          "properties": {
+            "value": {
+              "type": "string"
+            },
+            "key": {
+              "type": "string"
             }
+          }
         },
         "flatTypeValue": {
-            "type": "string"
+          "type": "string"
         },
         "image": {
-            "type": "string"
+          "type": "string"
         },
         "imageNew": {
-            "type": "string"
+          "type": "string"
         },
         "metroInfo": {
-            "type": "string",
-            "analyzer": "ik"
+          "type": "string",
+          "analyzer": "ik"
         },
         "subwayInfo": {
-            "properties": {
-                "subwayId": {
-                    "type": "long"
+          "properties": {
+            "subwayId": {
+              "type": "long"
+            },
+            "stations": {
+              "properties": {
+                "sort": {
+                  "type": "long"
                 },
-                "stations": {
-                    "properties": {
-                        "sort": {
-                            "type": "long"
-                        },
-                        "stationId": {
-                            "type": "long"
-                        }
-                    }
+                "stationId": {
+                  "type": "long"
                 }
+              }
             }
+          }
         },
         "area": {
-            "type": "double"
+          "type": "double"
         },
         "floorCountNum": {
-            "type": "long"
+          "type": "long"
         },
         "floorNum": {
-            "type": "long"
+          "type": "long"
         },
         "brandId": {
-            "type": "integer"
+          "type": "long"
         },
         "brandName": {
-            "type": "string",
-            "analyzer": "ik"
+          "type": "string",
+          "analyzer": "ik"
         },
         "level": {
-            "type": "long"
+          "type": "long"
         },
         "hobbies": {
-            "type": "string"
+          "type": "string"
         },
         "careers": {
-            "type": "string"
+          "type": "string"
         },
         "location": {
-            "type": "geo_point"
+          "type": "geo_point"
         },
         "address": {
-            "type": "string"
+          "type": "string"
         },
         "landlordId": {
-            "type": "long"
+          "type": "long"
         },
         "flatRoomNum": {
-            "type": "string"
+          "type": "string"
         },
         "bedroomCount": {
-            "type": "integer"
+          "type": "long"
         },
         "parlorCount": {
-            "type": "integer"
+          "type": "long"
         },
         "toiletCount": {
-            "type": "integer"
+          "type": "long"
         },
         "flatsProtoType": {
-            "type": "integer"
+          "type": "long"
         },
         "flatsId": {
-            "type": "integer"
+          "type": "long"
         },
         "street": {
-            "type": "string"
+          "type": "string"
         },
         "face": {
-            "type": "string"
+          "type": "string"
         },
         "roomProtoType": {
-            "type": "integer"
+          "type": "long"
         },
         "cityId": {
-            "type": "long"
+          "type": "long"
         },
         "districtId": {
-            "type": "long"
+          "type": "long"
         },
         "areaId": {
-            "type": "long"
+          "type": "long"
         },
         "stationId": {
-            "type": "long"
+          "type": "long"
         },
         "subwayId": {
-            "type": "long"
+          "type": "long"
         },
         "communityId": {
-            "type": "long"
+          "type": "long"
         },
         "houseType": {
-            "type": "long"
+          "type": "long"
         },
         "brandType": {
-            "type": "long"
+          "type": "long"
         },
         "roomMateGender": {
-            "type": "long"
+          "type": "long"
         },
         "roomMateCnstl": {
-            "type": "string"
+          "type": "string"
         },
         "readyDate": {
-            "type": "long"
+          "type": "long"
         },
         "decoration": {
-            "type": "string"
+          "type": "string"
         },
         "toilet": {
-            "type": "long"
+          "type": "long"
         },
         "veranda": {
-            "type": "long"
+          "type": "long"
         },
         "bayWindow": {
-            "type": "long"
+          "type": "long"
         },
         "airCond": {
-            "type": "long"
+          "type": "long"
         },
         "tv": {
-            "type": "long"
+          "type": "long"
         },
         "hasPic": {
-            "type": "long"
+          "type": "long"
         },
         "hasWifi": {
-            "type": "long"
+          "type": "long"
         },
         "orientation": {
-            "type": "string"
+          "type": "string"
         },
         "roomScore": {
-            "type": "double"
+          "type": "double"
         },
         "flatTag": {
-            "type": "long"
+          "type": "long"
         },
         "hasService": {
-            "type": "long"
+          "type": "long"
         },
         "label": {
-            "type": "long"
+          "type": "long"
         },
         "roomCount": {
-            "type": "long"
+          "type": "long"
         },
         "checkInTime": {
-            "type": "string"
+          "type": "string"
         },
         "attributeConfig": {
-            "properties": {
-                "value": {
-                    "type": "string"
-                },
-                "key": {
-                    "type": "string"
-                }
+          "properties": {
+            "value": {
+              "type": "string"
+            },
+            "key": {
+              "type": "string"
             }
+          }
         },
         "statusUpdateTime": {
-            "type": "string"
+          "type": "string"
         },
         "statusUpdateDate": {
-            "type": "integer"
+          "type": "long"
         },
         "lastPublishTimeText": {
-            "type": "string"
+          "type": "string"
         },
         "lastPublishTime": {
-            "type": "string"
+          "type": "string"
         },
         "monthlyPay": {
-            "type": "integer"
+          "type": "long"
         },
         "checkInTimeStr": {
-            "type": "string"
+          "type": "string"
         },
         "natural1": {
-            "type": "integer"
+          "type": "long"
         },
         "natural2": {
-            "type": "integer"
+          "type": "long"
         },
         "pictureMark": {
-            "type": "integer"
+          "type": "long"
         },
         "tpMonthlyPay": {
-            "type": "integer"
+          "type": "long"
         },
         "comNameNotWord": {
-            "type": "string",
-            "index": "not_analyzed"
+          "type": "string",
+          "index": "not_analyzed"
         },
         "comNameAndId": {
-            "type": "string",
-            "index": "not_analyzed",
-            "doc_values": true
+          "type": "string",
+          "index": "not_analyzed",
+          "doc_values": true
         },
         "comNameFullPinyin": {
-            "type": "string"
+          "type": "string"
         },
         "comNameShortPinyin": {
-            "type": "string"
+          "type": "string"
         },
         "districtNameNotWord": {
-            "type": "string",
-            "index": "not_analyzed"
+          "type": "string",
+          "index": "not_analyzed"
         },
         "districtNameAndId": {
-            "type": "string",
-            "index": "not_analyzed",
-            "doc_values": true
+          "type": "string",
+          "index": "not_analyzed",
+          "doc_values": true
         },
         "districtNameFullPinyin": {
-            "type": "string"
+          "type": "string"
         },
         "districtNameShortPinyin": {
-            "type": "string"
+          "type": "string"
         },
         "areaNameNotWord": {
-            "type": "string",
-            "index": "not_analyzed"
+          "type": "string",
+          "index": "not_analyzed"
         },
         "areaNameAndId": {
-            "type": "string",
-            "index": "not_analyzed",
-            "doc_values": true
+          "type": "string",
+          "index": "not_analyzed",
+          "doc_values": true
         },
         "areaNameFullPinyin": {
-            "type": "string"
+          "type": "string"
         },
         "areaNameShortPinyin": {
-            "type": "string"
+          "type": "string"
         },
         "brandNameNotWord": {
-            "type": "string",
-            "index": "not_analyzed"
+          "type": "string",
+          "index": "not_analyzed"
         },
         "preBrandNameAndId": {
-            "type": "string",
-            "index": "not_analyzed",
-            "doc_values": true
+          "type": "string",
+          "index": "not_analyzed",
+          "doc_values": true
         },
         "commBrandNameAndId": {
-            "type": "string",
-            "index": "not_analyzed",
-            "doc_values": true
+          "type": "string",
+          "index": "not_analyzed",
+          "doc_values": true
         },
         "brandNameFullPinyin": {
-            "type": "string"
+          "type": "string"
         },
         "brandNameShortPinyin": {
-            "type": "string"
+          "type": "string"
         },
-        "subway": {
-            "type": "nested",
-            "properties": {
-                "subwayId": {
-                    "type": "integer"
-                },
-                "subwayName": {
-                    "type": "string",
-                    "analyzer": "ik"
-                },
-                "subwayNameNotWord": {
-                    "type": "string",
-                    "index": "not_analyzed"
-                },
-                "subwayNameAndId": {
-                    "type": "string",
-                    "index": "not_analyzed",
-                    "doc_values": true
-                },
-                "subwayNameFullPinyin": {
-                    "type": "string"
-                },
-                "subwayNameShortPinyin": {
-                    "type": "string"
+        "subway":{
+          "type":"nested",
+          "properties": {
+                    "subwayId" : {"type": "long" },
+                    "subwayName"  : {"type": "string","analyzer": "ik" },
+                    "subwayNameNotWord" : {"type" : "string","index": "not_analyzed"},
+                    "subwayNameAndId" : {"type" : "string","index": "not_analyzed","doc_values": true},
+                    "subwayNameFullPinyin" : {"type" : "string"},
+                    "subwayNameShortPinyin" : {"type" : "string"}
                 }
-            }
         },
-        "station": {
-            "type": "nested",
-            "properties": {
-                "stationId": {
-                    "type": "integer"
-                },
-                "stationName": {
-                    "type": "string",
-                    "analyzer": "ik"
-                },
-                "stationNameNotWord": {
-                    "type": "string",
-                    "index": "not_analyzed"
-                },
-                "stationNameAndId": {
-                    "type": "string",
-                    "index": "not_analyzed",
-                    "doc_values": true
-                },
-                "stationNameFullPinyin": {
-                    "type": "string"
-                },
-                "stationNameShortPinyin": {
-                    "type": "string"
-                },
-                "stationLng": {
-                    "type": "double"
-                },
-                "stationLat": {
-                    "type": "double"
+        "station":{
+          "type":"nested",
+          "properties": {
+                    "stationId" : {"type": "long" },
+                    "stationName"  : {"type": "string","analyzer": "ik" },
+                    "stationNameNotWord" : {"type" : "string","index": "not_analyzed"},
+                    "stationNameAndId" : {"type" : "string","index": "not_analyzed","doc_values": true},
+                    "stationNameFullPinyin" : {"type" : "string"},
+                    "stationNameShortPinyin" : {"type" : "string"},
+                    "stationLng" : {"type" : "double"},
+                    "stationLat" : {"type" : "double"}
                 }
-            }
         },
         "roomInfo": {
-            "type": "string"
+          "type": "string"
         },
         "roomStatus": {
-            "type": "integer"
+          "type": "long"
         },
-        "areaLng": {
-            "type": "double"
+        "areaLng":{
+         "type" : "double"
         },
-        "areaLat": {
-            "type": "double"
+        "areaLat" : {
+          "type" : "double" 
         },
-        "districtLng": {
-            "type": "double"
+        "districtLng" : {
+          "type" : "double"
         },
-        "districtLat": {
-            "type": "double"
+        "districtLat" : {
+          "type" : "double"
         }
-    }
+      }
 }
