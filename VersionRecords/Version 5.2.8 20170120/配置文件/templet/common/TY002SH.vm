@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>House Lease Contract</title>
+	<meta charset="UTF-8"></meta>
+	<meta name="format-detection" content="telephone=no"></meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.5, minimum-scale=1.0, user-scalable=yes"></meta>
+<style>
+body{
+	font-size:12px;
+	font-family:microsoft yahei, trebuchet ms, tahoma, sans-serif;
+	margin:0 6px;
+	color:#333;
+}
+.hp{ 
+	overflow:hidden;
+}
+h1{
+	text-align:center;
+	font-size:1.8em;
+	margin:1.5em 0 .8em;
+}
+h2,h3{
+	font-size:1.17em;
+	margin:1em 0 .35em;
+}
+h1,h2,h3{
+	color:#000;
+}
+p{
+	margin:2px 0;
+	line-height:1.5em;
+	text-align:justify;
+}
+img{
+	display:inline-block;
+	max-width:100%;
+}
+p label{
+	float:left;
+	display:inline-block;
+	width:50px;
+}
+.img-wrapper{
+	margin-left:60px;
+	display:block;
+}
+.img-list-wrapper{
+	overflow:hidden;
+}
+.img-list-wrapper img{
+	width:100px;
+	float:left;
+	display:inline-block;
+}
+.img-list-wrapper img + img{
+	margin-left:5px;
+}
+.fl{
+	float:left;
+}
+label.lg{
+	width:185px;
+}
+.banner{
+	margin:8px 0;
+}
+.title-terms{
+	font-size: 1.5em;
+    margin: 2em 0 .8em;
+}
+.remarks{
+	margin:10px 0;
+}
+.remarks strong{
+	font-size:1.2em;
+}
+table{
+	border-collapse:collapse;
+	width:100%;
+	margin-top:10px;
+	margin-bottom:4px;
+}
+table td{
+	border-top:1px dashed #ddd;
+	border-bottom:1px dashed #ddd;
+}
+table th,
+table td{
+	line-height:22px;
+	text-align:left;
+	width:25%;
+}
+</style>	
+</head>
+<body>
+	<h1>House Lease Contract</h1>
+	<div class="banner">
+		<p><strong>Party A (Leaser):</strong>${landlordName}</p>
+		<p><strong>Party B (Lesee): </strong>${renterRealName}</p>
+	</div>
+	<p>Pursuant to Contract Law of the People’s Republic of China and other relevant laws, Party A and Party B, under the principle of equality, free will, fairness and good faith, achieve and sign this Contract for house lease after a friendly negotiation. </p>	
+
+	<h2>Rental Fee and Payment Method </h2>
+	<p><label class="lg">Lease starts and ends date</label>：${startAndEndTime}</p>
+	<p><label class="lg">Lease term</label>：${leaseTerm} </p>
+	<p><label class="lg">Rent payment method: </label>：${rentPayType}</p>
+	<p><label class="lg">Deposit </label>：${depositMoney}元${depositListStr}</p>
+	<p><label class="lg">RMB (in words):</label>：${depositMoneyRMB}</p>
+	<p><label class="lg">Monthly rental fee:</label>：${monthRentMoney}元</p>
+	<p><label class="lg">RMB (in words)</label>：${monthRentMoneyRMB}</p>
+	<p><label class="lg">First payment</label>：${firstOtherMoney}元${firstOtherMoneyListStr}</p> 
+	<p><label class="lg">RMB (in words)</label>：${firstOtherMoneyRMB}</p> 
+	<p><label class="lg">Amount of periodical payment</label>：${monthOtherMoney}元${monthOtherMoneyListStr}</p>
+	<p><label class="lg">RMB (in words)</label>：${monthOtherMoneyRMB}</p>
+	
+	<h2>Lesee Information</h2>
+	<p><label class="lg">Name</label>：${realName}</p>
+	<p><label class="lg">Gender</label>：${sex}</p>
+	<p><label class="lg">Contact number</label>：${cellphone}</p>
+	<p><label class="lg">Certificate type</label>：${cardType}</p>
+	<p><label class="lg">Certificate no</label>：${cardId}</p>
+	<p class="hp"><label class="lg">Certificate photo</label><span class="fl">：</span><span class="img-wrapper img-list-wrapper">${idPhoto}</span></p>
+	
+	<h2 class="title-terms">Articles</h2>
+	
+	<h3>Article I House Information and Lease Purpose</h3>
+	<p>1-1. Party A will rent out the house located at<u>&nbsp;&nbsp;${roomInfo}&nbsp;&nbsp;</u>(hereafter referred to as House) to Party B. Building area of the House is   ${area}   m2. </p>
+	<p>1-2. Party B promises Party A that the House will only be used for living. </p>
+	<p>1-3. During the lease term, for the public areas or the parts of the House which can be used by Party B, the existing decoration, the auxiliary facilities, equipment status and other matters will be listed out in <b>Furniture and Household Appliance List</b> after confirming via “Mogu House Lease” on the day of delivery.<b> Furniture and Household Appliance List</b> will be used as the basis when Party A delivers and takes back the House to / from Party B. </p>
+	<h3>Article II Delivery Date and Lease Term</h3>
+	<p>2-1. Party A and Party B agree that the lease term of this House is <u>&nbsp;&nbsp;${startAndEndTime}&nbsp;&nbsp;</u></p>
+	<p>
+		2-2. Party A and Party B agree that Party A shall deliver the House to Party B before  <u>&nbsp;&nbsp;${startTime}&nbsp;&nbsp; </u>  while Party B accepts the House. If the delivery is delayed, Party A shall pay liquidated damage to Party B, which is <u>&nbsp;two&nbsp;</u> times of the daily rental fee. 
+	</p>
+	
+	<h3>Article III Rental Fee and Payment Method</h3>	
+	<p>3-1. Payment method for Party B is: ${payTypeText}, which is during the lease term, Party B shall pay the rental fee by ${periodNumber} periodically.</p>
+	<p>3-2. Party A and Party B agree that during the lease term, the deposit is ${depositMoney} Yuan, monthly rental fee is ${monthRentMoney} Yuan, the first payment is ${firstOtherMoney} Yuan, periodical payment is ${monthOtherMoney} Yuan for each. If the last period of lease term is not full, the rental fee shall be figured out according to the actual days that the lesee lives. During the lease term, either party is not allowed to unilaterally adjust the rental fee unless they have negotiated. </p>	
+	<p>3-3. Party B shall pay the next rental fee ${payPreDays}days before the current rental fee is due to pay. If Party B fails to pay the rental fee when the current rental fee is due, Party B needs to pay liquidated damage for its delayed rental fee, which is 1% of of the unpaid rental fee for each day.</p>	
+	<p>3-4. When the lease term is due, if Party A and Party B agree to renew this Contract, the deposit will be automatically used as deposit of renewed rental, if it is not enough (if any), Party B shall additionally pay. After the lease term is due, if Party A and Party B confirms that there is no renew or this Contract is to be terminated, Party A shall refund the deposit to Party B without interest after relevant fees required to be paid by Party B are deducted, including but not limited to rental fee and liquidated damage etc. </p>
+	<h3>Article IV Other Fees</h3>
+	<p>4-1. During the lease term, fees related to the House:<b> water expense, power expense, coal gas expense, cable TV charge, broadband fee, property management fee, maintenance fee on interior facilities (fees to maintain improper use shall be undertaken by Party B), cleaning expense and heating fee, </b></p>
+	<p>Party A shall undertake: ${landlordFeesList}；</p>
+	<p>Except the fees undertaken by Party A,<b> Party B </b>shall undertake the rest ones. </p>
+	
+	<h3>Article V Use Requirements and Maintenance Responsibility</h3>
+	<p>5-1. Party A shall ensure that when delivering this House, safety conditions are all fully satisfied. During the lease term, if Party B finds that the auxiliary facilities and equipment listed in the Contract are damaged or in failure, Party B shall timely inform Party A of the maintenance; Party A shall do the maintenance within<u>&nbsp;two&nbsp;</u> days after being informed. 
+	</p>
+	<p>
+		If Party A fails to do the maintenance within time limit and Party A does not entrust Party B to do the maintenance, Party B is able to do the maintenance on behalf, with all maintenance fee undertaken by Party A. 
+	</p>
+	<p>
+		5-2. Party B shall ensure the safety use of the House. During lease term, Party B shall properly use the House and take good care of the House, all auxiliary facilities and equipment; if the House, auxiliary facilities and equipment damaged or in failure because of improper or irrational use, Party B shall be responsible for the maintenance.
+	</p>
+	<p>
+		If Party B fails to do the maintenance, Party A can do the maintenance on behalf, with all maintenance fee undertaken by Party B. 
+	</p>
+	<p>
+		5-3. During the lease term, Party A shall do a regular inspection and maintenance to the House, ensuring that the House, auxiliary facilities and equipment can be normally and safely used. Party A shall inform Party B of the maintenance<u>&nbsp;three&nbsp;</u> days beforehand. When inspection and maintenance, Party B shall well coordinate with Party A. However, Party A shall minimize the adverse affect on Party B’s use. 
+	</p>
+	<p>
+		5-4. During the lease term, Party A is able to entrust a third party to inspect the safety use of the House. If Party B violates national and local regulations in house lease, which makes the House suffers a safety concern, and Party B is required to do modification by a competent department, the third party can do the modification on behalf and take relevant measures in order to ensure the safety use of the House. However, if there is any loss therefrom, Party B shall undertake full responsibility. 
+	</p>
+	<h3>Article VI Transfer and Exchange of Rental Right </h3>
+	<p>
+		6-1. During the lease term, Party B has no right to rent this House out.
+	</p>
+	<p>
+		6-2. During the lease term, Party B is not allowed to transfer its rental right to a third party or exchange the House with another one. 
+	</p>
+	<h3>Article VII Waive priority in buying</h3>
+	<p>
+		7-1. Party B waives the priority in buying this House. 
+	</p>
+	<h3>Article VIII Lease Renewal</h3>
+	<p>8-1. When the lease term is due and Party B wants to renew the lease, Party B shall submit an application for renewal via “Mogu House Lease” thirty days before the lease term is due; after a negotiation, Party A will input renewal information. Once Party B pays for the renewal (including but not limited to pay rental fee or compensate the renewal deposit), it will consider that Party B fully knows about important information like lease term of renewal, rental fee of renewal and Party B confirms the renewal contract. Then lease relationship is set up between Party A and Party B. If Party B is not to renew, Party A has the right to take a third party to see the House thirty days before the lease term is due and Party B shall well coordinate with Party A. 
+	</p>
+	<h3>Article IX House Return</h3>
+	<p>
+		9-1. Unless the renewal is permitted by Party A, Party B shall return this House to Party A within <u>&nbsp;<b>one</b>&nbsp;</u> day when the lease term is due.
+	</p>
+	<p>
+		9-2. If Party B fails to return the House to Party A without being permitted in writing, Party B shall pay use fee to Party A, which shall be <u>&nbsp;<b>three</b>&nbsp;</u> times of the daily rental fee for each day delayed.
+	</p>
+	<p>
+		9-3. Unless otherwise agreed in attachments of this Contract, the House, the decoration, auxiliary facilities and equipment shall comply with the status after being normally used when returning. After Party A signs the acceptance in writing, both parties shall clear up their fees respectively.
+	</p>
+	<h3>Article X Conditions to Terminate Contract</h3>
+	<p>
+		10-1.Party A and Party B agree that during the lease term, if there is one of the following situations, this Contract can be terminated and both parties will be free from the responsibilities: 
+	</p>
+	<p>
+		(1) Land use right of the House is taken back beforehand; 
+	</p>
+	<p>
+		(2) The public interest of the House is legally imposed; ；
+	</p>
+	<p>
+		(3) The House is involved into the removal range because of urban construction demands; 
+	</p>
+	<p>
+		(4) The House is unable to be normally used because of force majeure; 
+	</p>
+	<p>
+		(5) When signing this Contract, Party A has told Party B about the pledge and that the House is to be disposed during the lease term; 
+	</p>
+	<p>
+		(6) Party A and Party B agree to terminate this Contract. 
+	</p>
+	<p>
+		10-2. Party A and Party B agree that if there is one of the following situations suffered by Party A, Party B is able to inform Party A of terminating this Contract and Party B has the right to require Party A to compensate its loss.  
+	</p>
+	<p>
+		(1) Party A fails to deliver the House within the time limit and the House still fails to be delivered within <u><b>&nbsp;three&nbsp;</b></u> days after being informed by Party B in writing; ；
+	</p>
+	<p>
+		(2) The House delivered by Party A is not consistent with the one described in the Contract or the House has severe quality concern, which makes Party B unable to normally use it; 
+	</p>
+	<p>
+		10-3. Party A and Party B agree that if there is one of the following situations suffered by Party B, Party A has the right to inform Party B of terminating this Contract and Party A has the right to require Party B to compensate its loss.
+	</p>
+	<p>
+		(1) Party B changes the house purpose without being permitted; 
+	</p>
+	<p>
+		(2) The House is damaged because of Party B; 
+	</p>
+	<p>
+		(3) Party B rents out the House to a third party without being permitted or Party B exchanges the House with another one without being permitted; 
+	</p>
+	<p>
+		(4) Party B have additional lessees live in this House without being permitted, or Party B makes the rental area or use area for each person lower than the standard (per capita building area shall be no less than 10m2, and use area for each person shall be no less than 7m2); 
+	</p>
+	<p>
+		(5) Party B carries out illegal activities in the House; 
+	</p>
+	<p>
+		(6) Party B fails to pay the fees (including but not limited to deposit, rental fee, water expense, power expense and coal gas expense etc); 
+	</p>
+	<p>
+		(7) Party B delivers or gives the house key to a third party without being permitted; 
+	</p>
+	<p>
+		(8) Party B hides or fakes its infectious disease or latent disease; 
+	</p>
+	<p>
+		(9) Party B puts its belongings in the room which is not covered in the Contract. 
+	</p>
+	<h3>Article XI Responsibility of Violation</h3>
+	<p>
+		11-1. At the time of delivery, if Party B’s normal use will be adversely affected by the decoration, auxiliary facilities and equipment, Party A shall do the maintenance within <u><b>&nbsp;five&nbsp;</b></u> days after the delivery. If the maintenance is not done within time limit, Party A shall reduce the rental fee and amend the articles and attachments concerned. 
+	</p>
+	<p>
+		11-2. If Party B suffers a loss because Party A fails to inform Party B of that the House is under mortgage, Party A shall undertake the compensation. 
+	</p>
+	<p>
+		11-3. During the lease term, if Party A fails to do the maintenance in time as required by the Contract, which makes the House, auxiliary facility and equipment are damaged and Party B suffers property loss or personal injury, Party A shall undertake the compensation. 
+	</p>
+	<p>
+		11-4 If Party B decorates the House or newly adds auxiliary facilities without being permitted by Party B or beyond Party A’s written permission, Party A has the right to require Party B to recover the House and compensate for Party A’s loss. 
+	</p>
+	<p>
+		11-5. During the lease term, unless otherwise agreed in this Contract, if Party A requires to terminate this Contract beforehand, Party A shall pay liquidated damage to Party B, which shall be one month’s rent. If the liquidated damage is not able to cover Party B’s loss, Party A shall also undertake the compensation. 
+	</p>
+	<p>
+		11-6. During the lease term, unless otherwise agreed in this Contract, if Party B requires to quit the lease unilaterally, Party B shall pay liquidated damage to Party A, which is one month’s rent. If the liquidated damage is not able to cover Party A’s loss, Party B shall also undertake the compensation. 
+	</p>
+	<p>
+		11-7. During the lease term, if there is one of the situations set in Article 10-3, Party B shall pay liquidated damage to Party A, which shall be one month’s rent. If the liquidated damage is not able to cover Party A’s loss, Party B shall also undertake the compensation.
+	</p>
+	
+	<h3>Article XII Solution of Dispute</h3>
+	<p>
+		12-1. This Contract is under the governance of laws and rules in the People’s Republic of China. 
+	</p>
+	<p>
+		12-2. When performing this Contract, if there is a dispute, Party A and Party B shall have a friendly negotiation or apply for a mediation at People’s Mediation Committee; or Item (2) listed here below can be used: 
+	</p>
+	<p>
+		(1) Submit to Shanghai Arbitration Committee; 
+	</p>
+	<p>
+		(2) Submit a lawsuit at People’s Court. 
+	</p>
+	
+	<h3>Article XIII Others </h3>
+	<p>
+		13-1. For the unaccomplished matters, a supplementary agreement can be signed if agreed by both parties. The supplementary agreement and attachments are inseparable parts of this Contract. 
+	</p>
+	<p>
+		13-2. Party A’s address: <b><u>${landlordAddress}</u></b>, Party B’s address:<b><u>${renterAddress}</u></b>, if either party posts legal materials via registered letters to the other party by the addresses aforementioned, it will consider that the legal materials are successfully sent out.
+	</p>
+	<p>
+		13-3. <b>This Contract is an electronic one, which is to take effect after Party B click “OK” or Party B pays for the rental fee or deposit. </b>。
+	</p>
+	<p>
+		13-4. After taking effect, Party A and Party B shall additionally sign an electronic contract to set the amendments or supplements, which is to be used as the attachment of this Contract. This attachment will have the same legal force as this Contract. 
+	</p>
+	
+	<h2  class="title-terms">Other information: </h2>
+	<p class="remarks"><strong>Note：<u>${contractRemark}</u></strong></p>
+	
+	<h3>Furniture List:</h3>
+	<div>${roomFurnitureList}</div>
+	
+	<h3>Public Furniture List:</h3>
+	<div>${flatsFurnitureList}</div>
+
+</body>
+</html>
