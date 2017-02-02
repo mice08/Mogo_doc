@@ -385,6 +385,10 @@
         },
         "districtLat" : {
           "type" : "double"
+        },
+        "metroInfoNotWord" : {
+          "type": "string",
+          "index": "not_analyzed"
         }
       }
 }
