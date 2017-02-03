@@ -66,8 +66,8 @@ create table bizd_landlord_bussiness
    bdLandlordId         int(11) comment 'BD房东ID',
    operatingPeriod      int(2) comment '经营年限(参考字典表组名:bizd_operatingPeriod)',
    officeAddress        varchar(125) comment '办公地址',
-   groupRoomCount       int(5) comment '集中式房间数',
-   scatterRoomCount     int(5) comment '分散式房间数',
+   centralizeCount      int(5) comment '集中式房间数',
+   decentralizeCount    int(5) comment '分散式房间数',
    allCount             int(5) comment '总量(间)',
    vacantCount          int(5) comment '空置房间数',
    minRent              decimal(12,2) comment '最低租金',
@@ -84,7 +84,7 @@ create table bizd_landlord_bussiness
    valid                tinyint(1) comment '是否有效(0:无效,1:有效)',
    primary key (id),
    KEY `bdLandlordId` (`bdLandlordId`)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='bizd房东运营情况表';
+)ENGINE=InnoDB  COMMENT='bizd房东运营情况表';
 
 /*==============================================================*/
 /* Table: bizd_landlord_district                                */
@@ -123,7 +123,7 @@ create table bizd_question
    updateTime           datetime comment '修改时间',
    valid                tinyint(1) comment '是否有效(0:无效,1:有效)',
    primary key (id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='bizd字段表';
+)ENGINE=InnoDB  COMMENT='bizd字段表';
 
 /*==============================================================*/
 /* Table: bizd_answer                                           */
@@ -137,7 +137,7 @@ create table bizd_answer
    valid                tinyint(1) comment '是否有效(0:无效,1:有效)',
    primary key (id),
    KEY `bdLandlordId` (`bdLandlordId`)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='bizd字段内容表';
+)ENGINE=InnoDB  COMMENT='bizd字段内容表';
 
 /*==============================================================*/
 /* Table: bizd_landlord_sign                                    */
@@ -155,7 +155,7 @@ create table bizd_landlord_sign
    updateTime           datetime comment '修改时间',
    primary key (id),
    KEY `bdLandlordId` (`bdLandlordId`)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='bizd房东签约资料表';
+)ENGINE=InnoDB  COMMENT='bizd房东签约资料表';
 
 
 /*==============================================================*/
@@ -175,7 +175,7 @@ create table bizd_landlord_followup
    valid                tinyint(1) comment '是否有效(0:无效,1:有效)',
    primary key (id),
    KEY `bdLandlordId` (`bdLandlordId`)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='bizd房东跟进表';
+)ENGINE=InnoDB COMMENT='bizd房东跟进表';
 
 /*==============================================================*/
 /* Table: bizd_landlord_protect                                 */
@@ -197,7 +197,7 @@ create table bizd_landlord_protect
    createTime           datetime comment '创建时间',
    primary key (id),
    KEY `bdLandlordId` (`bdLandlordId`)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='bizd房东保护表';
+)ENGINE=InnoDB  COMMENT='bizd房东保护表';
 
 /*==============================================================*/
 /* Table: bizd_landlord_record                                  */
@@ -228,6 +228,6 @@ create table bizd_landlord_record
    times                int(11) comment '进入公共池的次数',
    primary key (id),
    KEY `bdLandlordId` (`bdLandlordId`)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='bizd房东记录表';
+)ENGINE=InnoDB  COMMENT='bizd房东记录表';
 
 
