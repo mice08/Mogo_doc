@@ -23,6 +23,41 @@ drop table if exists bizd_landlord_sign;
 drop table if exists bizd_user_landlord;
 
 /*==============================================================*/
+/* Table: bizd_landlord                                         */
+/*==============================================================*/
+create table bizd_landlord
+(
+   id                   int(11) not null,
+   landlordId           int(11) comment '房东ID',
+   cityId               int(11) comment '城市ID',
+   name                 varchar(20) comment '房东姓名',
+   phone                varchar(14) comment '联系电话',
+   roleName             varchar(20) comment '角色',
+   sex                  tinyint(1) comment '性别',
+   ageGroup             varchar(10) comment '年龄段',
+   province             int(11) comment '省份(参考city_province)',
+   education            int(2) comment '学历(参考字典表组名:educationalBackground)',
+   maritalStatus        tinyint(1) comment '婚姻状况(0:未婚,1:已婚)',
+   avocation            tinyint(1) comment '副业(0:无  1:有)',
+   dataChannel          tinyint(2) comment '数据来源',
+   bdchannel            tinyint(2) comment '拓展渠道(1:地推,2:网络,3:老客户介绍,9:其它)',
+   bdchannelremark      varchar(20) comment '拓展渠道其它的内容',
+   status               tinyint(2) comment '房东状态',
+   servicePerson        int(11) comment '服务人',
+   serviceOrgId		      int(11) comment '服务组织',
+   canBeAssigned        tinyint(1) comment '是否可分配（0：不可，1：可）',
+   allotCount           int(11) comment '分配次数',
+   createBy             int(11) comment '创建人ID',
+   createByType         int(2) comment '创建人类型(参考字典表组名:userType)',
+   createTime           dateTime comment '创建时间',
+   updateBy             int(11) comment '修改人ID',
+   updateByType         int(2) comment '修改人类型(参考字典表组名:userType)',
+   updateTime           dateTime comment '修改时间',
+   valid                tinyint(1) comment '是否有效（0：无效 1：有效）',
+   primary key (id)
+);
+
+/*==============================================================*/
 /* Table: bizd_landlord_bussiness                               */
 /*==============================================================*/
 create table bizd_landlord_bussiness
@@ -31,8 +66,8 @@ create table bizd_landlord_bussiness
    bdLandlordId         int(11) comment 'BD房东ID',
    operatingPeriod      int(2) comment '经营年限(参考字典表组名:)',
    officeAddress        varchar(125) comment '办公地址',
-   groupRoomCount int(5) comment '集中式房间数',-- ???
-   scatterRoomCount int(5) comment '分散式房间数',-- ???
+   groupRoomCount       int(5) comment '集中式房间数',-- ???
+   scatterRoomCount     int(5) comment '分散式房间数',-- ???
    allCount             int(5) comment '总量(间)',
    vacantCount          int(5) comment '空置房间数',
    minRent              decimal(12,2) comment '最低租金',
@@ -51,6 +86,18 @@ create table bizd_landlord_bussiness
 );
 
 /*==============================================================*/
+/* Table: bizd_landlord_district                                */
+/*==============================================================*/
+create table bizd_landlord_district
+(
+   id                   int(11) not null,
+   bdLandlordId         int(11) comment 'BD房东ID',
+   districtId           int(11) comment '区域ID',
+   valid                tinyint(2) comment '是否有效(0:无效   1有效)',
+   primary key (id)
+);
+
+/*==============================================================*/
 /* Table: bizd_question                                         */
 /*==============================================================*/
 create table bizd_question
@@ -63,8 +110,8 @@ create table bizd_question
    sort                 int(2) comment '排序',
    description          varchar(255) comment '描述',
    leve                 int(1) comment '等级',
-   qtype                 int(2) comment '类型',
-   qcode                 varchar(50) comment 'code',
+   qtype                int(2) comment '类型',
+   qcode                varchar(50) comment 'code',
    parentId             int(11) comment 'parentId',
    createBy             int(11) comment '创建人ID',
    createByType         int(2) comment '创建人类型(参考字典表组名:userType)',
@@ -90,16 +137,22 @@ create table bizd_answer
 );
 
 /*==============================================================*/
-/* Table: bizd_landlord_district                                */
+/* Table: bizd_landlord_sign                                    */
 /*==============================================================*/
-create table bizd_landlord_district
+create table bizd_landlord_sign
 (
    id                   int(11) not null,
    bdLandlordId         int(11) comment 'BD房东ID',
-   districtId           int(11) comment '区域ID',
-   valid                tinyint(2) comment '是否有效(0:无效   1有效)',
+   picGroupId           int(11) comment '照片',
+   createBy             int(11) comment '创建人ID',
+   createByType         int(2) comment '创建人类型(参考字典表组名:userType)',
+   createTime           datetime comment '创建时间',
+   updateBy             int(11) comment '修改人ID',
+   updateByType         int(2) comment '修改人类型(参考字典表组名:userType)',
+   updateTime           datetime comment '修改时间',
    primary key (id)
 );
+
 
 /*==============================================================*/
 /* Table: bizd_landlord_followup                                */
@@ -108,7 +161,7 @@ create table bizd_landlord_followup
 (
    id                   int(11) not null,
    bdLandlordId         int(11) comment 'BD房东ID',
-   createByOrg          varchar(20) comment '创建人部门',
+   createByOrg          varchar(20) comment '创建人组织',
    status               int(2) comment '房东状态',
    FollowUpType         int(2) comment '跟进方式',
    content              varchar(255) comment '跟进内容',
@@ -154,10 +207,10 @@ create table bizd_landlord_record
    oldOrgId             int(11) comment '老的服务人机构ID',
    newOrgId             int(11) comment '新的服务人机构ID',
    valid                tinyint(1) comment '是否有效（0：无效，1：有效）',
-   position	varchar(10) comment '岗位名称',
+   position	            varchar(10) comment '岗位名称',
    operate              int(2) comment '操作',
    reason               varchar(255) comment '原因',
-   allotCount          int(11) comment '分配次数'，
+   allotCount           int(11) comment '分配次数',
    createBy             int(11) comment '创建人ID',
    createByType         int(2) comment '创建人类型(参考字典表组名:userType)',
    createTime           datetime comment '创建时间',
@@ -170,55 +223,4 @@ create table bizd_landlord_record
    primary key (id)
 );
 
-/*==============================================================*/
-/* Table: bizd_landlord_sign                                    */
-/*==============================================================*/
-create table bizd_landlord_sign
-(
-   id                   int(11) not null,
-   bdLandlordId         int(11) comment 'BD房东ID',
-   picGroupId           int(11) comment '照片',
-   createBy             int(11) comment '创建人ID',
-   createByType         int(2) comment '创建人类型(参考字典表组名:userType)',
-   createTime           datetime comment '创建时间',
-   updateBy             int(11) comment '修改人ID',
-   updateByType         int(2) comment '修改人类型(参考字典表组名:userType)',
-   updateTime           datetime comment '修改时间',
-   primary key (id)
-);
-
-/*==============================================================*/
-/* Table: bizd_user_landlord                                    */
-/*==============================================================*/
-create table bizd_user_landlord
-(
-   id                   int(11) not null,
-   landlordId           int(11) comment '房东ID',
-   cityId               int(11) comment '城市ID',
-   name                 varchar(20) comment '房东姓名',
-   phone                varchar(14) comment '联系电话',
-   roleName             varchar(20) comment '角色',
-   sex                  tinyint(1) comment '性别',
-   ageGroup             varchar(10) comment '年龄段',
-   province             int(11) comment '省份(参考city_province)',
-   education            int(2) comment '学历(参考字典表组名:educationalBackground)',
-   maritalStatus        tinyint(1) comment '婚姻状况(0:未婚,1:已婚)',
-   avocation            tinyint(1) comment '副业(0:无  1:有)',
-   dataChannel          tinyint(2) comment '数据来源',
-   bdchannel            tinyint(2) comment '拓展渠道(1:地推,2:网络,3:老客户介绍,9:其它)',
-   bdchannelremark      varchar(20) comment '拓展渠道其它的内容',
-   status               tinyint(2) comment '状态',
-   servicePerson        int(11) comment '服务人',
-   serviceOrgId		 int(11) comment '服务组织',
-   canBeAssigned        tinyint(1) comment '是否可分配（0：不可，1：可）',
-   allotCount          int(11)分配次数
-   createBy             int(11) comment '创建人ID',
-   createByType         int(2) comment '创建人类型(参考字典表组名:userType)',
-   createTime           dateTime comment '创建时间',
-   updateBy             int(11) comment '修改人ID',
-   updateByType         int(2) comment '修改人类型(参考字典表组名:userType)',
-   updateTime           dateTime comment '修改时间',
-   valid                tinyint(1) comment '是否有效（0：无效 1：有效）',
-   primary key (id)
-);
 
