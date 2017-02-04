@@ -27,3 +27,4 @@ UPDATE acct.`acct_busirec` SET updateTime = createTime WHERE updateTime IS NULL;
 ALTER TABLE acct.`acct_fund`
 ADD COLUMN updateTime DATETIME DEFAULT NULL COMMENT '更新时间',
 ADD COLUMN version INT(11) DEFAULT NULL COMMENT '数据版本号';
+
