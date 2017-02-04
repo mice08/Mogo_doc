@@ -1,4 +1,4 @@
-/* Database name `mogoroomdb`, 增加报修表字段 */
+/* Database name `mogoroomdb`, 增加投诉表字段 */
 USE mogoroomdb;
 
 ALTER TABLE supp_complain ADD fcode VARCHAR(7) DEFAULT NULL COMMENT '投诉所在功能点 perm_functioninfo.fcode';
