@@ -11,6 +11,12 @@ insert into comm_dictionary (code,groupName,sort,keyPro,value,status,fcode,enval
 
 insert into comm_dictionary(code,groupName,sort,keyPro,value,STATUS,fcode,enValue)values('credential-7','credential',7,'7','其他证件',1,null,'credential-7');
 
+alter table user_weixin_bind add INDEX `openid_bindSrc` (`openid`,`bindSrc`);
+
+
+alter table comm_mobile_city add INDEX mobileNumber (mobileNumber);
+
+create index stationId on city_subway_station(stationId);
 
 commit;
 
