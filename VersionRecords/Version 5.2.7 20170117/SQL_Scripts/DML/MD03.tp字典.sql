@@ -16,5 +16,7 @@ alter table user_weixin_bind add INDEX `openid_bindSrc` (`openid`,`bindSrc`);
 
 alter table comm_mobile_city add INDEX mobileNumber (mobileNumber);
 
+create index stationId on city_subway_station(stationId);
+
 commit;
 
