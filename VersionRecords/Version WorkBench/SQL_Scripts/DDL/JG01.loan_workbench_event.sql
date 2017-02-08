@@ -12,8 +12,8 @@ ALTER TABLE `user_employee_info_his` ADD COLUMN `vacationBeginDate` date NULL CO
 ALTER TABLE `user_landlord` ADD COLUMN `financeServicer` INT (11) NULL COMMENT '金融服务人id
 (user_employee表Id)' AFTER `landlordSource`;
 
-ALTER TABLE `user_landlord_info_his` ADD COLUMN `financeServicer` INT (11) NULL COMMENT '金融服务人id
-(user_employee表Id)' AFTER `legalRepresentative`;
+ALTER TABLE `user_landlord_his` ADD COLUMN `financeServicer` INT (11) NULL COMMENT '金融服务人id
+(user_employee表Id)' AFTER `landlordSource`;
 DROP TABLE IF EXISTS loan_workbench_event ;
 CREATE TABLE `loan_workbench_event` (
 		`id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
