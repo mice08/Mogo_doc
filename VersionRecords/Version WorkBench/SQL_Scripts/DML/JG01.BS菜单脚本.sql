@@ -114,6 +114,46 @@ INSERT INTO `perm_functioninfo`
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
 VALUES (@fcode, '导出我完成的任务', 'loanWorkbench/myFinishEventTaskReport', @seq, @level2+1, @parentid2, 1, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, NULL, 1, 2);
 
+
+
+/**生成新的顺序号,null默认是1**/
+select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@parentid2;
+select @seq:=(case when @seq is null then 1 else @seq end);
+
+/**生成新的fcode**/
+select @fcode:= CONCAT(@level2+1,lpad(@parentid2,4,0),@seq ) from dual;
+/**插入新节点记录-'蘑菇宝审核（权限）'**/
+INSERT INTO `perm_functioninfo`
+( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
+VALUES (@fcode, '蘑菇宝审核（权限）', '', @seq, @level2+1, @parentid2, 1, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, NULL, 1, 2);
+
+/**生成新的顺序号,null默认是1**/
+select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@parentid2;
+select @seq:=(case when @seq is null then 1 else @seq end);
+
+/**生成新的fcode**/
+select @fcode:= CONCAT(@level2+1,lpad(@parentid2,4,0),@seq ) from dual;
+/**插入新节点记录-'房东资质一审（权限）'**/
+INSERT INTO `perm_functioninfo`
+( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
+VALUES (@fcode, '房东资质一审（权限）', '', @seq, @level2+1, @parentid2, 1, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, NULL, 1, 2);
+
+/**生成新的顺序号,null默认是1**/
+select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@parentid2;
+select @seq:=(case when @seq is null then 1 else @seq end);
+
+/**生成新的fcode**/
+select @fcode:= CONCAT(@level2+1,lpad(@parentid2,4,0),@seq ) from dual;
+/**插入新节点记录-'房东资质二审（权限）'**/
+INSERT INTO `perm_functioninfo`
+( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
+VALUES (@fcode, '房东资质二审（权限）', '', @seq, @level2+1, @parentid2, 1, NULL, NULL, NULL, 0, 1, NULL, now(), NULL, NULL, 1, 2);
+
+
+
+
+
+
 /**生成新的顺序号,null默认是1**/
 select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@rootId;
 select @seq:=(case when @seq is null then 1 else @seq end);
