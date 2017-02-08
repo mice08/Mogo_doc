@@ -52,3 +52,6 @@ crashlytics-build.properties
 .empty
 
 # Created by .ignore support plugin (hsz.mobi)
+
+#In the Apple macOS operating system, .DS_Store is a file that stores custom attributes of its containing folder
+.DS_Store
