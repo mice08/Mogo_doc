@@ -2,4 +2,4 @@
 USE mogoroomdb;
 
 ALTER TABLE acct.`acct_bill` 
-ADD COLUMN createByType TINYINT(4) DEFAULT NULL COMMENT '创建人类型';
+ADD COLUMN createByType TINYINT(4) DEFAULT 0 COMMENT '创建人类型';
