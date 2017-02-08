@@ -67,3 +67,7 @@ WHERE
 	e.eventType = 'loanBuybackLandlord'
 AND e.financeServicer IS NOT NULL;
 
+
+
+update  loan_workbench_task set taskLevel=3 where eventId in (select  e.id  from loan_workbench_event e where e.eventType='loanBuybackLandlord' );
+
