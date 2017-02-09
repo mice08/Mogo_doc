@@ -11,6 +11,8 @@ ADD COLUMN couponPaid DECIMAL(10,2) DEFAULT NULL COMMENT '抵用券支付金额'
 ADD COLUMN topSubsId INT(11) DEFAULT NULL COMMENT '与签约单对应的订购id',
 ADD COLUMN version INT(11) DEFAULT 1 COMMENT '数据版本号';
 
+ALTER TABLE acct.`acct_bill` ADD INDEX topSubsId(topSubsId);
+
 ALTER TABLE acct.`acct_busibilldtl` ADD COLUMN createTime DATETIME DEFAULT NULL  COMMENT '创建时间';
 ALTER TABLE acct.`acct_busifeedtl` ADD COLUMN createTime DATETIME DEFAULT NULL COMMENT '创建时间';
 ALTER TABLE acct.`acct_busifunddtl` ADD COLUMN createTime DATETIME DEFAULT NULL COMMENT '创建时间';
