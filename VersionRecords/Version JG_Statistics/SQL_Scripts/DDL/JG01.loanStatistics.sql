@@ -21,8 +21,8 @@ CREATE TABLE loan_task_tracker (
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='金融贷款任务表';
 
 /*金融贷款申请统计信息表*/
-DROP TABLE IF EXISTS loan_statistics_apply;
-CREATE TABLE loan_statistics_apply (
+DROP TABLE IF EXISTS repo_loan_statistics_apply;
+CREATE TABLE repo_loan_statistics_apply (
   id INT(11) NOT NULL AUTO_INCREMENT COMMENT '金融贷款申请统计信息表id',
   taskLogId INT(11) NOT NULL COMMENT '任务id',
   landlordType INT(3) NOT NULL COMMENT '房东类型(0:平台 1:自营)',
@@ -41,8 +41,8 @@ CREATE TABLE loan_statistics_apply (
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='金融贷款申请统计信息表';
 
 /*金融贷款放款统计信息表*/
-DROP TABLE IF EXISTS loan_statistics_plan;
-CREATE TABLE loan_statistics_plan (
+DROP TABLE IF EXISTS repo_loan_statistics_plan;
+CREATE TABLE repo_loan_statistics_plan (
   id INT(11) NOT NULL AUTO_INCREMENT COMMENT '金融贷款放款统计信息表id',
   taskLogId INT(11) NOT NULL COMMENT '任务id',
   landlordType INT(3) NOT NULL COMMENT '房东类型(0:平台 1:自营)',
@@ -66,8 +66,8 @@ CREATE TABLE loan_statistics_plan (
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='金融贷款放款统计信息表';
 
 /*金融贷款还款统计信息表*/
-DROP TABLE IF EXISTS loan_statistics_repay;
-CREATE TABLE loan_statistics_repay (
+DROP TABLE IF EXISTS repo_loan_statistics_repay;
+CREATE TABLE repo_loan_statistics_repay (
   id INT(11) NOT NULL AUTO_INCREMENT COMMENT '金融贷款还款统计信息表id',
   taskLogId INT(11) NOT NULL COMMENT '任务id',
   landlordType INT(3) NOT NULL COMMENT '房东类型(0:平台 1:自营)',
@@ -91,8 +91,8 @@ CREATE TABLE loan_statistics_repay (
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='金融贷款还款统计信息表';
 
 /*金融贷款买回统计信息表*/
-DROP TABLE IF EXISTS loan_statistics_buyback;
-CREATE TABLE loan_statistics_buyback (
+DROP TABLE IF EXISTS repo_loan_statistics_buyback;
+CREATE TABLE repo_loan_statistics_buyback (
   id INT(11) NOT NULL AUTO_INCREMENT COMMENT '金融贷款买回统计信息表id',
   taskLogId INT(11) NOT NULL COMMENT '任务id',
   landlordType INT(3) NOT NULL COMMENT '房东类型(0:平台 1:自营)',
