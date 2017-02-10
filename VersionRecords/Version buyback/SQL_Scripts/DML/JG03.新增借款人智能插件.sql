@@ -17,3 +17,9 @@ select @fcode:= CONCAT(@rootLevel+1,lpad(@rootId,4,0),@seq ) from dual;
 INSERT INTO `perm_functioninfo`
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
 VALUES (@fcode, '借款人智能插件', 'landlordPayPlan/autoCompleteQueryBorrower', @seq, @rootLevel+1, @rootId, 0, NULL, NULL, NULL, 1, 1, NULL, now(), NULL, NULL, 1, 2);
+
+
+/**插入新节点记录-'借款人智能插件2'**/
+INSERT INTO `perm_functioninfo`
+( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
+VALUES (@fcode, '拉卡拉借款人智能插件', 'landlordPayPlan/autoCompleteQueryLoanRenterSnapshot', @seq, @rootLevel+1, @rootId, 0, NULL, NULL, NULL, 1, 1, NULL, now(), NULL, NULL, 1, 2);
