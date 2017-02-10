@@ -1,12 +1,4 @@
-http://192.168.60.149:9200/rooms/ PUT
-
 {
-    "settings": {
-        "number_of_shards": 6,
-        "number_of_replicas": 2
-    },
-    "mappings": {
-        "mogoroom": {
             "properties": {
                 "comName": {
                     "type": "string",
@@ -435,6 +427,4 @@ http://192.168.60.149:9200/rooms/ PUT
                     "index": "not_analyzed"
                 }
             }
-        }
-    }
 }
