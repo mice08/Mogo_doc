@@ -2,8 +2,8 @@
 USE mogoroomdb;
 
 ALTER TABLE `comm_task_log`   
-  ADD COLUMN `datFrom` DATETIME NOT NULL,
-  ADD COLUMN `dataTo` DATETIME NOT NULL;
+  ADD COLUMN `dataFrom` INT(11)  NOT NULL,
+  ADD COLUMN `dataTo` INT(11)  NOT NULL;
 
 /*金融贷款申请统计信息表*/
 DROP TABLE IF EXISTS repo_loan_statistics_apply;
