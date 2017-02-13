@@ -1,5 +1,0 @@
-use mogoroomdb;
-
-/*BS行政区商圈添加功能菜单*/
-insert into `perm_functioninfo` (`fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`) values('3216606','商圈升级','city/upgradeBusiness','6','3','2166','0',NULL,NULL,NULL,'1','1',NULL,NULL,NULL,NULL,'1','2');
-insert into `perm_functioninfo` (`fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`) values('3216506','行政区降级','city/degradeDistrict','6','3','2165','0',NULL,NULL,NULL,'1','1',NULL,NULL,NULL,NULL,'1','2');
