@@ -1,0 +1,430 @@
+{
+            "properties": {
+                "comName": {
+                    "type": "string",
+                    "analyzer": "ik"
+                },
+                "lng": {
+                    "type": "double"
+                },
+                "lat": {
+                    "type": "double"
+                },
+                "districtName": {
+                    "type": "string",
+                    "analyzer": "ik"
+                },
+                "areaName": {
+                    "type": "string",
+                    "analyzer": "ik"
+                },
+                "roomId": {
+                    "type": "long"
+                },
+                "roomName": {
+                    "type": "string"
+                },
+                "roomNum": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
+                "building": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string",
+                    "analyzer": "ik"
+                },
+                "subtitle": {
+                    "type": "string"
+                },
+                "subtitleNew": {
+                    "type": "string"
+                },
+                "showPrice": {
+                    "type": "long"
+                },
+                "rentType": {
+                    "properties": {
+                        "value": {
+                            "type": "string"
+                        },
+                        "key": {
+                            "type": "long"
+                        }
+                    }
+                },
+                "rentTypeValue": {
+                    "type": "long"
+                },
+                "specials": {
+                    "type": "string"
+                },
+                "flatType": {
+                    "properties": {
+                        "value": {
+                            "type": "string"
+                        },
+                        "key": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "flatTypeValue": {
+                    "type": "string"
+                },
+                "image": {
+                    "type": "string"
+                },
+                "imageNew": {
+                    "type": "string"
+                },
+                "metroInfo": {
+                    "type": "string",
+                    "analyzer": "ik"
+                },
+                "subwayInfo": {
+                    "properties": {
+                        "subwayId": {
+                            "type": "long"
+                        },
+                        "stations": {
+                            "properties": {
+                                "sort": {
+                                    "type": "long"
+                                },
+                                "stationId": {
+                                    "type": "long"
+                                }
+                            }
+                        }
+                    }
+                },
+                "area": {
+                    "type": "double"
+                },
+                "floorCountNum": {
+                    "type": "long"
+                },
+                "floorNum": {
+                    "type": "long"
+                },
+                "brandId": {
+                    "type": "long"
+                },
+                "brandName": {
+                    "type": "string",
+                    "analyzer": "ik"
+                },
+                "level": {
+                    "type": "long"
+                },
+                "hobbies": {
+                    "type": "string"
+                },
+                "careers": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "geo_point"
+                },
+                "address": {
+                    "type": "string"
+                },
+                "landlordId": {
+                    "type": "long"
+                },
+                "flatRoomNum": {
+                    "type": "string"
+                },
+                "bedroomCount": {
+                    "type": "long"
+                },
+                "parlorCount": {
+                    "type": "long"
+                },
+                "toiletCount": {
+                    "type": "long"
+                },
+                "flatsProtoType": {
+                    "type": "long"
+                },
+                "flatsId": {
+                    "type": "long"
+                },
+                "street": {
+                    "type": "string"
+                },
+                "face": {
+                    "type": "string"
+                },
+                "roomProtoType": {
+                    "type": "long"
+                },
+                "cityId": {
+                    "type": "long"
+                },
+                "districtId": {
+                    "type": "long"
+                },
+                "areaId": {
+                    "type": "long"
+                },
+                "stationId": {
+                    "type": "long"
+                },
+                "subwayId": {
+                    "type": "long"
+                },
+                "communityId": {
+                    "type": "long"
+                },
+                "houseType": {
+                    "type": "long"
+                },
+                "brandType": {
+                    "type": "long"
+                },
+                "roomMateGender": {
+                    "type": "long"
+                },
+                "roomMateCnstl": {
+                    "type": "string"
+                },
+                "readyDate": {
+                    "type": "long"
+                },
+                "decoration": {
+                    "type": "string"
+                },
+                "toilet": {
+                    "type": "long"
+                },
+                "veranda": {
+                    "type": "long"
+                },
+                "bayWindow": {
+                    "type": "long"
+                },
+                "airCond": {
+                    "type": "long"
+                },
+                "tv": {
+                    "type": "long"
+                },
+                "hasPic": {
+                    "type": "long"
+                },
+                "hasWifi": {
+                    "type": "long"
+                },
+                "orientation": {
+                    "type": "string"
+                },
+                "roomScore": {
+                    "type": "double"
+                },
+                "flatTag": {
+                    "type": "long"
+                },
+                "hasService": {
+                    "type": "long"
+                },
+                "label": {
+                    "type": "long"
+                },
+                "roomCount": {
+                    "type": "long"
+                },
+                "checkInTime": {
+                    "type": "string"
+                },
+                "attributeConfig": {
+                    "properties": {
+                        "value": {
+                            "type": "string"
+                        },
+                        "key": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "statusUpdateTime": {
+                    "type": "string"
+                },
+                "statusUpdateDate": {
+                    "type": "long"
+                },
+                "lastPublishTimeText": {
+                    "type": "string"
+                },
+                "lastPublishTime": {
+                    "type": "string"
+                },
+                "monthlyPay": {
+                    "type": "long"
+                },
+                "checkInTimeStr": {
+                    "type": "string"
+                },
+                "natural1": {
+                    "type": "long"
+                },
+                "natural2": {
+                    "type": "long"
+                },
+                "pictureMark": {
+                    "type": "long"
+                },
+                "tpMonthlyPay": {
+                    "type": "long"
+                },
+                "comNameNotWord": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
+                "comNameAndId": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "doc_values": true
+                },
+                "comNameFullPinyin": {
+                    "type": "string"
+                },
+                "comNameShortPinyin": {
+                    "type": "string"
+                },
+                "districtNameNotWord": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
+                "districtNameAndId": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "doc_values": true
+                },
+                "districtNameFullPinyin": {
+                    "type": "string"
+                },
+                "districtNameShortPinyin": {
+                    "type": "string"
+                },
+                "areaNameNotWord": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
+                "areaNameAndId": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "doc_values": true
+                },
+                "areaNameFullPinyin": {
+                    "type": "string"
+                },
+                "areaNameShortPinyin": {
+                    "type": "string"
+                },
+                "brandNameNotWord": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                },
+                "preBrandNameAndId": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "doc_values": true
+                },
+                "commBrandNameAndId": {
+                    "type": "string",
+                    "index": "not_analyzed",
+                    "doc_values": true
+                },
+                "brandNameFullPinyin": {
+                    "type": "string"
+                },
+                "brandNameShortPinyin": {
+                    "type": "string"
+                },
+                "subway": {
+                    "type": "nested",
+                    "properties": {
+                        "subwayId": {
+                            "type": "long"
+                        },
+                        "subwayName": {
+                            "type": "string",
+                            "analyzer": "ik"
+                        },
+                        "subwayNameNotWord": {
+                            "type": "string",
+                            "index": "not_analyzed"
+                        },
+                        "subwayNameAndId": {
+                            "type": "string",
+                            "index": "not_analyzed",
+                            "doc_values": true
+                        },
+                        "subwayNameFullPinyin": {
+                            "type": "string"
+                        },
+                        "subwayNameShortPinyin": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "station": {
+                    "type": "nested",
+                    "properties": {
+                        "stationId": {
+                            "type": "long"
+                        },
+                        "stationName": {
+                            "type": "string",
+                            "analyzer": "ik"
+                        },
+                        "stationNameNotWord": {
+                            "type": "string",
+                            "index": "not_analyzed"
+                        },
+                        "stationNameAndId": {
+                            "type": "string",
+                            "index": "not_analyzed",
+                            "doc_values": true
+                        },
+                        "stationNameFullPinyin": {
+                            "type": "string"
+                        },
+                        "stationNameShortPinyin": {
+                            "type": "string"
+                        },
+                        "stationLng": {
+                            "type": "double"
+                        },
+                        "stationLat": {
+                            "type": "double"
+                        }
+                    }
+                },
+                "roomInfo": {
+                    "type": "string"
+                },
+                "roomStatus": {
+                    "type": "long"
+                },
+                "areaLng": {
+                    "type": "double"
+                },
+                "areaLat": {
+                    "type": "double"
+                },
+                "districtLng": {
+                    "type": "double"
+                },
+                "districtLat": {
+                    "type": "double"
+                },
+                "metroInfoNotWord": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                }
+            }
+}
