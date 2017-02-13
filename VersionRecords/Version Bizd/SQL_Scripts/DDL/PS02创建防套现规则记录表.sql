@@ -1,6 +1,8 @@
 ﻿/*创建防套现规则记录表*/
 
-use mogoroomdb;
+USE mogoroomdb;
+
+DROP TABLE IF EXISTS risk_cashSuspicion;
 
 CREATE TABLE `risk_cashSuspicion`(  
   `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
@@ -9,7 +11,7 @@ CREATE TABLE `risk_cashSuspicion`(
   `riskCode` VARCHAR(25) COMMENT '规则编号',
   `landlordId` INT(11) NOT NULL COMMENT '房东id',
   `renterId` INT(11) NOT NULL COMMENT '租客id',
-  `payAccount` VARCHAR(25) COMMENT '支付账号',
+  `payAccount` VARCHAR(50) COMMENT '支付账号',
   `payAccountType` TINYINT(1) COMMENT '支付账号类型(字典表groupName=risk_payAccountType)',
    PRIMARY KEY(`id`),
    KEY(landlordId),
