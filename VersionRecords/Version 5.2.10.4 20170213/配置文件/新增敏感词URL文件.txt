@@ -1,0 +1,11 @@
+/tpOrder/findContractInfo
+/tpOrder/confirmContract
+/tpOrder/prepareValidationAddSignedOrder
+/tpOrder/addSignedOrder
+/tpOrder/findSignedOrderRoomInfo
+/saleBill/queryBillList
+/saleBill/queryRenterSignedOrderList
+/feedback/queryRenterRepairDetail
+/feedback/queryRenterRepairList
+/feedback/querySignedOrder
+/feedback/saveRepair
