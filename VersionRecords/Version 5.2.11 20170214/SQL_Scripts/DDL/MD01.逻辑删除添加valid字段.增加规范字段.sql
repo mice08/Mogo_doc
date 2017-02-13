@@ -1,5 +1,5 @@
 ﻿use mogoroomdb;
-
+/*逻辑删除增加valid字段及完善基础字段*/
 
 ALTER TABLE perm_role_function ADD `remark` VARCHAR (512) DEFAULT NULL COMMENT '备注',
  ADD `createTime` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
