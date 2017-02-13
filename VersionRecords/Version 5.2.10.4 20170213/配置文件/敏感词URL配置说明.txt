@@ -1,1 +1,1 @@
-把目录下的[新增敏感词URL文件.txt] 内容追加到各自环境的FilterUrl.txt配置文件里面即可
+鎶婄洰褰曚笅鐨刐鏂板鏁忔劅璇峌RL鏂囦欢.txt] 鍐呭杩藉姞鍒板悇鑷幆澧冪殑FilterUrl.txt閰嶇疆鏂囦欢閲岄潰鍗冲彲
