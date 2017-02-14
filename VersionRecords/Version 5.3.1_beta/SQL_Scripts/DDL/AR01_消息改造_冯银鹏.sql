@@ -30,6 +30,13 @@ CREATE TABLE `mesg_news_record` (
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='站内信发送记录表';
 ALTER TABLE mesg_news_record  ADD   INDEX `INDEX_RECORDID` (`recordId`);
 
+/**修改消息Value长度**/
+ALTER TABLE `mesg_push_tosend`  MODIFY COLUMN jumpValue VARCHAR(256);
+ALTER TABLE `mesg_push_record`  MODIFY COLUMN jumpValue VARCHAR(256);
+ALTER TABLE `mesg_push_tocheck` MODIFY COLUMN jumpValue VARCHAR(256);
+ALTER TABLE `mesg_news_record`  MODIFY COLUMN jumpValue VARCHAR(256);
+
+
 /**Message数据转移SQL**/
 INSERT INTO mesg_news_record  (recordId,newsTitle,newsContent,willSendTime,sendStatus,isRead,updateTime,createTime,jumpCode,jumpValue,valid) 
 SELECT recordId,pushTitle,pushContent,willSendTime,sendStatus,isRead,lastSendTime,createTime,jumpCode,jumpValue,valid FROM mesg_push_record; 
