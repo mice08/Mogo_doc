@@ -54,6 +54,7 @@ create table bizd_user_landlord
    updateBy             int(11) comment '修改人ID',
    updateByType         int(2) comment '修改人类型(参考字典表组名:userType)',
    updateTime           dateTime comment '修改时间',
+   landlordNum          varchar(20) comment '房东编号',
    valid                tinyint(1) comment '是否有效(0:无效,1:有效)',
    primary key (id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='bizd房东表';
