@@ -2,19 +2,19 @@
   创建存储过程，检查并修复有月付资质的房东房源月付显示配置，执行完成后删除
 */
 
-use mogoroomdb;
+USE mogoroomdb;
 
 /*创建存储过程*/
 DELIMITER $$
 DROP PROCEDURE IF EXISTS monthPayProcedure $$
 CREATE PROCEDURE monthPayProcedure ()
 BEGIN
-  DECLARE roomId INT DEFAULT 0 ;
+  DECLARE cursorRoomId INT DEFAULT 0 ;
   DECLARE landlordId INT (11) ;
   DECLARE no_more_room INT DEFAULT 0 ;
-  declare isExistRecord int default 0 ;
+  DECLARE isExistRecord INT DEFAULT 0 ;
   /*查询有月付资质的房东ID*/
-  declare cursor_room CURSOR for
+  DECLARE cursor_room CURSOR FOR
   SELECT
     fr.id roomId
   FROM
@@ -44,16 +44,16 @@ BEGIN
     AND credit.`canLoan` = 1 ;
   DECLARE CONTINUE HANDLER FOR NOT FOUND SET no_more_room = 1 ;
   OPEN cursor_room ;
-  FETCH cursor_room INTO roomId ;
+  FETCH cursor_room INTO cursorRoomId ;
   REPEAT
-    select
-      count(1) into isExistRecord
-    from
+    SELECT
+      COUNT(1) INTO isExistRecord
+    FROM
       `find_room_attachment` fra
-    where fra.roomId = roomId ;
-    if isExistRecord = 0
-    then
-    insert into find_room_attachment (
+    WHERE fra.roomId = cursorRoomId ;
+    IF isExistRecord = 0
+    THEN
+    INSERT INTO find_room_attachment (
       roomId,
       publishTime,
       monthlyPay,
@@ -66,43 +66,47 @@ BEGIN
       updateTime,
       tpMonthlyPay
     )
-    values
+    VALUES
       (
-        roomId,
-        now(),
+        cursorRoomId,
+        NOW(),
         1,
         1,
         - 999,
         - 1,
-        now(),
+        NOW(),
         - 999,
         - 9,
-        now(),
+        NOW(),
         0
       ) ;
-    else
-    update
+    ELSE
+    UPDATE
       find_room_attachment
-    set
+    SET
       monthlyPay = 1,
-      publishTime = now(),
+      publishTime = NOW(),
       valid = 1,
-      updateTime = now()
-    where roomId = roomId ;
-    end if ;
-    FETCH cursor_room INTO roomId ;
+      updateTime = NOW()
+    WHERE roomId = cursorRoomId ;
+    END IF ;
+    FETCH cursor_room INTO cursorRoomId ;
     UNTIL no_more_room = 1
-  END repeat ;
+  END REPEAT ;
   COMMIT ;
   CLOSE cursor_room ;
 END $$
 
 DELIMITER ;
 
-/*调用存储过程*/
+/*开启事务*/
+BEGIN ;
 
-CALL monthPayProcedure();
+  /*调用存储过程*/
+  CALL monthPayProcedure();
 
+/*提交事务*/
+COMMIT ;
 
 /*删除存储过程*/
 DROP PROCEDURE monthPayProcedure;
