@@ -45,6 +45,7 @@ CREATE TABLE repo_loan_plan (
   depositAmount DECIMAL(14,2) NOT NULL DEFAULT '0.00' COMMENT '保证金',
   applyAmount DECIMAL(14,2) NOT NULL DEFAULT '0.00' COMMENT '申请金额',
   totalLoanPrincipal DECIMAL(14,2) NOT NULL DEFAULT '0.00' COMMENT '累计放款本金',
+  totalMogoCharge DECIMAL(14,2) NOT NULL DEFAULT '0.00' COMMENT '累计蘑菇手续费',
   valid INT(1) NOT NULL DEFAULT '1' COMMENT '是否有效(0:有效 1:无效)',
   PRIMARY KEY (id),
   KEY statDate(statDate)
@@ -97,6 +98,7 @@ CREATE TABLE repo_loan_buyback (
   overdueUnpayBuyBackCount  INT(11) NOT NULL DEFAULT '0' COMMENT '截止当日/月逾期未买回笔数',
   overdueUnpayBuyBackAmount  DECIMAL(14,2) NOT NULL DEFAULT '0.00' COMMENT '截止当日/月逾期未买回总额',
   badBuyBackAmount  DECIMAL(14,2) NOT NULL DEFAULT '0.00' COMMENT '坏账本金',
+  mogoPrincipalBuyBackCount  INT(11) NOT NULL DEFAULT '0' COMMENT '向资方买回笔数',
   mogoPrincipalBuyBackAmount  DECIMAL(14,2) NOT NULL DEFAULT '0.00' COMMENT '向资方买回本金',
   totalPrincipalBuyBackAmount  DECIMAL(14,2) NOT NULL DEFAULT '0.00' COMMENT '累计向资方买回本金',
   totalShouldBuyBackAmount  DECIMAL(14,2) NOT NULL DEFAULT '0.00' COMMENT '累计应还款金额',
