@@ -45,6 +45,7 @@ CREATE TABLE repo_loan_plan (
   depositAmount DECIMAL(14,2) NOT NULL DEFAULT '0.00' COMMENT '保证金',
   applyAmount DECIMAL(14,2) NOT NULL DEFAULT '0.00' COMMENT '申请金额',
   totalLoanPrincipal DECIMAL(14,2) NOT NULL DEFAULT '0.00' COMMENT '累计放款本金',
+  totalCharge DECIMAL(14,2) NOT NULL DEFAULT '0.00' COMMENT '累计手续费',
   valid INT(1) NOT NULL DEFAULT '1' COMMENT '是否有效(0:有效 1:无效)',
   PRIMARY KEY (id),
   KEY statDate(statDate)
@@ -101,6 +102,7 @@ CREATE TABLE repo_loan_buyback (
   totalPrincipalBuyBackAmount  DECIMAL(14,2) NOT NULL DEFAULT '0.00' COMMENT '累计向资方买回本金',
   totalShouldBuyBackAmount  DECIMAL(14,2) NOT NULL DEFAULT '0.00' COMMENT '累计应还款金额',
   totalUnpayBuyBackAmount  DECIMAL(14,2) NOT NULL DEFAULT '0.00' COMMENT '累计逾期本金',
+  totalBuyBackCount  INT(11) NOT NULL DEFAULT '0' COMMENT '累计向资方买回笔数',
   valid INT(1) NOT NULL DEFAULT '1' COMMENT '是否有效(0:有效 1:无效)',
   PRIMARY KEY (id),
   KEY statDate(statDate)
