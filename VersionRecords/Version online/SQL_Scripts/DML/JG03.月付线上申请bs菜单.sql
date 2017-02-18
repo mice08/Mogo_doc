@@ -77,7 +77,8 @@ VALUES((SELECT CONCAT(3,(SELECT LPAD((SELECT id FROM perm_functioninfo e WHERE e
 
 
 /* 删掉原有的蘑菇月付资质申请列表，用拓展审核列表、蘑菇月付服务申请列表代替 */
-DELETE FROM perm_functioninfo WHERE functionpId IN (SELECT id FROM perm_functioninfo WHERE fname ='蘑菇月付资质申请列表');
+DELETE FROM perm_functioninfo   WHERE functionpId IN ( SELECT subquery.pid FROM (SELECT subpf.id AS pid FROM perm_functioninfo subpf WHERE subpf.fname ='蘑菇月付资质申请列表') subquery );
+
 DELETE FROM perm_functioninfo WHERE fname ='蘑菇月付资质申请列表';
 
 COMMIT;
