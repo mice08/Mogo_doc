@@ -16,7 +16,7 @@ CREATE TABLE `cntr_salecontract_ca` (
 `createByType`  int NOT NULL COMMENT '创建人用户类型' ,
 `signDate`  datetime NULL COMMENT '签约(完成)时间' ,
 `archiveStatus`  tinyint(1) NOT NULL DEFAULT 0 COMMENT '存档状态(0:未归档 1:已存档)' ,
-`status`  tinyint(1) NOT NULL DEFAULT 1 COMMENT 'ca状态(1:创建 2:甲方签名 3:乙方签名 4:双方签署生效)' ,
+`status`  tinyint(1) NOT NULL DEFAULT 1 COMMENT 'ca状态(0:初始 1:创建 2:甲方签名 3:乙方签名 4:双方签署生效)' ,
 `valid`  tinyint(1) NOT NULL DEFAULT 1 COMMENT '数据有效性(0:无效 1:有效)' ,
 PRIMARY KEY (id),
 INDEX `IDX_CONTRACTID` (`contractId`) USING BTREE ,
