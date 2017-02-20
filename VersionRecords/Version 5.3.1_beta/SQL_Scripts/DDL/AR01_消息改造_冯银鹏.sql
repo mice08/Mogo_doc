@@ -31,10 +31,10 @@ CREATE TABLE `mesg_news_record` (
 ALTER TABLE mesg_news_record  ADD   INDEX `INDEX_RECORDID` (`recordId`);
 
 /**修改消息Value长度**/
-ALTER TABLE `mesg_push_tosend`  MODIFY COLUMN jumpValue VARCHAR(256);
-ALTER TABLE `mesg_push_record`  MODIFY COLUMN jumpValue VARCHAR(256);
-ALTER TABLE `mesg_push_tocheck` MODIFY COLUMN jumpValue VARCHAR(256);
-ALTER TABLE `mesg_news_record`  MODIFY COLUMN jumpValue VARCHAR(256);
+ALTER TABLE `mesg_push_tosend`  MODIFY COLUMN jumpValue VARCHAR(256) COMMENT '跳转值';
+ALTER TABLE `mesg_push_record`  MODIFY COLUMN jumpValue VARCHAR(256) COMMENT '跳转值';
+ALTER TABLE `mesg_push_tocheck` MODIFY COLUMN jumpValue VARCHAR(256) COMMENT '跳转值';
+ALTER TABLE `mesg_news_record`  MODIFY COLUMN jumpValue VARCHAR(256) COMMENT '跳转值';
 
 
 /**Message数据转移SQL**/
