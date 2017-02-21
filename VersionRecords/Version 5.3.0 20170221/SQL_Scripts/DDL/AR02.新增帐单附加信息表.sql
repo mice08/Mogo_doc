@@ -1,7 +1,7 @@
 ﻿/*添加帐务附加信息表*/
 USE mogoroomdb;
 
-CREATE TABLE `acct_bill_addinfo` (
+CREATE TABLE acct.`acct_bill_addinfo` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增id',
   `billId` int(11) NOT NULL COMMENT '账单id',
   `channel` int(11) NOT NULL COMMENT '来源渠道',
