@@ -42,10 +42,10 @@ INSERT INTO mesg_news_record  (recordId,newsTitle,newsContent,willSendTime,sendS
 SELECT recordId,pushTitle,pushContent,willSendTime,sendStatus,1,lastSendTime,createTime,jumpCode,jumpValue,valid FROM mesg_push_record WHERE  id <= 200000;
 
 INSERT INTO mesg_news_record  (recordId,newsTitle,newsContent,willSendTime,sendStatus,isRead,updateTime,createTime,jumpCode,jumpValue,valid) 
-SELECT recordId,pushTitle,pushContent,willSendTime,sendStatus,1,lastSendTime,createTime,jumpCode,jumpValue,valid FROM mesg_push_record WHERE  id <= 600000  AND id >400000;
+SELECT recordId,pushTitle,pushContent,willSendTime,sendStatus,1,lastSendTime,createTime,jumpCode,jumpValue,valid FROM mesg_push_record WHERE  id <= 600000   AND id >400000;
 
 INSERT INTO mesg_news_record  (recordId,newsTitle,newsContent,willSendTime,sendStatus,isRead,updateTime,createTime,jumpCode,jumpValue,valid) 
-SELECT recordId,pushTitle,pushContent,willSendTime,sendStatus,1,lastSendTime,createTime,jumpCode,jumpValue,valid FROM mesg_push_record WHERE  id <= 800000  AND id >600000;
+SELECT recordId,pushTitle,pushContent,willSendTime,sendStatus,1,lastSendTime,createTime,jumpCode,jumpValue,valid FROM mesg_push_record WHERE  id <= 800000   AND id >600000;
 
 INSERT INTO mesg_news_record  (recordId,newsTitle,newsContent,willSendTime,sendStatus,isRead,updateTime,createTime,jumpCode,jumpValue,valid) 
 SELECT recordId,pushTitle,pushContent,willSendTime,sendStatus,1,lastSendTime,createTime,jumpCode,jumpValue,valid FROM mesg_push_record WHERE  id <= 1000000  AND id >800000;
