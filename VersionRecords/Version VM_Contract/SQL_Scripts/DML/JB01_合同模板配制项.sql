@@ -27,3 +27,9 @@ INSERT INTO `comm_dictionary` (`groupName`,`code`,`sort`, `keyPro`, `value`, `st
 INSERT INTO `comm_dictionary` (`groupName`,`code`,`sort`, `keyPro`, `value`, `status`, `fcode`, `enValue`) VALUES ('contract-templet-disable','contract-templet-disable-289-1', '1', '289', 'TY006SH ', '1', NULL, 'TY006SH');
 INSERT INTO `comm_dictionary` (`groupName`,`code`,`sort`, `keyPro`, `value`, `status`, `fcode`, `enValue`) VALUES ('contract-templet-disable','contract-templet-disable-131-1', '1', '131', 'TY006BJ ', '1', NULL, 'TY006BJ');
 INSERT INTO `comm_dictionary` (`groupName`,`code`,`sort`, `keyPro`, `value`, `status`, `fcode`, `enValue`) VALUES ('contract-templet-disable','contract-templet-disable-340-1', '1', '340', 'TY006SZ ', '1', NULL, 'TY006SZ');
+
+/* 新增占用符*/
+INSERT INTO comm_dictionary (CODE, groupName, sort, keyPro, VALUE, enValue)
+VALUES
+("payDateType", "contractTemplet", 35, "35", "交租日规则", "payDateType"),
+("deadlineDetail", "contractTemplet", 36, "36", "每期交租日明细", "deadlineDetail");
