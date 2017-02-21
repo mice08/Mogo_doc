@@ -13,7 +13,7 @@ ALTER TABLE user_caidentification CHANGE acctType acctType tinyint(1) DEFAULT NU
 /*身份认证表*/
 ALTER TABLE user_landlord_identity rename  user_identity;
 
-ALTER TABLE user_identity CHANGE landlordId userId INT (11) NOT NULL COMMENT '用户ID';
+ALTER TABLE user_identity CHANGE landlordId userId INT (11) DEFAULT NULL COMMENT '用户ID';
 
 ALTER TABLE user_identity ADD userType TINYINT (1) DEFAULT NULL COMMENT '用户类型';
 
