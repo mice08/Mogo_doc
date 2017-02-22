@@ -1,15 +1,15 @@
 
  /**测试环境走这个SQL**/
 use mogoroomdb;
-set  @1 = (SELECT id FROM `comm_dictionary` WHERE CODE = 'MODULE_SignedOrder');
-set  @2 = (SELECT id FROM `comm_dictionary` WHERE CODE = 'MODULE_ReservationOrder');
-set  @3 = (SELECT id FROM `comm_dictionary` WHERE CODE = 'MODULE_OrderList');
-set  @4 = (SELECT id FROM `comm_dictionary` WHERE CODE = 'MODULE_MyBill');
+set  @9 = (SELECT id FROM `comm_dictionary` WHERE CODE = 'MODULE_SignedOrder');
+set  @8 = (SELECT id FROM `comm_dictionary` WHERE CODE = 'MODULE_ReservationOrder');
+set  @7 = (SELECT id FROM `comm_dictionary` WHERE CODE = 'MODULE_OrderList');
+set  @6 = (SELECT id FROM `comm_dictionary` WHERE CODE = 'MODULE_MyBill');
 set  @5 = (SELECT id FROM `comm_dictionary` WHERE CODE = 'MODULE_MsgDetail');
-set  @6 = (SELECT id FROM `comm_dictionary` WHERE CODE = 'MODULE_Login');
-set  @7 = (SELECT id FROM `comm_dictionary` WHERE CODE = 'MODULE_BookOrder');
-set  @8 = (SELECT id FROM `comm_dictionary` WHERE CODE = 'MODULE_AfterMarket');
-set  @9 = (SELECT id FROM `comm_dictionary` WHERE CODE = 'MODULE_Account');
+set  @4 = (SELECT id FROM `comm_dictionary` WHERE CODE = 'MODULE_Login');
+set  @3 = (SELECT id FROM `comm_dictionary` WHERE CODE = 'MODULE_BookOrder');
+set  @2 = (SELECT id FROM `comm_dictionary` WHERE CODE = 'MODULE_AfterMarket');
+set  @1 = (SELECT id FROM `comm_dictionary` WHERE CODE = 'MODULE_Account');
  
  INSERT INTO `mesg_jump` (jumpCode,pageType,pageCode)  VALUES ('9','1',@9);
  INSERT INTO `mesg_jump` (jumpCode,pageType,pageCode)  VALUES ('8','1',@8);
