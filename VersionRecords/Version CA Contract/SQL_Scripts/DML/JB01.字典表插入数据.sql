@@ -7,3 +7,6 @@ INSERT INTO `comm_dictionary` (CODE,groupName,sort,keyPro,VALUE,STATUS) VALUES (
 
 /*初始化实名认证次数限制*/
 INSERT INTO `comm_dictionary` (CODE,groupName,sort,keyPro,VALUE,STATUS) VALUES ('numLimit-2','numLimit',2,2,450,1);
+
+/*CA认证等待合同模板*/
+INSERT INTO cntr_contract_templet (cityId,templetName,templetPath,createBy,createByType,lang,templetCode,templetType,STATUS,createTime,belongContractType,updateTime,remark,valid) VALUES (0, 'CA认证等待合同模板', 'common/CAWAIT.vm', -1, -1, 1, 'CAWAIT', '1', '3', now(),'1', now(), 'CA认证等待合同模板', '1');
