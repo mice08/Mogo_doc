@@ -39,7 +39,49 @@ ALTER TABLE `mesg_news_record`  MODIFY COLUMN jumpValue VARCHAR(256) COMMENT '�
 
 /**Message数据转移SQL**/
 INSERT INTO mesg_news_record  (recordId,newsTitle,newsContent,willSendTime,sendStatus,isRead,updateTime,createTime,jumpCode,jumpValue,valid) 
-SELECT recordId,pushTitle,pushContent,willSendTime,sendStatus,isRead,lastSendTime,createTime,jumpCode,jumpValue,valid FROM mesg_push_record; 
+SELECT recordId,pushTitle,pushContent,willSendTime,sendStatus,1,lastSendTime,createTime,jumpCode,jumpValue,valid FROM mesg_push_record WHERE  id <= 200000;
+
+INSERT INTO mesg_news_record  (recordId,newsTitle,newsContent,willSendTime,sendStatus,isRead,updateTime,createTime,jumpCode,jumpValue,valid) 
+SELECT recordId,pushTitle,pushContent,willSendTime,sendStatus,1,lastSendTime,createTime,jumpCode,jumpValue,valid FROM mesg_push_record WHERE  id <= 600000   AND id >400000;
+
+INSERT INTO mesg_news_record  (recordId,newsTitle,newsContent,willSendTime,sendStatus,isRead,updateTime,createTime,jumpCode,jumpValue,valid) 
+SELECT recordId,pushTitle,pushContent,willSendTime,sendStatus,1,lastSendTime,createTime,jumpCode,jumpValue,valid FROM mesg_push_record WHERE  id <= 800000   AND id >600000;
+
+INSERT INTO mesg_news_record  (recordId,newsTitle,newsContent,willSendTime,sendStatus,isRead,updateTime,createTime,jumpCode,jumpValue,valid) 
+SELECT recordId,pushTitle,pushContent,willSendTime,sendStatus,1,lastSendTime,createTime,jumpCode,jumpValue,valid FROM mesg_push_record WHERE  id <= 1000000  AND id >800000;
+
+INSERT INTO mesg_news_record  (recordId,newsTitle,newsContent,willSendTime,sendStatus,isRead,updateTime,createTime,jumpCode,jumpValue,valid) 
+SELECT recordId,pushTitle,pushContent,willSendTime,sendStatus,1,lastSendTime,createTime,jumpCode,jumpValue,valid FROM mesg_push_record WHERE  id <= 1200000  AND id >1000000;
+
+INSERT INTO mesg_news_record  (recordId,newsTitle,newsContent,willSendTime,sendStatus,isRead,updateTime,createTime,jumpCode,jumpValue,valid) 
+SELECT recordId,pushTitle,pushContent,willSendTime,sendStatus,1,lastSendTime,createTime,jumpCode,jumpValue,valid FROM mesg_push_record WHERE  id <= 1400000  AND id >1200000;
+
+INSERT INTO mesg_news_record  (recordId,newsTitle,newsContent,willSendTime,sendStatus,isRead,updateTime,createTime,jumpCode,jumpValue,valid) 
+SELECT recordId,pushTitle,pushContent,willSendTime,sendStatus,1,lastSendTime,createTime,jumpCode,jumpValue,valid FROM mesg_push_record WHERE  id <= 1600000  AND id >1400000;
+
+INSERT INTO mesg_news_record  (recordId,newsTitle,newsContent,willSendTime,sendStatus,isRead,updateTime,createTime,jumpCode,jumpValue,valid) 
+SELECT recordId,pushTitle,pushContent,willSendTime,sendStatus,1,lastSendTime,createTime,jumpCode,jumpValue,valid FROM mesg_push_record WHERE  id <= 1800000  AND id >1600000;
+
+INSERT INTO mesg_news_record  (recordId,newsTitle,newsContent,willSendTime,sendStatus,isRead,updateTime,createTime,jumpCode,jumpValue,valid) 
+SELECT recordId,pushTitle,pushContent,willSendTime,sendStatus,1,lastSendTime,createTime,jumpCode,jumpValue,valid FROM mesg_push_record WHERE  id <= 2000000  AND id >1800000;
+
+INSERT INTO mesg_news_record  (recordId,newsTitle,newsContent,willSendTime,sendStatus,isRead,updateTime,createTime,jumpCode,jumpValue,valid) 
+SELECT recordId,pushTitle,pushContent,willSendTime,sendStatus,1,lastSendTime,createTime,jumpCode,jumpValue,valid FROM mesg_push_record WHERE  id <= 2200000  AND id >2000000;
+
+INSERT INTO mesg_news_record  (recordId,newsTitle,newsContent,willSendTime,sendStatus,isRead,updateTime,createTime,jumpCode,jumpValue,valid) 
+SELECT recordId,pushTitle,pushContent,willSendTime,sendStatus,1,lastSendTime,createTime,jumpCode,jumpValue,valid FROM mesg_push_record WHERE  id <= 2400000  AND id >2200000;
+
+INSERT INTO mesg_news_record  (recordId,newsTitle,newsContent,willSendTime,sendStatus,isRead,updateTime,createTime,jumpCode,jumpValue,valid) 
+SELECT recordId,pushTitle,pushContent,willSendTime,sendStatus,1,lastSendTime,createTime,jumpCode,jumpValue,valid FROM mesg_push_record WHERE  id <= 2600000  AND id >2400000;
+
+INSERT INTO mesg_news_record  (recordId,newsTitle,newsContent,willSendTime,sendStatus,isRead,updateTime,createTime,jumpCode,jumpValue,valid) 
+SELECT recordId,pushTitle,pushContent,willSendTime,sendStatus,1,lastSendTime,createTime,jumpCode,jumpValue,valid FROM mesg_push_record WHERE  id <= 2800000  AND id >2600000;
+
+INSERT INTO mesg_news_record  (recordId,newsTitle,newsContent,willSendTime,sendStatus,isRead,updateTime,createTime,jumpCode,jumpValue,valid) 
+SELECT recordId,pushTitle,pushContent,willSendTime,sendStatus,1,lastSendTime,createTime,jumpCode,jumpValue,valid FROM mesg_push_record WHERE  id <= 3000000  AND id >2800000;
+
+INSERT INTO mesg_news_record  (recordId,newsTitle,newsContent,willSendTime,sendStatus,isRead,updateTime,createTime,jumpCode,jumpValue,valid) 
+SELECT recordId,pushTitle,pushContent,willSendTime,sendStatus,1,lastSendTime,createTime,jumpCode,jumpValue,valid FROM mesg_push_record WHERE  id >3000000;
 
 
 /**数据字典表KEY值长度修改为50**/
@@ -82,3 +124,4 @@ Alter table  `mesg_jump`  add  index `INDEX_JUMPCODE` (`jumpCode`);
 /**模板表数据JUMPCode 转为 映射码**/
 INSERT INTO mesg_jump (jumpCode,pageType,pageCode) 
 SELECT ms.id,1,cd.`id` FROM mesg_subtemplet ms LEFT JOIN `comm_dictionary` cd ON ms.`jumpCode` = cd.`code` WHERE jumpCode IS NOT NULL AND cd.id IS NOT NULL
+
