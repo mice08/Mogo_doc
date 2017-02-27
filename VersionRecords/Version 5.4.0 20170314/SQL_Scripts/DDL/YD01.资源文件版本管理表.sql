@@ -32,5 +32,5 @@ CREATE TABLE `comm_file_version` (
   `updateByType` int (2) DEFAULT NULL COMMENT '修改人类型（参考字典表groupName=userType）',
   `valid` tinyint (1) NOT NULL DEFAULT '1' COMMENT '有效标志(0:删除;1:未删除)',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `versionCode` (`versionCode`)
+  FULLTEXT KEY `versionCode` (`versionCode`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT = '资源文件版本管理表'
