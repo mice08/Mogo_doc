@@ -22,7 +22,7 @@ CREATE TABLE `comm_file_version` (
   `terminal_os` varchar (20) CHARACTER SET utf8 NOT NULL COMMENT '终端操作系统，iOS或Android',
   `fileType` int (2) NOT NULL COMMENT '文件类型(1:H5)',
   `fileUrl` varchar (200) CHARACTER SET utf8 NOT NULL COMMENT '相关文件下载地址',
-  `versionCode` varchar (45) CHARACTER SET utf8 NOT NULL COMMENT '版本号',
+  `versionCode` varchar (20) CHARACTER SET utf8 NOT NULL COMMENT '版本号',
   `versionName` varchar (45) CHARACTER SET utf8 NOT NULL COMMENT '版本名描述',
   `createBy` int (11) NOT NULL COMMENT '创建人',
   `createTime` datetime NOT NULL COMMENT '创建时间',
@@ -32,5 +32,5 @@ CREATE TABLE `comm_file_version` (
   `updateByType` int (2) DEFAULT NULL COMMENT '修改人类型（参考字典表groupName=userType）',
   `valid` tinyint (1) NOT NULL DEFAULT '1' COMMENT '有效标志(0:删除;1:未删除)',
   PRIMARY KEY (`id`),
-  FULLTEXT KEY `versionCode` (`versionCode`)
+  KEY `versionCode` (`versionCode`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT = '资源文件版本管理表'
