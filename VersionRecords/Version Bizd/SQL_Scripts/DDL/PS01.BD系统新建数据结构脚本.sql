@@ -1,8 +1,4 @@
-﻿﻿/*==============================================================*/
-/* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2017/1/23 16:24:21                           */
-/*==============================================================*/
-
+﻿
 use bizd;
 
 drop table if exists bizd_landlord_bussiness;
@@ -23,9 +19,6 @@ drop table if exists bizd_landlord_sign;
 
 drop table if exists bizd_user_landlord;
 
-/*==============================================================*/
-/* Table: bizd_user_landlord                                    */
-/*==============================================================*/
 create table bizd_user_landlord
 (
    id                   int(11) not null  AUTO_INCREMENT COMMENT '主键id',
@@ -55,7 +48,7 @@ create table bizd_user_landlord
    updateByType         int(2) comment '修改人类型(参考字典表组名:userType)',
    updateTime           dateTime comment '修改时间',
    landlordNum          varchar(20) comment '房东编号',
-   valid                tinyint(1) comment '是否有效(0:无效,1:有效)',
+   valid                tinyint(1) DEFAULT '1' comment '是否有效(0:无效,1:有效)',
    primary key (id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='bizd房东表';
 
@@ -83,7 +76,7 @@ create table bizd_landlord_bussiness
    updateBy             int(11) comment '修改人ID',
    updateByType         int(2) comment '修改人类型(参考字典表组名:userType)',
    updateTime           datetime comment '修改时间',
-   valid                tinyint(1) comment '是否有效(0:无效,1:有效)',
+   valid                tinyint(1) DEFAULT '1' comment '是否有效(0:无效,1:有效)',
    primary key (id),
    KEY `bdLandlordId` (`bdLandlordId`)
 )ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COMMENT='bizd房东运营情况表';
@@ -96,7 +89,7 @@ create table bizd_landlord_district
    id                   int(11) not null AUTO_INCREMENT COMMENT '主键id',
    bdLandlordId         int(11) comment 'BD房东ID',
    districtId           int(11) comment '区域ID',
-   valid                tinyint(2) comment '是否有效(0:无效,1有效)',
+   valid                tinyint(2) DEFAULT '1' comment '是否有效(0:无效,1有效)',
    primary key (id),
    KEY `bdLandlordId` (`bdLandlordId`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='bizd房东区域关联表';
@@ -123,7 +116,7 @@ create table bizd_question
    updateBy             int(11) comment '修改人ID',
    updateByType         int(2) comment '修改人类型(参考字典表组名:userType)',
    updateTime           datetime comment '修改时间',
-   valid                tinyint(1) comment '是否有效(0:无效,1:有效)',
+   valid                tinyint(1) DEFAULT '1' comment '是否有效(0:无效,1:有效)',
    primary key (id)
 )ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COMMENT='bizd字段表';
 
@@ -136,7 +129,7 @@ create table bizd_answer
    bdLandlordId         int(11) comment 'BD房东ID',
    customfield          int(11) comment '房东字段表ID',
    value                varchar(255) comment '内容',
-   valid                tinyint(1) comment '是否有效(0:无效,1:有效)',
+   valid                tinyint(1) DEFAULT '1' comment '是否有效(0:无效,1:有效)',
    primary key (id),
    KEY `bdLandlordId` (`bdLandlordId`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='bizd字段内容表';
@@ -174,7 +167,7 @@ create table bizd_landlord_followup
    createBy             int(11) comment '创建人ID',
    createByType         int(2) comment '创建人类型(参考字典表组名:userType)',
    createTime           date comment '创建时间',
-   valid                tinyint(1) comment '是否有效(0:无效,1:有效)',
+   valid                tinyint(1) DEFAULT '1' comment '是否有效(0:无效,1:有效)',
    primary key (id),
    KEY `bdLandlordId` (`bdLandlordId`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='bizd房东跟进表';
@@ -193,7 +186,7 @@ create table bizd_landlord_protect
    actualEndDate        date comment '实际结束时间',
    allDays              int(4) comment '保护期(天)',
    useDays              int(4) comment '使用天数',
-   valid                tinyint(1) comment '是否有效(0:无效,1:有效)',
+   valid                tinyint(1) DEFAULT '1' comment '是否有效(0:无效,1:有效)',
    hasAccount           tinyint(1) comment '是否拥有帐号(0:无,1:有)',
    createBy             int(11) comment '创建人ID',
    createByType         int(2) comment '创建人类型(参考字典表组名:userType)',
@@ -215,7 +208,7 @@ create table bizd_landlord_record
    newServicePerson     int(11) comment '新服务人',
    oldOrgId             int(11) comment '老的服务人机构ID',
    newOrgId             int(11) comment '新的服务人机构ID',
-   valid                tinyint(1) comment '是否有效(0:无效,1:有效)',
+   valid                tinyint(1) DEFAULT '1' comment '是否有效(0:无效,1:有效)',
    position	            varchar(10) comment '岗位名称',
    bizType              int(2) comment '操作(参考字典表组名:bizd_bizType)',
    reason               varchar(255) comment '原因',
