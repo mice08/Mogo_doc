@@ -9,11 +9,12 @@ use mogoroomdb;
 	FROM
 	  comm_file_version
 	WHERE valid = 1
+	  AND versionCode = '2.0.1'
 	  AND channel = 18
 	  AND terminal_os = 'ALL'
 	  AND fileType = 1
-	  AND versionCode = '2.0.1'
 	ORDER BY createTime DESC
+  需要预先添加的索引字段versionCode
 */
 CREATE TABLE `comm_file_version` (
   `id` int (10) unsigned NOT NULL AUTO_INCREMENT COMMENT '资源文件版本管理表Id',
@@ -30,5 +31,6 @@ CREATE TABLE `comm_file_version` (
   `updateTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   `updateByType` int (2) DEFAULT NULL COMMENT '修改人类型（参考字典表groupName=userType）',
   `valid` tinyint (1) NOT NULL DEFAULT '1' COMMENT '有效标志(0:删除;1:未删除)',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `versionCode` (`versionCode`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT = '资源文件版本管理表'
