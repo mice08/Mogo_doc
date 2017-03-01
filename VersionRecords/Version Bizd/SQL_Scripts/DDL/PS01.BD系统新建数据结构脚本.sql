@@ -166,7 +166,7 @@ create table bizd_landlord_followup
    content              varchar(255) comment '跟进内容',
    createBy             int(11) comment '创建人ID',
    createByType         int(2) comment '创建人类型(参考字典表组名:userType)',
-   createTime           date comment '创建时间',
+   createTime           dateTime comment '创建时间',
    valid                tinyint(1) DEFAULT '1' comment '是否有效(0:无效,1:有效)',
    primary key (id),
    KEY `bdLandlordId` (`bdLandlordId`)
