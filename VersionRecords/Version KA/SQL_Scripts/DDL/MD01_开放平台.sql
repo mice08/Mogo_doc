@@ -25,6 +25,7 @@ CREATE TABLE `open_api_user` (
 CREATE TABLE `open_api_log` (
   `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT 'id主键',
   `openUserId` INT(11) NOT NULL COMMENT '开放平台用户ID',
+  `accessUrl` VARCHAR(50) DEFAULT NULL COMMENT '访问地址',
   `clientIp` VARCHAR(20) DEFAULT NULL COMMENT '客户端IP地址',
   `terminalType` VARCHAR(20) DEFAULT NULL COMMENT '客户终端',
   `resultStatus` TINYINT(1) DEFAULT '1' COMMENT '响应状态(1:成功,0:失败)',
