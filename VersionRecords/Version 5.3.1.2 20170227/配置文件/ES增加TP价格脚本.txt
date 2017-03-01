@@ -1,0 +1,11 @@
+http://192.168.60.192:9200/rooms/mogoroom/_mapping/      POST
+
+{
+  "mogoroom": {
+    "properties": {
+      "tpShowPrice": {
+        "type": "long"
+      }
+    }
+  }
+}
