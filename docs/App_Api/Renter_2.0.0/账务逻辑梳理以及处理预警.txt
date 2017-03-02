@@ -1,0 +1,99 @@
+支付所使用的表如下
+  支付前
+  oder_businessorder  <支付账单表>
+  acct.acct_tradelog  <支付行为>
+  acct.acct_tradelog_bill <支付行为对应账单表>
+  支付回调主要使用表
+  bill_paymentRecord  <日志表>
+  user_waterAccount   <账户交易流水表>
+  user_userAccount    <用户账户记录>
+  oder_businessOrder  <业务日志表>
+  user_businessAccount <业务记录流水表>
+发起支付
+   oder_businessorder  <支付申请表，合并支付时一笔账单对应一条记录。businessNum字段表示支付行为>
+   |
+   acct.acct_tradelog       <支付行为,支付回调时acct会把这个写为支付成功>
+   |
+   acct.acct_tradelog_bill  <支付行为对应账单表>
+交易回调处理流程大致分3步如下
+    1.写日志 bill_paymentRecord
+    2.处理账务数据和交易流水
+    3.处理业务回调逻辑
+目前支付回调业务有3种方式分别为支付定金,支付账单以及充值回调。下面分别介绍
+    1.支付定金处理流程
+	bill_paymentRecord 记录日志
+	|
+	user_waterAccount<租客2条流水,1条收入的支付流水和1条出的支付流水>
+	|
+	user_waterAccount<房东1条收入的支付流水>
+	|
+	user_userAccount <房东账户余额添加定金>
+	|
+	oder_reservationOrder<预定单业务表支付定金成功以及消息等在这一环处理>
+    2.支付账单处理流程
+	bill_paymentRecord 记录日志
+	|
+	user_waterAccount<租客2条流水,1条收入的支付流水和1条出的支付流水>
+	|
+	user_waterAccount<房东1条收入的支付流水>
+	|
+	user_userAccount <房东账户余额添加定金>
+	|
+	bill_salebill    <业务账单业务处理以及消息等在这一环处理>
+	|
+	user_businessAccount <记录日志>
+    3.充值
+	bill_paymentRecord 记录日志
+	|
+	user_waterAccount<用户1条收入的支付流水> 
+	|
+	user_userAccount <用户账户余额添加定金> 
+	|
+	user_businessAccount <记录日志>
+	|
+	发送消息等
+
+支付告警以及重复支付处理总结
+
+相关表介绍
+	账单支付主要涉及表介绍如下 
+	acct.acct_bill  新账务账单表
+	bill_salebill   账单表 
+	bill_account_mapping  新账务账单表和账单表关联表, 其中orderId是账单表bill_salebill 的id
+	acct.acct_tradelog t  支付行为表
+	acct.acct_tradelog_bill 支付行为账单表 一个支付行为对应多张账单记录在此
+	oder_businessorder    账单支付业务记录表  oder_businessorder表对 acct.acct_tradelog 为多对一 
+	user_useraccount      久账务的账务信息表  accountType 字段用于区分账户类型(101 余额,102 押金,103定金);
+	user_wateraccount     久账务流水表
+问题以及如何修复
+	1.支付遇到问题告警或者重复支付             
+	解方式
+	  1. 支付报警的数据通过下面sql获得那条数据报警 （status=3 表支付支付中，status=1 支付成功 ，status=0 支付失败 注意蘑菇宝没有即使买回的也是3不过他们有备注用于区分，蘑菇宝数据不用管）
+	   select * FROM acct.acct_tradelog t where t.`status` =3; 
+	  2. 根据报警支付行为id 查看他锁对应的账单
+	      select * from acct.acct_tradelog_bill t where t.tradlogid = '5';
+	  3.根据上面得到的账单查询是否有别的支付行为
+	      SELECT  t.* FROM acct.acct_tradelog t LEFT JOIN acct.acct_tradelog_bill s ON s.tradlogid = t.id
+	      where s.billid in ('5')
+	     1.如果此账单已经有支付行为并支付成功说明此单为重复支付如何解决看第4部 
+	     2.账单没有对应支付行为说明此支付行为遇到问题需解决，如何解决看第4部 
+	  4.查支付行为是否真的收到钱(是否真收到钱让运维去查一般是告诉运维acct.acct_tradelog 表中serialNum字段的值)
+	     1.收到钱
+	        1.重复支付
+		   首先让运维联系财务退款然后修复数据修复数据，修复数据分两个步骤
+		   1.支付行为设置支付失败sql如下
+		      UPDATE acct.`acct_tradelog` SET STATUS = 0 WHERE id = '808430';
+		   2.查看此次支付行为是否已经添加到账务流水中
+		       select * from user_wateraccount t where t.serialNum ='2016022914093019890001';
+		       如果数据为空，着不管，否则回滚数据回滚账务数据例子如下
+		       UPDATE user_useraccount t SET t.balance = t.balance - 2000 WHERE t.accountNum ='0213241822222' AND t.accountType = '101'; 
+		       UPDATE  user_wateraccount t SET t.`status` = '0', t.remark ='业务端支付了已经失效的账单，现回滚业务端收款记录' WHERE t.serialNum ='2016111121493665540001'; 
+		2.不是重复支付
+		    高数运维执行小工具，执行小工具需要参数如下
+                    acctBill=2236678，金额1296.73，支付宝支付 参数获取如下 
+		     acct.acct_tradelog的fundChannel表示支付渠道  2支付宝,3微信,12微信公众号,13支付宝服务窗 
+		     支付金额可以在  oder_businessorder 中查看到sql如下
+		     select * from oder_businessorder t where t.businessNum  ='2016022914093019890001'; 
+	     2.未收到钱
+	        直接把此支付行为设置成0即可，sql例子如下
+		UPDATE acct.`acct_tradelog` SET STATUS = 0 WHERE id = '808430';
