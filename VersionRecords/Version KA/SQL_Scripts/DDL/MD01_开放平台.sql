@@ -35,7 +35,7 @@ CREATE TABLE `open_api_log` (
   `requestTime` DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '请求时间',
   `responseTime` DATETIME  COMMENT '响应时间',
   PRIMARY KEY (`id`),
-  INDEX  `openUserId` (`openUserId`)
+  INDEX  `openUserId` (`openUserId`),
   INDEX  `requestId` (`requestId`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='开放平台调用记录表';
 
