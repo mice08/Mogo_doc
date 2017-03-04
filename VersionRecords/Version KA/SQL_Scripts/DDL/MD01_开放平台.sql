@@ -2,6 +2,11 @@ use mogoroomdb;
 /*开放平台相关建表语句*/
 
 /*开放平台接入用户表*/
+/*
+预估写入量每天小于3条
+预估读取量每天小于1000次
+主要查询语句开发中
+*/
 CREATE TABLE `open_api_user` (
   `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT 'id主键',
   `accessid` VARCHAR(100) NOT NULL COMMENT '接入商Id',
@@ -23,6 +28,11 @@ CREATE TABLE `open_api_user` (
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='开放平台接入用户表';
 
 /*开放平台调用记录表*/
+/*
+预估写入量每天小于1000条
+预估读取量每天小于3次
+主要查询语句开发中
+*/
 CREATE TABLE `open_api_log` (
   `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT 'id主键',
   `openUserId` INT(11) NOT NULL COMMENT '开放平台用户ID',
@@ -40,6 +50,11 @@ CREATE TABLE `open_api_log` (
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='开放平台调用记录表';
 
 /*开放平台地区表*/
+/*
+预估写入量每天0条
+预估读取量每天1000次
+主要查询语句开发中
+*/
 CREATE TABLE `open_api_geo` (
 	`id` INT (11) NOT NULL AUTO_INCREMENT COMMENT 'id主键无实际用处',
 	`geoId` INT (11) NOT NULL COMMENT '对应内部地理Id',
