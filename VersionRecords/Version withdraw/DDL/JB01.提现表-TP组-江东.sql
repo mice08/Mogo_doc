@@ -14,6 +14,7 @@ CREATE TABLE `risk_withdrawexam` (
   `bankCardNumber` varchar(32) NOT NULL COMMENT '收款银行卡号',
   `withdrawStatus` char(4) NOT NULL COMMENT '提现状态,DDSH-等待审核,CKCG-出款成功,DDCK-等待出款,JJTX-拒绝提现,CXTX-撤销提现,TTSB-提现失败',
   `valid` tinyint(4) NOT NULL DEFAULT '1' COMMENT '是否有效',
+  `outTime` datetime  COMMENT '出款时间',
   `createTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `createBy` int(11) NOT NULL COMMENT '创建人',
   `createByType` int(11) DEFAULT NULL COMMENT '创建人类型',
