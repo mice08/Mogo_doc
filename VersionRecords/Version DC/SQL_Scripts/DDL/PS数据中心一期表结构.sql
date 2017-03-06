@@ -1,5 +1,5 @@
 ﻿/*数据中心一期，主要解决bd报表查询效率问题*/
-USE mogoroomdb;
+USE DC;
 
 /*数据中心_房东_明细_实时*/
 CREATE TABLE dc_land_dtl_real (
