@@ -1,0 +1,22 @@
+/bill/addBill
+/bill/addFee
+/bill/trashFee
+/flat/cmnt/addCommunity
+/flat/flat/addCommunityAndCenterFlats
+/flat/flat/addDisperseShareFlat
+/flat/flat/addDisperseShareRoom
+/flat/flat/editRoom
+/repair/rejectRepair
+/saleOrder/cancelSignedOrder
+/saleOrder/createMgbSignOrderUI
+/saleOrder/createSignOrderUI
+/saleOrder/editAdditionalContract
+/saleOrder/editReservationRemark
+/saleOrder/editSignedOrder
+/saleOrder/modifyMgbAdditionalContract
+/saleOrder/modifyMgbSignOrderUI
+/saleOrder/newAdditionalContract
+/saleOrder/newAdditionalContract  
+/saleOrder/newMgbAdditionalContract
+/saleOrder/refuseSignedOrder
+/surrender/submitCheckoutInfo
