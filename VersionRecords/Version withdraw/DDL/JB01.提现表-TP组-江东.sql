@@ -44,4 +44,4 @@ CREATE TABLE `risk_withdrawexam_operlog` (
   `soDoneCode` int(32) NOT NULL COMMENT '操作流水号',
   PRIMARY KEY (`id`),
   KEY `riskWithdrawexamId` (`riskWithdrawexamId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='提现审核操作记录表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='提现审核操作记录表';
