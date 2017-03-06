@@ -32,7 +32,7 @@ CREATE TABLE `risk_withdrawexam_operlog` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `riskWithdrawexamId` int(11) NOT NULL COMMENT '用户提现审核表id',
   `operType` tinyint(1) NOT NULL COMMENT '操作类型(1:提交出款 2:人工审核 3:风控规则审核 4:人工撤销)',
-  `operResult` tinyint(1) NOT NULL COMMENT '操作结果(11:成功 10:失败 21:拒绝 20:通过 30:等待审核 31:通过 40:拒绝 41:通过)',
+  `operResult` tinyint(1) NOT NULL COMMENT '操作结果(11:成功 10:失败 20:拒绝 21:通过 30:等待审核 31:通过 41:撤销成功)',
   `remark` varchar(127) COMMENT '备注',
   `valid` tinyint(4) NOT NULL DEFAULT '1' COMMENT '是否有效(0:无效 1:有效)',
   `createTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
