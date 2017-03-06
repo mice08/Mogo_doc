@@ -2,7 +2,6 @@
 /*提现审核表  */
 use mogoroomdb;
 
-DROP TABLE IF EXISTS `risk_withdrawexam`;
 CREATE TABLE `risk_withdrawexam` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `userId` int(11) NOT NULL COMMENT '用户id',
@@ -27,7 +26,7 @@ CREATE TABLE `risk_withdrawexam` (
   KEY `doneCode` (`doneCode`) 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='提现审核表';
 
-DROP TABLE IF EXISTS `risk_withdrawexam_operlog`;
+
 CREATE TABLE `risk_withdrawexam_operlog` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `riskWithdrawexamId` int(11) NOT NULL COMMENT '用户提现审核表id',
