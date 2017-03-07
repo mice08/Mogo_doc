@@ -73,3 +73,6 @@ CREATE TABLE `open_api_geo` (
 	INDEX `geoId` (`geoId`),
 	UNIQUE  KEY  `geoCode` (`geoCode`)
 ) ENGINE = INNODB  DEFAULT CHARSET = utf8mb4 COMMENT = '开放平台地理信息表';
+/*修改表结构*/
+alter table open_api_log  modify `terminalType` VARCHAR(256) DEFAULT NULL COMMENT '客户终端User-Agent';
+alter table open_api_geo  modify `geoName` varchar(100) NOT NULL COMMENT '地理名';
