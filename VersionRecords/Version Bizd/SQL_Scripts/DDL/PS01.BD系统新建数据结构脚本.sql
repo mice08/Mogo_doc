@@ -1,23 +1,6 @@
 ﻿
 use bizd;
 
-drop table if exists bizd_landlord_bussiness;
-
-drop table if exists bizd_question;
-
-drop table if exists bizd_answer;
-
-drop table if exists bizd_landlord_district;
-
-drop table if exists bizd_landlord_followup;
-
-drop table if exists bizd_landlord_protect;
-
-drop table if exists bizd_landlord_record;
-
-drop table if exists bizd_landlord_sign;
-
-drop table if exists bizd_user_landlord;
 
 create table bizd_user_landlord
 (
