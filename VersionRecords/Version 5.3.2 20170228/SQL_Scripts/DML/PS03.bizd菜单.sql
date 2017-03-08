@@ -93,6 +93,13 @@ SELECT @fcode:= CONCAT('2',LPAD(@id,4,0),@seq) FROM perm_functioninfo WHERE fnam
 INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
 VALUES ( @fcode, '根据区域找部门', 'bdlandlord/findByDic', @seq, '2', @id, '0', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '19');
 
+SELECT @id:=id FROM perm_functioninfo WHERE fname = '组织结构' ORDER BY id DESC LIMIT 1;
+SELECT @seq:=(MAX(seq)+1) FROM perm_functioninfo WHERE functionpId=@id;
+SELECT @fcode:= CONCAT('2',LPAD(@id,4,0),@seq) FROM perm_functioninfo WHERE fname = '组织结构' ORDER BY id DESC LIMIT 1;
+
+INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
+VALUES ( @fcode, '根据城市查找区', 'city/findDistrictBycityId', @seq, '2', @id, '0', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '19');
+
 /* BS拓展系统管理菜单（三级）拓展员 */
 SELECT @id:=id FROM perm_functioninfo WHERE fname = '房东列表' AND furl = 'bdlandlord/landlordListByExpander' ORDER BY id DESC LIMIT 1;
 SELECT @fcode:= CONCAT('3',LPAD(@id,4,0),1) FROM perm_functioninfo WHERE fname = '房东列表' AND furl = 'bdlandlord/landlordListByExpander' ORDER BY id DESC LIMIT 1;
