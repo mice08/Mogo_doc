@@ -19,3 +19,4 @@
 /saleOrder/refuseSignedOrder
 /surrender/submitCheckoutInfo
 /rschart/noneSignedOrderRoom
+/flat/flat/addOrEditCenterFlatPrototype
