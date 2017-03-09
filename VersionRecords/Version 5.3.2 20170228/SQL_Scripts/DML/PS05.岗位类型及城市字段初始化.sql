@@ -12,3 +12,7 @@ UPDATE orga_org SET orgaOrgType=07 WHERE id IN (17,19,25)
 UPDATE orga_org SET orgaOrgType=07,areaCode=021 WHERE fullPath LIKE CONCAT('%','>17','%')
 UPDATE orga_org SET orgaOrgType=07,areaCode=010 WHERE fullPath LIKE CONCAT('%','>19','%')
 UPDATE orga_org SET orgaOrgType=07,areaCode=0755 WHERE fullPath LIKE CONCAT('%','>25','%')
+
+
+UPDATE orga_position SET orgaPositionType = 'manager' WHERE positionCode= 'manager';
+UPDATE orga_position SET orgaPositionType = 'sales' WHERE positionCode= 'sales';

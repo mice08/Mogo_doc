@@ -1,7 +1,49 @@
-﻿
-/*提现审核表  */
+﻿/*  Database name `mogoroomdb`  风控提现审核 */
 use mogoroomdb;
 
+/*
+1、预估表容量:300-400条/天
+2、每次读取量:在10条左右
+3、主要查询
+	SELECT
+    w.id,
+	w.createTime,
+	w.doneCode,
+	w.amount,
+	CASE w.userType
+WHEN 4 THEN
+	r.realName
+WHEN 0 THEN
+	l.name
+END 'username',
+ CASE w.userType
+WHEN 4 THEN
+	r.cellphone
+WHEN 0 THEN
+	l.phone
+END 'phone',
+ w.bankId,
+ w.bankCardNumber,
+ w.bankName,
+ w.bankAcctName,
+ w.withdrawStatus,
+ w.userType
+FROM
+	risk_withdrawexam w
+LEFT JOIN user_renter r ON w.userId = r.id
+AND w.userType = 4
+LEFT JOIN user_landlord l ON w.userId = l.id
+AND w.userType = 0
+
+where  (r.cellphone like '1536%' or l.phone like '1536%')
+AND (r.realName like '彭%' or l.name like '彭%')
+AND w.doneCode =  12
+AND w.bankCardNumber like '${po.bankCardNumber}%'
+and w.withdrawStatus in ('DDCK','JJTX')
+AND w.valid = 1
+order by w.id desc
+  需要预先添加的索引字段`userId`，doneCode
+*/
 CREATE TABLE `risk_withdrawexam` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `userId` int(11) NOT NULL COMMENT '用户id',
@@ -28,6 +70,34 @@ CREATE TABLE `risk_withdrawexam` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='提现审核表';
 
 
+/*
+1、预估表容量:600-800条/天
+2、每次读取量:在3条左右
+3、主要查询
+
+SELECT
+	id,
+	riskWithdrawexamId,
+	operType,
+	operResult,
+	remark,
+	valid,
+	createTime,
+	createBy,
+	createByType,
+	updateTime,
+	updateBy,
+	updateByType,
+	soDoneCode
+FROM
+	risk_withdrawexam_operlog
+where riskWithdrawexamId = 1
+AND valid = 1
+ORDER BY
+	id DESC
+
+  需要预先添加的索引字段`riskWithdrawexamId`
+*/
 CREATE TABLE `risk_withdrawexam_operlog` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `riskWithdrawexamId` int(11) NOT NULL COMMENT '用户提现审核表id',
