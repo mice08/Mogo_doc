@@ -83,11 +83,10 @@ INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLeve
 VALUES ( @fcode, '修改权限', 'permission/addRolePermissionBizd', @seq, '3', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
 
 SELECT @id:=id FROM perm_functioninfo WHERE fname = '待审核房东列表' ORDER BY id DESC LIMIT 1;
-SELECT @seq:=(MAX(seq)+1) FROM perm_functioninfo WHERE functionpId=@id;
-SELECT @fcode:= CONCAT('3',LPAD(@id,4,0),@seq) FROM perm_functioninfo WHERE fname = '待审核房东列表' ORDER BY id DESC LIMIT 1;
+SELECT @fcode:= CONCAT('3',LPAD(@id,4,0),1) FROM perm_functioninfo WHERE fname = '待审核房东列表' ORDER BY id DESC LIMIT 1;
 
 INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, '房东签约资料', 'landlord/bizdLandlordSignInfo', @seq, '3', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+VALUES ( @fcode, '房东签约资料', 'landlord/bizdLandlordSignInfo', 1, '3', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
 
 SELECT @id:=id FROM perm_functioninfo WHERE fname = '待审核房东列表' ORDER BY id DESC LIMIT 1;
 SELECT @seq:=(MAX(seq)+1) FROM perm_functioninfo WHERE functionpId=@id;
