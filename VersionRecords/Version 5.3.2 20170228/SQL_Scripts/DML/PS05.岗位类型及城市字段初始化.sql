@@ -13,3 +13,9 @@ UPDATE orga_org SET orgaOrgType=07,areaCode=021 WHERE fullPath LIKE CONCAT('%','
 UPDATE orga_org SET orgaOrgType=07,areaCode=010 WHERE fullPath LIKE CONCAT('%','>19','%')
 UPDATE orga_org SET orgaOrgType=07,areaCode=0755 WHERE fullPath LIKE CONCAT('%','>25','%')
 
+/*岗位表新添加type字段数据初始化*/
+UPDATE orga_position SET orgaPositionType = 'manager' WHERE positionCode= '10';
+UPDATE orga_position SET orgaPositionType = 'manager' WHERE positionCode= '11';
+UPDATE orga_position SET orgaPositionType = 'manager' WHERE positionCode= '13';
+UPDATE orga_position SET orgaPositionType = 'sales' WHERE positionCode= '12';
+UPDATE orga_position SET orgaPositionType = 'sales' WHERE positionCode= '9';
