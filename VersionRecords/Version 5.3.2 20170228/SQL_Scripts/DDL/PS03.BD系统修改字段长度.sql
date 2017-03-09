@@ -4,5 +4,5 @@
 */
 use bizd;
 
-ALTER TABLE `bizd_user_landlord`  MODIFY COLUMN NAME VARCHAR(50);
+ALTER TABLE `bizd_user_landlord`  MODIFY COLUMN NAME VARCHAR(50) COMMENT '房东名称';
 
