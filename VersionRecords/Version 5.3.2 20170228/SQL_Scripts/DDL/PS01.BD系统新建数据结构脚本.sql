@@ -1,7 +1,12 @@
 ﻿
 use bizd;
 
-
+/*
+新建表：增加bizd房东表
+1. 上线之后会有5000+条数据，日后看拓展录入
+2. 主要查询sql: select * from bizd_user_landlord where id = {0}
+3. 索引: 目前只有id
+*/
 create table bizd_user_landlord
 (
    id                   int(11) not null  AUTO_INCREMENT COMMENT '主键id',
@@ -35,9 +40,12 @@ create table bizd_user_landlord
    primary key (id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='bizd房东表';
 
-/*==============================================================*/
-/* Table: bizd_landlord_bussiness                               */
-/*==============================================================*/
+/*
+新建表：增加bizd房东运营情况表
+1. 上线之后会有5000+条数据，日后看拓展录入
+2. 主要查询sql: select * from bizd_landlord_bussiness where bdLandlordId = {0}
+3. 索引: 目前bdLandlordId一个字段有索引
+*/
 create table bizd_landlord_bussiness
 (
    id                   int(11) not null AUTO_INCREMENT COMMENT '主键id',
@@ -64,9 +72,12 @@ create table bizd_landlord_bussiness
    KEY `bdLandlordId` (`bdLandlordId`)
 )ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COMMENT='bizd房东运营情况表';
 
-/*==============================================================*/
-/* Table: bizd_landlord_district                                */
-/*==============================================================*/
+/*
+新建表：增加bizd房东区域关联表
+1. 上线之后会有0条数据，日后看拓展录入
+2. 主要查询sql: select * from bizd_landlord_district where bdLandlordId = {0}
+3. 索引: 目前bdLandlordId一个字段有索引
+*/
 create table bizd_landlord_district
 (
    id                   int(11) not null AUTO_INCREMENT COMMENT '主键id',
@@ -77,9 +88,12 @@ create table bizd_landlord_district
    KEY `bdLandlordId` (`bdLandlordId`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='bizd房东区域关联表';
 
-/*==============================================================*/
-/* Table: bizd_question                                         */
-/*==============================================================*/
+/*
+新建表：增加bizd字段表
+1. 上线之后会有44条数据，不超过1W条
+2. 主要查询sql: select * from bizd_question where paperChannel = {0}
+3. 索引: 目前使用ID即可
+*/
 create table bizd_question
 (
    id                   int(11) not null comment 'id' AUTO_INCREMENT COMMENT '主键id',
@@ -103,9 +117,12 @@ create table bizd_question
    primary key (id)
 )ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COMMENT='bizd字段表';
 
-/*==============================================================*/
-/* Table: bizd_answer                                           */
-/*==============================================================*/
+/*
+新建表：增加bizd字段内容表
+1. 上线之后会有0条数据，日后看拓展录入
+2. 主要查询sql: select * from bizd_answer where bdLandlordId = {0}
+3. 索引: 目前bdLandlordId一个字段有索引
+*/
 create table bizd_answer
 (
    id                   int(11) not null comment 'id' AUTO_INCREMENT COMMENT '主键id',
@@ -117,9 +134,12 @@ create table bizd_answer
    KEY `bdLandlordId` (`bdLandlordId`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='bizd字段内容表';
 
-/*==============================================================*/
-/* Table: bizd_landlord_sign                                    */
-/*==============================================================*/
+/*
+新建表：增加bizd房东签约资料表
+1. 上线之后会有0条数据，日后看拓展录入，一个房东一条
+2. 主要查询sql: select * from bizd_landlord_sign where bdLandlordId = {0}
+3. 索引: 目前bdLandlordId一个字段有索引
+*/
 create table bizd_landlord_sign
 (
    id                   int(11) not null AUTO_INCREMENT COMMENT '主键id',
@@ -136,9 +156,12 @@ create table bizd_landlord_sign
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='bizd房东签约资料表';
 
 
-/*==============================================================*/
-/* Table: bizd_landlord_followup                                */
-/*==============================================================*/
+/*
+新建表：增加bizd房东跟进表
+1. 上线之后会有0条数据，日后看拓展录入，一个房东可以添加多条
+2. 主要查询sql: select * from bizd_landlord_followup where bdLandlordId = {0}
+3. 索引: 目前bdLandlordId一个字段有索引
+*/
 create table bizd_landlord_followup
 (
    id                   int(11) not null AUTO_INCREMENT COMMENT '主键id',
@@ -155,9 +178,12 @@ create table bizd_landlord_followup
    KEY `bdLandlordId` (`bdLandlordId`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='bizd房东跟进表';
 
-/*==============================================================*/
-/* Table: bizd_landlord_protect                                 */
-/*==============================================================*/
+/*
+新建表：增加bizd房东保护表
+1. 上线之后会有0条数据，日后看拓展录入，一个房东可以添加多条
+2. 主要查询sql: select * from bizd_landlord_protect where bdLandlordId = {0}
+3. 索引: 目前bdLandlordId一个字段有索引
+*/
 create table bizd_landlord_protect
 (
    id                   int(11) not null AUTO_INCREMENT COMMENT '主键id',
@@ -178,9 +204,12 @@ create table bizd_landlord_protect
    KEY `bdLandlordId` (`bdLandlordId`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='bizd房东保护表';
 
-/*==============================================================*/
-/* Table: bizd_landlord_record                                  */
-/*==============================================================*/
+/*
+新建表：增加bizd房东记录表
+1. 上线之后会有0条数据，房东变更记录，一个房东10条。
+2. 主要查询sql: select * from bizd_landlord_record where bdLandlordId = {0}
+3. 索引: 目前bdLandlordId一个字段有索引
+*/
 create table bizd_landlord_record
 (
    id                   int(11) not null AUTO_INCREMENT COMMENT '主键id',
