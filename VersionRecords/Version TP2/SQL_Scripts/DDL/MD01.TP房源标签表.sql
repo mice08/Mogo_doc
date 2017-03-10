@@ -1,8 +1,8 @@
 use mogoroomdb;
 /*
-新建tp房源标签表
+新建tp房源资质标签表
 */
-CREATE TABLE `tp_room_tag` (
+CREATE TABLE `flat_power_tag` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主健',
   `roomId` int(11) NOT NULL COMMENT '房间ID',
   `tagId` int(11) NOT NULL COMMENT '标签ID(参考flat_tag表)',
@@ -15,7 +15,7 @@ CREATE TABLE `tp_room_tag` (
   `soDoneCode` int(11) NOT NULL COMMENT '操作流水号',
   `valid` tinyint(3) NOT NULL DEFAULT '1' COMMENT '数据状态(1:有效 0:删除)',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='tp房源标签表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='tp房源资质标签表';
 
 
 /*添加tp当月和次月展示房源标签*/
