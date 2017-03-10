@@ -3,7 +3,12 @@ CREATE DATABASE dc;
 
 USE dc;
 
-/*数据中心_房东_明细_实时*/
+/*
+新建表：数据中心_房东_明细_实时
+1. 和user_landlord表数据量一致，当前量：5000
+2. 主要查询sql: select * from dc_land_dtl_real where landlordId = {0}
+3. 索引: landlordId
+*/
 CREATE TABLE dc_land_dtl_real (
   landlordId INT(11) NOT NULL COMMENT '房东id',
   NAME VARCHAR(50) DEFAULT NULL COMMENT '房东姓名',
@@ -25,7 +30,13 @@ CREATE TABLE dc_land_dtl_real (
   PRIMARY KEY (landlordId)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='数据中心_房东_明细_实时';
 
-/*数据中心_房东_统计_增量_天*/
+
+/*
+新建表：数据中心_房东_统计_增量_天
+1. 目前数据量（房东5000），预计每日新增5000，每月150000
+2. 主要查询sql: select * from dc_land_stat_inc_day where landlordId = {0}
+3. 索引: landlordId
+*/
 CREATE TABLE dc_land_stat_inc_day (
   id INT(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   recordDate DATE DEFAULT NULL COMMENT '数据日期',
@@ -44,7 +55,12 @@ CREATE TABLE dc_land_stat_inc_day (
   KEY landlordId (landlordId)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='数据中心_房东_统计_增量_天';
 
-/*数据中心_房东_统计_全量_天*/
+/*
+新建表：数据中心_房东_统计_全量_天
+1. 目前数据量（房东5000），预计每日新增5000，每月15万
+2. 主要查询sql: select * from dc_land_stat_total_day where landlordId = {0}
+3. 索引: landlordId
+*/
 CREATE TABLE dc_land_stat_total_day (
   id INT(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   recordDate DATE DEFAULT NULL COMMENT '数据日期',
@@ -64,7 +80,12 @@ CREATE TABLE dc_land_stat_total_day (
   KEY landlordId (landlordId)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='数据中心_房东_统计_全量_天';
 
-/*数据中心_签约单_明细_统计_天*/
+/*
+新建表：数据中心_签约单_明细_统计_天
+1. 和oder_signedorder表一致，当前量约：37万
+2. 主要查询sql: select * from dc_order_info where landlordId = {0}
+3. 索引: landlordId
+*/
 CREATE TABLE dc_order_info (
   signedOrderId INT(11) NOT NULL COMMENT '签约单id',
   landlordId INT(11) DEFAULT NULL COMMENT '房东id',
@@ -85,7 +106,12 @@ CREATE TABLE dc_order_info (
   KEY landlordId (landlordId)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='数据中心_签约单_明细_统计_天';
 
-/*数据中心_房东_统计_增量_月*/
+/*
+新建表：数据中心_房东_统计_增量_月
+1. 预计每月新增5000
+2. 主要查询sql: select * from dc_land_stat_inc_month where recordMonth = {0}
+3. 索引: landlordId
+*/
 CREATE TABLE dc_land_stat_inc_month (
   id INT (11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   recordMonth INT (6) DEFAULT NULL COMMENT '年月',
