@@ -1,3 +1,7 @@
+/*房东申请推广列表--》列表查询、导出权限*/
+
+use mogoroomdb;
+
 SELECT @id:=id FROM perm_functioninfo WHERE fname = '房源推广' AND (furl IS NULL OR furl = '') ORDER BY id DESC LIMIT 1;
 SELECT @seq:=(MAX(seq)+1) FROM perm_functioninfo WHERE functionpId=@id;
 SELECT @fcode:= CONCAT('2',LPAD(@id,4,0),@seq) FROM perm_functioninfo WHERE fname = '房源推广' AND (furl IS NULL OR furl = '') ORDER BY id DESC LIMIT 1;
