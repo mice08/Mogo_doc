@@ -1,7 +1,7 @@
 /*房东申请推广列表--》列表查询、导出权限*/
 
 use mogoroomdb;
-
+begin
 SELECT @id:=id FROM perm_functioninfo WHERE fname = '房源推广' AND (furl IS NULL OR furl = '') ORDER BY id DESC LIMIT 1;
 SELECT @seq:=(MAX(seq)+1) FROM perm_functioninfo WHERE functionpId=@id;
 SELECT @fcode:= CONCAT('2',LPAD(@id,4,0),@seq) FROM perm_functioninfo WHERE fname = '房源推广' AND (furl IS NULL OR furl = '') ORDER BY id DESC LIMIT 1;
@@ -14,3 +14,4 @@ SELECT @fcode:= CONCAT('2',LPAD(@id,4,0),@seq) FROM perm_functioninfo WHERE fnam
 
 INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
 VALUES ( @fcode, '导出房东申请房源推广列表', 'joint/exportJointFlatsRepo', 1, '3', @id, '0', NULL, NULL, NULL, '1', '1', NULL, NULL, NULL, NULL, '1', '2');
+commit;
