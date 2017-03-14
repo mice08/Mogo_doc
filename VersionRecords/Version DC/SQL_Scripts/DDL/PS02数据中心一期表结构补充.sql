@@ -30,7 +30,7 @@ ALTER TABLE `dc`.`dc_land_stat_inc_day`
 
 
 ALTER TABLE `dc`.`dc_land_stat_inc_month`   
-  ADD COLUMN `vacantDays` INT(4) NULL AFTER `offlinePayRentCount`;
+  ADD COLUMN `vacantDays` INT(4) NULL  COMMENT '出租时长(空置天数)' AFTER `offlinePayRentCount`;
 
 
 ALTER TABLE `dc`.`dc_land_stat_total_day`   
