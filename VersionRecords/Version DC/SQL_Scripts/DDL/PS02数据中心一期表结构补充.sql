@@ -21,8 +21,8 @@ ALTER TABLE `dc`.`dc_land_dtl_real`
 ALTER TABLE `dc`.`dc_land_stat_inc_day`   
   CHANGE `roomCount` `centRoomCount` INT(6) NULL  COMMENT '新增集中式房源量',
   ADD COLUMN `deceRoomCount` INT(6) NULL  COMMENT '新增分散式房源量' AFTER `centRoomCount`,
-  ADD COLUMN `intAmount` DECIMAL(10,2) NULL  COMMENT '总收入' AFTER `onlinePayRentCount`,
-  ADD COLUMN `outAmount` DECIMAL(10,2) NULL  COMMENT '总支出' AFTER `intAmount`,
+  ADD COLUMN `inAmount` DECIMAL(10,2) NULL  COMMENT '总收入' AFTER `onlinePayRentCount`,
+  ADD COLUMN `outAmount` DECIMAL(10,2) NULL  COMMENT '总支出' AFTER `inAmount`,
   ADD COLUMN `rentAmount` DECIMAL(10,2) NULL  COMMENT '租金费用收入(不区分线上线下)' AFTER `outAmount`,
   ADD COLUMN `otherAmount` DECIMAL(10,2) NULL  COMMENT '其他费用收入(不区分线上线下)' AFTER `rentAmount`,
   ADD COLUMN `reservationCount` INT(6) NULL  COMMENT '新增预约量' AFTER `otherAmount`,
@@ -30,7 +30,7 @@ ALTER TABLE `dc`.`dc_land_stat_inc_day`
 
 
 ALTER TABLE `dc`.`dc_land_stat_inc_month`   
-  ADD COLUMN `vacantDays` INT(4) NULL  COMMENT '出租时长(空置天数)' AFTER `offlinePayRentCount`;
+  ADD COLUMN `vacantDays` INT(4) NULL  COMMENT '空置天数' AFTER `offlinePayRentCount`;
 
 
 ALTER TABLE `dc`.`dc_land_stat_total_day`   
