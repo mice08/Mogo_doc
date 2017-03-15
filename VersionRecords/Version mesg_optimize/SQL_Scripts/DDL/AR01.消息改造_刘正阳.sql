@@ -1,9 +1,9 @@
-/*  Database name `mogoroom` 优化消息使用job处理 
+/*  Database name `mogoroomdb` 优化消息使用job处理 
 主要查询SQL:
 select landlordId,orgId,templetCode,mesgParam from mesg_job where createDate>= and status = 0;
 需要预先添加的索引字段createTime
 */
-use mogoroom;
+use mogoroomdb;
 create table `mesg_async` (
 	`id` int(11) NOT NULL AUTO_INCREMENT COMMENT '消息id',
 	`landlordId` int(11) NOT NULL COMMENT '房东ID',
