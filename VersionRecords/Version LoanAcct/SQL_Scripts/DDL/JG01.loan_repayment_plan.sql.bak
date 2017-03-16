@@ -1,4 +1,4 @@
-/*创建金融还款计划表，预估表容量预期3个月30000行、读取量最多20行、主要查询目前需求不明确*/
+/*创建金融还款计划表*/
 
 use mogoroomdb;
 CREATE TABLE `loan_repayment_plan`(  
