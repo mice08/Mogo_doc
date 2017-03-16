@@ -1,6 +1,8 @@
 ﻿/* 提现审核权限 */
 use mogoroomdb;
 
+begin;
+
 /**获取开始时间**/
 select @begindate:=NOW();
 /**根据节点名称读取父节点id和level**/
@@ -52,3 +54,5 @@ select @fcode:= CONCAT(@level2+1,lpad(@parentid2,4,0),@seq ) from dual;
 INSERT INTO `perm_functioninfo`
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
 VALUES (@fcode, '查看日志', 'riskwithdraw/operLog', @seq, @level2+1, @parentid2, 0, NULL, NULL, NULL, 1, 1, NULL, now(), NULL, NULL, 1, 2);
+
+commit;

@@ -36,3 +36,6 @@ ALTER TABLE `dc`.`dc_land_stat_inc_month`
 ALTER TABLE `dc`.`dc_land_stat_total_day`   
   CHANGE `RentRoomCount` `centRoomRentCount` INT(8) NULL  COMMENT '集中式已租房源量',
   ADD COLUMN `deceRoomRentCount` INT(8) NULL  COMMENT '分散式已租房源量' AFTER `centRoomRentCount`;
+
+ALTER TABLE `dc`.`dc_order_info`   
+  CHANGE `firstOnlinePayTime` `firstOnlinePayRentTime` DATETIME NULL  COMMENT '首次线上支付租金时间';
