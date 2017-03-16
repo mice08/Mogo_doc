@@ -49,4 +49,5 @@ CREATE TABLE `user_identity` (
 	KEY `status` (`status`) USING BTREE
 ) ENGINE = INNODB AUTO_INCREMENT = 14 DEFAULT CHARSET = utf8mb4 COMMENT = '身份认证表';
 
+ALTER TABLE user_caidentification MODIFY userId INT (11) NULL COMMENT '用户ID,租客为空,房东不为空';
 
