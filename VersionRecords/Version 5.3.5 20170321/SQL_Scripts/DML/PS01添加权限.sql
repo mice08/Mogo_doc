@@ -1,7 +1,7 @@
 /*
-Ìí¼ÓbsÇ©Ô¼µ¥ÁĞ±í--¡·»ñÈ¡ÕËµ¥ÁĞ±í²éÑ¯È¨ÏŞ
-Ìí¼ÓbsÇ©Ô¼µ¥ÁĞ±í--¡·»ñÈ¡²Ù×÷¼ÇÂ¼²éÑ¯È¨ÏŞ
-Ìí¼ÓbsÇ©Ô¼µ¥ÁĞ±í--¡·»ñÈ¡ÕËµ¥ÏêÇé²éÑ¯È¨ÏŞ
+æ·»åŠ bsç­¾çº¦å•åˆ—è¡¨--ã€‹è·å–è´¦å•åˆ—è¡¨æŸ¥è¯¢æƒé™
+æ·»åŠ bsç­¾çº¦å•åˆ—è¡¨--ã€‹è·å–æ“ä½œè®°å½•æŸ¥è¯¢æƒé™
+æ·»åŠ bsç­¾çº¦å•åˆ—è¡¨--ã€‹è·å–è´¦å•è¯¦æƒ…æŸ¥è¯¢æƒé™
 */
 
 
@@ -9,27 +9,27 @@ use mogoroomdb;
 
 
 BEGIN;
--- »ñÈ¡ÕËµ¥ÁĞ±í
-SELECT @id:=id FROM perm_functioninfo WHERE fname = 'Ç©Ô¼µ¥ÁĞ±í' AND (furl IS NULL OR furl = 'signedOrder/list') ORDER BY id DESC LIMIT 1;
+-- è·å–è´¦å•åˆ—è¡¨
+SELECT @id:=id FROM perm_functioninfo WHERE fname = 'ç­¾çº¦å•åˆ—è¡¨' AND (furl IS NULL OR furl = 'signedOrder/list') ORDER BY id DESC LIMIT 1;
 SELECT @seq:=(MAX(seq)+1) FROM perm_functioninfo WHERE functionpId=@id;
-SELECT @fcode:= CONCAT('2',LPAD(@id,4,0),@seq) FROM perm_functioninfo WHERE fname = 'Ç©Ô¼µ¥ÁĞ±í' AND (furl IS NULL OR furl = 'signedOrder/list') ORDER BY id DESC LIMIT 1;
+SELECT @fcode:= CONCAT('2',LPAD(@id,4,0),@seq) FROM perm_functioninfo WHERE fname = 'ç­¾çº¦å•åˆ—è¡¨' AND (furl IS NULL OR furl = 'signedOrder/list') ORDER BY id DESC LIMIT 1;
 
 INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, '»ñÈ¡ÕËµ¥ÁĞ±í', 'signedOrder/detailBill', @seq, '2', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+VALUES ( @fcode, 'è·å–è´¦å•åˆ—è¡¨', 'signedOrder/detailBill', @seq, '2', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
 
--- »ñÈ¡²Ù×÷¼ÇÂ¼
-SELECT @id1:=id FROM perm_functioninfo WHERE fname = 'Ç©Ô¼µ¥ÁĞ±í' AND (furl IS NULL OR furl = 'signedOrder/list') ORDER BY id DESC LIMIT 1;
+-- è·å–æ“ä½œè®°å½•
+SELECT @id1:=id FROM perm_functioninfo WHERE fname = 'ç­¾çº¦å•åˆ—è¡¨' AND (furl IS NULL OR furl = 'signedOrder/list') ORDER BY id DESC LIMIT 1;
 SELECT @seq1:=(MAX(seq)+1) FROM perm_functioninfo WHERE functionpId=@id1;
-SELECT @fcode1:= CONCAT('2',LPAD(@id1,4,0),@seq1) FROM perm_functioninfo WHERE fname = 'Ç©Ô¼µ¥ÁĞ±í' AND (furl IS NULL OR furl = 'signedOrder/list') ORDER BY id DESC LIMIT 1;
+SELECT @fcode1:= CONCAT('2',LPAD(@id1,4,0),@seq1) FROM perm_functioninfo WHERE fname = 'ç­¾çº¦å•åˆ—è¡¨' AND (furl IS NULL OR furl = 'signedOrder/list') ORDER BY id DESC LIMIT 1;
 
 INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode1, '»ñÈ¡²Ù×÷¼ÇÂ¼', 'signedOrder/detailLog', @seq1, '2', @id1, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+VALUES ( @fcode1, 'è·å–æ“ä½œè®°å½•', 'signedOrder/detailLog', @seq1, '2', @id1, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
 
--- »ñÈ¡²Ù×÷¼ÇÂ¼
-SELECT @id2:=id FROM perm_functioninfo WHERE fname = 'Ç©Ô¼µ¥ÁĞ±í' AND (furl IS NULL OR furl = 'signedOrder/list') ORDER BY id DESC LIMIT 1;
+-- è·å–æ“ä½œè®°å½•
+SELECT @id2:=id FROM perm_functioninfo WHERE fname = 'ç­¾çº¦å•åˆ—è¡¨' AND (furl IS NULL OR furl = 'signedOrder/list') ORDER BY id DESC LIMIT 1;
 SELECT @seq2:=(MAX(seq)+1) FROM perm_functioninfo WHERE functionpId=@id2;
-SELECT @fcode2:= CONCAT('2',LPAD(@id2,4,0),@seq2) FROM perm_functioninfo WHERE fname = 'Ç©Ô¼µ¥ÁĞ±í' AND (furl IS NULL OR furl = 'signedOrder/list') ORDER BY id DESC LIMIT 1;
+SELECT @fcode2:= CONCAT('2',LPAD(@id2,4,0),@seq2) FROM perm_functioninfo WHERE fname = 'ç­¾çº¦å•åˆ—è¡¨' AND (furl IS NULL OR furl = 'signedOrder/list') ORDER BY id DESC LIMIT 1;
 
 INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode2, '»ñÈ¡ÕËµ¥ÏêÇé', 'signedOrder/detailBillInfo', @seq2, '3', @id2, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+VALUES ( @fcode2, 'è·å–è´¦å•è¯¦æƒ…', 'signedOrder/detailBillInfo', @seq2, '3', @id2, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
 COMMIT ;
