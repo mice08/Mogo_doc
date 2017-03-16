@@ -8,7 +8,6 @@ create table `mesg_async` (
 	`id` int(11) NOT NULL AUTO_INCREMENT COMMENT '消息id',
 	`landlordId` int(11) DEFAULT NULL COMMENT '房东ID',
 	`orgId` int(11) DEFAULT NULL COMMENT '组织Id',
-	`extIds` varchar(512) DEFAULT NULL COMMENT '扩展id集合',
 	`templetCode` varchar(50) DEFAULT NULL COMMENT '消息code，根据code查询模板内容',
 	`mesgParam` varchar(1000) DEFAULT NULL COMMENT '参数json',
 	`type` int(1) NOT NULL COMMENT '消息类型(1:分店消息 2:消息发送（带权限过滤）3:获取组织接收人 4:信息合并
