@@ -8,6 +8,7 @@ DROP TABLE IF EXISTS loan_contract_mybank;
 CREATE TABLE loan_contract_mybank (
   id INT (11) NOT NULL AUTO_INCREMENT COMMENT '贷款申请扩展表id',
   loanContractId INT (11) NOT NULL COMMENT '贷款申请id',
+  creditCode VARCHAR(64) NULL COMMENT '授信编号，如果授信审批成功，会产生授信编号。如果不通过没有授信编号',
   ipRoleId VARCHAR (64) NULL COMMENT '客户在网商银行的角色id',
   custIproleId VARCHAR (32) NULL COMMENT '贷款客户在网商的会员ID',
   loanArNo VARCHAR (32) NULL COMMENT '贷款合约号',
