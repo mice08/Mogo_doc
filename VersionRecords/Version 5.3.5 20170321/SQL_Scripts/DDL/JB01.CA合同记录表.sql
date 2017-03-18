@@ -1,6 +1,12 @@
 /*合同-CA记录表*/
 use mogoroomdb;
-
+/*  创建cntr_salecontract_ca表
+1.	预估三个月表容量将达到1W条记录
+2.	每次读取量1条。
+3.	主要查询SQL： 
+		SELECT * FROM cntr_salecontract_ca where contractId = ? and valid = 1;
+ 	  需预先添加索引contractId,contractCode,landlordId
+*/
 CREATE TABLE `cntr_salecontract_ca` (
 `id`  bigint NOT NULL AUTO_INCREMENT ,
 `contractId`  bigint NOT NULL COMMENT '合同id' ,
