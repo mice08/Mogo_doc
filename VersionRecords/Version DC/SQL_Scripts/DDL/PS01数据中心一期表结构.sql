@@ -108,7 +108,7 @@ CREATE TABLE dc_order_info (
 
 /*
 新建表：数据中心_房东_统计_增量_月
-1. 预计每月新增5000
+1. 预计每月新增15万
 2. 主要查询sql: select * from dc_land_stat_inc_month where recordMonth = {0}
 3. 索引: landlordId
 */

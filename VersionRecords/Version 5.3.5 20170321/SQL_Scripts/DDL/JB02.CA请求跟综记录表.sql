@@ -1,7 +1,9 @@
-/*合同-CA记录表*/
+/*CA请求跟综器记录表
+1. 上线之后每天有500条左右数据
+2. 没有程序端的查询
+3. 不影响程序端性能，无特别索引
+*/
 use mogoroomdb;
-
-DROP TABLE IF EXISTS cntr_ca_request_log;
 
 CREATE TABLE `cntr_ca_request_log` (
   	`id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键id 自增长',

@@ -39,3 +39,14 @@ ALTER TABLE `dc`.`dc_land_stat_total_day`
 
 ALTER TABLE `dc`.`dc_order_info`   
   CHANGE `firstOnlinePayTime` `firstOnlinePayRentTime` DATETIME NULL  COMMENT '首次线上支付租金时间';
+
+ALTER TABLE `dc`.`dc_land_stat_inc_month`   
+  ADD COLUMN `valid` TINYINT(1) NULL  COMMENT '是否有效(1:有效 0:无效)' AFTER `vacantDays`;
+
+ALTER TABLE `dc`.`dc_order_info`   
+  ADD COLUMN `allOnlinePayRentCount` INT(4) NULL  COMMENT '在线支付租金(不包括蘑菇宝常规款)笔数' AFTER `allOnlinePayRentAmount`;
+
+ALTER TABLE `dc`.`dc_land_stat_total_day`   
+  CHANGE `noRentRoomCount` `centNoRentRoomCount` INT(8) NULL  COMMENT '集中式未租房源量',
+  ADD COLUMN `deceNoRentRoomCount` INT(8) NULL  COMMENT '分散式未租房源量' AFTER `centNoRentRoomCount`,
+  ADD COLUMN `operateSignCount` INT(8) NULL  COMMENT '运营统计签约量' AFTER `onlinePayRentCount`;

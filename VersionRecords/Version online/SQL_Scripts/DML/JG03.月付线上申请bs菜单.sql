@@ -70,6 +70,10 @@ VALUES((SELECT CONCAT(3,(SELECT LPAD((SELECT id FROM perm_functioninfo e WHERE e
 INSERT INTO `perm_functioninfo` (`fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`) 
 VALUES((SELECT CONCAT(3,(SELECT LPAD((SELECT id FROM perm_functioninfo e WHERE e.fname = '蘑菇月付服务申请列表'),4,0)),'14')),'保存签约合同','loanMonthlyPayApply/saveUploadContractOperate','14','3',(SELECT id FROM perm_functioninfo e WHERE e.fname = '蘑菇月付服务申请列表'),'0',NULL,NULL,NULL,'1','1',NULL,NULL,NULL,NULL,'1','2');
 
+INSERT INTO `perm_functioninfo` (`fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`) 
+VALUES((SELECT CONCAT(3,(SELECT LPAD((SELECT id FROM perm_functioninfo e WHERE e.fname = '蘑菇月付服务申请列表'),4,0)),'15')),'新增房东月付资质','loanMonthlyPayApply/addNewLandlordCreditApply','15','3',(SELECT id FROM perm_functioninfo e WHERE e.fname = '蘑菇月付服务申请列表'),'0',NULL,NULL,NULL,'1','1',NULL,NULL,NULL,NULL,'1','2');
+
+
 
 /*新增蘑菇宝资质*/
 INSERT INTO `perm_functioninfo` (`fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`) 
