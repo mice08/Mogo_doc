@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS loan_contract_mybank;
 
 CREATE TABLE loan_contract_mybank (
   id INT (11) NOT NULL AUTO_INCREMENT COMMENT '贷款申请扩展表id',
-  loanContractId INT (11) NOT NULL COMMENT '贷款申请id',
+  loanContractId INT (11) NOT NULL COMMENT '贷款申请id(蘑菇宝id)',
   creditCode VARCHAR(64) NULL COMMENT '授信编号，如果授信审批成功，会产生授信编号。如果不通过没有授信编号',
   ipRoleId VARCHAR (64) NULL COMMENT '客户在网商银行的角色id',
   custIproleId VARCHAR (32) NULL COMMENT '贷款客户在网商的会员ID',
@@ -24,5 +24,6 @@ CREATE TABLE loan_contract_mybank (
   updateByType INT(11) DEFAULT NULL COMMENT '更新人类型(参照字典表组名:userType)',
   PRIMARY KEY (id),
   INDEX idx_loanContractId(loanContractId),
-  INDEX idx_acctBillId(acctBillId)
+  INDEX idx_acctBillId(acctBillId),
+  INDEX idx_creditCode(creditCode)
 ) ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COMMENT '贷款申请扩展表';
