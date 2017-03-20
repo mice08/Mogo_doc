@@ -1,5 +1,13 @@
 ﻿use mogoroomdb;
-/*ca认证表*/
+/*
+1、预估表容量:每个房东做一次ca认证，每个租客做一侧ca认证，数据量后期会在40万左右
+2、每次读取量:在3条左右
+3、主要查询
+	 select id,userId,userType,phone,identityId,name,applyCityId,acctType,address,account,password,uid,status,remark,caChannel
+        from user_caidentification
+		 Where userId =#{po.userId}
+         and userType =#{po.userType}
+*/
 CREATE TABLE `user_caidentification` (
 	`id` INT (11) NOT NULL AUTO_INCREMENT COMMENT 'ca认证表id',
 	`userId` INT (11) NOT NULL COMMENT '用户ID',
@@ -24,11 +32,19 @@ CREATE TABLE `user_caidentification` (
 	`updateByType` TINYINT (1) DEFAULT NULL COMMENT '更新人类型',
 	`valid` TINYINT (1) DEFAULT '1' COMMENT '该数据是否有效(1:有效,0:无效)',
 	PRIMARY KEY (`id`),
-	KEY `landlordId` (`userId`) USING BTREE,
+	KEY `userId` (`userId`) USING BTREE,
 	KEY `status` (`status`) USING BTREE
-) ENGINE = INNODB AUTO_INCREMENT = 24 DEFAULT CHARSET = utf8mb4 COMMENT = 'CA认证表';
+) ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COMMENT = 'CA认证表';
 
-/*身份认证表*/
+/*
+1、预估表容量:每个房东做一次身份认证，每个租客做一侧身份认证，数据量后期会在40万左右
+2、每次读取量:在3条左右
+3、主要查询
+	 select id,userId,userType,identityId,name,status,remark
+        from user_identity
+		 Where userId =#{po.userId}
+         and userType =#{po.userType}
+*/
 CREATE TABLE `user_identity` (
 	`id` INT (11) NOT NULL AUTO_INCREMENT COMMENT '身份认证表id',
 	`userId` INT (11) DEFAULT NULL COMMENT '用户ID',
@@ -45,9 +61,9 @@ CREATE TABLE `user_identity` (
 	`updateByType` TINYINT (1) DEFAULT NULL COMMENT '更新人类型',
 	`valid` TINYINT (1) DEFAULT '1' COMMENT '该数据是否有效(1:有效,0:无效)',
 	PRIMARY KEY (`id`),
-	KEY `landlordId` (`userId`) USING BTREE,
+	KEY `userId` (`userId`) USING BTREE,
 	KEY `status` (`status`) USING BTREE
-) ENGINE = INNODB AUTO_INCREMENT = 14 DEFAULT CHARSET = utf8mb4 COMMENT = '身份认证表';
+) ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COMMENT = '身份认证表';
 
 ALTER TABLE user_caidentification MODIFY userId INT (11) NULL COMMENT '用户ID,租客为空,房东不为空';
 
