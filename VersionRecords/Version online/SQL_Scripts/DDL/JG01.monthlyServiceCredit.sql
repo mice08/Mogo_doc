@@ -2,7 +2,7 @@
 
 use mogoroomdb;
 
-/*房东贷款资质申请表*/
+/*房东贷款资质申请表，预估表容量未来3个月500行、读取量最多20行、主要查询是通过landlordId查询，或者BS系统中分页查询*/
 CREATE TABLE loan_landlord_mPayApply (
   id int(11) NOT NULL AUTO_INCREMENT COMMENT '房东贷款资质申请id',
   landlordId int(11) NOT NULL COMMENT '房东id',
@@ -39,7 +39,7 @@ CREATE TABLE loan_landlord_mPayApply (
   KEY contractId(contractId)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='房东贷款资质申请资料表';
 
-/*房东贷款资质申请企业信息表*/
+/*房东贷款资质申请企业信息表，预估表容量未来3个月500行、读取量最多20行、主要查询是通过applyId查询*/
 CREATE TABLE loan_mPayApply_company (
   id int(11) NOT NULL AUTO_INCREMENT COMMENT '房东贷款资质申请企业信息表id',
   applyId int(11) NOT NULL COMMENT '房东月付服务申请表id',
@@ -62,7 +62,7 @@ CREATE TABLE loan_mPayApply_company (
   KEY applyId(applyId)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='房东贷款资质申请企业信息表';
 
-/*房东贷款资质申请关系人信息表*/
+/*房东贷款资质申请关系人信息表，预估表容量未来3个月500行、读取量最多20行、主要查询是通过applyId查询*/
 CREATE TABLE loan_mPayApply_relation (
   id int(11) NOT NULL AUTO_INCREMENT COMMENT '房东贷款资质申请关系人信息表id',
   applyId int(11) NOT NULL COMMENT '房东月付服务申请表id',
@@ -83,7 +83,7 @@ CREATE TABLE loan_mPayApply_relation (
   KEY applyId(applyId)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='房东贷款资质申请关系人信息表';
 
-/*房东信息采集表*/
+/*房东信息采集表，预估表容量未来3个月500行、读取量最多20行、主要查询是通过landlordId关联查询*/
 CREATE TABLE loan_mPayApply_collection (
   id int(11) NOT NULL AUTO_INCREMENT COMMENT '房东信息采集表id',
   landlordId int(11) NOT NULL COMMENT '房东id',
@@ -116,7 +116,7 @@ CREATE TABLE loan_mPayApply_collection (
   KEY contractId(contractId)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='房东信息采集表';
 
-/*房东贷款资质审核表*/
+/*房东贷款资质审核表，预估表容量未来3个月500行、读取量最多20行、主要查询是通过landlordId关联查询*/
 CREATE TABLE loan_mPayApply_approve (
   id int(11) NOT NULL AUTO_INCREMENT COMMENT '房东贷款资质审核表id',
   landlordId int(11) NOT NULL COMMENT '房东id',
@@ -149,7 +149,7 @@ CREATE TABLE loan_mPayApply_approve (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='房东贷款资质审核表';
 
 
-/*房东贷款资质审核历史表*/
+/*房东贷款资质审核历史表，预估表容量未来3个月2000行、读取量最多5行、主要查询是通过approveId关联查询*/
 CREATE TABLE loan_mPayApply_approve_log (
   id int(11) NOT NULL AUTO_INCREMENT COMMENT '房东贷款资质审核历史表id',
   approveId int(11) NOT NULL COMMENT '房东贷款资质审核表id',
@@ -177,7 +177,7 @@ CREATE TABLE loan_mPayApply_approve_log (
   KEY approveId(approveId)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='房东贷款资质审核历史表';
 
-/*房东贷款资质审核原因表*/
+/*房东贷款资质审核原因表，配置表50行、读取量最多50行*/
 CREATE TABLE loan_mPayApply_rejectReason (
   id int(11) NOT NULL AUTO_INCREMENT COMMENT '房东贷款资质审核原因表id',
   reasonCode varchar(4) NOT NULL COMMENT '原因代码',
