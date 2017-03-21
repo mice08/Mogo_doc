@@ -1,9 +1,7 @@
 /*
-  新增渠道为网商银行的贷款申请扩展表
+  新增渠道为网商银行的贷款申请扩展表，预估表容量未来3个月200行、读取量1行、主要查询是通过loanContractId或者creditCode关联查询
  */
 USE mogoroomdb;
-
-DROP TABLE IF EXISTS loan_contract_mybank;
 
 CREATE TABLE loan_contract_mybank (
   id INT (11) NOT NULL AUTO_INCREMENT COMMENT '贷款申请扩展表id',
