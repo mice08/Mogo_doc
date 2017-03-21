@@ -5,7 +5,7 @@ use mogoroomdb;
 2、每次读取量:小于500
 3、主要查询
 select id, roomId, tagId, isAuto, createBy, createByType,createTime, updateTime, updateBy, updateByType
-where valid=1 tagId=123 and roomId in (...);
+where valid=1 and tagId=123 and roomId in (...);
 */
 CREATE TABLE `flat_power_tag` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增主健',
