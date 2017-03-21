@@ -54,3 +54,8 @@ ALTER TABLE `dc`.`dc_land_stat_total_day`
 ALTER TABLE `dc`.`dc_order_info`   
   ADD  INDEX `confirmDate` (`confirmDate`),
   ADD  INDEX `firstOnlinePayRentTime` (`firstOnlinePayRentTime`);
+
+ALTER TABLE `dc`.`dc_land_dtl_real`   
+  ADD  INDEX `servicePersonId` (`servicePersonId`),
+  ADD  INDEX `serviceSectorId` (`serviceSectorId`),
+  ADD  INDEX `serviceAreaId` (`serviceAreaId`);
