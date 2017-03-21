@@ -50,3 +50,12 @@ ALTER TABLE `dc`.`dc_land_stat_total_day`
   CHANGE `noRentRoomCount` `centNoRentRoomCount` INT(8) NULL  COMMENT '集中式未租房源量',
   ADD COLUMN `deceNoRentRoomCount` INT(8) NULL  COMMENT '分散式未租房源量' AFTER `centNoRentRoomCount`,
   ADD COLUMN `operateSignCount` INT(8) NULL  COMMENT '运营统计签约量' AFTER `onlinePayRentCount`;
+
+ALTER TABLE `dc`.`dc_order_info`   
+  ADD  INDEX `confirmDate` (`confirmDate`),
+  ADD  INDEX `firstOnlinePayRentTime` (`firstOnlinePayRentTime`);
+
+ALTER TABLE `dc`.`dc_land_dtl_real`   
+  ADD  INDEX `servicePersonId` (`servicePersonId`),
+  ADD  INDEX `serviceSectorId` (`serviceSectorId`),
+  ADD  INDEX `serviceAreaId` (`serviceAreaId`);
