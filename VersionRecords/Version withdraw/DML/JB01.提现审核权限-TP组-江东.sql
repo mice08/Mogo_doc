@@ -6,7 +6,7 @@ begin;
 /**获取开始时间**/
 select @begindate:=NOW();
 /**根据节点名称读取父节点id和level**/
-select @rootId:=id,@rootLevel:=functionLevel from perm_functioninfo where fname = '出款管理';
+select @rootId:=id,@rootLevel:=functionLevel from perm_functioninfo where fname = '交易管理';
 
 /**生成新的顺序号,null默认是1**/
 select @seq:=(max(seq)+1) from perm_functioninfo where functionpId=@rootId;
