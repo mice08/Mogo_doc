@@ -36,3 +36,34 @@ ALTER TABLE `dc`.`dc_land_stat_inc_month`
 ALTER TABLE `dc`.`dc_land_stat_total_day`   
   CHANGE `RentRoomCount` `centRoomRentCount` INT(8) NULL  COMMENT '集中式已租房源量',
   ADD COLUMN `deceRoomRentCount` INT(8) NULL  COMMENT '分散式已租房源量' AFTER `centRoomRentCount`;
+
+ALTER TABLE `dc`.`dc_order_info`   
+  CHANGE `firstOnlinePayTime` `firstOnlinePayRentTime` DATETIME NULL  COMMENT '首次线上支付租金时间';
+
+ALTER TABLE `dc`.`dc_land_stat_inc_month`   
+  ADD COLUMN `valid` TINYINT(1) NULL  COMMENT '是否有效(1:有效 0:无效)' AFTER `vacantDays`;
+
+ALTER TABLE `dc`.`dc_order_info`   
+  ADD COLUMN `allOnlinePayRentCount` INT(4) NULL  COMMENT '在线支付租金(不包括蘑菇宝常规款)笔数' AFTER `allOnlinePayRentAmount`;
+
+ALTER TABLE `dc`.`dc_land_stat_total_day`   
+  CHANGE `noRentRoomCount` `centNoRentRoomCount` INT(8) NULL  COMMENT '集中式未租房源量',
+  ADD COLUMN `deceNoRentRoomCount` INT(8) NULL  COMMENT '分散式未租房源量' AFTER `centNoRentRoomCount`,
+  ADD COLUMN `operateSignCount` INT(8) NULL  COMMENT '运营统计签约量' AFTER `onlinePayRentCount`;
+
+ALTER TABLE `dc`.`dc_order_info`   
+  ADD  INDEX `confirmDate` (`confirmDate`),
+  ADD  INDEX `firstOnlinePayRentTime` (`firstOnlinePayRentTime`);
+
+ALTER TABLE `dc`.`dc_land_dtl_real`   
+  ADD  INDEX `servicePersonId` (`servicePersonId`),
+  ADD  INDEX `serviceSectorId` (`serviceSectorId`),
+  ADD  INDEX `serviceAreaId` (`serviceAreaId`);
+
+ALTER TABLE `dc`.`dc_land_stat_inc_day`   
+  CHANGE `inAmount` `inAmount` DECIMAL(10,2) NULL  COMMENT '总收入(不定时更新)',
+  CHANGE `outAmount` `outAmount` DECIMAL(10,2) NULL  COMMENT '总支出(不定时更新)',
+  CHANGE `rentAmount` `rentAmount` DECIMAL(10,2) NULL  COMMENT '租金费用收入(不区分线上线下,不定时更新)',
+  CHANGE `otherAmount` `otherAmount` DECIMAL(10,2) NULL  COMMENT '其他费用收入(不区分线上线下,不定时更新)',
+  ADD COLUMN `updateDate` DATE NULL  COMMENT '数据更新时间' AFTER `bookCount`;
+

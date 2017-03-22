@@ -1,4 +1,4 @@
-/*创建金融还款计划表*/
+/*创建金融还款计划表，预估表容量预期3个月30000行、读取量最多20行、主要查询目前需求不明确*/
 
 use mogoroomdb;
 CREATE TABLE `loan_repayment_plan`(  
@@ -16,8 +16,8 @@ CREATE TABLE `loan_repayment_plan`(
   `lastPayTime` DATETIME COMMENT '最后付款时间',
   `loanChannel` INT(4) NOT NULL COMMENT '渠道(3:聚有财,参考字典表组名=loanChannel)',
   `periodStage` INT(4) NOT NULL COMMENT '期数',
-  `periodStageStartTime` DATETIME COMMENT '当前期数开始时间',
-  `periodStageEndTime` DATETIME COMMENT '当前期数结束时间',
+  `periodStageStartTime` DATETIME NOT NULL COMMENT '当前期数开始时间',
+  `periodStageEndTime` DATETIME NOT NULL COMMENT '当前期数结束时间',
   `createTime` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP  COMMENT '创建时间',
   `updateTime` DATETIME COMMENT '更新时间',
   `soDoneCode` BIGINT(20) NOT NULL DEFAULT 0 COMMENT '操作流水号',
@@ -26,12 +26,24 @@ CREATE TABLE `loan_repayment_plan`(
   PRIMARY KEY (`id`)
 )ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='还款计划表';
 
+
+
 ALTER TABLE `loan_repayment_plan`   
   ADD  INDEX `loanIdIndex` (`loanId`);
+
+ALTER TABLE `loan_repayment_plan`   
+  ADD  INDEX `billId` (`billId`);
+
+ALTER TABLE `loan_contract`  
+  ADD  INDEX `subsId` (`subsId`);
 
 ALTER TABLE `oder_businessorder`   
   ADD COLUMN `billId` BIGINT(20) DEFAULT 0  NOT NULL  COMMENT 'acct_bill.Id',
   ADD COLUMN `repayPlanId` BIGINT(20) DEFAULT 0  NOT NULL  COMMENT '还款计划Id';
+
+ALTER TABLE `oder_businessorder` CHANGE `updatedTime` `updatedTime` TIMESTAMP NULL  COMMENT '更新时间';
+
+
 
 /*创建视图，以便于今后更换表名*/
 CREATE
