@@ -59,3 +59,11 @@ ALTER TABLE `dc`.`dc_land_dtl_real`
   ADD  INDEX `servicePersonId` (`servicePersonId`),
   ADD  INDEX `serviceSectorId` (`serviceSectorId`),
   ADD  INDEX `serviceAreaId` (`serviceAreaId`);
+
+ALTER TABLE `dc`.`dc_land_stat_inc_day`   
+  CHANGE `inAmount` `inAmount` DECIMAL(10,2) NULL  COMMENT '总收入(不定时更新)',
+  CHANGE `outAmount` `outAmount` DECIMAL(10,2) NULL  COMMENT '总支出(不定时更新)',
+  CHANGE `rentAmount` `rentAmount` DECIMAL(10,2) NULL  COMMENT '租金费用收入(不区分线上线下,不定时更新)',
+  CHANGE `otherAmount` `otherAmount` DECIMAL(10,2) NULL  COMMENT '其他费用收入(不区分线上线下,不定时更新)',
+  ADD COLUMN `updateDate` DATE NULL  COMMENT '数据更新时间' AFTER `bookCount`;
+
