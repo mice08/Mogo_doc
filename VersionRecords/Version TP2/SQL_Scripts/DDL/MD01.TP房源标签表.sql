@@ -13,7 +13,7 @@ CREATE TABLE `flat_power_freeforegift` (
   `landlordId` int(11) NOT NULL COMMENT '房东ID',
   `beginTime` datetime NOT NULL COMMENT '创建时间',
   `endTime` datetime NOT NULL DEFAULT '2099-01-01 00:00:00' COMMENT '创建时间',
-  `isAuto` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否系统添加',
+  `isAuto` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否系统添加(1:是 0:否)',
   `createBy` int(11) NOT NULL COMMENT '创建人',
   `createByType` int(11) NOT NULL COMMENT '创建人类型(参考字典表组名:userType)',
   `createTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
