@@ -16,7 +16,7 @@ SELECT @id:=id FROM perm_functioninfo WHERE fname = '签约信息录入' ORDER B
 SELECT @fcode:= CONCAT('3',LPAD(@id,4,0),1) FROM perm_functioninfo WHERE fname = '签约信息录入' ORDER BY id DESC LIMIT 1;
 
 INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, '签约信息录入保存', 'landlord/addLandlordInfo', 1, '3', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
+VALUES ( @fcode, '签约信息录入保存', 'landlord/saveAddLandlord', 1, '3', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
 
 SELECT @id:=id FROM perm_functioninfo WHERE fname = '签约信息录入' ORDER BY id DESC LIMIT 1;
 SELECT @seq:=(MAX(seq)+1) FROM perm_functioninfo WHERE functionpId=@id;
