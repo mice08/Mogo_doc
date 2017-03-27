@@ -43,10 +43,3 @@ ALTER TABLE `oder_businessorder`
 
 ALTER TABLE `oder_businessorder` CHANGE `updatedTime` `updatedTime` TIMESTAMP NULL  COMMENT '更新时间';
 
-
-
-/*创建视图，以便于今后更换表名*/
-CREATE
-    VIEW `loan_businessorder` 
-    AS
-(SELECT * FROM oder_businessorder);
