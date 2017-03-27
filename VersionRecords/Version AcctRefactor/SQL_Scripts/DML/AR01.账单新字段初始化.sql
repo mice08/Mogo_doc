@@ -33,5 +33,5 @@ FROM acct.`acct_bill` a,acct.`acct_busibilldtl` b ,acct.`acct_busifeedtl` c
 WHERE a.`billId` = b.`billId` 
 AND b.`doneCode` = c.`doneCode` AND c.`fundChannel` > 100 AND c.`amount`>0 
 GROUP BY a.`billId`) tempamount 
-SET ab.onlinepaid = tempamount.paidamount 
+SET ab.offlinePaid = tempamount.paidamount 
 WHERE ab.billId = tempamount.billId;
