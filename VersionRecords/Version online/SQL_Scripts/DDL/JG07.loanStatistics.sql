@@ -5,8 +5,7 @@ ALTER TABLE `comm_task_log`
   ADD COLUMN `dataFrom` INT(11)  NOT NULL DEFAULT '0',
   ADD COLUMN `dataTo` INT(11)  NOT NULL DEFAULT '0';
 
-/*金融贷款申请统计信息表*/
-DROP TABLE IF EXISTS repo_loan_apply;
+/*金融贷款申请统计信息表，预估表容量未来3个月1200行、读取量最多300行、无查询主要展示用*/
 CREATE TABLE repo_loan_apply (
   id INT(11) NOT NULL AUTO_INCREMENT COMMENT '金融贷款申请统计信息表id',
   taskLogId INT(11) NOT NULL COMMENT '任务id',
@@ -25,8 +24,7 @@ CREATE TABLE repo_loan_apply (
   KEY statDate(statDate)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='金融贷款申请统计信息表';
 
-/*金融贷款放款统计信息表*/
-DROP TABLE IF EXISTS repo_loan_plan;
+/*金融贷款放款统计信息表，预估表容量未来3个月1200行、读取量最多300行、无查询主要展示用*/
 CREATE TABLE repo_loan_plan (
   id INT(11) NOT NULL AUTO_INCREMENT COMMENT '金融贷款放款统计信息表id',
   taskLogId INT(11) NOT NULL COMMENT '任务id',
@@ -51,8 +49,7 @@ CREATE TABLE repo_loan_plan (
   KEY statDate(statDate)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='金融贷款放款统计信息表';
 
-/*金融贷款还款统计信息表*/
-DROP TABLE IF EXISTS repo_loan_repay;
+/*金融贷款还款统计信息表，预估表容量未来3个月3600行、读取量最多300行、无查询主要展示用*/
 CREATE TABLE repo_loan_repay (
   id INT(11) NOT NULL AUTO_INCREMENT COMMENT '金融贷款还款统计信息表id',
   taskLogId INT(11) NOT NULL COMMENT '任务id',
@@ -76,8 +73,7 @@ CREATE TABLE repo_loan_repay (
   KEY statDate(statDate)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='金融贷款还款统计信息表';
 
-/*金融贷款买回统计信息表*/
-DROP TABLE IF EXISTS repo_loan_buyback;
+/*金融贷款买回统计信息表，预估表容量未来3个月200行、读取量最多300行、无查询主要展示用*/
 CREATE TABLE repo_loan_buyback (
   id INT(11) NOT NULL AUTO_INCREMENT COMMENT '金融贷款买回统计信息表id',
   taskLogId INT(11) NOT NULL COMMENT '任务id',

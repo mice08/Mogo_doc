@@ -46,6 +46,8 @@ insert into loan_mpayapply_rejectreason(reasonCode, reasonName, reasonType, step
 insert into loan_mpayapply_rejectreason(reasonCode, reasonName, reasonType, step, valid, createTime, createBy, createByType) values('1814','营业执照复印件','1',3,'1',now(),null,null);
 insert into loan_mpayapply_rejectreason(reasonCode, reasonName, reasonType, step, valid, createTime, createBy, createByType) values('1815','办公地址证明文件','1',3,'1',now(),null,null);
 insert into loan_mpayapply_rejectreason(reasonCode, reasonName, reasonType, step, valid, createTime, createBy, createByType) values('1816','征信报告','1',3,'1',now(),null,null);
+insert into loan_mpayapply_rejectreason(reasonCode, reasonName, reasonType, step, valid, createTime, createBy, createByType) values('1817','收房合同','1',3,'1',now(),null,null);
+insert into loan_mpayapply_rejectreason(reasonCode, reasonName, reasonType, step, valid, createTime, createBy, createByType) values('1818','租赁合同','1',3,'1',now(),null,null);
 insert into loan_mpayapply_rejectreason(reasonCode, reasonName, reasonType, step, valid, createTime, createBy, createByType) values('2001','信用不良','2',null,'1',now(),null,null);
 insert into loan_mpayapply_rejectreason(reasonCode, reasonName, reasonType, step, valid, createTime, createBy, createByType) values('2002','还款担保能力弱','2',null,'1',now(),null,null);
 insert into loan_mpayapply_rejectreason(reasonCode, reasonName, reasonType, step, valid, createTime, createBy, createByType) values('2003','合规风险','2',null,'1',now(),null,null);

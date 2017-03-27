@@ -1,0 +1,35 @@
+﻿/*添加帐务账单附加信息表*/
+USE mogoroomdb;
+
+CREATE TABLE `bill_cash_notes` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '自增id',
+  `notesNumer` VARCHAR(30) DEFAULT NULL COMMENT '记账本编号',
+  `itemId` INT(11) DEFAULT NULL COMMENT '项目id',
+  `itemDetailId` INT(11) DEFAULT NULL COMMENT '子项目id',
+  `accountDate` DATETIME NOT NULL COMMENT '帐务日期',
+  `createTime` DATETIME DEFAULT NULL COMMENT '创建时间',
+  `createBy` INT(11) DEFAULT NULL COMMENT '创建人',
+  `createByType` TINYINT(4) DEFAULT NULL COMMENT '创建人类型',
+  `updateBy` INT(11) DEFAULT NULL COMMENT '更新人',
+  `updateByType` INT(11) DEFAULT NULL COMMENT '更新人类型',
+  `updateTime` DATETIME DEFAULT NULL COMMENT '更新时间',
+  `valid` TINYINT(3) DEFAULT NULL COMMENT '状态（1有效，0作废删除）',
+  `amount` DECIMAL(10,2) DEFAULT NULL COMMENT '金额',
+  `fundChannel` INT(2) DEFAULT NULL COMMENT '收款渠道',
+  `roomId` INT(11) DEFAULT NULL COMMENT '房间id',
+  `flatsId` INT(11) DEFAULT NULL COMMENT '公寓id',
+  `communityId` INT(11) DEFAULT NULL COMMENT '公寓id',
+  `roomNum` VARCHAR(20) DEFAULT NULL COMMENT '房间号',
+  `flatsNum` VARCHAR(20) DEFAULT NULL COMMENT '公寓号',
+  `communityName` VARCHAR(50) DEFAULT NULL COMMENT '小区名',
+  `remark` VARCHAR(50) DEFAULT NULL COMMENT '备注',
+  `verified` TINYINT(1) DEFAULT NULL COMMENT '核销标识(0:未核销 1:已核销)',
+  `orgId` INT(11) DEFAULT NULL COMMENT '分店id',
+  `landlordId` INT(11) DEFAULT NULL COMMENT '房东id',
+  `renterId` INT(11) DEFAULT NULL COMMENT '租客id',
+  `subsId` INT(11) DEFAULT NULL COMMENT '租约id（签约单）',
+  `orderMemo` VARCHAR(50) DEFAULT NULL COMMENT '租约描述',
+  `picGroupId` INT(11) DEFAULT NULL COMMENT '图片组id',
+  PRIMARY KEY (`id`),
+  KEY `landlordId` (`landlordId`)
+) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT '帐务账单附加信息表';

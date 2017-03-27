@@ -2,8 +2,7 @@
 
 use mogoroomdb;
 
-/*房东贷款资质申请表*/
-DROP Table IF EXISTS loan_landlord_mPayApply;
+/*房东贷款资质申请表，预估表容量未来3个月500行、读取量最多20行、主要查询是通过landlordId查询，或者BS系统中分页查询*/
 CREATE TABLE loan_landlord_mPayApply (
   id int(11) NOT NULL AUTO_INCREMENT COMMENT '房东贷款资质申请id',
   landlordId int(11) NOT NULL COMMENT '房东id',
@@ -40,8 +39,7 @@ CREATE TABLE loan_landlord_mPayApply (
   KEY contractId(contractId)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='房东贷款资质申请资料表';
 
-/*房东贷款资质申请企业信息表*/
-DROP Table IF EXISTS loan_mPayApply_company;
+/*房东贷款资质申请企业信息表，预估表容量未来3个月500行、读取量最多20行、主要查询是通过applyId查询*/
 CREATE TABLE loan_mPayApply_company (
   id int(11) NOT NULL AUTO_INCREMENT COMMENT '房东贷款资质申请企业信息表id',
   applyId int(11) NOT NULL COMMENT '房东月付服务申请表id',
@@ -64,26 +62,7 @@ CREATE TABLE loan_mPayApply_company (
   KEY applyId(applyId)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='房东贷款资质申请企业信息表';
 
-/*房东贷款资质申请绑卡信息表*/
-DROP Table IF EXISTS loan_mPayApply_bank;
-CREATE TABLE loan_mPayApply_bank (
-  id int(11) NOT NULL AUTO_INCREMENT COMMENT '房东贷款资质申请绑卡信息表id',
-  applyId int(11) NOT NULL COMMENT '房东月付服务申请表id',
-  debitbank varchar(8) NOT NULL COMMENT '绑卡开户行',
-  debitcard varchar(20) NOT NULL COMMENT '绑卡卡号',
-  isLegalPersonBindCard int(1) DEFAULT NULL COMMENT '是否法人绑卡(0:否 1:是)',
-  bindCardRelation int(1) DEFAULT NULL COMMENT '绑卡人与申请人关系(参考字典表组名:applyRelation)',
-  bindCardName varchar(32) DEFAULT NULL COMMENT '绑卡人姓名',
-  bindCardIdCard varchar(18) DEFAULT NULL COMMENT '绑卡人身份证号码',
-  bindCardMobile char(11) DEFAULT NULL COMMENT '绑卡人银行预留手机号',
-  bindCardCount int(1) DEFAULT '0' COMMENT '绑卡认证次数',
-  isBind int(1) DEFAULT '0' COMMENT '是否绑定(0:否 1:是)',
-  PRIMARY KEY (id),
-  KEY applyId(applyId)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='房东贷款资质申请绑卡信息表';
-
-/*房东贷款资质申请关系人信息表*/
-DROP Table IF EXISTS loan_mPayApply_relation;
+/*房东贷款资质申请关系人信息表，预估表容量未来3个月500行、读取量最多20行、主要查询是通过applyId查询*/
 CREATE TABLE loan_mPayApply_relation (
   id int(11) NOT NULL AUTO_INCREMENT COMMENT '房东贷款资质申请关系人信息表id',
   applyId int(11) NOT NULL COMMENT '房东月付服务申请表id',
@@ -104,8 +83,7 @@ CREATE TABLE loan_mPayApply_relation (
   KEY applyId(applyId)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='房东贷款资质申请关系人信息表';
 
-/*房东信息采集表*/
-DROP Table IF EXISTS loan_mPayApply_collection;
+/*房东信息采集表，预估表容量未来3个月500行、读取量最多20行、主要查询是通过landlordId关联查询*/
 CREATE TABLE loan_mPayApply_collection (
   id int(11) NOT NULL AUTO_INCREMENT COMMENT '房东信息采集表id',
   landlordId int(11) NOT NULL COMMENT '房东id',
@@ -138,8 +116,7 @@ CREATE TABLE loan_mPayApply_collection (
   KEY contractId(contractId)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='房东信息采集表';
 
-/*房东贷款资质审核表*/
-DROP Table IF EXISTS loan_mPayApply_approve;
+/*房东贷款资质审核表，预估表容量未来3个月500行、读取量最多20行、主要查询是通过landlordId关联查询*/
 CREATE TABLE loan_mPayApply_approve (
   id int(11) NOT NULL AUTO_INCREMENT COMMENT '房东贷款资质审核表id',
   landlordId int(11) NOT NULL COMMENT '房东id',
@@ -172,8 +149,7 @@ CREATE TABLE loan_mPayApply_approve (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='房东贷款资质审核表';
 
 
-/*房东贷款资质审核历史表*/
-DROP Table IF EXISTS loan_mPayApply_approve_log; 
+/*房东贷款资质审核历史表，预估表容量未来3个月2000行、读取量最多5行、主要查询是通过approveId关联查询*/
 CREATE TABLE loan_mPayApply_approve_log (
   id int(11) NOT NULL AUTO_INCREMENT COMMENT '房东贷款资质审核历史表id',
   approveId int(11) NOT NULL COMMENT '房东贷款资质审核表id',
@@ -201,8 +177,7 @@ CREATE TABLE loan_mPayApply_approve_log (
   KEY approveId(approveId)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='房东贷款资质审核历史表';
 
-/*房东贷款资质审核原因表*/
-DROP Table IF EXISTS loan_mPayApply_rejectReason;
+/*房东贷款资质审核原因表，配置表50行、读取量最多50行*/
 CREATE TABLE loan_mPayApply_rejectReason (
   id int(11) NOT NULL AUTO_INCREMENT COMMENT '房东贷款资质审核原因表id',
   reasonCode varchar(4) NOT NULL COMMENT '原因代码',
