@@ -9,7 +9,7 @@ UPDATE acct.`acct_bill` SET valid = 1 WHERE STATUS IN (0,1,3,5,6);
 
 UPDATE acct.`acct_bill` SET visible = 1 WHERE STATUS !=7;
 
-UPDATE acct.`acct_bill` SET visible = 1 WHERE STATUS =7;
+UPDATE acct.`acct_bill` SET visible = 0 WHERE STATUS =7;
 
 UPDATE acct.`acct_bill` SET topSubsId = subsId ;
 
