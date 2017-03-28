@@ -17,6 +17,7 @@ ALTER TABLE find_room_detail_record ADD (
    landlordId INT(11) COMMENT '房东id'
 );
 
+
 /* 房源数据综合表修改字段长度 */
 ALTER TABLE find_room_detail_record MODIFY COLUMN roomInfo VARCHAR(100) comment '房间描述';
 /* 小区、商圈、行政区数据综合表修改字段长度 */
