@@ -4,10 +4,11 @@ use mogoroomdb;
 
 BEGIN;
 
+SET @pid = (SELECT id FROM perm_functioninfo WHERE fname = '消息模版管理' AND status = 1);
 SET @i = (SELECT AUTO_INCREMENT FROM information_schema.`TABLES` WHERE TABLE_SCHEMA= 'mogoroomdb' AND TABLE_NAME='perm_functioninfo');
 /* 插入新菜单-运营消息管理- */
 insert into `perm_functioninfo` (`id`,`fcode`,`fname`,`furl`,`seq`,`functionLevel`,`functionPid`,`functionisMenu`,`isAjax`,`functionType`,`createdTime`,`status`,`channel`)
-values (@i, '232168', '运营消息管理', 'msg/findOperMesg', '8', '2', '3216', '1', '0', '0', now(), '1', '2');
+values (@i, concat('2',@pid,'8'), '运营消息管理', 'msg/findOperMesg', '8', '2', @pid, '1', '0', '0', now(), '1', '2');
 
 /* 插入新菜单-运营消息管理下权限 */
 insert into `perm_functioninfo` (`fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `isAjax`, `functionType`, `createdTime`, `status`, `channel`)
