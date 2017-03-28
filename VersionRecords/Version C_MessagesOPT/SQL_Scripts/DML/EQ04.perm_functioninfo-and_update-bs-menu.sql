@@ -1,4 +1,4 @@
-/* Database name `mogoroomdb`，BS消息模版管理下子菜单调整 */
+/* Database name `mogoroomdb`，BS消息模板管理下子菜单调整 */
 
 use mogoroomdb;
 
@@ -7,8 +7,8 @@ use mogoroomdb;
 update `perm_functioninfo` set `fname`='租客消息修改记录', `furl`='mesgTemp/editRenterTempLog' where `fname`='消息修改记录' and `furl`='mesgTemp/editTempLog';
 /* 更新原菜单-消息发送记录- 为 -租客消息发送记录- */
 update `perm_functioninfo` set `fname`='租客消息发送记录', `furl`='mesgTemp/sendRenterRecord' where `fname`='消息发送记录' and `furl`='esgTemp/sendRecord';
-/* 更新原菜单-消息模版列表- 为 -租客产品消息模版- */
-update `perm_functioninfo` set `fname`='租客产品消息模板', `furl`='mesgTemp/renterMesgTempList' where `fname`='消息模版列表' and `furl`='mesgTemp/mesgTempList';
+/* 更新原菜单-消息模板列表- 为 -租客产品消息模板- */
+update `perm_functioninfo` set `fname`='租客产品消息模板', `furl`='mesgTemp/renterMesgTempList' where `fname`='消息模板列表' and `furl`='mesgTemp/mesgTempList';
 
 /* 租客消息三级菜单 */
 update `perm_functioninfo` set `fname`='启用/禁用租客消息子模板', `furl`='mesgTemp/enableOrDisableRenterSubTemp' where `fname`='启用/禁用消息子模板' and `furl`='mesgTemp/enableOrDisableSubTemp';
@@ -22,7 +22,7 @@ update `perm_functioninfo` set `fname`='编辑租客消息模板', `furl`='mesgT
 
 BEGIN;
 
-SET @pid = (SELECT id FROM perm_functioninfo WHERE fname = '消息模版管理' AND status = 1);
+SET @pid = (SELECT id FROM perm_functioninfo WHERE fname = '消息模板管理' AND status = 1);
 
 /* 房东消息二级菜单 */
 /* 插入新菜单-房东消息修改记录- */
@@ -35,14 +35,14 @@ values (concat('2',@pid,'6'), '房东消息发送记录', 'mesgTemp/sendLandlord
 COMMIT;
 
 
-/* BS消息模版管理下增加子菜单：房东产品消息模版  */
+/* BS消息模板管理下增加子菜单：房东产品消息模板  */
 BEGIN;
 
-SET @pid = (SELECT id FROM perm_functioninfo WHERE fname = '消息模版管理' AND status = 1);
+SET @pid = (SELECT id FROM perm_functioninfo WHERE fname = '消息模板管理' AND status = 1);
 SET @i = (SELECT AUTO_INCREMENT FROM information_schema.`TABLES` WHERE TABLE_SCHEMA= 'mogoroomdb' AND TABLE_NAME='perm_functioninfo');
-/* 插入新菜单-房东产品消息模版- */
+/* 插入新菜单-房东产品消息模板- */
 insert into `perm_functioninfo` (`id`,`fcode`,`fname`,`furl`,`seq`,`functionLevel`,`functionPid`,`functionisMenu`,`isAjax`,`functionType`,`createdTime`,`status`,`channel`)
-values (@i, concat('2',@pid,'7'), '房东产品消息模版', 'mesgTemp/landlordMesgTempList', '7', '2', @pid, '1', '0', '0', now(), '1', '2');
+values (@i, concat('2',@pid,'7'), '房东产品消息模板', 'mesgTemp/landlordMesgTempList', '7', '2', @pid, '1', '0', '0', now(), '1', '2');
 
 /* 房东消息三级菜单 */
 insert into `perm_functioninfo` (`fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `isAjax`, `functionType`, `createdTime`, `status`, `channel`) 
