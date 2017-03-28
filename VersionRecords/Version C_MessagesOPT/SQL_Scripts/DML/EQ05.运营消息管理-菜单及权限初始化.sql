@@ -4,7 +4,7 @@ use mogoroomdb;
 
 BEGIN;
 
-SET @pid = (SELECT id FROM perm_functioninfo WHERE fname = '消息模版管理' AND status = 1);
+SET @pid = (SELECT id FROM perm_functioninfo WHERE fname = '消息模板管理' AND status = 1);
 SET @i = (SELECT AUTO_INCREMENT FROM information_schema.`TABLES` WHERE TABLE_SCHEMA= 'mogoroomdb' AND TABLE_NAME='perm_functioninfo');
 /* 插入新菜单-运营消息管理- */
 insert into `perm_functioninfo` (`id`,`fcode`,`fname`,`furl`,`seq`,`functionLevel`,`functionPid`,`functionisMenu`,`isAjax`,`functionType`,`createdTime`,`status`,`channel`)
