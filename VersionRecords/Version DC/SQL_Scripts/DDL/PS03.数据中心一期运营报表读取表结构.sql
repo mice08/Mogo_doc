@@ -22,7 +22,6 @@ CREATE TABLE `repo_landlord_operate_day` (
   `deceRoomRentCount` int(8) DEFAULT NULL COMMENT '分散式已租房源量',
   `createTime` DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updateTime` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-  `valid` TINYINT(1) DEFAULT '1' COMMENT '该数据是否有效(1:有效,0:无效)',
-  PRIMARY KEY (`id`),
-  UNIQUE  KEY  `accessid` (`accessid`)
+  `valid` TINYINT(1) DEFAULT '1' COMMENT '该数据是否有效(1:有效0:无效)',
+  PRIMARY KEY (`id`)
 ) ENGINE=INNODB DEFAULT CHARSET=utf8mb4 COMMENT='运营报表昨日快照';
