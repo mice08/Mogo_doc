@@ -22,6 +22,6 @@ create table acct_jz_order (
 	`tradeTypeCode` varchar(20) NOT NULL COMMENT '交易类型码',
 	`createTime` DATETIME NOT NULL COMMENT '创建时间',
 	`createBy` INT(11) NOT NULL COMMENT '创建人',
-	`createByType` TINYINT(4) NOT NULL COMMENT '创建人类型'
+	`createByType` TINYINT(4) NOT NULL COMMENT '创建人类型',
 	PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='见证系统对账单'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='见证系统对账单';
