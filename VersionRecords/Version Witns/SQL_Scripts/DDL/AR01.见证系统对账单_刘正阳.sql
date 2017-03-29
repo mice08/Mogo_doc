@@ -5,9 +5,9 @@ Database name `acct`
 use acct
 create table acct_jz_order (
 	`id` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
-	`platformId` BIGINT(20) NOT NULL COMMENT '平台id',
-	`orderNo` BIGINT(20) NOT NULL COMMENT '业务订单号',
-	`platformOrderNo` BIGINT(20) NOT NULL COMMENT '平台订单号',
+	`platformId` VARCHAR(50) NOT NULL COMMENT '平台id',
+	`orderNo` VARCHAR(50) NOT NULL COMMENT '业务订单号',
+	`platformOrderNo` VARCHAR(40) NOT NULL COMMENT '平台订单号',
 	`productName` varchar(50) NOT NULL COMMENT '商品名称',
 	`payMoney` DECIMAL(10,2) NOT NULL COMMENT '交易金额',
 	`payerIdenti` varchar(50) NOT NULL COMMENT '付款方标识',
