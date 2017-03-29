@@ -5,7 +5,7 @@ use mogoroomdb;
 新建表：运营报表_房东_数据_运营   报表昨日快照
 预估写入量每天6000-8000条左右
 预估读取量每天3000次
-主要查询语句 select * from operate_dc_day_copy where landlordId = '' and recordDate = ''
+主要查询语句 select * from opera_dc_day_copy where landlordId = '' and recordDate = ''
 */
 CREATE TABLE `opera_dc_day_copy` (
   `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT 'id主键',
