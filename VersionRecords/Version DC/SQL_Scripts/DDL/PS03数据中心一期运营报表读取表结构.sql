@@ -7,7 +7,7 @@ use mogoroomdb;
 预估读取量每天3000次
 主要查询语句 select * from operate_dc_day_copy where landlordId = '' and recordDate = ''
 */
-CREATE TABLE `operate_dc_day_copy` (
+CREATE TABLE `opera_dc_day_copy` (
   `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT 'id主键',
    landlordId INT(11) DEFAULT NULL COMMENT '房东id',
   `recordDate` date DEFAULT NULL COMMENT '数据日期',
