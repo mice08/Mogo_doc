@@ -2,5 +2,6 @@
 USE mogoroomdb;
 
 ALTER TABLE oder_businessorder 
-  drop COLUMN `roomId`,
-  drop COLUMN `remark`;
+  DROP COLUMN `acctId`,
+  DROP COLUMN `roomId`,
+  DROP COLUMN `remark`;
