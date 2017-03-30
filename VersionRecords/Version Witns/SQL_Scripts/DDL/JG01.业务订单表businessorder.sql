@@ -1,4 +1,4 @@
-﻿/*业务订单表增加字段*/
+﻿/*业务订单表oder_businessorder表去掉roomId、remark字段*/
 USE mogoroomdb;
 
 ALTER TABLE oder_businessorder 
