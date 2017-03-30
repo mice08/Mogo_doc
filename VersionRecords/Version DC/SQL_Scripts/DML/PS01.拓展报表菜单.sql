@@ -133,7 +133,7 @@ SELECT @seq:=(ifnull(MAX(seq),0)+1) FROM perm_functioninfo WHERE functionpId=@id
 SELECT @fcode:= CONCAT('2',LPAD(@id,4,0),@seq) FROM perm_functioninfo WHERE fname = '部门列表' AND (furl IS NULL OR furl = 'bdrpt/serviceSectorDay') ORDER BY id DESC LIMIT 1;
 
 INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, '部门月报', 'bdrpt/serviceSectorSummary', @seq, '3', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '19');
+VALUES ( @fcode, '部门汇总', 'bdrpt/serviceSectorSummary', @seq, '3', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '19');
 
 -- 拓展人日报
 SELECT @id:=id FROM perm_functioninfo WHERE fname = '部门列表' AND functionLevel = 2 AND (furl IS NULL OR furl = 'bdrpt/serviceSectorDay') ORDER BY id DESC LIMIT 1;
