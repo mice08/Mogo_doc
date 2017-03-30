@@ -1,0 +1,12 @@
+#房东App正式环境配置增加
+正式环境配置
+sysconfig.LAKALA_MERNO=SL2015070100001
+sysconfig.LAKALA_URL=https://xd.lakala.com.cn:9001//CreditLoanGateWay/apply.do
+sysconfig.LAKALA_URL_UPLOAD=http://xd.lakala.com.cn:9002//CreditLoanGateWay/imgupload.do
+sysconfig.LAKALA_KEY=5502453538673A2399F9ADE1BA849558
+
+测试环境配置
+sysconfig.LAKALA_MERNO=SL2015070100001
+sysconfig.LAKALA_URL=https://121.14.103.74:9001//gateway/apply.do
+sysconfig.LAKALA_URL_UPLOAD=http://121.14.103.74:9002//gateway/imgupload.do
+sysconfig.LAKALA_KEY=5502453538673A2399F9ADE1BA849558

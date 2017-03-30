@@ -1,0 +1,1 @@
+UPDATE `mesg_template` SET `content` = '你有一笔新的预定单，请在60分钟内完成审核！' WHERE TYPE = 'sms_landlord_bookOrderSuccess'; 

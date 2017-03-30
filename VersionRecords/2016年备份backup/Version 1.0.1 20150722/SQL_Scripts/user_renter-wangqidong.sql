@@ -1,0 +1,1 @@
+ALTER TABLE `user_renter` ADD COLUMN `loginDevice` VARCHAR(255) NULL COMMENT '登录设备信息' AFTER `regId`; 

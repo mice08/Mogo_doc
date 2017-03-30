@@ -1,5 +1,0 @@
-上传证书openapi.juxiangfen.com.cer到“ /var/lib/docker/contract/template ”路径下
-
-#聚有财证书文件路径
-
-sysconfig.jyc_cer_filepath=/var/lib/docker/contract/template/openapi.juxiangfen.com.cer

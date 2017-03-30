@@ -1,0 +1,20 @@
+SELECT 
+  id '删除标记',
+  operator '删除该租约的人物id',
+  CASE
+    operatortype 
+    WHEN 0 
+    THEN '房东' 
+    WHEN 7 
+    THEN '子账号' 
+  END '人物类型',
+  flatsid '公寓id',
+  roomid '房间id',
+  landlordid '公寓所属的房东id',
+  renterid '租客id',
+  orderid '删除的合同id（已经匹配不到）',
+  operationtime '操作时间' 
+FROM
+  comm_business_record 
+WHERE comm_business_record.`bizType` = '3001003' ;
+

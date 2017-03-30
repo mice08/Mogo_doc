@@ -1,0 +1,6 @@
+房东APP的配置文件增加下面支付功能配置
+
+#partner pay interface on-off
+sysconfig.partner_usekuaiqian=1
+sysconfig.partner_usezhifubao=1
+sysconfig.partner_useweixin=0

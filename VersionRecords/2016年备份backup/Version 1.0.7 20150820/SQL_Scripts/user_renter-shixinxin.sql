@@ -1,0 +1,1 @@
+ALTER TABLE `user_renter` CHANGE `createTime` `createTime` DATETIME DEFAULT CURRENT_TIMESTAMP NULL COMMENT '×¢²áÊ±¼ä'; 

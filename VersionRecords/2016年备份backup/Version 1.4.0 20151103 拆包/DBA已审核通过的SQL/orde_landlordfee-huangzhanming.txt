@@ -1,0 +1,2 @@
+create view oder_landlordfee as select * from orde_landlordfee;
+create view oder_signedorder_landlord as select * from orde_signedorder_landlord;

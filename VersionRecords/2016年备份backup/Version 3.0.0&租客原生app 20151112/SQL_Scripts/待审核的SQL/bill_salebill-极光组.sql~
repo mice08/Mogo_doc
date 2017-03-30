@@ -1,0 +1,6 @@
+/*  Database name `mogoroomdb` ，bill_salebill添加是否发送字段*/
+use mogoroomdb;
+
+ALTER TABLE `bill_salebill`
+ADD COLUMN `sendFlag` INT(2) DEFAULT 2  NOT NULL  COMMENT '是否发送 1:未发送 2:已发送',
+ADD COLUMN `billDetailType` VARCHAR(200) NULL  COMMENT '账务明细类型';

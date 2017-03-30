@@ -1,1 +1,0 @@
-ALTER TABLE supp_complain ADD linkman VARCHAR(255) ,ADD linkphone VARCHAR(15)

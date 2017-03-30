@@ -1,0 +1,9 @@
+#新增配置
+#api-sms-chuanglan
+sysconfig.sms_cl_sendurl=http://222.73.117.158/msg/index.jsp
+sysconfig.sms_cl_account=6F6D0CD4D76C59E72E55E9DC1F0142B5
+sysconfig.sms_cl_password=596BCF084B5950CF4C03F8D3D451301D
+
+#修改配置
+#sms-company
+sysconfig.smscompany=DhstSMSSend-0-30&JianZhouSMSSend-31-95&ChuangLanSMSSend-96-100

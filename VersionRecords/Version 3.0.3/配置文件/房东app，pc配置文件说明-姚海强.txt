@@ -1,2 +1,0 @@
-#user permission switch 用户权限开关
-sysconfig.user.permission=true

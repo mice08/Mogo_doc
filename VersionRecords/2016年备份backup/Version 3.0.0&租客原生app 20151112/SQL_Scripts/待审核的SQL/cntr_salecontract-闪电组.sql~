@@ -1,0 +1,8 @@
+/*  Database name `mogoroomdb` ，合同表添加字段*/
+use mogoroomdb;
+
+ALTER TABLE cntr_salecontract
+ADD COLUMN oddmentAmount DECIMAL(10,2) DEFAULT 0 COMMENT '租期余数金额',
+ADD COLUMN oddmentPlace INT(2) DEFAULT 1 COMMENT '0租期余数置头,1租期余数置尾',
+ADD COLUMN oddmentMerge INT(2) DEFAULT '0' COMMENT '0表示租期余数不与临近整期合并，1表示租期余数与临近整期合并',
+ADD COLUMN deadlineDate INT(2) DEFAULT NULL COMMENT 'deadlineDate<=0，提前deadlineDate天付款；32>deadlineDate>0，每月deadlineDate号付款';

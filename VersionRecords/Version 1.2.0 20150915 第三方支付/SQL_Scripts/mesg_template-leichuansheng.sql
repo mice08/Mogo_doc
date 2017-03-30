@@ -1,2 +1,0 @@
-INSERT INTO mesg_template (TYPE, content, paramCount)VALUES('sms_withdrawal_success', '（提现已到账）您好${1}，您于${2}在蘑菇租房APP上的提现已经到账，请注意查收。有任何疑问可致电蘑菇租房客服热线：400-800-4949。', 2);
-INSERT INTO mesg_template (TYPE, content, paramCount)VALUES('sms_withdrawal_fail', '（提现失败）您好${1}，您于${2}在蘑菇租房APP上的提现失败（请检查提现卡号和持卡人姓名是否一致，或其他原因）现已将提现金额退回至您的蘑菇租房APP账户，请查收或重新提现。有任何疑问可致电蘑菇租房客服热线：400-800-4949。', 2);

@@ -1,3 +1,0 @@
-#搜索引擎新建了house，在配置分离文件中配置house#
-#renter、renterpc和bs项目均要以下配置，增加位置：sysconfig.ELASTIC_SEARCHROOM_ROOM_TYPE=room下面一行#
-sysconfig.ELASTIC_SEARCHROOM_HOUSE_TYPE=house

@@ -1,0 +1,2 @@
+#dahan santong voice sms report url(file->systemconfig.properties)
+sysconfig.sms_dhst_voice_report_url = http://voice.3tong.net/http/voiceSms/Report

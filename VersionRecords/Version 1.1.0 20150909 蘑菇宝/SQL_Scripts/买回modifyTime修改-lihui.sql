@@ -1,1 +1,0 @@
-﻿ALTER TABLE loan_landlord_buyback MODIFY  modifyTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP;

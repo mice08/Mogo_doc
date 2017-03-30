@@ -1,0 +1,7 @@
+use mogoroomdb;
+
+UPDATE 	mesg_subtemplet
+SET 		templetContent = '${landlordName}您好，您的房源${communityName}小区${roomNum}，经审核不适合对外展示，已被平台调整隐藏，理由：${remard}' 
+WHERE 	templetId  =  (SELECT id FROM mesg_templet WHERE templetCode='sms_room_onlineStatus_landlord' AND STATUS =1 AND valid = 1 ) 
+	AND 	valid = 1 
+	AND 	STATUS = 1;

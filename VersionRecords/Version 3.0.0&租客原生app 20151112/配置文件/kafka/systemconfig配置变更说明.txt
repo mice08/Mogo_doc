@@ -1,4 +1,0 @@
-# 在bs、lts、partner、partnerpc、payapi、renter、renterpc对应的systemconfig.properties文件作以下操作：
-# 去除sysconfig.kafka.topic配置，然后增加以下两项配置
-sysconfig.kafka.domain=renter
-sysconfig.kafka.group=renter_lcs

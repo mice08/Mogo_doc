@@ -1,9 +1,0 @@
-filter.sysconfig.cat.itc.filterUrl=/**
-filter.sysconfig.cat.web.filterUrl=/*
-
-mail.smtp.auth=true
-mail.smtp.timeout=25000
-filter.mail.smtp.host=smtp.163.com
-filter.mail.smtp.from=songwie2009@163.com
-filter.mail.smtp.username=songwie2009@163.com
-filter.mail.smtp.password=songwie2009@163.com

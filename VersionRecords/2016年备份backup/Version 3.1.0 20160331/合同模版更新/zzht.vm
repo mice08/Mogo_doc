@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>居住房屋租赁合同</title>
+	<meta charset="UTF-8"></meta>
+	<meta name="format-detection" content="telephone=no"></meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.5, minimum-scale=1.0, user-scalable=yes"></meta>
+<style>
+body{
+	font-size:12px;
+	font-family:microsoft yahei, trebuchet ms, tahoma, sans-serif;
+	margin:0 6px;
+	color:#333;
+}
+.hp{ 
+	overflow:hidden;
+}
+h1{
+	text-align:center;
+	font-size:1.8em;
+	margin:1.5em 0 .8em;
+}
+h2,h3{
+	font-size:1.17em;
+	margin:1em 0 .35em;
+}
+h1,h2,h3{
+	color:#000;
+}
+p{
+	margin:2px 0;
+	line-height:1.5em;
+	text-align:justify;
+}
+img{
+	display:inline-block;
+	max-width:100%;
+}
+p label{
+	float:left;
+	display:inline-block;
+	width:50px;
+}
+.img-wrapper{
+	margin-left:60px;
+	display:block;
+}
+.img-list-wrapper{
+	overflow:hidden;
+}
+.img-list-wrapper img{
+	width:100px;
+	float:left;
+	display:inline-block;
+}
+.img-list-wrapper img + img{
+	margin-left:5px;
+}
+.fl{
+	float:left;
+}
+label.lg{
+	width:135px;
+}
+.banner{
+	margin:8px 0;
+}
+.title-terms{
+	font-size: 1.5em;
+    margin: 2em 0 .8em;
+}
+.remarks{
+	margin:10px 0;
+}
+.remarks strong{
+	font-size:1.2em;
+}
+table{
+	border-collapse:collapse;
+	width:100%;
+	margin-top:10px;
+	margin-bottom:4px;
+}
+table td{
+	border-top:1px dashed #ddd;
+	border-bottom:1px dashed #ddd;
+}
+table th,
+table td{
+	line-height:22px;
+	text-align:left;
+	width:25%;
+}
+</style>	
+</head>
+<body>
+	<h1>居住房屋租赁合同</h1>
+	<div class="banner">
+		<p><strong>甲方（出租人）：</strong>${landlordName}</p>
+		<p><strong>乙方（承租人）：</strong>${renterRealName}</p>
+	</div>
+	<p>根据《中华人民共和国合同法》等有关法律、法规的规定，甲、乙双方在平等、自愿、公平和诚实信用的基础上，经协商一致，就乙方承租甲方可依法出租的房屋事宜，订立本合同。</p>
+	
+	<h2>租金及支付方式</h2>
+	<p><label class="lg">租赁起止日期</label>：${startAndEndTime}</p>
+	<p><label class="lg">租赁期限</label>：${leaseTerm}</p>
+	<p><label class="lg">每月租金金额</label>：${money}元</p>
+	<p><label class="lg">人民币（大写）</label>：${moneyRMB}</p>
+	<p><label class="lg">租金付款方式</label>：${rentPayType}</p>
+	<p><label class="lg">每期租金金额</label>：${rentMoney}元</p>
+	<p><label class="lg">人民币（大写）</label>：${rentMoneyRMB}</p>
+	<p><label class="lg">押金金额</label>：${depositMoney}元</p>
+	<p><label class="lg">首期款（含押金及其他）</label>：${firstTermAmount}元</p>
+	
+	<h2>入住人身份信息</h2>
+	<p><label>姓名</label>：${realName}</p>
+	<p><label>性别</label>：${sex}</p>
+	<p><label>联系电话</label>：${cellphone}</p>
+	
+	<h2>房源信息</h2>
+	<p><label>房源地址</label>：${roomInfo}</p>
+	<p><label>建筑面积</label>：${area}平方米</p>
+	
+	<h2>线下合同照片</h2>
+	<p class="hp"><span class="img-wrapper img-list-wrapper">${pagerContractPhoto}</span></p>
+		
+	<h2>其它</h2>
+	<p class="remarks"><strong>备注：<u>${contractRemark}</u></strong></p>
+		
+</body>
+</html>

@@ -1,5 +1,0 @@
-#sysconfig.properties配置文件新增
-
-memcached.server1.host=172.16.1.6
-memcached.server1.port=11211
-memcached.server1.weight=10

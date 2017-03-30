@@ -1,0 +1,6 @@
+payapi���� ΢������
+
+sysconfig.weixin_offiAccount_password =816a11b5443f906d66107a8a9b09f92d
+sysconfig.weixin_offiAccount_appid=wxc759f83b1e2d9cde
+sysconfig.weixin_offiAccount_mch_id=1366918402
+sysconfig.weixin_offiAccount_notify_url=http://xxxxxxxxxx/mogoroom-payapi/pay/weixin-offiAccount

@@ -1,1 +1,0 @@
-将四个模板文件上传到  /var/lib/docker/contract/template/ 目录

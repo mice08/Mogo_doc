@@ -1,2 +1,0 @@
-#聚有财证书文件路径，路径请重新配置
-sysconfig.jyc_cer_filepath=D:\\jfdev.cer

@@ -1,0 +1,26 @@
+use acct;
+CREATE TABLE IF NOT EXISTS `acct`.`acct_withdrawschedule` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `doneCode` INT NOT NULL COMMENT '业务流水号',
+  `oprIndex` INT NOT NULL DEFAULT 0 COMMENT '提现次数，同一笔DoneCode可能多次提现',
+  `createTime` DATETIME NOT NULL COMMENT '流水创建时间',
+  `updateTime` DATETIME NULL COMMENT '流水更新时间',
+  `amount` DECIMAL(10,2) NOT NULL COMMENT '退款金额',
+  `yurref` VARCHAR(45) NOT NULL COMMENT '业务流水号',
+  `payaccount` VARCHAR(45) NOT NULL COMMENT '付款账号',
+  `busmod` VARCHAR(10) NOT NULL COMMENT '业务模式',
+  `status` INT NOT NULL COMMENT '状态(0:无效数据,1:有效数据,2重新支付)',
+  `reasonCode` VARCHAR(20) NOT NULL COMMENT '银行返回结果代码',
+  `reason` VARCHAR(45) NULL COMMENT '银行返回结果',
+  `userid` INT NOT NULL COMMENT '收款人ID',
+  `bankcardId` INT NOT NULL COMMENT '银行卡ID',
+  `userType` INT NOT NULL COMMENT '收款人类型',
+  `dbtbbck` VARCHAR(10) NOT NULL COMMENT '付款账号开户行编码',
+  `sqrnbr` VARCHAR(45) NULL COMMENT '批量经办时，用来表示第几笔记录。',
+  `reqsts` VARCHAR(20) NOT NULL COMMENT '流程状态（AUT:等待审批 NTE:终审完毕 WCF:订单待确认 BNK:银行处理中 FIN:完成 ACK:等待确认APD :待银行确认 OPR:数据接收中）\n',
+  `rtnflg` VARCHAR(20) NULL COMMENT '处理状态（S：银行支付成功 F:银行支付失败 B:银行支付被退票 R:企业审批否决 D:企业过期不审批 C:企业撤销 M:商户撤销订单 V:委托贷款被借款方拒绝）\n	\n\n\n\n\n\n\n\n',
+  `oprals` VARCHAR(45) NULL COMMENT '工作流：当前流程操作别名',
+  `oprsqn` VARCHAR(45) NULL COMMENT '工作流：当前流程待处理操作序列',
+  `reqrnbr` VARCHAR(45) NULL COMMENT '工作流：流程实例号',
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB

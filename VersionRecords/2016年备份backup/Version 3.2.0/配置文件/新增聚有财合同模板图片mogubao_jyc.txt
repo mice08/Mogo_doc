@@ -1,0 +1,3 @@
+新增聚有财合同模板  MogoBaoProtocolTemplet_JYC.vm ，放到现有合同模板目录下
+
+新增聚有财合同模板图片  mogubao_jyc.jpeg ，放到现有合同模板图片目录下 "download/sample/"

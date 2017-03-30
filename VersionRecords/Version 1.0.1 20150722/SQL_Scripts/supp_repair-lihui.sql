@@ -1,1 +1,0 @@
-ALTER TABLE supp_repair ADD linkman VARCHAR(255) ,ADD linkphone VARCHAR(15)

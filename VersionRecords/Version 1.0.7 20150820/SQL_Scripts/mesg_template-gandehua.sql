@@ -1,1 +1,0 @@
-UPDATE `mesg_template` SET `content` = '账单通知,你${1}月的租金账单已生成, 请在${2}之前完成支付。' WHERE `id` = '31';

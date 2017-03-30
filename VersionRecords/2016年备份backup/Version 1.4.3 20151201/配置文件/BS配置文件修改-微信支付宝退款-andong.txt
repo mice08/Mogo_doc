@@ -1,0 +1,6 @@
+#修改systemconfig.properties，添加以下内容
+
+
+#pay api refund interface url
+filter.sysconfig.alipay_refund_url=http://pay.api.mogoroom.com/mogoroom-payapi/bookOrder/alipay/refund_single_password
+filter.sysconfig.weixin_refund_url=http://pay.api.mogoroom.com/mogoroom-payapi/bookOrder/weixin/renter/refund

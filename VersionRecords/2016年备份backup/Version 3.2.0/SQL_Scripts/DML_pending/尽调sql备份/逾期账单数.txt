@@ -1,0 +1,28 @@
+SELECT 
+  * 
+FROM
+  bill_salebill 
+  JOIN oder_signedorder 
+    ON oder_signedorder.id = bill_salebill.`signedOrderId` 
+  JOIN cntr_salecontract 
+    ON cntr_salecontract.id = oder_signedorder.`saleContractId` 
+  LEFT JOIN user_special 
+    ON user_special.userid = oder_signedorder.landlordid 
+    AND user_special.usertype = 0 
+    AND user_special.specialtype = 0 
+  LEFT JOIN user_special us 
+    ON user_special.userid = oder_signedorder.landlordid 
+    AND us.usertype = 4 
+    AND us.specialtype = 0 
+WHERE cntr_salecontract.`turnStrtus` = 0 
+  AND DATE_FORMAT(
+    bill_salebill.paytime,
+    '%Y-%m-%d'
+  ) > DATE_FORMAT(
+    bill_salebill.`dueDate`,
+    '%Y-%m-%d'
+  ) 
+  AND ISNULL(user_special.`id`) 
+  AND ISNULL(us.id) 
+  AND bill_salebill.`bill_type`=1004
+GROUP BY bill_salebill.id 

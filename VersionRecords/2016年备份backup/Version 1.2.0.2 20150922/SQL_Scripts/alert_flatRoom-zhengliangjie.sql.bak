@@ -1,0 +1,36 @@
+
+/*
+公寓房间表添加数据来源字段
+
+Source Server         : 192.168.12.188
+Source Server Version : 50625
+Source Host           : 192.168.12.188:3306
+Source Database       : mogodev
+
+Target Server Type    : MYSQL
+Target Server Version : 50625
+File Encoding         : 65001
+
+Date: 2015年9月23日 16:42:11
+Author ：zhegnliangjie
+*/
+
+-- 公寓表添加数据来源字段
+ALTER TABLE `flat_flats`
+ADD COLUMN `updateBy` int(11) DEFAULT NULL COMMENT '更新人' AFTER `putawayTime`,
+ADD COLUMN `createChannel` int(1) NOT NULL DEFAULT 2 COMMENT '数据创建来源' AFTER `updateBy`,
+ADD COLUMN `updateChannel` int(1) DEFAULT NULL COMMENT '数据更新来源' AFTER `createChannel`;
+
+-- 房间表添加数据来源字段
+ALTER TABLE `flat_room`
+ADD COLUMN `updateBy` int(11) DEFAULT NULL COMMENT '更新人' AFTER `putawayTime`,
+ADD COLUMN `createChannel` int(1) NOT NULL DEFAULT 2 COMMENT '数据创建来源' AFTER `updateBy`,
+ADD COLUMN `updateChannel` int(1) DEFAULT NULL COMMENT '数据更新来源' AFTER `createChannel`;
+
+
+
+-- 初始化数据 默认来源BS后台
+
+update  flat_flats  set createChannel = 2 , updateBy = createBy;
+
+update  flat_room  set createChannel = 2 ,updateBy = createBy;

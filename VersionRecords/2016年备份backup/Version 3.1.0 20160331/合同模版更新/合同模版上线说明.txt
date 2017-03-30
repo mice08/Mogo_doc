@@ -1,0 +1,1 @@
+请将 zk.vm ， zzht.vm 两个新的合同模版文件上传至 /var/lib/docker/contract/template

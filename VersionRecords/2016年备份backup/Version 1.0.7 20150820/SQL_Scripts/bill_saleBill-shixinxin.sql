@@ -1,0 +1,1 @@
+ALTER TABLE `bill_saleBill` CHANGE `createTime` `createTime` DATETIME DEFAULT CURRENT_TIMESTAMP NULL COMMENT '创建时间'; 

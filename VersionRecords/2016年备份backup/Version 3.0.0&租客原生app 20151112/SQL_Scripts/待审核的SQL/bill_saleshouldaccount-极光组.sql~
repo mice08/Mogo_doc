@@ -1,0 +1,10 @@
+/* Database name `mogoroomdb` ，销售应收账务表添加字段 */
+use mogoroomdb;
+
+ALTER TABLE `bill_saleshouldaccount`   
+ADD COLUMN `billType` INT(11) DEFAULT 0  NOT NULL  COMMENT '账务类型，参考账单类型表的billType',
+ADD COLUMN `billDtlType` INT(11) DEFAULT 0  NOT NULL  COMMENT '账务明细类型，参考账单明细类型表的billDtlType',
+ADD COLUMN `soDoneCode` INT(11) NULL COMMENT '账务类型，参考comm_business_record表的id',
+ADD COLUMN `sendFlag` INT(2) DEFAULT 2  NOT NULL  COMMENT '是否发送 1:未发送 2:已发送',
+ADD COLUMN `payDate` datetime NOT NULL  COMMENT '付款日期';
+

@@ -1,1 +1,0 @@
-alter table flat_jointRoom add employeeId int(11) NOT NULL comment '²Ù×÷ÈËID';

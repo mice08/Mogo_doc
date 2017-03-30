@@ -1,0 +1,18 @@
+use acct;
+ALTER TABLE `acct_account`
+	ADD INDEX `idx_userIdUserType` (`userId`, `userType`);
+ALTER TABLE `acct_account`
+	ADD INDEX `idx_wjIdentity` (`wjIdentity`);
+ALTER TABLE `acct_busifunddtl`
+	ADD INDEX `idx_doneCode` (`doneCode`);
+ALTER TABLE `acct_busifunddtl`
+	ADD INDEX `idx_acctId` (`acctId`);
+ALTER TABLE `acct_busifeedtl`
+	ADD INDEX `idx_doneCode` (`doneCode`);
+ALTER TABLE `acct_busifeedtl`
+	ADD INDEX `idx_acctId` (`acctId`);
+ALTER TABLE `acct_busibilldtl`
+	ADD INDEX `idx_doneCode` (`doneCode`);
+ALTER TABLE `acct_busibilldtl`
+	ADD INDEX `idx_billId` (`billId`);
+

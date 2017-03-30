@@ -1,4 +1,0 @@
-#weixin 正式环境 房东伙伴公众号AppID和AppSecret 预约请求提醒 tempId
-sysconfig.weixin.weixinhuoBanAppID=wx49d2b14dbc7ab226
-sysconfig.weixin.weixinhuoBanAppSecret=1f2b2590eb2d74e93eb7fe34495b0777
-sysconfig.weixin.weixinhuobanReserveTempId=BWjOkHYdmWMV7WTUTM1qJJRkv7nZxYj1b6RERI089Gc

@@ -1,0 +1,18 @@
+#语音模板配置
+#2016年5月12日 14:17:49
+#郑良杰
+
+#在房东PC的配置文件中添加以下配置
+#sms-company 
+sysconfig.sms_voice_company = dhst_voice_sms-0-0&cl_voice_sms-0-100
+
+#api-sms-dhst
+sysconfig.sms_dhst_sendurl = wt.3tong.net
+sysconfig.sms_dhst_voice_url = http://voice.3tong.net/http/voiceSms/authCodeSubmit
+sysconfig.sms_dhst_account = 6F6192608ADA58CA579AA17C863C969E
+sysconfig.sms_dhst_password =1368143A9D09E6681A80668982411AE9
+
+#API-sms-chuanglan
+sysconfig.sms_cl_sendurl = http://222.73.117.158/msg/HttpBatchSendSM
+sysconfig.sms_cl_voice_account = 1877BC3698AA101B0763A4E9393EB523
+sysconfig.sms_cl_voice_password = 188EE67609258367255126808B59C91D

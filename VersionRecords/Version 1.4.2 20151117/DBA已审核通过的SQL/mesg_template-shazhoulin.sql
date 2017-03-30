@@ -1,1 +1,0 @@
-UPDATE  mesg_template SET content='[蘑菇宝不通过]您的蘑菇宝申请资料填写有误，请仔细核对关联借记卡和身份证照片等信息后，在当天22点前完成修改再次提交审核。蘑菇租房400-800-4949' WHERE TYPE='sms_renter_mogobao_lakala_failure';

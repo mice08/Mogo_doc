@@ -1,0 +1,7 @@
+房东APP和PC 增加修改sysconfig.properties文件的配置，添加如下配置：
+sysconfig.contract.template=/var/lib/docker/contract/template 
+sysconfig.contract.contract=/var/lib/docker/contract/contract 
+sysconfig.contract.download=/var/lib/docker/contract/download
+
+并且新增上面三个文件夹，并且赋予写的权限 ，并把template文件夹的文件放入template中
+

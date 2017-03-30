@@ -1,0 +1,2 @@
+#partnerapp，partnerpc jdbc.url 最后面加入以下参数;autoReconnect=true
+#如开发环境jdbc.url=jdbc\:mysql\://192.168.12.188\:3306/mogo_dev?useUnicode\=true&amp;characterEncoding\=UTF-8&amp;autoReconnect=true

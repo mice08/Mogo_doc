@@ -1,0 +1,4 @@
+# kafka创建topic
+# ${hostPort}，kafka服务器IP和端口号，多个用逗号(,)隔开，如:172.16.10.1:2181,172.16.10.2:2181
+# ${topic}，主题名，该值为/data/tomcatconf/bs/systemconfig.properties中的sysconfig.kafka.domain值拼上mogo，如rentermogo
+./kafka-topics.sh --create --zookeeper ${hostPort} --replication-factor 1 --partitions 2 --topic ${topic}

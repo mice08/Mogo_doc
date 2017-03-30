@@ -1,5 +1,0 @@
-#房东PC项目服务器增加配置 
-sysconfig.weixin.domainName=app.api.mogoroom.com
-sysconfig.weixin.weixinAppID=wx4c1c9ff3765d197f
-sysconfig.weixin.weixinAppSecret=1c363f88a883c3756126df79e43a43c2
-sysconfig.weixin.weixinReserveTempId=XzB_38KSDbNBBrHXJiuNsXzaUUCcB2GIQ1Ly2bifDis

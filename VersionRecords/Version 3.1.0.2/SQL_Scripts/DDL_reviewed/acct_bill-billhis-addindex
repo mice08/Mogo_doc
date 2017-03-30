@@ -1,9 +1,0 @@
-use acct;
-
-ALTER TABLE `acct_bill`
-ADD INDEX `idx_acctId` (`acctId`),
-ADD INDEX `idx_toAcctId` (`toAcctId`),
-ADD INDEX `idx_deadline` (`deadline`);
-
-ALTER TABLE `acct_bill_chghistory`
-ADD INDEX idx_billid (`billid`);

@@ -1,0 +1,39 @@
+ #房东PC端http传输更改为https传输
+ #zhegnliangjie 2016年4月28日 18:08:12
+ # 修改nginx.conf 文件
+ 
+ // 注释以下代码
+  location /mogoroom-partnerpc {
+              proxy_pass http://mogo_partnerpc/mogoroom-partnerpc;
+         }
+ 
+ 
+ //添加以下两个新的server
+ server {
+        listen       443 ssl;
+        server_name  ppc.api.mogoroom.com;
+        proxy_set_header   Host             $host;
+        proxy_set_header   X-Real-IP        $remote_addr;
+        proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
+        ssl                   on;
+        ssl_certificate       /data/cert/api.mogoroom.com.crt;
+        ssl_certificate_key   /data/cert/api.mogoroom.com.key;
+        ssl_session_timeout   5m;
+        ssl_protocols         TLSv1;
+        ssl_ciphers  HIGH:!aNULL:!MD5;
+        ssl_prefer_server_ciphers   on;
+        #ssl_verify_client on;
+
+        root /var/lib/docker/contract;：
+
+        location /mogoroom-partnerpc {
+            proxy_pass http://mogo_partnerpc/mogoroom-partnerpc;
+                proxy_redirect ~^http://([^:]+)(:\d+)?(.*)$  https://$1$3;
+        }
+    }
+ server {
+    listen 80;
+    server_name p.mogoroom.com;
+    rewrite ^/(.*) https://ppc.api.mogoroom.com/$1 permanent;
+    access_log off;
+  }

@@ -1,2 +1,0 @@
-ALTER TABLE `cntr_saleContract` CHANGE `status` `status` INT(11) NULL COMMENT '合同状态(枚举)'; 
-ALTER TABLE `cntr_saleContract` CHANGE `createTime` `createTime` DATETIME DEFAULT CURRENT_TIMESTAMP NULL COMMENT '创建时间'; 

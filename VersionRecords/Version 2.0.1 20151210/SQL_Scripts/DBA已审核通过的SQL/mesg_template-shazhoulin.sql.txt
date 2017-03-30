@@ -1,3 +1,0 @@
-INSERT INTO mesg_template(TYPE,content,paramCount,STATUS) VALUE('sms_renter_saleContractConvert_notify_focus','${1}您好，您租的${2}${3}号房源的房东已为您补录了租约，请登录蘑菇租房APP确认租约，若有疑问请及时与房东进行沟通。',3,1);
-
-INSERT INTO mesg_template(TYPE,content,paramCount,STATUS) VALUE('sms_renter_saleContractConvert_notify','${1}您好，您租住的${2}小区${3}栋${4}号Room${5}房源的房东已为您补录了租约，请登录蘑菇租房APP确认租约，若有疑问请及时与房东进行沟通。',5,1);

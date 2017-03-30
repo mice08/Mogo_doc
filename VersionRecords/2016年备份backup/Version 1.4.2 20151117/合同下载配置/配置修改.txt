@@ -1,0 +1,9 @@
+BS系统 增加修改sysconfig.properties文件的配置，添加如下配置：
+sysconfig.contract.template=/var/lib/docker/contract/template 
+sysconfig.contract.contract=/var/lib/docker/contract/contract 
+sysconfig.contract.download=/var/lib/docker/contract/download
+
+
+/var/lib/docker/contract/template 
+把template文件夹的文件覆盖现有template中文件
+

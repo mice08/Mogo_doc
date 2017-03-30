@@ -1,0 +1,41 @@
+/*  Database name `mogoroomdb` ，无房间的集中式房型彻底删除;(执行之前数据备份，备份，备份)*/
+use mogoroomdb;
+
+UPDATE flat_flats_prototype t,
+(
+	SELECT DISTINCT ffp.`id` id
+	FROM `flat_flats_prototype` ffp
+	LEFT JOIN flat_flats ff ON ffp.`id` = ff.`protoType`
+	LEFT JOIN (
+		SELECT flatsId AS flatsId,COUNT(*) roomCount
+		FROM flat_room
+		WHERE STATUS =1
+		GROUP BY flatsId
+	) fr ON ff.`id`=fr.flatsId
+	WHERE ff.`status` = 1
+	AND ff.`flatsTag` = 2
+	AND IFNULL(fr.roomCount,0) =0
+	AND ffp.`status` =1
+	AND ffp.`flatsTag` = 2
+) tt
+SET t.status =0
+WHERE t.`id` = tt.id;
+
+
+
+UPDATE flat_flats t,
+(
+	SELECT ff.`id` id
+	FROM flat_flats ff
+	LEFT JOIN (
+		SELECT flatsId AS flatsId,COUNT(*) roomCount
+			FROM flat_room
+			WHERE STATUS =1
+			GROUP BY flatsId
+		)fr ON ff.`id` = fr.flatsId
+	WHERE ff.`status` = 1
+	AND ff.`flatsTag` = 2
+	AND IFNULL(fr.roomCount,0) =0
+) tt
+SET t.status = 0
+WHERE t.`id` = tt.id;

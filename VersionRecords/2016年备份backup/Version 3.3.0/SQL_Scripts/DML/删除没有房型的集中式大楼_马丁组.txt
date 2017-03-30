@@ -1,0 +1,20 @@
+/*  Database name `mogoroomdb` ，删除没有房型的大楼;(执行之前数据备份，备份，备份)*/
+use mogoroomdb;
+
+UPDATE flat_community_property t,
+(
+	SELECT fcp.`id` id
+	FROM flat_community_property fcp
+	LEFT JOIN flat_community fc ON fc.`id` = fcp.`communityId`
+	LEFT JOIN (
+		SELECT ffp.`communityId`,COUNT(*) co
+		FROM `flat_flats_prototype` ffp
+		WHERE ffp.`status` =1
+		AND ffp.`flatsTag` = 2
+		GROUP BY ffp.`communityId` 
+	)ffp ON ffp.communityId = fc.`id`
+	WHERE IFNULL(ffp.co,0) =0
+	AND fc.`status` = 1
+)tt 
+SET t.`status` = 0
+WHERE t.`id` = tt.id;

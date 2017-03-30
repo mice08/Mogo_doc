@@ -1,0 +1,181 @@
+SELECT 
+user_renter.realname'租客姓名',
+rent_contract.`ordernumber` AS '贷款编号',
+user_landlord.`name` AS '房东姓名',
+city.`name` AS '公寓所在城市',	
+user_landlord.id AS '房东ID',
+user_renter.`id` AS '租客唯一识别码（注册手机号）',
+
+flat_flats.`flatsNum` AS '房源唯一识别码（房源编号）',
+  oder_signedorder.`roomId`'房间id',
+oder_signedorder.id AS '签约单唯一识别码（签约单号）',
+cntr_salecontract.beginDate AS '租约起租日期',
+cntr_salecontract.endDate AS '租约结束日期',
+CASE  WHEN loan_contract.`workFlowStatus`  = 0 THEN '初始化'
+       WHEN loan_contract.`workFlowStatus`  = 1 THEN '放款中'
+       WHEN loan_contract.`workFlowStatus`  = 2 THEN '放款失败'
+       WHEN loan_contract.`workFlowStatus`  = 3 THEN '放款中止'
+       WHEN loan_contract.`workFlowStatus`  = 4 THEN '放款完成'
+       WHEN loan_contract.`workFlowStatus`  = 5 THEN '款项结清'
+       WHEN loan_contract.`workFlowStatus`  = 6 THEN '待买回'
+       WHEN loan_contract.`workFlowStatus`  = 7 THEN '买回款项结清'
+   END AS '贷款状态',
+   ''AS '蘑菇宝状态',
+  CASE
+    lctemp.`lenderStatus` 
+    WHEN 0 
+    THEN '第三方待审核' 
+    WHEN 2 
+    THEN '第三方贷款申请失败' 
+    WHEN 4 
+    THEN '资料内部验证失败' 
+    WHEN 8 
+    THEN '资料第三方验证失败' 
+    WHEN 12 
+    THEN '第三方审核中' 
+    WHEN 16 
+    THEN '第三方审核失败' 
+    WHEN 20 
+    THEN '第三方审核通过' 
+    WHEN 24 
+    THEN '第三方放款成功' 
+    WHEN 28 
+    THEN '第三方放款失败' 
+    WHEN 32 
+    THEN '第三方合同终止' 
+  END '资方状态',
+   CASE
+    lctemp.`mogoStatus` 
+    WHEN 4 
+    THEN '蘑菇审核中' 
+    WHEN 8 
+    THEN '蘑菇审核通过' 
+    WHEN 12 
+    THEN '蘑菇审核失败' 
+    WHEN 16 
+    THEN '蘑菇验证错误' 
+  END '内部蘑菇状态',
+loan_contract.`applyAmount` AS  '租客申请金额',
+rent_contract.loanApplyTime '租客申请蘑菇宝时间（蘑菇宝合同创建时间）',
+rent_contract.`approvalTime` AS '蘑菇宝审批通过时间（蘑菇审批）（终审时间）',
+'' AS '蘑菇宝审批通过时间（资方审批）',
+rent_contract.fundConfirmTime AS '资方实际放款时间（财务确认款项到位时间）',
+ (SELECT loan_landlord_payplan.payDate FROM loan_landlord_payplan WHERE loan_landlord_payplan.loanId = loan_contract.id AND loan_landlord_payplan.payStatus=4 AND  loan_landlord_payplan.`loanChannel` =3 AND ( loan_landlord_payplan.period=1 AND loan_landlord_payplan.phaseMonths>1) LIMIT 1) AS '蘑菇向二房东实际放款时间（财务确认放款时间）',
+ loan_contract.`feeRate` AS  '放款手续服务费率（万分比）',
+ (loan_contract.`applyAmount` -  loan_contract.`actualAmount`) AS '放款手续费金额',
+ loan_contract.depositAmount AS '放款成功保证金（租金宝保证金）',
+ loan_contract.`actualAmount` AS '实际放款净额',
+ loan_contract.period AS '放款期数',
+ cntr_salecontract.payDate AS '租客每月还款日期',
+ ROUND(loan_contract.`applyAmount`/loan_contract.`period`,2) AS '租客每期还款本金',
+ (SELECT COUNT(1)  FROM bill_saleshouldaccount WHERE  bill_saleshouldaccount.`signedOrderId` = loan_contract.`signedOrderId` AND bill_saleshouldaccount.`payStatus` =1 AND bill_saleshouldaccount.billDtlType =10002  AND bill_saleshouldaccount.periodStage>1 )  AS  '已还款期数',
+  (loan_contract.period - (SELECT COUNT(1)  FROM bill_saleshouldaccount WHERE  bill_saleshouldaccount.`signedOrderId` = loan_contract.`signedOrderId` AND bill_saleshouldaccount.`payStatus` =1 AND bill_saleshouldaccount.billDtlType =10002  AND bill_saleshouldaccount.periodStage>1) ) AS '剩余还款期数',
+ '聚有财' AS '资金来源方',
+ oder_signedorder.checkOutTime  AS '退房日期',
+ CASE WHEN  loan_landlord_buyback.id  IS NULL THEN '否' ELSE '是' END AS   '职业房东是否买回',
+ loan_landlord_buyback.`buyBackDate` AS  '职业房东买回日期',
+ loan_landlord_buyback.`buyBackAmount` AS '职业房东买回本金',
+ IFNULL(loan_landlord_buyback.lateFee,0) AS '职业房东买回手续费',
+ IFNULL(loan_landlord_buyback.penalty,0) AS '职业房东买回滞纳金',
+ IFNULL(loan_landlord_buyback.backFee,0) AS  '返还职业房东手续费',
+ IFNULL(repayedAmount,0) + IFNULL(repayedLateFee,0) + IFNULL(repayedRenterPenalty,0) + IFNULL(repayedPenalty,0)    AS '职业房东实际买回金额'
+ FROM loan_contract 
+ LEFT JOIN loan_contract lctemp ON lctemp.`signedOrderId` = loan_contract.`signedOrderId`
+ AND ISNULL(lctemp.relContractId)
+LEFT JOIN user_landlord ON loan_contract.`borrowerInfoId` = user_landlord.`id`
+LEFT JOIN oder_signedorder ON  loan_contract.`signedOrderId`  = oder_signedorder.`id`
+LEFT JOIN flat_flats ON oder_signedorder.`flatsId`  = flat_flats.`id`
+LEFT JOIN flat_community ON flat_community.id = flat_flats.`communityId`
+LEFT JOIN city_district ON city_district.id = flat_community.`districtId`
+LEFT JOIN city  ON city_district.cityId = city.id
+LEFT JOIN user_renter ON oder_signedorder.`renterId` = user_renter.`id`
+LEFT JOIN cntr_salecontract ON cntr_salecontract.id = oder_signedorder.`saleContractId`
+LEFT JOIN loan_contract rent_contract ON rent_contract.id = loan_contract.`relContractId`
+LEFT JOIN loan_landlord_buyback ON  loan_landlord_buyback.loanid = loan_contract.id  
+AND loan_landlord_buyback.`loanChannel` =3 AND (loan_landlord_buyback.remainPeriod>1  AND loan_landlord_buyback.backFee>0) 
+WHERE loan_contract.`relContractId` >  0
+GROUP BY rent_contract.id
+UNION ALL
+SELECT
+user_renter.realname'租客姓名',
+  loan_renter_contract.`contractno` AS '贷款编号',
+  user_landlord.`name` AS '房东姓名',
+  IFNULL(city.`name`,'') AS '公寓所在城市',
+  loan_renter_contract.`landlordId` AS '房东ID',
+  user_renter.`id` AS '租客唯一识别码（注册手机号）',
+  IFNULL(flat_flats.`flatsNum`,'') AS '房源唯一识别码（房源编号）',
+  oder_signedorder.`roomId`'房间id',
+  IFNULL(oder_signedorder.id,'') AS '签约单唯一识别码（签约单号）',
+  IFNULL(cntr_salecontract.beginDate,'') AS '租约起租日期',
+  IFNULL(cntr_salecontract.endDate,'') AS '租约结束日期',
+  CASE  WHEN loan_landlord_mgmt.`loanStatus`  = 0 THEN '初始化'
+	WHEN loan_landlord_mgmt.`loanStatus`  = 1 THEN '放款中'
+       WHEN loan_landlord_mgmt.`loanStatus`  = 2 THEN '放款失败'
+       WHEN loan_landlord_mgmt.`loanStatus`  = 3 THEN '放款中止'
+       WHEN loan_landlord_mgmt.`loanStatus`  = 4 THEN '放款完成'
+       WHEN loan_landlord_mgmt.`loanStatus`  = 5 THEN '款项结清'
+       WHEN loan_landlord_mgmt.`loanStatus`  = 6 THEN '待买回'
+       WHEN loan_landlord_mgmt.`loanStatus`  = 7 THEN '买回款项结清'
+   END AS '贷款状态',
+   CASE loan_renter_contract.`status`
+   WHEN 1 THEN '审核中' WHEN 2 THEN '放款失败'
+   WHEN 3 THEN '放款成功' WHEN 4 THEN '已还清'
+   WHEN 5 THEN '已逾期' WHEN 6 THEN '审核失败'
+   WHEN 7 THEN '合同终止'
+   WHEN 8 THEN '取消合同'
+   WHEN 9 THEN '钱款结清'
+   WHEN 10 THEN '款项到位'
+   WHEN 11 THEN '合同待中止'
+    END'蘑菇宝状态',
+   ''AS '资方状态',
+    ''AS'内部蘑菇状态',
+  loan_renter_contract.`applyamt` AS '租客申请金额',
+  cntr_salecontract.signingDate '租客申请蘑菇宝时间（蘑菇宝合同创建时间）',
+  (SELECT checkTime FROM loan_renter_check WHERE loan_renter_check.`loanContractId` = loan_renter_contract.id AND loan_renter_info.`channel` =  loan_renter_check.`loanChannel`) AS '蘑菇宝审批通过时间（蘑菇审批）（终审时间）',
+ '' AS '蘑菇宝审批通过时间（资方审批）',
+ loan_renter_contract.confirmTime AS '资方实际放款时间（财务确认款项到位时间）',
+ (SELECT loan_landlord_payplan.payDate FROM loan_landlord_payplan WHERE loan_landlord_payplan.`loanId` = loan_landlord_mgmt.id   AND loan_landlord_payplan.payStatus=4  AND ( loan_landlord_payplan.period=1 AND loan_landlord_payplan.phaseMonths>1) LIMIT 1) AS '蘑菇向二房东实际放款时间（财务确认放款时间）' ,
+ IFNULL(loan_landlord_mgmt.`feeRate`,0) AS '放款手续服务费率（万分比）',
+ IFNULL( (SELECT loan_landlord_payplan.feeAmount FROM loan_landlord_payplan WHERE loan_landlord_payplan.`loanId` = loan_landlord_mgmt.id   AND ( loan_landlord_payplan.period=1 AND loan_landlord_payplan.phaseMonths>1) LIMIT 1),0) AS '放款手续费金额',
+ IFNULL( (SELECT loan_landlord_payplan.depositAmount FROM loan_landlord_payplan WHERE loan_landlord_payplan.`loanId` = loan_landlord_mgmt.id   AND ( loan_landlord_payplan.period=1 AND loan_landlord_payplan.phaseMonths>1) LIMIT 1),0) AS '放款成功保证金（租金宝保证金）',
+ IFNULL( (SELECT loan_landlord_payplan.`actualAmount` FROM loan_landlord_payplan WHERE loan_landlord_payplan.`loanId` = loan_landlord_mgmt.id   AND ( loan_landlord_payplan.period=1 AND loan_landlord_payplan.phaseMonths>1) LIMIT 1),0)  AS '实际放款净额',
+loan_renter_info.period  AS '放款期数',
+cntr_salecontract.payDate AS '租客每月还款日期',
+/*ROUND(IFNULL(loan_renter_info.applicant,0)/IFNULL(loan_renter_info.`period`,1),2) AS '租客每期还款本金',*/
+cntr_salecontract.`realRentPrice`'租客每期还款本金',
+(SELECT COUNT(DISTINCT loan_landlord_repayplan.`period`) FROM loan_landlord_repayplan WHERE loan_landlord_repayplan.`loanId`  =  loan_landlord_mgmt.`id`  AND loan_landlord_repayplan.repayStatus=3 ) AS '已还款期数',
+(loan_renter_info.`period`-(SELECT COUNT(DISTINCT loan_landlord_repayplan.`period`) FROM loan_landlord_repayplan WHERE loan_landlord_repayplan.`loanId`  =  loan_landlord_mgmt.`id`  AND loan_landlord_repayplan.repayStatus=3 )) AS '剩余还款期数',
+CASE WHEN loan_renter_info.`channel`  = 1 THEN '拉卡拉' ELSE '蘑菇' END AS '资金来源方',
+ IFNULL(oder_signedorder.checkOutTime,'')  AS '退房日期',
+ CASE WHEN  loan_landlord_buyback.id  IS NULL THEN '否' ELSE '是' END AS   '职业房东是否买回',
+ IFNULL(loan_landlord_buyback.`buyBackDate`,'') AS  '职业房东买回日期',
+ IFNULL(loan_landlord_buyback.`buyBackAmount`,0) AS '职业房东买回本金',
+ IFNULL(loan_landlord_buyback.lateFee,0) AS '职业房东买回手续费',
+ IFNULL(loan_landlord_buyback.penalty,0) AS '职业房东买回滞纳金',
+ IFNULL(loan_landlord_buyback.backFee,0) AS  '返还职业房东手续费',
+ IFNULL(repayedAmount,0) + IFNULL(repayedLateFee,0) + IFNULL(repayedRenterPenalty,0) + IFNULL(repayedPenalty,0)    AS '职业房东实际买回金额'
+FROM
+  loan_landlord_mgmt 
+  RIGHT JOIN (SELECT * FROM loan_renter_contract JOIN (SELECT MAX(id)maxid  FROM loan_renter_contract GROUP BY loan_renter_contract.`infoId`)temp ON temp.maxid = loan_renter_contract.id) loan_renter_contract
+    ON loan_landlord_mgmt.`bizContractId` = loan_renter_contract.id 
+  LEFT JOIN loan_renter_info 
+    ON loan_renter_contract.`infoId` = loan_renter_info.`id` 
+  LEFT JOIN oder_signedorder 
+    ON loan_renter_info.`signedOrderId` = oder_signedorder.`id` 
+  LEFT JOIN user_landlord 
+    ON loan_landlord_mgmt.`landlordId` = user_landlord.`id` 
+  LEFT JOIN flat_flats 
+    ON oder_signedorder.`flatsId` = flat_flats.`id` 
+  LEFT JOIN flat_community 
+    ON flat_community.id = flat_flats.`communityId` 
+  LEFT JOIN city_district 
+    ON city_district.id = flat_community.`districtId` 
+  LEFT JOIN city 
+    ON city_district.cityId = city.id 
+  LEFT JOIN user_renter 
+    ON user_renter.id = loan_renter_contract.`renterId` 
+  LEFT JOIN cntr_salecontract 
+    ON cntr_salecontract.id = oder_signedorder.`saleContractId` 
+    LEFT JOIN loan_landlord_buyback ON  loan_landlord_buyback.loanid = loan_landlord_mgmt.id  
+AND (loan_landlord_buyback.`loanChannel` IS NULL OR loan_landlord_buyback.`loanChannel` IN(1,2) ) AND (loan_landlord_buyback.remainPeriod>1  AND loan_landlord_buyback.backFee>0) 
+GROUP BY loan_renter_contract.id

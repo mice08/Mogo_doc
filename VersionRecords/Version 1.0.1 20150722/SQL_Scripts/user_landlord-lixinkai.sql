@@ -1,1 +1,0 @@
-ALTER TABLE user_landlord ADD loginDevice VARCHAR(255);

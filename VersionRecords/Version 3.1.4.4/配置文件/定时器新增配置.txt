@@ -1,1 +1,0 @@
-请将 各环境 payapi sysconfig 里面微信相关配置（ sysconfig.weixin_renter_ 开头），复制到Lts sysconfig里面即可。

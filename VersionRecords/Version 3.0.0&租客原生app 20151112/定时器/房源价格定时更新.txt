@@ -1,4 +1,0 @@
-类名：com.mogoroom.tasktracker.task.RoomPriceTask
-时间：每天03:00:00执行
-替代方案：若该定时任务有异常，可执行服务器脚本：/data/script/roomPriceQuartz.sh
-定时器脚本存放位置：/data/script/roomPriceQuartz.sh

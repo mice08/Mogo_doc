@@ -1,0 +1,8 @@
+#将消息发送包的 filter.sysconfig.smscompany修改如如下 
+filter.sysconfig.smscompany=DhstSMSSend-0-30&JianZhouSMSSend-31-100
+
+
+
+#修改 BS项目，partnerpc项目，payapi项目，renter项目
+
+sysconfig.message_total_max=2160 修改为  sysconfig.message_total_max=3500

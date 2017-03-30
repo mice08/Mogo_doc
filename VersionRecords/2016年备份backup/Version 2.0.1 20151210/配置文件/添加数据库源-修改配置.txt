@@ -1,0 +1,10 @@
+在jdbc.properties文件下面追加如下
+
+
+filter.jdbc.driverClassName_bl=com.mysql.jdbc.Driver
+filter.jdbc.url_bl=jdbc\:mysql\://(?,?,?,?)?useUnicode\=true&amp;characterEncoding\=UTF-8
+filter.jdbc.username_bl=?
+filter.jdbc.password_bl=?
+
+
+数据库链接地址、用户名和密码根据不同环境自行添加配置

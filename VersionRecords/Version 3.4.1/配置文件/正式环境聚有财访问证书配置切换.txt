@@ -1,6 +1,0 @@
-正式环境晚上10点处理
-
-准备证书切换，把openapi.juxiangfen.com_symantec.cer 上传到“ /var/lib/docker/contract/template ”路径下，并修改下列配置文件。
-
-#聚有财证书文件路径
-sysconfig.jyc_cer_filepath=/var/lib/docker/contract/template/openapi.juxiangfen.com_symantec.cer

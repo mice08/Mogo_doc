@@ -1,0 +1,13 @@
+
+#消息独立发送包增加配置
+sysconfig.haobo_req_url=http://101.227.68.49:7891/mt
+sysconfig.haobo_account=92CB3CF630074130D96D030606976467
+sysconfig.haobo_password=E77392F1B198C4D2E6E01BCF4A4AE930
+
+#生产环境
+#sysconfig.mesgEnvir=pro
+#公测环境
+sysconfig.mesgEnvir=pubtest
+
+#修改配置
+sysconfig.smscompany = DhstSMSSend-0-0&JianZhouSMSSend-0-0&ChuangLanSMSSend-0-0&HaoboSMSSend-0-100

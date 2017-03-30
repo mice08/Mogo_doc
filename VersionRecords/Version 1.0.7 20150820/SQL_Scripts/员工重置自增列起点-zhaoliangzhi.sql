@@ -1,2 +1,0 @@
-
-ALTER TABLE user_employee AUTO_INCREMENT=2002000;

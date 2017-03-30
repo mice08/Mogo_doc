@@ -1,0 +1,3 @@
+﻿#租客PC，租客APP 的systemconfig添加如下配置
+
+filter.sysconfig.contract.userImage=/var/lib/docker/contract/userImage

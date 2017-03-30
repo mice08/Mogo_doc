@@ -1,1 +1,0 @@
-ALTER TABLE `user_renter` CHANGE `oldLiveStatus` `oldLiveStatus` INT(11) NULL COMMENT '老系统到新系统租客居住标识(null为默认值，表示新系统注册租客 1:老系统在住未转入新系统 2:老系统在住已转入新系统 3:老租客在老系统中已退房)'; 

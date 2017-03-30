@@ -1,1 +1,0 @@
-﻿将四张图片上传到  /var/lib/docker/contract/download/sample 目录

@@ -1,2 +1,0 @@
-#正式环境 预约请求提醒 tempId
-sysconfig.weixin.weixinhuobanReserveTempId=BWjOkHYdmWMV7WTUTM1qJJRkv7nZxYj1b6RERI089Gc

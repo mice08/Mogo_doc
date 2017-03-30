@@ -1,0 +1,28 @@
+SELECT 
+  host_flats_relation.`flat_id` '房屋id',
+  host_flats_relation.`host_id` '业主id',
+  host_flats_relation.`landlord_id` '房东id',
+  user_info.card_id '身份证号',
+  host_flats_relation.rent_start_date '租约开始日期',
+  host_flats_relation.`rent_end_date` '租约结束日期',
+  host_flats_relation.pay_type '支付方式',
+  host_flats_relation.`create_time` '创建时间',
+  CASE
+    host_flats_relation.`STATUS` 
+    WHEN 1 
+    THEN '是' 
+    WHEN 0 
+    THEN '无效' 
+  END '是否有效',
+  CASE
+    WHEN user_special.id IS NOT NULL 
+    THEN '是' 
+  END '是否是测试数据' 
+FROM
+  host_flats_relation 
+  LEFT JOIN user_info 
+    ON user_info.id = host_flats_relation.`host_id` 
+    AND user_info.`status` = 1 
+  LEFT JOIN user_special 
+    ON user_special.userid = host_flats_relation.`landlord_id` 
+    AND user_special.`userType` = 0 

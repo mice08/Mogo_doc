@@ -1,1 +1,0 @@
-UPDATE `mesg_template` SET paramCount = 9,  `content` = '[欢迎你！蘑菇客]${1},恭喜您成功签约房源：${2}小区${3}栋${4}号ROOM${5}。入住时间为${6}，租期为${7}个月，租金为${8}元/月，付款方式为${9}。蘑菇公寓感谢您的信任和支持，并祝您租房愉快！' WHERE TYPE = 'sms_sendPayFirstPhaseMessage';

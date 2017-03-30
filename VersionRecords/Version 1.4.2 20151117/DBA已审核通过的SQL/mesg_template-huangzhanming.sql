@@ -1,1 +1,0 @@
-INSERT INTO `mesg_template` (`type`, `content`, `paramCount`, `status`) VALUES('sms_landlord_repayPlan','[蘑菇宝租客成功支付租金]${1}租客${2}已成功通过蘑菇宝付款方式支付了本期租金。','2','1');
