@@ -22,7 +22,7 @@ CREATE TABLE `bizd_user_sign` (
   `createByType` int(11) NOT NULL COMMENT '创建人类型(参考字典表组名:userType)',
   `createBy` int(11) NOT NULL COMMENT '创建人',
   `soDoneCode` int(32) NOT NULL COMMENT '操作流水号',
-  `userId` int(11) NOT NULL COMMENT '签到人ID',
+  `empId` int(11) NOT NULL COMMENT '签到人ID',
   `depId` int(11) NOT NULL COMMENT '当前签到人的部门ID(冗余字段)',
   `landlordId` int(11) DEFAULT NULL COMMENT '拜访人ID',
   `landlordName` varchar(50) DEFAULT NULL COMMENT '拜访人',
