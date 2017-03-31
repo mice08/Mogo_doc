@@ -19,5 +19,6 @@ CREATE TABLE `loan_landlord_trans` (
   `applyedFirstBillCount` int(11) DEFAULT '0' COMMENT '累计已申请月付首期账单数',
   `addApplyedFirstBillCount` int(11) DEFAULT '0' COMMENT '已申请月付首期账单数(增量)',
   `createTime` datetime DEFAULT NULL COMMENT '创建时间',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `INDEX_LANDLORDID` (`landlordId`) COMMENT '房东id索引'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='房东月付转化报表'
