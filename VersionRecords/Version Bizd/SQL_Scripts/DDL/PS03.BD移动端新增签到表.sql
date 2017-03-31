@@ -1,5 +1,5 @@
-  /*  Database name `mogoroomdb`  增加签到表*/
-  use mogoroomdb;
+  /*  Database name `bizd`  增加签到表*/
+  use bizd;
   /*
   1、预估表容量:App版本签到表，基础数据新增较少
   2、每次读取量:在20条左右
