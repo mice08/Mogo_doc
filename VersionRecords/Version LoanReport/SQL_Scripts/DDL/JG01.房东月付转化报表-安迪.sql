@@ -1,4 +1,18 @@
+/*  Database name `mogoroomdb`  增加房东月付转化报表*/
 USE mogoroomdb;
+
+/*
+1、预估表容量:房东月付转化报表，每天定时更新月付房东的基础数据，现在每天大约几十条数据，后续业务持续增长，预计会达到100 条左右
+2、每次读取量:在20-50条左右
+3、主要查询
+	SELECT id,effectTime,landlordId,allRoomCount,roomRentCount,leaseCount,confirmLeaseCount,payConfirmLeaseCount,
+		applyLeaseCount,applyBillCount,addApplyBillCount,applyFirstBillCount,addApplyFirstBillCount,applyedBillCount,
+		addApplyedBillCount,applyedFirstBillCount,addApplyedFirstBillCount,createTime
+	
+	 FROM `loan_landlord_trans`
+	ORDER BY createTime DESC
+  需要预先添加的索引字段`landlordId`
+*/
 
 CREATE TABLE `loan_landlord_trans` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键id',
