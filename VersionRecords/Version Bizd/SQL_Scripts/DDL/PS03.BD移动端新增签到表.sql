@@ -1,0 +1,25 @@
+CREATE TABLE `bizd_user_sign` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+--   `longitude` int(5) DEFAULT NULL COMMENT '经度',
+--   `latitude` int(5) DEFAULT NULL COMMENT '纬度',
+  `address` varchar(255) CHARACTER SET utf8 DEFAULT NULL COMMENT '地点',
+  `detailAddress` varchar(500) CHARACTER SET utf8 DEFAULT NULL COMMENT '详细地址',
+  `createTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `createByType` int(11) NOT NULL COMMENT '创建人类型(参考字典表组名:userType)',
+  `createBy` int(11) NOT NULL COMMENT '创建人',
+  `updateTime` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间',
+  `updateBy` int(11) NOT NULL COMMENT '修改人ID',
+  `updateByType` int(2) NOT NULL COMMENT '修改人类型(参考字典表组名:userType)',
+  `soDoneCode` int(32) NOT NULL COMMENT '操作流水号',
+  `userId` int(11) NOT NULL COMMENT '签到人ID',
+  `depId` int(11) NOT NULL COMMENT '当前签到人的部门ID',
+  `landlordId` int(11) DEFAULT NULL COMMENT '拜访人ID',
+  `landlordName` varchar(20) CHARACTER SET utf8 DEFAULT NULL COMMENT '拜访人',
+  `picGroupId` int(11) DEFAULT NULL COMMENT '图片分组表Id',
+  `status` int(4) NOT NULL DEFAULT '0',
+  `valid` tinyint(4) DEFAULT '1' COMMENT '用于标示该记录是否逻辑删除(1:否 0:是)',
+  `remark` varchar(255) CHARACTER SET utf8 DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`id`),
+  KEY `userId` (`userId`) USING BTREE COMMENT '用户ID'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户签到表';
+
