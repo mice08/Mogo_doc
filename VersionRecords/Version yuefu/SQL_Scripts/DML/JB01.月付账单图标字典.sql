@@ -1,10 +1,17 @@
 use mogoroomdb;
 
+BEGIN
+delete from comm_dictionary where groupName ='billExtendTitles';
+
+INSERT INTO  `comm_dictionary` (`code`, `groupName`, `sort`, `keyPro`, `value`, `status`, `fcode`, `enValue`) VALUES ('billTitleDiscount', 'billExtendTitles', '1', '1', '2016-08/billTitlePic/3/2/6773/hui.png', '1', NULL, '优惠');
+INSERT INTO  `comm_dictionary` (`code`, `groupName`, `sort`, `keyPro`, `value`, `status`, `fcode`, `enValue`) VALUES ('billtitleRenew', 'billExtendTitles', '1', '1', '2016-08/billTitlePic/3/2/6773/xu.png', '1', NULL, '续');
 
 INSERT INTO  `comm_dictionary` (`code`, `groupName`, `sort`, `keyPro`, `value`, `status`, `fcode`, `enValue`) VALUES ('billTitleBook', 'billExtendTitles', '1', '1', '2016-08/billTitlePic/3/2/6773/dingred.png', '1', NULL, '定');
 INSERT INTO  `comm_dictionary` (`code`, `groupName`, `sort`, `keyPro`, `value`, `status`, `fcode`, `enValue`) VALUES ('billTitlePay', 'billExtendTitles', '1', '1', '2016-08/billTitlePic/3/2/6773/fured.png', '1', NULL, '付');
 INSERT INTO  `comm_dictionary` (`code`, `groupName`, `sort`, `keyPro`, `value`, `status`, `fcode`, `enValue`) VALUES ('billTitleMin', 'billExtendTitles', '1', '1', '2016-08/billTitlePic/3/2/6773/diblue.png', '1', NULL, '低');
-INSERT INTO  `comm_dictionary` (`code`, `groupName`, `sort`, `keyPro`, `value`, `status`, `fcode`, `enValue`) VALUES ('billTitleMonth', 'billExtendTitles', '1', '1', 'imagefile/website/App/paymon.png', '1', NULL, '月');
+INSERT INTO  `comm_dictionary` (`code`, `groupName`, `sort`, `keyPro`, `value`, `status`, `fcode`, `enValue`) VALUES ('billTitleMonth', 'billExtendTitles', '1', '1', '2016-08/billTitlePic/3/2/6773/yue.png', '1', NULL, '月');
+
+COMMIT;
 
 
 INSERT INTO  `comm_dictionary` (`code`, `groupName`, `sort`, `keyPro`, `value`, `status`, `fcode`, `enValue`) VALUES ('billTitleBookGray', 'billExtendTitlesGray', '1', '1', '2016-08/billTitlePic/3/2/6773/dinggray.png', '1', NULL, '定');
