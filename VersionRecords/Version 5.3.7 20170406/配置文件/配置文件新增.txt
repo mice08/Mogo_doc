@@ -1,4 +1,4 @@
-﻿partner项目
+﻿partner/papp,renter项目
 ---------------------------------------------------------------------------------------
 sysconfig.risk_MR_JE_01=50000
 sysconfig.risk_exam_delay=1
