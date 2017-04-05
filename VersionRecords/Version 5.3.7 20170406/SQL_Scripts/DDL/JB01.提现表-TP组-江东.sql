@@ -99,7 +99,7 @@ ORDER BY
   需要预先添加的索引字段`riskWithdrawexamId`
 */
 CREATE TABLE `risk_withdrawexam_operlog` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `riskWithdrawexamId` int(11) NOT NULL COMMENT '用户提现审核表id',
   `operType` tinyint(1) NOT NULL COMMENT '操作类型(1:提交出款 2:人工审核 3:风控规则审核 4:人工撤销)',
   `operResult` tinyint(1) NOT NULL COMMENT '操作结果(11:成功 12:失败 21:通过 22:拒绝 30:等待审核 31:通过 41:撤销成功)',
