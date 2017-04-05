@@ -67,3 +67,7 @@ ALTER TABLE `dc`.`dc_land_stat_inc_day`
   CHANGE `otherAmount` `otherAmount` DECIMAL(10,2) NULL  COMMENT '其他费用收入(不区分线上线下,不定时更新)',
   ADD COLUMN `updateDate` DATE NULL  COMMENT '数据更新时间' AFTER `bookCount`;
 
+ALTER TABLE `dc`.`dc_order_info`   
+  CHANGE `realRentPrice` `realRentPrice` DECIMAL(10,2) NULL  COMMENT '实际月租金',
+  CHANGE `deposit` `deposit` DECIMAL(10,2) NULL  COMMENT '押金',
+  CHANGE `allOnlinePayRentAmount` `allOnlinePayRentAmount` DECIMAL(10,2) NULL  COMMENT '在线支付租金(不包含蘑菇宝常规款)金额';
