@@ -29,7 +29,7 @@ CREATE TABLE `acct_mybank_log` (
   `fundChannel` tinyint(4) DEFAULT NULL COMMENT '支付渠道',
   `accountType` int(11) DEFAULT NULL COMMENT '账户类型',
   `toAccountType` int(11) DEFAULT NULL COMMENT '收款账户类型',
-  `origDoneCode` varchar(50) DEFAULT NULL COMMENT '退款doneCode',
+  `origDoneCode` varchar(50) DEFAULT NULL COMMENT '退款对应的原doneCode',
   PRIMARY KEY (`id`),
   KEY `idx_createTime` (`createTime`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='网商同步流水表';
