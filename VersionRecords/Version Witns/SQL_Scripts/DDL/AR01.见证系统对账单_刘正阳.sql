@@ -23,5 +23,6 @@ create table acct_jz_order (
 	`createTime` DATETIME NOT NULL COMMENT '创建时间',
 	`createBy` INT(11) NOT NULL COMMENT '创建人',
 	`createByType` TINYINT(4) NOT NULL COMMENT '创建人类型',
+	`valid` tinyint(4) DEFAULT NULL COMMENT '是否有效(0:无效账单 1:有效账单)',
 	PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='见证系统对账单';
