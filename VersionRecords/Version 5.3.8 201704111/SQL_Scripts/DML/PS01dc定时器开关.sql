@@ -20,7 +20,7 @@ VALUE('DCOrderInfoTask',1,'dcTask','数据中心-签约单-信息','val=1(启用
 
 
 INSERT INTO comm_sysconfig(keyname,val,groupname,NAME,remark,updatetime,updatebytype,updateby)
-VALUE('DcCopyToLandlordOperate',1,'dcTask','数据中心-同步到房东pc运营报表','val=1(启用)val=0(关闭)',NOW(),9,1);
+VALUE('DcCopyToLandlordOperate',0,'dcTask','数据中心-同步到房东pc运营报表','val=1(启用)val=0(关闭)',NOW(),9,1);
 
 COMMIT;
 
