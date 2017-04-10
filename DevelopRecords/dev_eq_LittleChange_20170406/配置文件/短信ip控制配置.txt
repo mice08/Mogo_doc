@@ -1,0 +1,7 @@
+renterpc , renterembed 增加配置:
+
+#同每小时请求80次短信验证码，则弹出图片验证码
+sysconfig.message_same_ip_hour_max=80
+
+#同IP每天请求500次短信验证码，则直接拒绝
+sysconfig.message_same_ip_day_max=500

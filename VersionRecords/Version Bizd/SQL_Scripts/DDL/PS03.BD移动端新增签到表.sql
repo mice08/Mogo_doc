@@ -30,7 +30,7 @@ CREATE TABLE `bizd_user_sign` (
   `valid` tinyint(1) DEFAULT '1' COMMENT '用于标示该记录是否逻辑删除(1:否 0:是)',
   `remark` varchar(255) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`id`),
-  KEY `userId` (`userId`) USING BTREE COMMENT '签到人ID',
+  KEY `empId` (`empId`) USING BTREE COMMENT '签到人ID',
   KEY `depId` (`depId`) USING BTREE COMMENT '当前签到人的部门ID'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户签到表';
 
