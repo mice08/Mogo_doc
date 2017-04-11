@@ -5,7 +5,7 @@ BEGIN;
 
 /* bizd拓展系统管理菜单（一级） */
 INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( '0000004', '数据报表', '', 4, '0', 0, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '19');
+VALUES ( '0000004', '数据报表', '', 5, '0', 0, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '19');
 
 /* BS拓展系统管理菜单（二级） */
 SELECT @id:=id FROM perm_functioninfo WHERE fname = '数据报表' ORDER BY id DESC LIMIT 1;
