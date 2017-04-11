@@ -2,7 +2,7 @@
 USE mogoroomdb;
 
 UPDATE city SET isSupport = 1,
-                isApp = 1,
+                isApp = 0,
                 isWebsite = 1,
                 isFlatsInput = 1,
                 logoUrl = 'http://image.mogoroom.com/common/cityLogo/hznew',
@@ -16,7 +16,7 @@ UPDATE city SET isSupport = 1,
          
          
  UPDATE city SET isSupport = 1,
-	isApp = 1,
+	isApp = 0,
 	isWebsite = 1,
 	isFlatsInput = 1,
 	logoUrl = 'http://image.mogoroom.com/common/cityLogo/njnew',
