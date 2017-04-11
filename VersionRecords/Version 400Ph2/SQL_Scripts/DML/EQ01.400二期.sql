@@ -16,7 +16,7 @@ SELECT
     id 
   FROM
     perm_functioninfo 
-  WHERE furl ='tele/overview/loadDeptList') 
+  WHERE fcode='3343903') 
 FROM
   perm_role_function 
 WHERE valid='1' AND function_id = 
@@ -24,7 +24,7 @@ WHERE valid='1' AND function_id =
     id 
   FROM
     perm_functioninfo 
-  WHERE furl ='tele/overview/findDataOverviewRecords');
+  WHERE fcode='234342');
 
   /* 添加BS菜单-查询已绑定分机 */
 INSERT INTO `perm_functioninfo` (`fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`) 
@@ -38,7 +38,7 @@ SELECT
     id 
   FROM
     perm_functioninfo 
-  WHERE furl ='tele/overview/findContactUsage') 
+  WHERE fcode='3343904') 
 FROM
   perm_role_function 
 WHERE valid='1' AND function_id = 
@@ -46,7 +46,7 @@ WHERE valid='1' AND function_id =
     id 
   FROM
     perm_functioninfo 
-  WHERE furl ='tele/overview/findDataOverviewRecords');
+  WHERE fcode='234342');
 
   /* 添加BS菜单-删除联系人 */
 INSERT INTO `perm_functioninfo` (`fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`) 
@@ -60,7 +60,7 @@ SELECT
     id 
   FROM
     perm_functioninfo 
-  WHERE furl ='tele/overview/removeContactMan') 
+  WHERE fcode='3343905') 
 FROM
   perm_role_function 
 WHERE valid='1' AND function_id = 
@@ -68,5 +68,5 @@ WHERE valid='1' AND function_id =
     id 
   FROM
     perm_functioninfo 
-  WHERE furl ='tele/overview/findDataOverviewRecords');
+  WHERE fcode='234342');
 
