@@ -1,4 +1,4 @@
-﻿/*  Database name `bizd`  签约信息 */
+﻿/*  Database name `bizd`  签约信息改造新增字段*/
 
 USE bizd;
 
