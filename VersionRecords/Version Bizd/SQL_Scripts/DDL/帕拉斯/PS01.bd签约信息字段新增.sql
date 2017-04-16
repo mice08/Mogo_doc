@@ -21,7 +21,7 @@ ALTER TABLE bizd_landlord_sign
   ADD COLUMN officialWebName varchar(20) DEFAULT NULL COMMENT '官网联系人姓名',
   ADD COLUMN officialWebPhone varchar(11) DEFAULT NULL COMMENT '官网联系人手机号',
   ADD COLUMN officialWebSex TINYINT(1) DEFAULT NULL COMMENT '官网联系人性别，参考字典表组名:sex',
-  ADD COLUMN creditCode VARCHAR(20) NOT NULL COMMENT '信用代码',
+  ADD COLUMN creditCode VARCHAR(20) COMMENT '信用代码',
   ADD COLUMN legalRepresentative VARCHAR(20) NOT NULL COMMENT '法人代表姓名',
   ADD COLUMN signCount INT(11) NOT NULL DEFAULT 0 COMMENT '签约体量',
   ADD COLUMN acctType TINYINT(1) NOT NULL COMMENT '账号类型,参考字典表组名:landlordType',
