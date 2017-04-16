@@ -7,7 +7,7 @@ ALTER TABLE bizd_landlord_sign
   ADD COLUMN partyAPhone VARCHAR(11) NOT NULL COMMENT '合同甲方电话',
   ADD COLUMN cardType VARCHAR(20) DEFAULT NULL COMMENT '证件类型,参考字典表组名:credential',
   ADD COLUMN cardNum VARCHAR(20) DEFAULT NULL COMMENT '证件号码',
-  ADD COLUMN contactAddr VARCHAR(20) DEFAULT NULL COMMENT '联系地址',
+  ADD COLUMN contactAddr VARCHAR(50) DEFAULT NULL COMMENT '联系地址',
   ADD COLUMN contractDate datetime DEFAULT NULL COMMENT '签约日期',
   ADD COLUMN emergency varchar(60) DEFAULT NULL COMMENT '紧急联系人',
   ADD COLUMN emergencyPhone varchar(11) DEFAULT NULL COMMENT '紧急联系人电话',
