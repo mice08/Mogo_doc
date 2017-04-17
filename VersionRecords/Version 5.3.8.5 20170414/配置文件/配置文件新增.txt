@@ -1,0 +1,4 @@
+﻿mogoroom-tasktracker项目
+---------------------------------------------------------------------------------------
+sysconfig.risk_MR_JE_01=50000
+sysconfig.risk_exam_delay=30
