@@ -26,7 +26,9 @@ SET @pId = (SELECT pf.id FROM perm_functioninfo pf WHERE fname = '月付报表')  ;
 
 SET @keyId = (SELECT id FROM perm_functioninfo WHERE fname = '蘑菇月付贷款统计');
 
-UPDATE `perm_functioninfo` SET functionpId =@pId AND seq=3 WHERE id = @keyId;
+UPDATE `perm_functioninfo` SET functionpId =@pId WHERE id = @keyId;
+
+UPDATE `perm_functioninfo` SET seq = 3 WHERE id = @keyId;
 
 
 
