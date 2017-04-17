@@ -32,7 +32,7 @@ use mogoroomdb;
 CREATE TABLE `loan_activity` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '金融活动表Id',
   `name` varchar(32) DEFAULT NULL COMMENT '活动名称',
-  `actvType` int(11) DEFAULT NULL COMMENT '金融活动类型(1010:月付手续费折扣活动)',
+  `actvType` int(11) DEFAULT NULL COMMENT '金融活动类型(参考枚举LoanActivityEnum, 1010:月付手续费折扣活动)',
   `startTime` datetime DEFAULT NULL COMMENT '活动开始时间',
   `endTime` datetime DEFAULT NULL COMMENT '活动结束时间',
   `remark` varchar(128) DEFAULT NULL COMMENT '活动备注',
@@ -74,7 +74,7 @@ CREATE TABLE `loan_activity_log` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '金融活动日志表Id',
   `actvId` int(11) NOT NULL DEFAULT '0' COMMENT '金融活动表Id',
   `name` varchar(32) DEFAULT NULL COMMENT '活动名称',
-  `actvType` int(11) DEFAULT NULL COMMENT '金融活动类型(1010:月付手续费折扣活动)',
+  `actvType` int(11) DEFAULT NULL COMMENT '金融活动类型(参考枚举LoanActivityEnum, 1010:月付手续费折扣活动)',
   `startTime` datetime DEFAULT NULL COMMENT '活动开始时间',
   `endTime` datetime DEFAULT NULL COMMENT '活动结束时间',
   `remark` varchar(128) DEFAULT NULL COMMENT '活动备注',
@@ -109,7 +109,7 @@ CREATE TABLE `loan_activitydtl` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '金融活动详细表Id',
   `actvId` int(11) NOT NULL DEFAULT '0' COMMENT '活动表Id',
   `actvType` int(11) DEFAULT NULL COMMENT '金融活动类型(1010:月付手续费折扣活动)',
-  `bizType` int(11) DEFAULT NULL COMMENT '活动相关类型(101000:发布城市 101001:参与资方 101002:折扣率(万分比) 101003:参与活动的申请)',
+  `bizKey` int(11) DEFAULT NULL COMMENT '活动相关类型(参考枚举LoanActivityBizEnum, 101000:发布城市 101001:参与资方 101002:折扣率(万分比) 101003:参与活动的申请)',
   `bizVal` int(11) DEFAULT NULL COMMENT '活动相关内容',
   `valid` tinyint(1) NOT NULL DEFAULT '1' COMMENT '是否有效(0:无效 1:有效)',
   `createTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
@@ -151,9 +151,9 @@ CREATE TABLE `loan_activitydtl` (
 CREATE TABLE `loan_monthlypay_activity` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '金融月付活动表Id',
   `actvId` int(11) NOT NULL DEFAULT '0' COMMENT '活动表Id',
-  `city` int(11) DEFAULT NULL COMMENT '活动相关类型-发布城市:101000',
-  `loanChannel` int(11) DEFAULT NULL COMMENT '活动相关类型-参与资方:101001',
-  `discount` int(11) DEFAULT NULL COMMENT '活动相关类型-折扣率:101002',
+  `city` int(11) DEFAULT NULL COMMENT '参考枚举LoanActivityBizEnum, 活动相关类型-发布城市:101000',
+  `loanChannel` int(11) DEFAULT NULL COMMENT '参考枚举LoanActivityBizEnum, 活动相关类型-参与资方:101001',
+  `discount` int(11) DEFAULT NULL COMMENT '参考枚举LoanActivityBizEnum, 活动相关类型-折扣率:101002',
   PRIMARY KEY (`id`),
   KEY `actvId` (`actvId`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COMMENT = '金融月付活动表';
