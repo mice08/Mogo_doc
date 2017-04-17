@@ -28,7 +28,9 @@ SET @keyId = (SELECT id FROM perm_functioninfo WHERE fname = '蘑菇月付贷款统计')
 
 UPDATE `perm_functioninfo` SET functionpId =@pId WHERE id = @keyId;
 
-UPDATE `perm_functioninfo` SET seq = 3 AND fcode = CONCAT('2',@pId,'03') WHERE id = @keyId;
+UPDATE `perm_functioninfo` SET seq = 3  WHERE id = @keyId;
+
+UPDATE `perm_functioninfo` SET fcode = CONCAT('2',@pId,'03') WHERE id = @keyId;
 
 
 SET @updateid = (SELECT id FROM perm_functioninfo WHERE fname = '报表' AND functionPid = (SELECT id FROM perm_functioninfo WHERE fname = '蘑菇金融' ));
