@@ -1,7 +1,7 @@
 use mogoroomdb;
 
-/**将原有的icon替换**/
 delete from comm_dictionary where groupName ='billExtendTitles';
+
 /**icon**/
 INSERT INTO  `comm_dictionary` (`code`, `groupName`, `sort`, `keyPro`, `value`, `status`, `fcode`, `enValue`) VALUES ('billTitleDiscount', 'billExtendTitles', '1', '1', '2016-08/billTitlePic/3/2/6773/hui.png', '1', NULL, '优惠');
 INSERT INTO  `comm_dictionary` (`code`, `groupName`, `sort`, `keyPro`, `value`, `status`, `fcode`, `enValue`) VALUES ('billtitleRenew', 'billExtendTitles', '1', '1', '2016-08/billTitlePic/3/2/6773/xu.png', '1', NULL, '续');
