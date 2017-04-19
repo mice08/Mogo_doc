@@ -16,7 +16,7 @@ use dc;
 CREATE TABLE `dc`.`dc_renter_loginlog_daily`(  
   `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `cityId` INT(11) COMMENT '城市id',
-  `userId` VARCHAR(36) COMMENT '针对单个用户生成的唯一id(growingio记录的userid，例如，web网站生成一个有效期三年的cookie值，mobile则为机器唯一标识码)',
+  `uuid` VARCHAR(36) COMMENT '针对单个用户生成的唯一id(growingio记录的userid，例如，web网站生成一个有效期三年的cookie值，mobile则为机器唯一标识码)',
   `channel` INT(11) COMMENT '终端类型(枚举ChannelEnum)',
   `accessDate` DATE COMMENT '访问时间',
   `ip` VARCHAR(15) COMMENT 'ip地址',
@@ -24,7 +24,7 @@ CREATE TABLE `dc`.`dc_renter_loginlog_daily`(
   PRIMARY KEY (`id`),
   INDEX `accessDate` (`accessDate`)
 )
-COMMENT='C端用户访问详情';
+COMMENT='C端用户访问详情，记录每日每个终端用户的访问结果，按uuid去重';
 
 /*
 新建表：数据中心 租客登录详情
@@ -32,7 +32,6 @@ COMMENT='C端用户访问详情';
 2. 主要查询sql: select recordDate,cityId,channel,uv from dc_renter_uv_daily where recordDate = ?
 3. 索引: recordDate
 */
-use dc;
 CREATE TABLE `dc`.`dc_renter_uv_daily`(  
   `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `recordDate` DATE COMMENT '数据时间',
