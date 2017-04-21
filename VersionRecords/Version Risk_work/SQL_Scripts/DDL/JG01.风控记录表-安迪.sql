@@ -13,7 +13,7 @@ CREATE TABLE `risk_rule`(
   `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '风控规则id',
   `ruleType` TINYINT(1) COMMENT '规则类型（具体见riskRuleTypemEnum）',
   `ruleKey` VARCHAR(32) COMMENT '规则key',
-  `ruleStatus` TINYINT(1) DEFAULT 1 COMMENT '规则类型1运转2暂停',
+  `ruleStatus` TINYINT(1) DEFAULT 1 COMMENT '规则类型(1:运转 2:暂停)',
   PRIMARY KEY (`id`)
 ) ENGINE=INNODB CHARSET=utf8mb4
 COMMENT='风控规则表';
