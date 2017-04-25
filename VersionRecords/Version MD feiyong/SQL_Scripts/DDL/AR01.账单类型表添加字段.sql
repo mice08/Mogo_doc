@@ -3,4 +3,4 @@
 */
 USE mogoroomdb;
 
-alter table acct_billdtltype `parent` int(11) DEFAULT '0' COMMENT '父类id';
+alter table acct_billdtltype add `parent` int(11) DEFAULT '0' COMMENT '父类id';
