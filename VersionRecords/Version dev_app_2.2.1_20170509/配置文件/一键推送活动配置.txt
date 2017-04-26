@@ -1,4 +1,0 @@
-renterembed 增加配置:
-
-#一键推送活动ID
-sysconfig.push_activityid=3534,3859,4081
