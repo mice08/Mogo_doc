@@ -9,7 +9,7 @@ select `id`, `landlordId`, `recordDate`, `totalActivity`, `rentRoomCount`, `room
 where landlordId=123 and recordDate='2017-04-10';
 */
 CREATE TABLE `repo_mogoscore_detail` (
-  `id` int(11) NOT NULL COMMENT '主键ID',
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
   `landlordId` int(11) DEFAULT NULL COMMENT '房东ID',
   `recordDate` date DEFAULT NULL COMMENT '记录日期',
   `totalActivity` int(2) DEFAULT NULL COMMENT '30天内的活跃天数',
