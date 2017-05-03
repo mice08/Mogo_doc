@@ -29,6 +29,6 @@ CREATE TABLE `repo_mogoscore_detail` (
   `freeDeposit` int(1) DEFAULT NULL COMMENT '是否参加免押金',
   `hasPicRoomCount` int(8) DEFAULT NULL COMMENT '有图房源数量',
   PRIMARY KEY (`id`),
-  KEY `INX_LANDLORDID`` (`landlordId`),
-  KEY `INX_RECORDDATE` (`recordDate`),
+  KEY `INX_LANDLORDID` (`landlordId`),
+  KEY `INX_RECORDDATE` (`recordDate`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='计算蘑菇分的各个字段记录表';
