@@ -19,4 +19,4 @@ CREATE TABLE `risk_verify_record`(
   `landlordId` INT(11) COMMENT '审核的房东id',
   PRIMARY KEY (`id`),
   INDEX `INDEX_LANDLORDID` (`landlordId`)
-);
+) COMMENT='风控审核记录表';
