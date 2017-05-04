@@ -27,6 +27,9 @@ ALTER TABLE bizd_landlord_sign
   ADD COLUMN acctType TINYINT(1) COMMENT '账号类型（参考字典表组名:landlordType）',
   ADD COLUMN remark VARCHAR(400) COMMENT '备注';
 
+ALTER TABLE bizd_landlord_followup
+  ADD COLUMN channel int(11) DEFAULT NULL COMMENT '来源渠道(参照字典表组名:channel)',
+  ADD COLUMN communicateTime DATETIME DEFAULT NULL COMMENT '沟通时间';
 /*
 1、预估表容量:App版本签到表，基础数据新增较少
 2、每次读取量:在20条左右
@@ -60,3 +63,4 @@ CREATE TABLE `bizd_user_sign` (
   KEY `empId` (`empId`) USING BTREE COMMENT '签到人ID',
   KEY `depId` (`depId`) USING BTREE COMMENT '当前签到人的部门ID'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='用户签到表';
+
