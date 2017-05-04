@@ -16,12 +16,4 @@ DELETE FROM perm_functioninfo WHERE fname='导出活动数据' AND furl='loanAct
 
 DELETE FROM perm_functioninfo WHERE fname='活动管理' AND furl='';
 
-
-
--- SELECT @newmenuid:=id FROM perm_functioninfo  WHERE fname='金融管理' AND functionpId =(SELECT id FROM perm_functioninfo  WHERE fname='财务管理');
--- DELETE FROM perm_functioninfo WHERE id =@newmenuid;
-
 COMMIT;
-
-
-SELECT * FROM perm_functioninfo WHERE id >=5256
