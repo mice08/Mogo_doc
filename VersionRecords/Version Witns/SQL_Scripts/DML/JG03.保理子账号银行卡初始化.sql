@@ -7,5 +7,3 @@ insert into `user_bankcard` (`userType`, `userId`, `realName`, `IDNumber`, `bank
 insert into acct.`acct_account` (`acctId`, `wjIdentity`, `createTime`, `updateTime`, `userId`, `userType`) values('20000','388888888888','2017-04-28 18:54:20',NULL,'-200','0');
 
 insert into `user_account_mapping` (`acctId`, `wjIdentity`, `createTime`, `updateTime`, `userId`, `userType`) values('20000','388888888888','2017-04-28 18:54:20',NULL,'-200','0');
-
-insert into `user_account_mapping` (`acctId`, `wjIdentity`, `createTime`, `updateTime`, `userId`, `userType`) values('20000','388888888888','2017-04-28 18:54:20',NULL,'-200','0');
