@@ -7,7 +7,6 @@ BEGIN;
 
 UPDATE acct.acct_bill acctbill SET acctbill.toAcctId=10000 WHERE acctbill.billType  IN (1008,10001,10013) AND acctbill.toAcctId='20000';
 
-UPDATE acct.acct_fund SET amount =0 WHERE acctId=20000 AND fundType=201;
 
 COMMIT;
 
