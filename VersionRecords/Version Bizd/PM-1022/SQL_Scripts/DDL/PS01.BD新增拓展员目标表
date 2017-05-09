@@ -11,12 +11,12 @@
   4. 索引:目前索引默认主键id
   */
 CREATE TABLE `bizd_serviceperson_target` (
-  `id` int(11) NOT NULL COMMENT '主键',
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `servicePersonId` int(11) DEFAULT NULL COMMENT '服务人ID',
   `activeHouseCount` int(5) DEFAULT NULL COMMENT '激活房源数',
   `activeLandlordCount` int(5) DEFAULT NULL COMMENT '激活房东数',
   `targetMonth` int(6) DEFAULT NULL COMMENT '目标月份',
   `orgId` int(11) DEFAULT NULL COMMENT '组织机构ID',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='拓展员目标表'
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COMMENT='拓展员目标表'
 
