@@ -8,7 +8,7 @@ select *
 	from tp_sync_sales
  where orderId=? and contractId=? and busiKey = ? and busiType = ? and valid = 1;
 */
-CREATE TABLE `tp_sync_sales` (
+CREATE TABLE `oder_synctp_record` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `serialNo` varchar(32) NOT NULL COMMENT '流水号',
   `subsId` int(11) NOT NULL COMMENT '统一订购ID',
