@@ -123,8 +123,4 @@ SELECT @fcode:= CONCAT('2',LPAD(@id,4,0),@seq) FROM perm_functioninfo WHERE fnam
 INSERT INTO `perm_functioninfo` ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
 VALUES ( @fcode, '创建菜单', 'menu/creatMenu', @seq, '3', @id, '1', NULL, NULL, NULL, '0', '1', NULL, NULL, NULL, NULL, '1', '2');
 
-
--- 新增字典值 帕拉斯渠道
-INSERT INTO comm_dictionary (code,groupName,sort,keyPro,value,status,fcode,enValue)
-VALUES ('channel-22','channel',22,22,'帕拉斯',1,null,'channel-21');
 COMMIT;
