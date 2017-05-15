@@ -5,7 +5,6 @@
 USE mogoroomdb;
 BEGIN;
 	
-insert into acct.`acct_fund` (`acctId`, `fundType`, `amount`, `frozen`, `updateTime`, `version`) values('20000','201','0','0','2017-05-04 13:53:11',NULL);
 
 
 /*拉卡拉蘑菇宝买回(房东买回房租1008、逾期手续费10001)、聚有财蘑菇宝买回(房东买回房租1008)、蘑菇月付买回(蘑菇月付买回本金账单10013)*/

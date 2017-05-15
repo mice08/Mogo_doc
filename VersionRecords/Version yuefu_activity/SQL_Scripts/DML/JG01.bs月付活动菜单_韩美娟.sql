@@ -3,7 +3,7 @@ USE mogoroomdb;
 BEGIN;
 
 -- 准备参数
-SELECT @pid:=id,  @lvl:=pf.functionLevel + 1, @seq:=IFNULL(tmp.maxseq, 0) + 5, @fcode:= CONCAT(@lvl, LPAD(@pid,4,0), @seq ) FROM perm_functioninfo pf
+SELECT @pid:=id,  @lvl:=pf.functionLevel + 1, @seq:=IFNULL(tmp.maxseq, 0) + 1, @fcode:= CONCAT(@lvl, LPAD(@pid,4,0), @seq ) FROM perm_functioninfo pf
 JOIN (SELECT functionpId, MAX(pf.seq) maxseq FROM perm_functioninfo pf GROUP BY pf.`functionpId`) tmp
 ON pf.`id`=tmp.functionpId WHERE fname = '蘑菇金融';
 
@@ -38,7 +38,7 @@ ON pf.`id`=tmp.functionpId WHERE pf.id=@newmenuid;
 /*查询活动列表*/
 INSERT INTO `perm_functioninfo`
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, '查询活动列表', 'loanActivity/monthlyPayActivityList', @seq, @lvl, @pid, '0', NULL, NULL, NULL, '1', '1', NULL, NOW(), NULL, NOW(), '1', '2');
+VALUES ( @fcode, '查询活动列表', 'loanActivity/monthlyPayActivityList', @seq, @lvl, @pid, '0', NULL, NULL, NULL, '0', '1', NULL, NOW(), NULL, NOW(), '1', '2');
 
 /*[操作月付活动状态]子菜单信息*/
 SELECT @pid:=id,  @lvl:=pf.functionLevel + 1, @seq:=IFNULL(tmp.maxseq, 0) + 1, @fcode:= CONCAT(@lvl, LPAD(@pid,4,0), @seq ) FROM perm_functioninfo pf
@@ -59,7 +59,7 @@ ON pf.`id`=tmp.functionpId WHERE pf.id=@newmenuid;
 /*查询操作日志*/
 INSERT INTO `perm_functioninfo`
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, '查询操作日志', 'loanActivity/viewLoanActivityLogs', @seq, @lvl, @pid, '0', NULL, NULL, NULL, '1', '1', NULL, NOW(), NULL, NOW(), '1', '2');
+VALUES ( @fcode, '查询操作日志', 'loanActivity/viewLoanActivityLogs', @seq, @lvl, @pid, '0', NULL, NULL, NULL, '0', '1', NULL, NOW(), NULL, NOW(), '1', '2');
 
 
 
@@ -71,7 +71,7 @@ ON pf.`id`=tmp.functionpId WHERE pf.id=@newmenuid;
 /*打开新增月付活动页面*/
 INSERT INTO `perm_functioninfo`
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, '打开新增月付活动页面', 'loanActivity/turnToAddMonthlyPayActivity', @seq, @lvl, @pid, '0', NULL, NULL, NULL, '1', '1', NULL, NOW(), NULL, NOW(), '1', '2');
+VALUES ( @fcode, '打开新增月付活动页面', 'loanActivity/turnToAddMonthlyPayActivity', @seq, @lvl, @pid, '0', NULL, NULL, NULL, '0', '1', NULL, NOW(), NULL, NOW(), '1', '2');
 
 /*[新增和修改活动时校验]子菜单信息*/
 SELECT @pid:=id,  @lvl:=pf.functionLevel + 1, @seq:=IFNULL(tmp.maxseq, 0) + 1, @fcode:= CONCAT(@lvl, LPAD(@pid,4,0), @seq ) FROM perm_functioninfo pf
@@ -102,7 +102,7 @@ ON pf.`id`=tmp.functionpId WHERE pf.id=@newmenuid;
 /*打开编辑月付活动页面*/
 INSERT INTO `perm_functioninfo`
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, '打开编辑月付活动页面', 'loanActivity/turnToEditMonthlyPayActivity', @seq, @lvl, @pid, '0', NULL, NULL, NULL, '1', '1', NULL, NOW(), NULL, NOW(), '1', '2');
+VALUES ( @fcode, '打开编辑月付活动页面', 'loanActivity/turnToEditMonthlyPayActivity', @seq, @lvl, @pid, '0', NULL, NULL, NULL, '0', '1', NULL, NOW(), NULL, NOW(), '1', '2');
 
 
 /*[编辑月付活动]子菜单信息*/
@@ -123,7 +123,7 @@ ON pf.`id`=tmp.functionpId WHERE pf.id=@newmenuid;
 /*查询活动数据*/
 INSERT INTO `perm_functioninfo`
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, '查询活动数据', 'loanActivity/findLoanActivityDataList', @seq, @lvl, @pid, '0', NULL, NULL, NULL, '1', '1', NULL, NOW(), NULL, NOW(), '1', '2');
+VALUES ( @fcode, '查询活动数据', 'loanActivity/findLoanActivityDataList', @seq, @lvl, @pid, '0', NULL, NULL, NULL, '0', '1', NULL, NOW(), NULL, NOW(), '1', '2');
 
 
 /*[导出活动数据]子菜单信息*/
@@ -134,7 +134,7 @@ ON pf.`id`=tmp.functionpId WHERE pf.id=@newmenuid;
 /*导出活动数据*/
 INSERT INTO `perm_functioninfo`
 ( `fcode`, `fname`, `furl`, `seq`, `functionLevel`, `functionpId`, `functionisMenu`, `functionVcode`, `functionParam`, `functionFaclass`, `isAjax`, `functionType`, `createdBy`, `createdTime`, `updatedBy`, `updatedTime`, `status`, `channel`)
-VALUES ( @fcode, '导出活动数据', 'loanActivity/exportLoanActivityDataList', @seq, @lvl, @pid, '0', NULL, NULL, NULL, '1', '1', NULL, NOW(), NULL, NOW(), '1', '2');
+VALUES ( @fcode, '导出活动数据', 'loanActivity/exportLoanActivityDataList', @seq, @lvl, @pid, '0', NULL, NULL, NULL, '0', '1', NULL, NOW(), NULL, NOW(), '1', '2');
 
 
 COMMIT;
