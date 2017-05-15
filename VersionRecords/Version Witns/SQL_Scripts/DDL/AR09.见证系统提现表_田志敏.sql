@@ -4,4 +4,4 @@ Database name `acct`
 */
 use acct;
 
-ALTER TABLE acct.acct_withdrawschedule add COLUMN `carryFlag` int(11) DEFAULT 0 COMMENT '结转标志,0:未结转；1：已结转';
+ALTER TABLE acct.acct_withdrawschedule add COLUMN `carryResult` int(11) DEFAULT 0 COMMENT '结转标志,0:未结转；1：已结转';
