@@ -18,5 +18,9 @@ CREATE TABLE `bizd_serviceperson_target` (
   `targetMonth` int(6) DEFAULT NULL COMMENT '目标月份',
   `orgId` int(11) DEFAULT NULL COMMENT '组织机构ID',
   PRIMARY KEY (`id`)
+<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COMMENT='拓展员目标表'
+=======
+  ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COMMENT='拓展员目标表'
+>>>>>>> 62f4d7324ec8c389b0e48ca84845ee300dc24fd8
 
